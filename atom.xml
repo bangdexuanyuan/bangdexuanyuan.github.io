@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://https://bangdexuanyuan.github.io</id>
+    <title>Gridea</title>
+    <updated>2021-02-03T05:18:11.186Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://https://bangdexuanyuan.github.io"/>
+    <link rel="self" href="https://https://bangdexuanyuan.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://https://bangdexuanyuan.github.io/images/avatar.png</logo>
+    <icon>https://https://bangdexuanyuan.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[线段树]]></title>
+        <id>https://https://bangdexuanyuan.github.io/post/xian-duan-shu/</id>
+        <link href="https://https://bangdexuanyuan.github.io/post/xian-duan-shu/">
+        </link>
+        <updated>2021-02-03T05:06:55.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="浅入深地讲解线段树">浅入深地讲解线段树</h2>
+<h3 id="首先是最简单的模版区间加区间查">首先是最简单的模版——区间加，区间查</h3>
+<p>我们需要这样5个函数</p>
+<p>pushup——由下往上地传递信息</p>
+<p>pushdown——传递懒标记</p>
+<p>build——建立出树形结构</p>
+<p>modify——区间加操作</p>
+<p>query——区间查询</p>
+<h4 id="1建树">1.建树</h4>
+<pre><code class="language-c++">struct node{
+	int l,r;
+	long long sum,add;
+}tr[maxn*4];
+void build(int p,int l,int r)
+{
+	tr[p].l=l;
+	tr[p].r=r;
+	if(l==r)
+	{
+		tr[p].sum=a[l];
+		return ;
+	}
+	else {
+		int mid=(tr[p].l+tr[p].r)/2;
+		build(p&lt;&lt;1,l,mid);
+		build(p&lt;&lt;1|1,mid+1,r);
+		pushup(p);
+	}
+	
+}
+</code></pre>
+<h4 id="2首先是pushup函数">2.首先是pushup函数</h4>
+<p>pushup函数使用的情况是当信息被更改的时候且需要递归处理的时候使用</p>
+<pre><code class="language-c++">void pushup(int p)
+{
+	tr[p].sum=tr[p&lt;&lt;1].sum+tr[p&lt;&lt;1|1].sum;
+}
+</code></pre>
+<h4 id="3然后是pushdown">3.然后是pushdown</h4>
+<p>试想一下，如果我们不使用懒标记的话，那么每一次区间的修改，我们就要暴力去修改，时间复杂度最坏的情况可以达到O(n)，我们肯定无法承受</p>
+<p>于是懒标记就诞生了</p>
+<p>懒标记他就是在查询的时候，如果完全包含这个区间，我们是不往下查了</p>
+<p>反之我们在这里标记一下，add含义就是以当前节点为跟的子树中的每一个元素都加上add，注意这个add是不包</p>
+<p>含根自己的，当我们遇到一个区间是包含的，那么我们就直接对这个区间进行操作，这样的复杂度最坏是O(logn)的</p>
+<p>如果我们查询区间的话，我们就需要加上所有父节点的add值，我们在做查询的时候，我们用的每一个元素的值，都必须把它所有祖先的add值加上，这一步，我们可以在<strong>递归</strong>的过程中去实现</p>
+<pre><code class="language-c++">void pushdown(int p) //可以类比传消息，不断向下传递
+{
+	if(tr[p].add){
+		tr[p&lt;&lt;1].add+=tr[p].add;
+		tr[p&lt;&lt;1].sum+=(tr[p&lt;&lt;1].r-tr[p&lt;&lt;1].l+1)*tr[p].add;
+		tr[p&lt;&lt;1|1].add+=tr[p].add;
+		tr[p&lt;&lt;1|1].sum+=(tr[p&lt;&lt;1|1].r-tr[p&lt;&lt;1|1].l+1)*tr[p].add;
+		tr[p].add=0;
+	}
+}
+
+</code></pre>
+<h4 id="4modify操作">4.modify操作</h4>
+<p>如果我们当前修改的这个区间被包含于某个节点的管辖范围，那么我们就直接更新其维护的信息，让懒标记加上更新的值</p>
+<p>如果不能完全被包含，那么我们就递归左右子树，如果l&lt;mid,那么说明左子树与查询的区间有交集，那么递归处理左子树，查询的范围保持不变</p>
+<p>否则我们递归右子树</p>
+<p>因为信息被更新了所以再最后记得pushup</p>
+<pre><code class="language-c++">void modify(int p,int l,int r,int d)
+{
+	if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+	{
+		tr[p].sum+=(tr[p].r-tr[p].l+1)*d;
+		tr[p].add+=d;		
+	}
+	else {
+		pushdown(p);//不能完全包含，那么每一个部分要加的值就不一样了，我们需要先传懒标记，让其懒标记的影响消失，而后再懒标记影响后的树中进行修改操作
+		int mid=(tr[p].l+tr[p].r)/2;
+		if(l&lt;=mid)
+		modify(p&lt;&lt;1,l,r,d);
+		if(r&gt;mid)
+		modify(p&lt;&lt;1|1,l,r,d);
+		pushup(p);
+	}
+ } 
+</code></pre>
+<h4 id="5查询操作">5.查询操作</h4>
+<p>同修改的操作</p>
+<p>当完全包含的时候直接返回</p>
+<p>否则递归处理左右自身</p>
+<pre><code class="language-c++">long long query(int p,int l,int r)
+{
+	if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+		return tr[p].sum;
+	else {
+		pushdown(p);
+		int mid=(tr[p].l+tr[p].r)/2;
+		long long sum=0;
+		if(l&lt;=mid)
+			sum+=query(p&lt;&lt;1,l,r);
+		if(r&gt;mid)
+			sum+=query(p&lt;&lt;1|1,l,r);
+		return sum;
+	}
+}
+</code></pre>
+<p>最简单的区间加想必大家已经理解了，那么我们来上升一个难度，讲一讲区间乘</p>
+<h3 id="线段树区间乘法区间加区间查询和">线段树区间乘法，区间加，区间查询和</h3>
+<ul>
+<li>如果只是简单的乘法运算 那依然很简单 直接让<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>标记乘几就好了 后面<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>s</mi><mi>h</mi><mi>d</mi><mi>o</mi><mi>w</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">pushdown</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">d</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">n</span></span></span></span>的时候将乘法标记下放 然后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>[</mo><mi>r</mi><mi>o</mi><mi>o</mi><mi>t</mi><mo>]</mo><mi mathvariant="normal">.</mi><mi>s</mi><mi>u</mi><mi>m</mi><mo>∗</mo><mo>=</mo><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">t[root].sum *= lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mord">.</span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord">∗</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>就好了</li>
+<li>但是如果既有乘又有加呢？ 我们需要考虑是先乘还是先加 因为存在优先级这个东西（乘法比加法高 括号比乘法高）</li>
+<li>所以我们将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>标记改进一下 改进为记录乘法的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 和 记录加法的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>d</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">add</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span></span></span></span> 两个懒惰标记</li>
+<li>在想要进行乘法运算的时候很简单 直接pushdown的时候<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>[</mo><mi>r</mi><mi>o</mi><mi>o</mi><mi>t</mi><mo>]</mo><mi mathvariant="normal">.</mi><mi>s</mi><mi>u</mi><mi>m</mi><mo>∗</mo><mo>=</mo><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">t[root].sum *= lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mord">.</span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord">∗</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>就好了 但是在进行加法运算的时候 我们需要将原来的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>d</mi><mi>d</mi><mo>∗</mo><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">add * lazy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 再加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>d</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">add</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span></span></span></span></li>
+<li>解释一下原因：<br>
+原来的add 是在当前操作之前进行的 所以优先级应该高于当前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>d</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">add</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span></span></span></span> 就像是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>+</mo><mn>5</mn><mo>)</mo><mi>X</mi><mn>4</mn><mo>+</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">(a[i]+5) X 4+6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 加5的操作是之前进行的 进行之后再乘4 会将之前的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">+5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">5</span></span></span></span>一起乘 而后面的+6是当前操作 因此不需要*lazy 其他操作大体和加减一样</li>
+</ul>
+<h3 id="代码">代码</h3>
+<pre><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=200100;
+struct node{
+    int l,r;
+    long long sum,add,mul;
+}tr[N*4];
+int n,mod,m;
+int w[N];
+void eval(node &amp;p,int add,int mul)
+{
+    p.add=((long long)p.add*mul+add)%mod;
+    p.mul=((long long)p.mul*mul)%mod;
+    p.sum=((long long)p.sum*mul+(long long)(p.r-p.l+1)*add)%mod;
+}
+void pushdown(int p)
+{
+    eval(tr[p&lt;&lt;1],tr[p].add,tr[p].mul);
+    eval(tr[p&lt;&lt;1|1],tr[p].add,tr[p].mul);
+    tr[p].add=0;
+    tr[p].mul=1;
+}
+
+void pushup(int p)
+{
+    tr[p].sum=(tr[p&lt;&lt;1].sum+tr[p&lt;&lt;1|1].sum)%mod;
+}
+
+void build(int p,int l,int r)
+{
+    tr[p]={l,r,w[r],0,1};
+    if(l==r)return ;
+    int mid=(l+r)/2;
+    build(p&lt;&lt;1,l,mid);
+    build(p&lt;&lt;1|1,mid+1,r);
+    pushup(p);
+}
+
+void modify(int p,int l,int r,int add,int mul)
+{
+    if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+    {
+        eval(tr[p],add,mul);
+        return ;
+    }
+    pushdown(p);
+    int mid=(tr[p].l+tr[p].r)/2;
+    if(l&lt;=mid)modify(p&lt;&lt;1,l,r,add,mul);
+    if(r&gt;mid)modify(p&lt;&lt;1|1,l,r,add,mul);
+    pushup(p);
+}
+
+long long query(int p,int l,int r)
+{
+    long long ans=0;
+    if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+    {
+        return tr[p].sum;
+    }
+    pushdown(p);
+    int mid=(tr[p].l+tr[p].r)/2;
+    if(l&lt;=mid) ans=ans+query(p&lt;&lt;1,l,r)%mod;
+    if(r&gt;mid)ans=ans+query(p&lt;&lt;1|1,l,r)%mod;
+    return ans;
+}
+
+
+int main()
+{
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;mod);
+    for (int i = 1; i &lt;= n; i ++ ) scanf(&quot;%d&quot;, &amp;w[i]);
+    build(1, 1, n);
+    scanf(&quot;%d&quot;, &amp;m);
+    while (m -- )
+    {
+        int t, l, r, d;
+        scanf(&quot;%d%d%d&quot;, &amp;t, &amp;l, &amp;r);
+        if (t == 1)
+        {
+            scanf(&quot;%d&quot;, &amp;d);
+            modify(1, l, r, 0, d);
+        }
+        else if (t == 2)
+        {
+            scanf(&quot;%d&quot;, &amp;d);
+            modify(1, l, r, d, 1);
+        }
+        else printf(&quot;%d\n&quot;, query(1, l, r)%mod);
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="线段树区间覆盖">线段树区间覆盖</h3>
+<p>线段树能支持什么操作呢</p>
+<p><strong>区间覆盖，区间加，区间乘，区间查询，单点修改，可能远远不止这些</strong></p>
+<p>对区间进行操作，我们肯定要使用懒标记</p>
+<p>那么懒标记的下放顺序就是一个问题</p>
+<p>我们目前需要处理3个懒标记分别记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi><mo separator="true">,</mo><mi>a</mi><mi>d</mi><mi>d</mi><mo separator="true">,</mo><mi>m</mi><mi>u</mi><mi>l</mi><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">lazy,add,mul;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">;</span></span></span></span></p>
+<p>优先级应该是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>z</mi><mi>y</mi><mo>&gt;</mo><mi>m</mi><mi>u</mi><mi>l</mi><mo>&gt;</mo><mi>a</mi><mi>d</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">lazy&gt;mul&gt;add</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span></span></span></span></p>
+<p>为什么呢，首先是因为如果区间覆盖，那么前面更新的区间加，区间乘都会哑然失色，所以说区间覆盖才是巨佬，那么如果有区间覆盖的</p>
+<p>懒标记的话，我们当然是要先下放它，并把区间加，区间乘的懒标记设为没有</p>
+<p>按照顺序的，仿照上面的依次考虑乘法标记，和加法标记</p>
+<p>还有一种思想是需要我们知道，就是我们的懒标记是用到，我们就<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>s</mi><mi>h</mi><mi>d</mi><mi>o</mi><mi>w</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">pushdown</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">d</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">n</span></span></span></span>，用不到，就让它挂着就好,如果每次修改，我们都把懒标记</p>
+<p>全部下放一边，那和暴力没有什么差别了，懒标记也就是失去了它的意义，总归，它的作用就是，当前修改的区间用的着的，我就下放，</p>
+<p>用不着的，就在这个节点，随着区间的更新懒标记就行</p>
+<h5 id="结构体">结构体</h5>
+<pre><code class="language-c++">struct node{
+    int l,r;//控制边界
+    int lazy,mul,add,sum;//按照优先级的顺序进行定义
+}tr[N*4];
+</code></pre>
+<p><strong>懒标记的下放</strong>，重中之重，打起精神了</p>
+<pre><code class="language-c++">void pushdown(int p)//因为懒标记的下放是对当前节点的左右儿子产生影响的，所以只用修改左右儿子的信息，而当前点的信息除了lazy外，都不用进行修改
+{
+	if(tr[p].lazy!=-1)
+	{
+		tr[p&lt;&lt;1].sum=(tr[p&lt;&lt;1].r-tr[p&lt;&lt;1].l+1)*tr[p].lazy;
+		tr[p&lt;&lt;1|1].sum=(tr[p&lt;&lt;1|1].r-tr[p&lt;&lt;1|1].l+1)*tr[p].lazy;
+		tr[p&lt;&lt;1].lazy=tr[p&lt;&lt;1|1].lazy=tr[p].lazy;
+		tr[p].lazy=-1;
+	}
+	tr[p&lt;&lt;1].mul*=tr[p].mul;//乘法标记
+	tr[p&lt;&lt;1|1].mul*=tr[p].mul;
+	tr[p&lt;&lt;1].sum*=tr[p].mul;//区间和直接乘上乘法标记
+	tr[p&lt;&lt;1|1].sum*=tr[p].mul;
+	tr[p&lt;&lt;1].add=tr[p&lt;&lt;1].add*tr[p].mul+tr[p].add;//加法标记
+	tr[p&lt;&lt;1|1].add=tr[p&lt;&lt;1|1].add*tr[p].mul+tr[p].add;
+	tr[p&lt;&lt;1].sum+=(tr[p&lt;&lt;1].r-tr[p&lt;&lt;1].l+1)*tr[p].add;
+	tr[p&lt;&lt;1|1].sum+=(tr[p&lt;&lt;1|1].r-tr[p&lt;&lt;1|1].l+1)*tr[p].add;
+	tr[p].mul=1;//乘法标记最开始也应该是为1的，表示没有
+	tr[p].add=0;
+}
+</code></pre>
+<p>剩下的需要进行修改的部分就是在修改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mi>p</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">update</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mord mathdefault">p</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span></span></span></span>函数里面了</p>
+<pre><code class="language-c++">void modify(int p,int l,int r,int add,int mul)
+{
+	if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+	{
+		if(tr[p].lazy!=-1)
+		{
+			tr[p&lt;&lt;1].sum=(tr[p&lt;&lt;1].r-tr[p&lt;&lt;1].l+1)*tr[p].lazy;
+			tr[p&lt;&lt;1|1].sum=(tr[p&lt;&lt;1|1].r-tr[p&lt;&lt;1|1].l+1)*tr[p].lazy;
+			tr[p&lt;&lt;1].lazy=tr[p&lt;&lt;1|1].lazy=tr[p].lazy;
+			tr[p].lazy=-1;
+			return;
+		}
+		else
+		{
+			tr[p].sum=((long long)tr[p].sum*mul+(tr[p].r-tr[p].l+1)*add)%mod;
+			tr[p].add=((long long)tr[p].add*mul+add)%mod;
+			tr[p].mul=((long long)tr[p].mul*mul)%mod;
+			return ;
+		}
+	}
+	pushdown(p);
+	int mid=(tr[p].l+tr[p].r)/2;
+	if(l&lt;=mid)modify(p&lt;&lt;1,l,r,add,mul);
+	if(r&gt;mid) modify(p&lt;&lt;1|1,l,r,add,mul);
+	pushup(p);
+}
+</code></pre>
+<h4 id="注意由于我们的修改函数递归进行处理的所以程序在到达递归边界的时候一定记得return否则会进">注意：由于我们的修改函数递归进行处理的，所以程序在到达递归边界的时候，一定记得return，否则会进</h4>
+<h4 id="入死循环">入死循环</h4>
+<p>这里有一道例题，我们来看一下<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>F</mi><mn>343</mn><mi>D</mi><mtext> </mtext><mi>W</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi><mtext> </mtext><mi>T</mi><mi>r</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">CF343D \ Water \ Tree</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord">3</span><span class="mord">4</span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span></span></span></span></p>
+<p>这道题就是让我们写出一个数据结构，使其能够满足下列操作</p>
+<pre><code class="language-c++">1.区间赋值
+
+2.子树赋值
+
+3.单点查询(区间会查询，单点不会查询，不丢人吗)
+</code></pre>
+<p>子树——树剖，树剖是肯定没有跑的了，前面的还是极其套路的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>f</mi><mi>s</mi><mn>1</mn><mo separator="true">,</mo><mi>d</mi><mi>f</mi><mi>s</mi><mn>2</mn><mo separator="true">,</mo><mi>q</mi><mi>u</mi><mi>e</mi><mi>r</mi><mi>y</mi><mo separator="true">,</mo><mi>b</mi><mi>u</mi><mi>i</mi><mi>l</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">dfs1,dfs2,query,build</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault">u</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">u</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">d</span></span></span></span></p>
+<p>关键就在于修改的操作，我们需要修改的部分也就是区间覆盖的懒标记出现的位置</p>
+<p>一个在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi>s</mi><mi>h</mi><mi>d</mi><mi>o</mi><mi>w</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">pushdown</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">u</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">d</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">n</span></span></span></span>里面</p>
+<pre><code class="language-c++">inline void pushdown(int p)
+{
+	if(tr[p].lazy!=-1)
+	{
+		tr[p&lt;&lt;1].sum=(tr[p&lt;&lt;1].r-tr[p&lt;&lt;1].l+1)*tr[p].lazy;
+		tr[p&lt;&lt;1].lazy=tr[p].lazy;
+		tr[p&lt;&lt;1|1].sum=(tr[p&lt;&lt;1|1].r-tr[p&lt;&lt;1|1].l+1)*tr[p].lazy;
+		tr[p&lt;&lt;1|1].lazy=tr[p].lazy;
+		tr[p].lazy=-1;
+	}
+}
+</code></pre>
+<p>一个在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mi>p</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">update</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mord mathdefault">p</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span></span></span></span>函数里面</p>
+<pre><code class="language-c++">inline void update(int p,int l,int r,int k)
+{
+	if(tr[p].l&gt;=l&amp;&amp;tr[p].r&lt;=r)
+	{
+		tr[p].sum=(tr[p].r-tr[p].l+1)*k;//这个区间里面的所有数都是k了，那么区间和就是区间长度*k
+		tr[p].lazy=k;//标记一下，在以后更新子节点信息的时候用的着
+		return ;
+	}
+	pushdown(p);
+	int mid=(tr[p].l+tr[p].r)/2;
+	if(l&lt;=mid)	update(p&lt;&lt;1,l,r,k);
+	if(r&gt;mid)	update(p&lt;&lt;1|1,l,r,k);
+	pushup(p);
+}
+</code></pre>
+<p>完结撒花</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://https://bangdexuanyuan.github.io/post/hello-gridea/</id>
+        <link href="https://https://bangdexuanyuan.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
