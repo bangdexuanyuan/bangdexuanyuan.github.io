@@ -5,6 +5,16 @@
     "home_page_url": "https://bangdexuanyuan.github.io",
     "items": [
         {
+            "id": "https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/",
+            "url": "https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/",
+            "title": "青岛之旅",
+            "date_published": "2023-09-02T02:00:00.000Z",
+            "content_html": "<p>2023 年 8 月 7~9，和 zjx 和 lh 去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。</p>\n<p>去了海军博物馆</p>\n<p><img data-src=\"https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg\" alt=\"\"></p>\n<p>去了小麦岛，去了鹿儿岛</p>\n<p><img data-src=\"https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg\" alt=\"\"></p>\n<p>去了栈桥，人是真的多嘞</p>\n<p><img data-src=\"https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg\" alt=\"\"></p>\n<p>还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属</p>\n<p><img data-src=\"https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg\" alt=\"\"></p>\n<p>记得凌晨 3，4 点的火车硬座，还有 LOL 的 solo 的时候，zjx 的破防，这是一段短暂而小有遗憾的时光。</p>\n",
+            "tags": [
+                "青岛生活"
+            ]
+        },
+        {
             "id": "https://bangdexuanyuan.github.io/life/hello-world/",
             "url": "https://bangdexuanyuan.github.io/life/hello-world/",
             "title": "hello world",
@@ -12,16 +22,6 @@
             "content_html": "<p>Welcome to <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvLw==\">Hexo</span>! This is your very first post. Check <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv\">documentation</span> for more info. If you get any problems when using Hexo, you can find the answer in <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=\">troubleshooting</span> or you can ask me on <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==\">GitHub</span>.</p>\n<h2 id=\"quick-start\"><a class=\"markdownIt-Anchor\" href=\"#quick-start\">#</a> Quick Start</h2>\n<h3 id=\"create-a-new-post\"><a class=\"markdownIt-Anchor\" href=\"#create-a-new-post\">#</a> Create a new post</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo new <span class=\"token string\">\"My New Post\"</span></pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s\">Writing</span></p>\n<h3 id=\"run-server\"><a class=\"markdownIt-Anchor\" href=\"#run-server\">#</a> Run server</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo server</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=\">Server</span></p>\n<h3 id=\"generate-static-files\"><a class=\"markdownIt-Anchor\" href=\"#generate-static-files\">#</a> Generate static files</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo generate</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s\">Generating</span></p>\n<h3 id=\"deploy-to-remote-sites\"><a class=\"markdownIt-Anchor\" href=\"#deploy-to-remote-sites\">#</a> Deploy to remote sites</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo deploy</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s\">Deployment</span></p>\n",
             "tags": [
                 "哈尔滨生活"
-            ]
-        },
-        {
-            "id": "https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/",
-            "url": "https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/",
-            "title": "青岛之旅",
-            "date_published": "2023-09-02T02:00:00.000Z",
-            "content_html": "<p>2023 年 8 月 7~9，和 zjx 和 lh 去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。</p>\n<p>去了海军博物馆</p>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9waWMuaW1nZGIuY24vaXRlbS82NGYyZDI1MjY2MWM2YzhlNTRiNDNjYjkuanBn\">https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg</span></p>\n<p>去了小麦岛，去了鹿儿岛</p>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9waWMuaW1nZGIuY24vaXRlbS82NGYyZDI0YTY2MWM2YzhlNTRiNDMxNzIuanBn\">https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg</span></p>\n<p>去了栈桥，人是真的多嘞</p>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9waWMuaW1nZGIuY24vaXRlbS82NGYyZDJmZDY2MWM2YzhlNTRiNGUyZGEuanBn\">https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg</span></p>\n<p>还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属</p>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9waWMuaW1nZGIuY24vaXRlbS82NGYyZDMxNjY2MWM2YzhlNTRiNGVhMWQuanBn\">https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg</span></p>\n<p>记得凌晨 3，4 点的火车硬座，还有 LOL 的 solo 的时候，zjx 的破防，这是一段短暂而小有遗憾的时光。</p>\n",
-            "tags": [
-                "青岛生活"
             ]
         }
     ]
