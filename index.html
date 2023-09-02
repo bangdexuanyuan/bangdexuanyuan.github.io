@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,12 +151,13 @@
     <div class="ribbon"><a href="/categories/stm32/" itemprop="url" title="stm32学习">stm32学习</a></div>
     <div class="inner">
         <ul class="posts">
+            <li><a title="EXTI外部中断" href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/">EXTI外部中断</a></li>
             <li><a title="stm32定时器外设时钟" href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/">stm32定时器外设时钟</a></li>
             <li><a title="定时器学习" href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">定时器学习</a></li>
         </ul>
         <div class="meta footer">
           <span>
-            <i class="ic i-file"></i>2 篇文章
+            <i class="ic i-file"></i>3 篇文章
           </span>
         </div>
         <a href="/categories/stm32/" itemprop="url" title="stm32学习" class="btn">more...</a>
@@ -170,7 +171,54 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" title="stm32定时器外设时钟"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></a>
+    <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="EXTI外部中断"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-03 00:21:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-03T00:21:00+08:00">2023-09-03</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>1.3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="EXTI外部中断">EXTI外部中断</a></h3>
+    <div class="excerpt">
+        NVIC 的名字叫做，嵌套中断向量控制器
+NVIC 的出现，就是为了当 CPU 的秘书，如果我们把所有的中断都接在 CPU 上，CPU 对应位置就得进行适配，设计上就很麻烦。并且如果很多中断进行申请，造成了拥堵，CPU 也会很难搞，因为 CPU 还是主要负责进行运算的，中断分配的任务就放到别的地方吧。
+NVIC 有很多个输入口，你有多少个中断都可以接过来
+
+NVIC 只有一个输出口，直接接到 CPU 上
+stm32 有 68 个可屏蔽中断通道，包含 EXTI、TIM、ADC、USART、SPI、I2C、RTC 等多个外设使用 NVIC 统一管理中断，每个中断通道都拥有 16...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/stm32/" itemprop="url" title="stm32学习"><i class="ic i-flag"></i>stm32学习</a>
+      </span>
+    </div>
+    <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="EXTI外部中断" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" title="stm32定时器外设时钟"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></a>
   </div>
   <div class="info">
     
@@ -214,7 +262,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="定时器学习"><img data-src="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></a>
+    <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="定时器学习"><img data-src="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></a>
   </div>
   <div class="info">
     
@@ -255,53 +303,6 @@ stm32 拥有 16 位计数器，预分频器，自动重装寄存器的实际单�
       </span>
     </div>
     <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="定时器学习" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/life/hello-world/" itemprop="url" title="hello world"><img data-src="https://pic.imgdb.cn/item/64f299e9661c6c8e54a104e0.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-09-02 10:00:00">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-02T10:00:00+08:00">2023-09-02</time>
-  </span>
-  <span class="item" title="本文字数">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>362</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="阅读时长">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>1 分钟</span>
-  </span>
-</div>
-
-    <h3><a href="/life/hello-world/" itemprop="url" title="hello world">hello world</a></h3>
-    <div class="excerpt">
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-# Quick Start
-# Create a new post
-h$ hexo new &quot;My New Post&quot;More info: Writing
-# Run server
-h$...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/life/" itemprop="url" title="生活"><i class="ic i-flag"></i>生活</a>
-      </span>
-    </div>
-    <a href="/life/hello-world/" itemprop="url" title="hello world" class="btn">more...</a>
   </div>
 </article>
 
@@ -356,6 +357,53 @@ h$...
   </div>
 </article>
 
+        
+<article class="item">
+  <div class="cover">
+    <a href="/life/hello-world/" itemprop="url" title="hello world"><img data-src="https://pic.imgdb.cn/item/64f299e9661c6c8e54a104e0.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-02 10:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-02T10:00:00+08:00">2023-09-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>362</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/life/hello-world/" itemprop="url" title="hello world">hello world</a></h3>
+    <div class="excerpt">
+        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+# Quick Start
+# Create a new post
+h$ hexo new &quot;My New Post&quot;More info: Writing
+# Run server
+h$...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/life/" itemprop="url" title="生活"><i class="ic i-flag"></i>生活</a>
+      </span>
+    </div>
+    <a href="/life/hello-world/" itemprop="url" title="hello world" class="btn">more...</a>
+  </div>
+</article>
+
     </div>
 
   </div>
@@ -386,7 +434,7 @@ h$...
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">4</span>
+        <span class="count">5</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -482,16 +530,6 @@ h$...
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
     <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
@@ -513,6 +551,26 @@ h$...
 </div>
 
     <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
   </ul>

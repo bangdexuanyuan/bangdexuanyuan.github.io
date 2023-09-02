@@ -5,12 +5,52 @@
         <link>https://bangdexuanyuan.github.io</link>
         <description>欢迎大家来到邦的轩辕的小屋，这里会分享everything</description>
         <language>zh-CN</language>
-        <pubDate>Sat, 02 Sep 2023 15:28:00 +0800</pubDate>
-        <lastBuildDate>Sat, 02 Sep 2023 15:28:00 +0800</lastBuildDate>
-        <category>哈尔滨生活</category>
+        <pubDate>Sun, 03 Sep 2023 00:21:00 +0800</pubDate>
+        <lastBuildDate>Sun, 03 Sep 2023 00:21:00 +0800</lastBuildDate>
         <category>青岛生活</category>
         <category>单片机</category>
         <category>stm32</category>
+        <category>哈尔滨生活</category>
+        <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</guid>
+            <title>EXTI外部中断</title>
+            <link>https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</link>
+            <category>stm32</category>
+            <pubDate>Sun, 03 Sep 2023 00:21:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;NVIC 的名字叫做，嵌套中断向量控制器&lt;/p&gt;
+&lt;p&gt;NVIC 的出现，就是为了当 CPU 的秘书，如果我们把所有的中断都接在 CPU 上，CPU 对应位置就得进行适配，设计上就很麻烦。并且如果很多中断进行申请，造成了拥堵，CPU 也会很难搞，因为 CPU 还是主要负责进行运算的，中断分配的任务就放到别的地方吧。&lt;/p&gt;
+&lt;p&gt;NVIC 有很多个输入口，你有多少个中断都可以接过来&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35828661c6c8e54dee9d2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;NVIC 只有一个输出口，直接接到 CPU 上&lt;/p&gt;
+&lt;p&gt;stm32 有 68 个可屏蔽中断通道，包含 EXTI、TIM、ADC、USART、SPI、I2C、RTC 等多个外设使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级&lt;/p&gt;
+&lt;p&gt;NVIC 的中断优先级由优先级寄存器的 4 位（0~15）决定，这 4 位可以进行切分，分为高 n 位的抢占优先级和低 4-n 位的响应优先级，记住，值越小的优先级越高，比如 0 就是最高的优先级&lt;/p&gt;
+&lt;p&gt;抢占优先级高的可以中断嵌套，响应优先级高的可以优先排队，&lt;strong&gt;抢占优先级和响应优先级均相同的按中断号排队&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35a2d661c6c8e54df3a92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;举个例子，就好像是有个医生在给一个人进行看病，抢占优先级高的可以直接把看病的那个人挤开，让自己去看。然后响应优先级就好像是有个人排队，他就应该排在第一位，大概就是这个意思。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;综上所述，现在我们可以这么理解，NVIC 其实可以理解成为一个叫号系统，而 CPU 就是那个医生，下面我们来介绍第一位病人，EXTI 外部中断&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;EXTI（Extern Interrupt）外部中断&lt;/p&gt;
+&lt;p&gt;EXTI 可以监测指定 GPIO 口的电平信号，当其指定的 GPIO 口产生电平变化时，EXTI 将立即向 NVIC 发出中断申请，经过 NVIC 裁决后即可中断 CPU 主程序，使 CPU 执行 EXTI 对应的中断程序&lt;/p&gt;
+&lt;p&gt;支持的触发方式：上升沿 / 下降沿 / 双边沿 / 软件触发&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解释一下&lt;/strong&gt;：这里的上升沿是指由低电平上升到高电平，下降沿是由高电平降低到低电平，而双边沿就是指上下都计数&lt;/p&gt;
+&lt;p&gt;支持的 GPIO 口：所有 GPIO 口，但相同的 Pin 不能同时触发中断&lt;/p&gt;
+&lt;p&gt;通道数：16 个 GPIO_Pin，外加 PVD 输出、RTC 闹钟、USB 唤醒、以太网唤醒&lt;/p&gt;
+&lt;p&gt;触发响应方式：中断响应 / 事件响应&lt;/p&gt;
+&lt;h4 id=&#34;首先介绍一下exti的基本结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#首先介绍一下exti的基本结构&#34;&gt;#&lt;/a&gt; 首先介绍一下 EXTI 的基本结构&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这里的每个 GPIO 都有 16 个引脚，显然对于只有 16 个输入口的 EXT 是远远超出的，所以我们中间加一个 AFIO 中断引脚选择器，你可以理解为 GPIOA，B，C 共用一个 Pin 引脚口，那么就可以解释了，为什么相同的引脚不能同时触发中断，因为这样，你根本不知道是哪个 GPIO 口发生了中断。&lt;/p&gt;
+&lt;p&gt;经过 EXTI 后，分为了两种输出，一种直接接到 NVIC，一种接入其他外设。&lt;/p&gt;
+&lt;p&gt;根据常理，本来 20 种的中断输入应该有 20 种的中断输出，但是可能是 STM 公司觉得有点占用 NVIC 的通道，于是，将 EXTI5~9， EXTI10~15 分别合并为了一种通道， 也就是说 EXTI5~9 会触发同一种中断函数，同理 10 到 15 也是&lt;/p&gt;
+&lt;p&gt;对于合并通道的中断函数，还需根据标志位进一步确定这个是由哪个中断函数进来的&lt;/p&gt;
+&lt;h4 id=&#34;afio复用io口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#afio复用io口&#34;&gt;#&lt;/a&gt; AFIO 复用 IO 口&lt;/h4&gt;
+&lt;p&gt;AFIO 主要用于引脚复用功能的选择和重定义，在 STM32 中，AFIO 主要完成两个任务：复用功能引脚重映射、中断引脚选择。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f360b1661c6c8e54e160f5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这就是 AFIO 的作用&lt;/p&gt;
+&lt;p&gt;程序部分&lt;/p&gt;
+&lt;p&gt;首先在 Hardware 文件夹中新建 CountSensor.h 和 CountSensor.c 文件&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/</guid>
             <title>stm32定时器外设时钟</title>
@@ -88,24 +128,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://bangdexuanyuan.github.io/life/hello-world/</guid>
-            <title>hello world</title>
-            <link>https://bangdexuanyuan.github.io/life/hello-world/</link>
-            <category>哈尔滨生活</category>
-            <pubDate>Sat, 02 Sep 2023 10:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</guid>
             <title>青岛之旅</title>
             <link>https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</link>
@@ -121,6 +143,24 @@
 &lt;p&gt;还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;记得凌晨 3，4 点的火车硬座，还有 LOL 的 solo 的时候，zjx 的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/life/hello-world/</guid>
+            <title>hello world</title>
+            <link>https://bangdexuanyuan.github.io/life/hello-world/</link>
+            <category>哈尔滨生活</category>
+            <pubDate>Sat, 02 Sep 2023 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

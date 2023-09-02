@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="哈尔滨生活" />
+  <meta name="keywords" content="stm32" />
 
 
-<link rel="canonical" href="https://bangdexuanyuan.github.io/life/hello-world/">
+<link rel="canonical" href="https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/">
 
 
 
   <title>
-hello world - 生活 |
+EXTI外部中断 - stm32学习 |
 bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,23 +60,23 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">hello world
+  <h1 itemprop="name headline">EXTI外部中断
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-09-02 10:00:00">
+  <span class="item" title="创建时间：2023-09-03 00:21:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-02T10:00:00+08:00">2023-09-02</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-03T00:21:00+08:00">2023-09-03</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>362</span>
+    <span>1.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -116,7 +116,14 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
       </div>
       <div id="imgs" class="pjax">
-          <img src="https://pic.imgdb.cn/item/64f299e9661c6c8e54a104e0.jpg">
+        <ul>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
+        </ul>
       </div>
     </header>
     <div id="waves">
@@ -141,12 +148,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/life/" itemprop="item" rel="index" title="分类于 生活"><span itemprop="name">生活</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/stm32/" itemprop="item" rel="index" title="分类于 stm32学习"><span itemprop="name">stm32学习</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/life/hello-world/">
+  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -161,19 +168,41 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo</span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation</span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting</span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub</span>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start">#</a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post">#</a> Create a new post</h3>
-<figure class="highlight bash"><figcaption data-lang="bash"><span>h</span></figcaption><table><tr><td data-num="1"></td><td><pre>$ hexo new <span class="token string">"My New Post"</span></pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing</span></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server">#</a> Run server</h3>
-<figure class="highlight bash"><figcaption data-lang="bash"><span>h</span></figcaption><table><tr><td data-num="1"></td><td><pre>$ hexo server</pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server</span></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files">#</a> Generate static files</h3>
-<figure class="highlight bash"><figcaption data-lang="bash"><span>h</span></figcaption><table><tr><td data-num="1"></td><td><pre>$ hexo generate</pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating</span></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites">#</a> Deploy to remote sites</h3>
-<figure class="highlight bash"><figcaption data-lang="bash"><span>h</span></figcaption><table><tr><td data-num="1"></td><td><pre>$ hexo deploy</pre></td></tr></table></figure><p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment</span></p>
+    <p>NVIC 的名字叫做，嵌套中断向量控制器</p>
+<p>NVIC 的出现，就是为了当 CPU 的秘书，如果我们把所有的中断都接在 CPU 上，CPU 对应位置就得进行适配，设计上就很麻烦。并且如果很多中断进行申请，造成了拥堵，CPU 也会很难搞，因为 CPU 还是主要负责进行运算的，中断分配的任务就放到别的地方吧。</p>
+<p>NVIC 有很多个输入口，你有多少个中断都可以接过来</p>
+<p><img data-src="https://pic.imgdb.cn/item/64f35828661c6c8e54dee9d2.png" alt=""></p>
+<p>NVIC 只有一个输出口，直接接到 CPU 上</p>
+<p>stm32 有 68 个可屏蔽中断通道，包含 EXTI、TIM、ADC、USART、SPI、I2C、RTC 等多个外设使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
+<p>NVIC 的中断优先级由优先级寄存器的 4 位（0~15）决定，这 4 位可以进行切分，分为高 n 位的抢占优先级和低 4-n 位的响应优先级，记住，值越小的优先级越高，比如 0 就是最高的优先级</p>
+<p>抢占优先级高的可以中断嵌套，响应优先级高的可以优先排队，<strong>抢占优先级和响应优先级均相同的按中断号排队</strong></p>
+<p><img data-src="https://pic.imgdb.cn/item/64f35a2d661c6c8e54df3a92.png" alt=""></p>
+<p>举个例子，就好像是有个医生在给一个人进行看病，抢占优先级高的可以直接把看病的那个人挤开，让自己去看。然后响应优先级就好像是有个人排队，他就应该排在第一位，大概就是这个意思。</p>
+<hr>
+<p>综上所述，现在我们可以这么理解，NVIC 其实可以理解成为一个叫号系统，而 CPU 就是那个医生，下面我们来介绍第一位病人，EXTI 外部中断</p>
+<hr>
+<p>EXTI（Extern Interrupt）外部中断</p>
+<p>EXTI 可以监测指定 GPIO 口的电平信号，当其指定的 GPIO 口产生电平变化时，EXTI 将立即向 NVIC 发出中断申请，经过 NVIC 裁决后即可中断 CPU 主程序，使 CPU 执行 EXTI 对应的中断程序</p>
+<p>支持的触发方式：上升沿 / 下降沿 / 双边沿 / 软件触发</p>
+<p><strong>解释一下</strong>：这里的上升沿是指由低电平上升到高电平，下降沿是由高电平降低到低电平，而双边沿就是指上下都计数</p>
+<p>支持的 GPIO 口：所有 GPIO 口，但相同的 Pin 不能同时触发中断</p>
+<p>通道数：16 个 GPIO_Pin，外加 PVD 输出、RTC 闹钟、USB 唤醒、以太网唤醒</p>
+<p>触发响应方式：中断响应 / 事件响应</p>
+<h4 id="首先介绍一下exti的基本结构"><a class="markdownIt-Anchor" href="#首先介绍一下exti的基本结构">#</a> 首先介绍一下 EXTI 的基本结构</h4>
+<p><img data-src="https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png" alt=""></p>
+<p>这里的每个 GPIO 都有 16 个引脚，显然对于只有 16 个输入口的 EXT 是远远超出的，所以我们中间加一个 AFIO 中断引脚选择器，你可以理解为 GPIOA，B，C 共用一个 Pin 引脚口，那么就可以解释了，为什么相同的引脚不能同时触发中断，因为这样，你根本不知道是哪个 GPIO 口发生了中断。</p>
+<p>经过 EXTI 后，分为了两种输出，一种直接接到 NVIC，一种接入其他外设。</p>
+<p>根据常理，本来 20 种的中断输入应该有 20 种的中断输出，但是可能是 STM 公司觉得有点占用 NVIC 的通道，于是，将 EXTI5~9， EXTI10~15 分别合并为了一种通道， 也就是说 EXTI5~9 会触发同一种中断函数，同理 10 到 15 也是</p>
+<p>对于合并通道的中断函数，还需根据标志位进一步确定这个是由哪个中断函数进来的</p>
+<h4 id="afio复用io口"><a class="markdownIt-Anchor" href="#afio复用io口">#</a> AFIO 复用 IO 口</h4>
+<p>AFIO 主要用于引脚复用功能的选择和重定义，在 STM32 中，AFIO 主要完成两个任务：复用功能引脚重映射、中断引脚选择。</p>
+<p><img data-src="https://pic.imgdb.cn/item/64f360b1661c6c8e54e160f5.png" alt=""></p>
+<p>这就是 AFIO 的作用</p>
+<p>程序部分</p>
+<p>首先在 Hardware 文件夹中新建 CountSensor.h 和 CountSensor.c 文件</p>
 
       <div class="tags">
-          <a href="/tags/%E5%93%88%E5%B0%94%E6%BB%A8%E7%94%9F%E6%B4%BB/" rel="tag"><i class="ic i-tag"></i> 哈尔滨生活</a>
+          <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
       </div>
   </div>
 
@@ -185,7 +214,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-09-02 10:12:15" itemprop="dateModified" datetime="2023-09-02T10:12:15+08:00">2023-09-02</time>
+    <time title="修改时间：2023-09-03 00:20:45" itemprop="dateModified" datetime="2023-09-03T00:20:45+08:00">2023-09-03</time>
   </span>
 </div>
 
@@ -211,7 +240,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://bangdexuanyuan.github.io/life/hello-world/" title="hello world">https://bangdexuanyuan.github.io/life/hello-world/</a>
+    <a href="https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">https://bangdexuanyuan.github.io/stm32/EXTI外部中断/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -228,16 +257,16 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
 <div class="post-nav">
     <div class="item left">
-    </div>
-    <div class="item right">
       
 
-  <a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f2d257661c6c8e54b444fe.jpg" title="青岛之旅">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> 生活</span>
-  <h3>青岛之旅</h3>
+  <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc6d.jpg" title="stm32定时器外设时钟">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> stm32学习</span>
+  <h3>stm32定时器外设时钟</h3>
   </a>
 
+    </div>
+    <div class="item right">
     </div>
 </div>
 
@@ -254,11 +283,11 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quick-start"><span class="toc-number">1.</span> <span class="toc-text"> Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text"> Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-server"><span class="toc-number">1.2.</span> <span class="toc-text"> Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text"> Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text"> Deploy to remote sites</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bexti%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text"> 首先介绍一下 EXTI 的基本结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#afio%E5%A4%8D%E7%94%A8io%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text"> AFIO 复用 IO 口</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" rel="bookmark" title="青岛之旅">青岛之旅</a></li><li class="active"><a href="/life/hello-world/" rel="bookmark" title="hello world">hello world</a></li>
+          <li><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="定时器学习">定时器学习</a></li><li><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" rel="bookmark" title="stm32定时器外设时钟">stm32定时器外设时钟</a></li><li class="active"><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="EXTI外部中断">EXTI外部中断</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -366,10 +395,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
       
@@ -396,10 +425,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -409,7 +438,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
   </ul>
@@ -440,7 +469,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'life/hello-world/',
+    path: 'stm32/EXTI外部中断/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
