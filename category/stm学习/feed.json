@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"stm学习\" category",
+    "description": "欢迎大家来到邦的轩辕的小屋，这里会分享everything",
+    "home_page_url": "https://bangdexuanyuan.github.io",
+    "items": [
+        {
+            "id": "https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/",
+            "url": "https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/",
+            "title": "定时器学习",
+            "date_published": "2023-09-02T02:32:00.000Z",
+            "content_html": "<h4 id=\"stm32-6-1tim定时器中断\"><a class=\"markdownIt-Anchor\" href=\"#stm32-6-1tim定时器中断\">#</a> stm32 6-1Tim 定时器中断</h4>\n<p>stm32 拥有 16 位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2 的 16 次方，因为 2 的 16 次方为 66536</p>\n<p>在 72MHz 计数时钟下可以实现最大 59.65s 的定时</p>\n<p>这部分之后再听一遍</p>\n<p>不仅具有基本的定时中断功能，而且还包括内外时钟源的选择，输入捕获，输出比较，编码器接口，主从触发模式等多种功能</p>\n<p>![](C:\\all study document\\Microcontroller study\\32\\ 图片笔记 \\Snipaste_2023-08-24_22-05-54.png)</p>\n",
+            "tags": [
+                "单片机"
+            ]
+        }
+    ]
+}
