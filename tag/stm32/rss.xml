@@ -7,10 +7,10 @@
         <language>zh-CN</language>
         <pubDate>Sun, 03 Sep 2023 00:21:00 +0800</pubDate>
         <lastBuildDate>Sun, 03 Sep 2023 00:21:00 +0800</lastBuildDate>
-        <category>青岛生活</category>
-        <category>单片机</category>
-        <category>stm32</category>
         <category>哈尔滨生活</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>单片机</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</guid>
             <title>EXTI外部中断</title>
@@ -47,8 +47,217 @@
 &lt;p&gt;AFIO 主要用于引脚复用功能的选择和重定义，在 STM32 中，AFIO 主要完成两个任务：复用功能引脚重映射、中断引脚选择。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f360b1661c6c8e54e160f5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这就是 AFIO 的作用&lt;/p&gt;
+&lt;h4 id=&#34;exti外部中断的框图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#exti外部中断的框图&#34;&gt;#&lt;/a&gt; EXTI 外部中断的框图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a337661c6c8e541d2cc6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记住其中带弧度的是或门，只要有一个输入端是 1，那最终输出端的数值就是 1&lt;/p&gt;
+&lt;p&gt;平的是与门，记住电路的符号就行&lt;/p&gt;
+&lt;p&gt;这也就能解释为什么软件的外部中断，也可以进行中断&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a5f3661c6c8e541d9481.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由于自身设计的微妙，我们可以做到 A，B 两个端口输出的波的相位差 90 度，可以通过判断 A，B 端口的高低电平，从而确定此时是正转还是反转。&lt;/p&gt;
+&lt;p&gt;分析 A 端，当左端的端口并未进行接通时，由于 VCC 连接 R1，相当于进行电位的上拉，从此 A 点的电位为高电位。而当左端的端口接上时 A 端相当于直接接 GND。这里的 R3 起到了限流电阻的作用，防止电流过大。&lt;/p&gt;
+&lt;p&gt;这里的 C1 起到了&lt;strong&gt;滤波电容&lt;/strong&gt;的作用，防止输出的电位过于抖动&lt;/p&gt;
+&lt;p&gt;滤波电容这块，感觉还是不太会&lt;/p&gt;
+&lt;p&gt;右端的电路同理&lt;/p&gt;
 &lt;p&gt;程序部分&lt;/p&gt;
 &lt;p&gt;首先在 Hardware 文件夹中新建 CountSensor.h 和 CountSensor.c 文件&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;CountSensor&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;h文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifndef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;_COUNT_SENSOR_H&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;_COUNT_SENSOR_H&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;CountSensor_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;那么如何配置外部的中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#那么如何配置外部的中断&#34;&gt;#&lt;/a&gt; 那么如何配置外部的中断&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;只需要把从 GPIO 到 NVIC 这一路的信号电路都打开即可&lt;/p&gt;
+&lt;p&gt;第一步，配置 RCC，把我们这里涉及到的外设时钟都打开，不打开时钟，外设是无法工作的&lt;/p&gt;
+&lt;p&gt;第二步，配置 GPIO 口，选择我们的端口为输入模式&lt;/p&gt;
+&lt;p&gt;第三步，配置 AFIO，选择我们用的这一路 GPIO，连接到后面的 EXTI&lt;/p&gt;
+&lt;p&gt;第四步，配置 EXTI，选择边沿触发模式，不如上升沿，下降沿，或者双边沿&lt;/p&gt;
+&lt;p&gt;第五步，配置 NVIC，给我们这个中断一个合适的优先级别&lt;/p&gt;
+&lt;p&gt;最后通过 NVIC，外部中断的信号就能进入 CPU 了，这样，CPU 才能收到中断信号来跳转到中断函数里面，执行中断程序&lt;/p&gt;
+&lt;p&gt;那，这五步就是外部中断的配置流程&lt;/p&gt;
+&lt;p&gt;1. 首先第一步，配置时钟 RCC&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;RCC_APB2PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;RCC_APB2Periph_GPIOB&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ENABLE&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意是 RCC_APB2 因为 GPIOB 是 APB2 的外设&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;RCC_APB2PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;RCC_APB2Periph_AFIO&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ENABLE&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当你不确定这个外设是接在哪个总线上的时候，我们可以跳转到这个函数的定义&lt;/p&gt;
+&lt;p&gt;比如这个函数 RCC_APB2 这个函数，可以通过 arg 看到所有的这些外设类型&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @brief  Enables or disables the High Speed APB (APB2) peripheral clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @param  RCC_APB2Periph: specifies the APB2 peripheral to gates its clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *   This parameter can be any combination of the following values:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg RCC_APB2Periph_AFIO, RCC_APB2Periph_GPIOA, RCC_APB2Periph_GPIOB,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_GPIOC, RCC_APB2Periph_GPIOD, RCC_APB2Periph_GPIOE,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_GPIOF, RCC_APB2Periph_GPIOG, RCC_APB2Periph_ADC1,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_ADC2, RCC_APB2Periph_TIM1, RCC_APB2Periph_SPI1,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM8, RCC_APB2Periph_USART1, RCC_APB2Periph_ADC3,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM15, RCC_APB2Periph_TIM16, RCC_APB2Periph_TIM17,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM9, RCC_APB2Periph_TIM10, RCC_APB2Periph_TIM11     &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @param  NewState: new state of the specified peripheral clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *   This parameter can be: ENABLE or DISABLE.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @retval None&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;接着还需要打开 EXTI 和 NVIC 的外设&lt;/strong&gt;，但是这两个外设的时钟是一直打开的，所以不需要再次打开，&lt;/p&gt;
+&lt;p&gt;NVIC 不需要开启时钟的原因是因为，NVIC 属于内核的外设，内核的外设都是不需要开启时钟的&lt;/p&gt;
+&lt;p&gt;而 RCC 管的都是内核外的外设，所以管不到 NVIC&lt;/p&gt;
+&lt;p&gt;第二步，配置 GPIO&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;GPIO_InitTypeDef GPIO_InitStructure;//注释，这里的GPIO_InitStructure只是一个名称，也可以替换成为u，等等其他的名字
+GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;//这个输入模式，具体需要什么，需要到stm32手册中进行查询
+GPIO_InitStructure.GPIO_Pin=GPIO_Pin_14;
+GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+GPIO_Init(GPIOB,&amp;amp;GPIO_InitStructure);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来进行第三步，配置 AFIO，AFIO 并没有自己独立的库函数，它的对应函数在 GPIO 的文件中&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后在其中进行跳转，可以查到对应的&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+  * @brief  Selects the GPIO pin used as EXTI Line.
+  * @param  GPIO_PortSource: selects the GPIO port to be used as source for EXTI lines.
+  *   This parameter can be GPIO_PortSourceGPIOx where x can be (A..G).
+  * @param  GPIO_PinSource: specifies the EXTI line to be configured.
+  *   This parameter can be GPIO_PinSourcex where x can be (0..15).
+  * @retval None
+  */
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+&amp;#123;
+  uint32_t tmp = 0x00;
+  /* Check the parameters */
+  assert_param(IS_GPIO_EXTI_PORT_SOURCE(GPIO_PortSource));
+  assert_param(IS_GPIO_PIN_SOURCE(GPIO_PinSource));
+  
+  tmp = ((uint32_t)0x0F) &amp;lt;&amp;lt; (0x04 * (GPIO_PinSource &amp;amp; (uint8_t)0x03));
+  AFIO-&amp;gt;EXTICR[GPIO_PinSource &amp;gt;&amp;gt; 0x02] &amp;amp;= ~tmp;
+  AFIO-&amp;gt;EXTICR[GPIO_PinSource &amp;gt;&amp;gt; 0x02] |= (((uint32_t)GPIO_PortSource) &amp;lt;&amp;lt; (0x04 * (GPIO_PinSource &amp;amp; (uint8_t)0x03)));
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过最后两行，我们可以发现，其实，这个函数就是配置 AFIO 的函数&lt;/p&gt;
+&lt;p&gt;如果你想配置 PB14 号口为中断口，那么我们就可以这样写&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource14);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;第四步配置exti文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第四步配置exti文件&#34;&gt;#&lt;/a&gt; 第四步，配置 EXTI 文件&lt;/h4&gt;
+&lt;p&gt;首先先来学习一下 EXTI 的基本库函数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void EXTI_DeInit(void);//调用它，就可以把EXTI的配置都清除，恢复成上电默认的状态
+void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct);//可以根据这个结构体里的函数配置EXTI外设，初始化EXTI主要用的就是这个函数，使用方法与GPIO_Init等同对比就行 
+void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct);
+void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line);
+FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line);
+void EXTI_ClearFlag(uint32_t EXTI_Line);
+ITStatus EXTI_GetITStatus(uint32_t EXTI_Line);
+void EXTI_ClearITPendingBit(uint32_t EXTI_Line);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码书写&lt;/p&gt;
+&lt;p&gt;我们首先肯定得初始化外设&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;/**
+  * @brief  Initializes the EXTI peripheral according to the specified
+  *         parameters in the EXTI_InitStruct.
+  * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure
+  *         that contains the configuration information for the EXTI peripheral.
+  * @retval None
+  */
+void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后根据提示，进行相关参数的配置&lt;/p&gt;
+&lt;p&gt;在文档中查找相关词 EXTI_InitTypeDef，可以得到如下的代码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;	EXTI_InitTypeDef a;
+	a.EXTI_Line=EXTI_Line14;//这四项直接在定义完a后会直接出来
+	a.EXTI_LineCmd=ENABLE;
+	a.EXTI_Mode=EXTI_Mode_Interrupt;
+	a.EXTI_Trigger=EXTI_Trigger_Falling;
+	EXTI_Init(&amp;amp;a);//初始化a去
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在全局寻找 EXTI_Line，&lt;strong&gt;第一个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;
+#define EXTI_Line0       ((uint32_t)0x00001)  /*!&amp;lt; External interrupt line 0 */
+#define EXTI_Line1       ((uint32_t)0x00002)  /*!&amp;lt; External interrupt line 1 */
+#define EXTI_Line2       ((uint32_t)0x00004)  /*!&amp;lt; External interrupt line 2 */
+#define EXTI_Line3       ((uint32_t)0x00008)  /*!&amp;lt; External interrupt line 3 */
+#define EXTI_Line4       ((uint32_t)0x00010)  /*!&amp;lt; External interrupt line 4 */
+#define EXTI_Line5       ((uint32_t)0x00020)  /*!&amp;lt; External interrupt line 5 */
+#define EXTI_Line6       ((uint32_t)0x00040)  /*!&amp;lt; External interrupt line 6 */
+#define EXTI_Line7       ((uint32_t)0x00080)  /*!&amp;lt; External interrupt line 7 */
+#define EXTI_Line8       ((uint32_t)0x00100)  /*!&amp;lt; External interrupt line 8 */
+#define EXTI_Line9       ((uint32_t)0x00200)  /*!&amp;lt; External interrupt line 9 */
+#define EXTI_Line10      ((uint32_t)0x00400)  /*!&amp;lt; External interrupt line 10 */
+#define EXTI_Line11      ((uint32_t)0x00800)  /*!&amp;lt; External interrupt line 11 */
+#define EXTI_Line12      ((uint32_t)0x01000)  /*!&amp;lt; External interrupt line 12 */
+#define EXTI_Line13      ((uint32_t)0x02000)  /*!&amp;lt; External interrupt line 13 */
+#define EXTI_Line14      ((uint32_t)0x04000)  /*!&amp;lt; External interrupt line 14 */
+#define EXTI_Line15      ((uint32_t)0x08000)  /*!&amp;lt; External interrupt line 15 */
+#define EXTI_Line16      ((uint32_t)0x10000)  /*!&amp;lt; External interrupt line 16 Connected to the PVD Output */
+#define EXTI_Line17      ((uint32_t)0x20000)  /*!&amp;lt; External interrupt line 17 Connected to the RTC Alarm event */
+#define EXTI_Line18      ((uint32_t)0x40000)  /*!&amp;lt; External interrupt line 18 Connected to the USB Device/USB OTG FS
+                                                   Wakeup from suspend event */                                    
+#define EXTI_Line19      ((uint32_t)0x80000)  /*!&amp;lt; External interrupt line 19 Connected to the Ethernet Wakeup event */
+                                          
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;第二个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;FunctionalState EXTI_LineCmd;     /*!&amp;lt; Specifies the new state of the selected EXTI lines.
+                                         This parameter can be set either to ENABLE or DISABLE */ 
+
+开始中断还是不开启，ENABLE还是DISABLE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;第三个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;
+typedef enum
+&amp;#123;
+  EXTI_Mode_Interrupt = 0x00,
+  EXTI_Mode_Event = 0x04
+&amp;#125;EXTIMode_TypeDef;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;是外部中断还是事件中断，这里我们采用外部中断&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/** 
+  * @brief  EXTI Trigger enumeration  
+  */
+
+typedef enum
+&amp;#123;
+  EXTI_Trigger_Rising = 0x08,
+  EXTI_Trigger_Falling = 0x0C,  
+  EXTI_Trigger_Rising_Falling = 0x10
+&amp;#125;EXTITrigger_TypeDef;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里代表的是选择上升沿触发，下降沿触发，还是上升下降沿都触发&lt;/p&gt;
+&lt;p&gt;到此为止，外部中断配置完成，第四步结束&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;	EXTI_InitTypeDef a;
+	a.EXTI_Line=EXTI_Line14;
+	a.EXTI_LineCmd=ENABLE;
+	a.EXTI_Mode=EXTI_Mode_Interrupt;
+	a.EXTI_Trigger=EXTI_Trigger_Falling;
+	EXTI_Init(&amp;amp;a);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;第五步配置nvic外设&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第五步配置nvic外设&#34;&gt;#&lt;/a&gt; 第五步，配置 NVIC 外设&lt;/h5&gt;
+&lt;p&gt;因为 NVIC 属于 stm32 内核，所以其库函数，被分配到杂项 misc 中&lt;/p&gt;
+&lt;p&gt;先学习一下 NVIC 的库函数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个函数用来配置中断分组的，参数是中断分组的方式&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;根据 NVIC 结构体中指定的参数初始化 NVIC&lt;/p&gt;
+&lt;p&gt;跳转&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;NVIC_PriorityGroupConfig
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查到&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+  * @brief  Configures the priority grouping: pre-emption priority and subpriority.
+  * @param  NVIC_PriorityGroup: specifies the priority grouping bits length. 
+  *   This parameter can be one of the following values:
+  *     @arg NVIC_PriorityGroup_0: 0 bits for pre-emption priority
+  *                                4 bits for subpriority
+  *     @arg NVIC_PriorityGroup_1: 1 bits for pre-emption priority
+  *                                3 bits for subpriority
+  *     @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority
+  *                                2 bits for subpriority
+  *     @arg NVIC_PriorityGroup_3: 3 bits for pre-emption priority
+  *                                1 bits for subpriority
+  *     @arg NVIC_PriorityGroup_4: 4 bits for pre-emption priority
+  *                                0 bits for subpriority
+  * @retval None
+  */
+void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+&amp;#123;
+  /* Check the parameters */
+  assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
+  
+  /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  SCB-&amp;gt;AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+&amp;#125;
+
+//pre-emption priority代表的是抢占优先级，subpriority代表的是相应优先级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里我们选择第二组，两位响应，两位抢占，稍微平均一点&lt;/p&gt;
+&lt;p&gt;即配置成&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后就是经典操作了&lt;/p&gt;
+&lt;p&gt;对 NVIC 的初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;	NVIC_InitTypeDef b;
+	b.NVIC_IRQChannel=EXTI15_10_IRQn;
+	b.NVIC_IRQChannelCmd=ENABLE;
+	b.NVIC_IRQChannelPreemptionPriority=1;
+	b.NVIC_IRQChannelSubPriority= 1;
+	NVIC_Init(&amp;amp;b);
+&lt;/code&gt;&lt;/pre&gt;
  ]]></description>
         </item>
         <item>

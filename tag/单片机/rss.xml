@@ -7,10 +7,10 @@
         <language>zh-CN</language>
         <pubDate>Sat, 02 Sep 2023 10:32:00 +0800</pubDate>
         <lastBuildDate>Sat, 02 Sep 2023 10:32:00 +0800</lastBuildDate>
-        <category>青岛生活</category>
-        <category>单片机</category>
-        <category>stm32</category>
         <category>哈尔滨生活</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>单片机</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/</guid>
             <title>定时器学习</title>
