@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>8.9k</span>
+    <span>11k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>8 分钟</span>
+    <span>10 分钟</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
         </ul>
       </div>
     </header>
@@ -403,11 +403,78 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
 <p>然后就是经典操作了</p>
 <p>对 NVIC 的初始化</p>
 <pre><code class="language-c++">	NVIC_InitTypeDef b;
-	b.NVIC_IRQChannel=EXTI15_10_IRQn;
-	b.NVIC_IRQChannelCmd=ENABLE;
-	b.NVIC_IRQChannelPreemptionPriority=1;
-	b.NVIC_IRQChannelSubPriority= 1;
+	b.NVIC_IRQChannel= ;
+	b.NVIC_IRQChannelCmd= ;
+	b.NVIC_IRQChannelPreemptionPriority= ;
+	b.NVIC_IRQChannelSubPriority=  ;
 	NVIC_Init(&amp;b);
+</code></pre>
+<p>接下来就是配置参数</p>
+<p>跳转定义，全局工程文件搜索 IRQn_Type</p>
+<p>根据我们选择芯片的种类，选择对应的中断函数</p>
+<pre><code class="language-c++">#ifdef STM32F10X_MD
+  ADC1_2_IRQn                 = 18,     /*!&lt; ADC1 and ADC2 global Interrupt                       */
+  USB_HP_CAN1_TX_IRQn         = 19,     /*!&lt; USB Device High Priority or CAN1 TX Interrupts       */
+  USB_LP_CAN1_RX0_IRQn        = 20,     /*!&lt; USB Device Low Priority or CAN1 RX0 Interrupts       */
+  CAN1_RX1_IRQn               = 21,     /*!&lt; CAN1 RX1 Interrupt                                   */
+  CAN1_SCE_IRQn               = 22,     /*!&lt; CAN1 SCE Interrupt                                   */
+  EXTI9_5_IRQn                = 23,     /*!&lt; External Line[9:5] Interrupts                        */
+  TIM1_BRK_IRQn               = 24,     /*!&lt; TIM1 Break Interrupt                                 */
+  TIM1_UP_IRQn                = 25,     /*!&lt; TIM1 Update Interrupt                                */
+  TIM1_TRG_COM_IRQn           = 26,     /*!&lt; TIM1 Trigger and Commutation Interrupt               */
+  TIM1_CC_IRQn                = 27,     /*!&lt; TIM1 Capture Compare Interrupt                       */
+  TIM2_IRQn                   = 28,     /*!&lt; TIM2 global Interrupt                                */
+  TIM3_IRQn                   = 29,     /*!&lt; TIM3 global Interrupt                                */
+  TIM4_IRQn                   = 30,     /*!&lt; TIM4 global Interrupt                                */
+  I2C1_EV_IRQn                = 31,     /*!&lt; I2C1 Event Interrupt                                 */
+  I2C1_ER_IRQn                = 32,     /*!&lt; I2C1 Error Interrupt                                 */
+  I2C2_EV_IRQn                = 33,     /*!&lt; I2C2 Event Interrupt                                 */
+  I2C2_ER_IRQn                = 34,     /*!&lt; I2C2 Error Interrupt                                 */
+  SPI1_IRQn                   = 35,     /*!&lt; SPI1 global Interrupt                                */
+  SPI2_IRQn                   = 36,     /*!&lt; SPI2 global Interrupt                                */
+  USART1_IRQn                 = 37,     /*!&lt; USART1 global Interrupt                              */
+  USART2_IRQn                 = 38,     /*!&lt; USART2 global Interrupt                              */
+  USART3_IRQn                 = 39,     /*!&lt; USART3 global Interrupt                              */
+  EXTI15_10_IRQn              = 40,     /*!&lt; External Line[15:10] Interrupts                      */
+  RTCAlarm_IRQn               = 41,     /*!&lt; RTC Alarm through EXTI Line Interrupt                */
+  USBWakeUp_IRQn              = 42      /*!&lt; USB Device WakeUp from suspend through EXTI Line Interrupt */  
+#endif /* STM32F10X_MD */  
+</code></pre>
+<p>配置第一个参数</p>
+<pre><code>b.NVIC_IRQChannel=EXTI15_10_IRQn ;
+</code></pre>
+<p>配置第二个参数</p>
+<pre><code class="language-c++">FunctionalState NVIC_IRQChannelCmd;         /*!&lt; Specifies whether the IRQ channel defined in NVIC_IRQChannel
+                                                   will be enabled or disabled. 
+                                                   This parameter can be set either to ENABLE or DISABLE */ 
+</code></pre>
+<p>负责确定中断通道是使能还是失能，这里我们选择 ENABLE</p>
+<p>配置第三个参数</p>
+<pre><code class="language-c++">NVIC_IRQChannelPreemptionPriority
+这个是负责的抢占优先级
+NVIC_IRQChannelSubPriority
+    这个是负责相应优先级
+</code></pre>
+<p>对于当前我们的这种情况，因为只有一种中断，所以我们采用参数可以 随便一点，只有当有很多个中断的时候，才会出现拥挤</p>
+<pre><code>	b.NVIC_IRQChannelPreemptionPriority=1 ;
+	b.NVIC_IRQChannelSubPriority= 1 ;
+</code></pre>
+<p>高电平 (GPIO_PIN_SET)、低电平 (GPIO_PIN_RESET)。</p>
+<p>那么中断程序应该放在哪里呢，这就需要我们写一个中断函数</p>
+<p>在 STM32 中，中断函数的名称都是固定的，每个中断通道都对应一个中断函数</p>
+<p>中断函数的名字，我们可以参照一下启动文件，在其中找到中断函数</p>
+<pre><code class="language-c++">EXTI15_10_IRQHandler
+</code></pre>
+<p>注意，这个中断函数一定要书写正确，因为如果中断函数写错了，那么程序就无法进入中断了</p>
+<pre><code class="language-c++">void EXTI15_10_IRQHandler(void)
+&#123;
+		if(EXTI_GetITStatus(EXTI_Line14)==1)//获取一下是哪个中断置为1了
+		&#123;
+			EXTI_ClearITPendingBit(EXTI_Line14);//这里需要清除一下中断，因为如果中断函数不清除的话，会一直在中断函数里面循环。如果你不清楚中断标志位，那么它就会一直申请中断。这样程序就会不断相应中断，执行中断程序，那么程序就会卡死在中断程序里面了，所以我们每次中断程序结束后，都应该清除一下标志位
+			num++;
+		&#125;		
+	
+&#125;	
 </code></pre>
 
       <div class="tags">
@@ -423,7 +490,7 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-09-05 00:08:06" itemprop="dateModified" datetime="2023-09-05T00:08:06+08:00">2023-09-05</time>
+    <time title="修改时间：2023-09-06 18:04:59" itemprop="dateModified" datetime="2023-09-06T18:04:59+08:00">2023-09-06</time>
   </span>
 </div>
 
@@ -468,7 +535,7 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
     <div class="item left">
       
 
-  <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24ef.jpg" title="stm32定时器外设时钟">
+  <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="stm32定时器外设时钟">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>stm32定时器外设时钟</h3>
@@ -604,20 +671,30 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
       
@@ -638,16 +715,6 @@ void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
 </div>
 
     <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
   </ul>
