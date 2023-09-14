@@ -13,12 +13,11 @@
         <id>https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/</id>
         <title>定时器学习</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/"/>
-        <content type="html">&lt;h4 id=&#34;stm32-6-1tim定时器中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stm32-6-1tim定时器中断&#34;&gt;#&lt;/a&gt; stm32 6-1Tim 定时器中断&lt;/h4&gt;
-&lt;p&gt;stm32 拥有 16 位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2 的 16 次方，因为 2 的 16 次方为 66536&lt;/p&gt;
-&lt;p&gt;在 72MHz 计数时钟下可以实现最大 59.65s 的定时&lt;/p&gt;
+        <content type="html">&lt;h4 id=&#34;stm32-6-1Tim定时器中断&#34;&gt;&lt;a href=&#34;#stm32-6-1Tim定时器中断&#34; class=&#34;headerlink&#34; title=&#34;stm32 6-1Tim定时器中断&#34;&gt;&lt;/a&gt;stm32 6-1Tim定时器中断&lt;/h4&gt;&lt;p&gt;stm32拥有16位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2的16次方，因为2的16次方为66536&lt;/p&gt;
+&lt;p&gt;在72MHz计数时钟下可以实现最大59.65s的定时&lt;/p&gt;
 &lt;p&gt;这部分之后再听一遍&lt;/p&gt;
 &lt;p&gt;不仅具有基本的定时中断功能，而且还包括内外时钟源的选择，输入捕获，输出比较，编码器接口，主从触发模式等多种功能&lt;/p&gt;
-&lt;p&gt;![](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-08-24_22-05-54.png)&lt;/p&gt;
+&lt;p&gt;![](C:\all study document\Microcontroller study\32\图片笔记\Snipaste_2023-08-24_22-05-54.png)&lt;/p&gt;
 </content>
         <category term="单片机" />
         <updated>2023-09-02T02:32:00.000Z</updated>
