@@ -8,10 +8,10 @@
         <pubDate>Sun, 03 Sep 2023 00:21:00 +0800</pubDate>
         <lastBuildDate>Sun, 03 Sep 2023 00:21:00 +0800</lastBuildDate>
         <category>哈尔滨生活</category>
-        <category>stm32</category>
-        <category>青岛生活</category>
-        <category>单片机</category>
         <category>音乐</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>单片机</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</guid>
             <title>EXTI外部中断</title>
