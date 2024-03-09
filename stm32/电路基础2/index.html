@@ -27,7 +27,7 @@
   <meta name="keywords" content="java,git,springcloud" />
 
 
-<link rel="canonical" href="https://bangdexuanyuan.github.io/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="https://bangdexuanyuan.github.io/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/">
 
 
 
@@ -64,19 +64,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-09-06 22:18:20">
+  <span class="item" title="创建时间：2023-10-04 18:57:34">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-06T22:18:20+08:00">2023-09-06</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-04T18:57:34+08:00">2023-10-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>591</span>
+    <span>212</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,7 +151,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -166,53 +166,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>Tim 定时器学习</p>
-<p>定时器可以对输入的时钟进行计数，并在计数达到设定值的时候触发中断。当这个计数器的输入是一个准确可靠的基准时钟时，那它在对这个基准时钟进行计数的过程，实际上就是计时的过程</p>
-<p>16 位计数器、预分频器、自动重装寄存器的时基单元，在 72MHz 计数时钟下可以实现最大 59.65s 的定时。</p>
-<p>这里的计数器其实就是用来执行计数定时的一个寄存器，每来一个时钟，计数器加 1</p>
-<p>预分频器，可以对计数器的时钟进行分频，让这个计数更加灵活。</p>
-<p>自动重装寄存器就是计数的目标值，就是我想到计多少个时钟申请中断。</p>
-<p>这些寄存器构成了定时器最核心的部分，我们把这一块电路，成为时基单元。</p>
-<p>那这个时基单元里面的计数器，预分频器，自动重装寄存器都是 16 位。</p>
-<p>2 的 16 次方时 65536，也就是如果预分频器设置最大，自动重装也设置最大</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>编号</th>
-<th>总线</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>高级定时器</td>
-<td>TIM1、TIM8</td>
-<td>APB2</td>
-<td>拥有通用定时器全部功能，并额外具有重复计数器、死区生成、互补输出、刹车输入等功能</td>
-</tr>
-<tr>
-<td>通用定时器</td>
-<td>TIM2、TIM3、TIM4、TIM5</td>
-<td>APB1</td>
-<td>拥有基本定时器全部功能，并额外具有内外时钟源选择、输入捕获、输出比较、编码器接口、主从触发模式等功能</td>
-</tr>
-<tr>
-<td>基本定时器</td>
-<td>TIM6、TIM7</td>
-<td>APB1</td>
-<td>拥有定时中断、主模式触发 DAC 的功能</td>
-</tr>
-</tbody>
-</table>
-<p>STM32F103C8T6 定时器资源：TIM1、TIM2、TIM3、TIM4</p>
-<p>并额外具有重复计数器、死区生成、互补输出、刹车输入等功能，</p>
+    <p>电路基础</p>
+<ul>
+<li>理想电压源阻抗为零，原因为：</li>
+</ul>
+<p>理想电压源 无论有多少电流流过都不会改变两端的电势差 ，所以内阻理想为零</p>
+<ul>
+<li>理想电流源阻抗为正无穷，原因如下：</li>
+</ul>
+<p><img data-src="https://pic.imgdb.cn/item/651d2bb1c458853aef9aa5d4.jpg" alt=""></p>
+<p>而理想化就是让他们两个的效率达到 100%<br>
+ 那么对于电流源，效率最大就是让电流全流过工作电阻，即负载电阻 R，那么仅当内阻 Ro 为无穷大时能满足，此时为理想电流源。<br>
+同理，对于电压源，效率最大是把电压全加载负载电阻 R 两端，那么仅当内阻 Ro 为 0 时，Ro 不能分到电压，电压全分给 R，此时为理想电压源。</p>
 
   </div>
 
    <footer>
 
     <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-10-04 18:57:35" itemprop="dateModified" datetime="2023-10-04T18:57:35+08:00">2023-10-04</time>
+  </span>
 </div>
 
       
@@ -237,7 +215,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://bangdexuanyuan.github.io/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="">https://bangdexuanyuan.github.io/stm32/Tim定时器学习/</a>
+    <a href="https://bangdexuanyuan.github.io/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="">https://bangdexuanyuan.github.io/stm32/电路基础2/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -256,20 +234,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24d8.jpg" title="EXTI外部中断">
+  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="未命名">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> stm32学习</span>
-  <h3>EXTI外部中断</h3>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81f00.jpg" title="火车驶向云外 梦安魂于九霄">
+  <a href="/stm32/PWM/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="未命名">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> 生活</span>
-  <h3>火车驶向云外 梦安魂于九霄</h3>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
   </a>
 
     </div>
@@ -371,12 +349,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/stm32/PWM/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -398,10 +376,9 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -420,35 +397,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -467,17 +426,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -487,7 +436,36 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
   </ul>
@@ -518,7 +496,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'stm32/Tim定时器学习/',
+    path: 'stm32/电路基础2/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
