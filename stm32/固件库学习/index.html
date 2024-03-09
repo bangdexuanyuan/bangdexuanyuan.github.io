@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2k</span>
+    <span>2.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,18 +168,35 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_AHBPeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_AHBPeriph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_APB2PeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_APB2Periph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_APB1PeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_APB1Periph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>定时器函数</p>
+    <pre><code class="c">void RCC_AHBPeriphClockCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState);
+void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);
+void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState);
+</code></pre>
+<p>定时器函数</p>
 <p><img data-src="https://img-blog.csdnimg.cn/20210427151456665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjI5NTYz,size_16,color_FFFFFF,t_70" alt="img"></p>
 <p>void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);</p>
-<p>NewState 参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE 和 DISABLE。</p>
-<p><strong>例 1-1</strong>：以下代码片段用于使能 GPIOA 和 USART1 外设的时钟：</p>
-<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);</pre></td></tr></table></figure><p>在操作外设之前，必须先使能其时钟。</p>
-<h3 id="2-引脚配置"><a class="markdownIt-Anchor" href="#2-引脚配置">#</a> 2、引脚配置</h3>
-<p>GPIO_InitTypeDef 结构体是 STM32 固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个 GPIO 引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉 / 下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此 STM32 固件库提供了 GPIO_InitTypeDef 结构体，它封装了对 GPIO 外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置 GPIO 引脚的多个参数。</p>
-<p>先配置 GPIO_InitTypeDef 结构体；结构体的定义如下：</p>
+<p>NewState参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE和DISABLE。</p>
+<p><strong>例1-1</strong>：以下代码片段用于使能GPIOA和USART1外设的时钟：</p>
+<pre><code class="text">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);
+</code></pre>
+<p>在操作外设之前，必须先使能其时钟。</p>
+<h3 id="2、引脚配置"><a href="#2、引脚配置" class="headerlink" title="2、引脚配置"></a>2、引脚配置</h3><p>GPIO_InitTypeDef结构体是STM32固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个GPIO引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉&#x2F;下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此STM32固件库提供了GPIO_InitTypeDef结构体，它封装了对GPIO外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置GPIO引脚的多个参数。</p>
+<p>先配置GPIO_InitTypeDef结构体；结构体的定义如下：</p>
 <p>这个是已经配置好的模式</p>
-<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>typedef struct</pre></td></tr><tr><td data-num="2"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="3"></td><td><pre>  uint16_t GPIO_Pin;             /*!&lt; Specifies the GPIO pins to be configured.</pre></td></tr><tr><td data-num="4"></td><td><pre>                                      This parameter can be any value of @ref GPIO_pins_define */</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  GPIOSpeed_TypeDef GPIO_Speed;  /*!&lt; Specifies the speed for the selected pins.</pre></td></tr><tr><td data-num="7"></td><td><pre>                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  GPIOMode_TypeDef GPIO_Mode;    /*!&lt; Specifies the operating mode for the selected pins.</pre></td></tr><tr><td data-num="10"></td><td><pre>                                      This parameter can be a value of @ref GPIOMode_TypeDef */</pre></td></tr><tr><td data-num="11"></td><td><pre>&#125;GPIO_InitTypeDef;</pre></td></tr></table></figure><p>GPIO_Pin 表示要配置的 GPIO 引脚，可以使用逻辑或运算符 “|” 将多个引脚组合在一起。</p>
-<p>GPIO_Mode 表示 GPIO 引脚的工作模式。</p>
+<pre><code class="text">typedef struct
+&#123;
+  uint16_t GPIO_Pin;             /*!&lt; Specifies the GPIO pins to be configured.
+                                      This parameter can be any value of @ref GPIO_pins_define */
+
+  GPIOSpeed_TypeDef GPIO_Speed;  /*!&lt; Specifies the speed for the selected pins.
+                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */
+
+  GPIOMode_TypeDef GPIO_Mode;    /*!&lt; Specifies the operating mode for the selected pins.
+                                      This parameter can be a value of @ref GPIOMode_TypeDef */
+&#125;GPIO_InitTypeDef;
+</code></pre>
+<p>GPIO_Pin表示要配置的GPIO引脚，可以使用逻辑或运算符“|”将多个引脚组合在一起。</p>
+<p>GPIO_Mode表示GPIO引脚的工作模式。</p>
 <table>
 <thead>
 <tr>
@@ -189,8 +206,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>GPIO_Mode_AIN</td>
 <td>模拟输入</td>
 <td>GPIO_Mode_Out_OD</td>
@@ -214,14 +230,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td>GPIO_Mode_AF_PP</td>
 <td>复用开漏输出</td>
 </tr>
-</tbody>
-</table>
-<p>GPIO_Speed 表示 GPIO 引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。</p>
+</tbody></table>
+<p>GPIO_Speed表示GPIO引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。</p>
 <p>一般默认为普通推挽输出</p>
-<p>** 例 2-1：** 将 PA0 和 PA1 两个引脚配置为 50MHz 的推挽输出，并应用于 GPIOA 外设。</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>GPIO_InitTypeDef GPIO_InitStructure<span class="token punctuation">;</span><span class="token comment">// 这个 GPIO_InitStructure 就是一个结构体的名称，你也可以改为 u, 然后后面的名称对应都变成 u 就行</span></pre></td></tr><tr><td data-num="2"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Pin <span class="token operator">=</span> GPIO_Pin_0 <span class="token operator">|</span> GPIO_Pin_1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Mode <span class="token operator">=</span> GPIO_Mode_Out_PP<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Speed <span class="token operator">=</span> GPIO_Speed_50MHz<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">GPIO_Init</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span> <span class="token operator">&amp;</span>GPIO_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>以上代码将 GPIOA 的 PA0 引脚输出低 / 高电平，即将 PA0 引脚对应的寄存器的输出位设置为 0/1。</p>
-<p>注意：在操作 GPIO 引脚之前，必须先配置其为输出模式。否则，GPIO 引脚将不能输出电平。</p>
-<p>* 注意：在很多开发板上，GPIO 输出控制 LED 等外设的亮灭，常常使用了 PNP 型晶体管或是开漏输出方式。这种方式下，当 GPIO 引脚输出低电平时，PNP 型晶体管或是开漏输出器件会通电，外设（如 LED）被点亮，而当 GPIO 引脚输出高电平时，PNP 型晶体管或是开漏输出器件不通电，外设（如 LED）被熄灭。</p>
+<p><strong>例2-1：</strong>将PA0和PA1两个引脚配置为50MHz的推挽输出，并应用于GPIOA外设。</p>
+<pre><code class="c">GPIO_InitTypeDef GPIO_InitStructure;//这个GPIO_InitStructure就是一个结构体的名称，你也可以改为u,然后后面的名称对应都变成u就行
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+</code></pre>
+<p>以上代码将GPIOA的PA0引脚输出低&#x2F;高电平，即将PA0引脚对应的寄存器的输出位设置为0&#x2F;1。</p>
+<p>注意：在操作GPIO引脚之前，必须先配置其为输出模式。否则，GPIO引脚将不能输出电平。</p>
+<p>*注意：在很多开发板上，GPIO输出控制LED等外设的亮灭，常常使用了PNP型晶体管或是开漏输出方式。这种方式下，当GPIO引脚输出低电平时，PNP型晶体管或是开漏输出器件会通电，外设（如LED）被点亮，而当GPIO引脚输出高电平时，PNP型晶体管或是开漏输出器件不通电，外设（如LED）被熄灭。</p>
 
       <div class="tags">
           <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
@@ -281,7 +302,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24ef.jpg" title="定时器学习">
+  <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861852.jpg" title="定时器学习">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>定时器学习</h3>
@@ -291,7 +312,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc6d.jpg" title="EXTI外部中断">
+  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc87.jpg" title="EXTI外部中断">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>EXTI外部中断</h3>
@@ -313,7 +334,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> 2、引脚配置</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">2、引脚配置</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -427,19 +448,29 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
       
@@ -456,20 +487,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
   </li>
 
       
@@ -488,16 +518,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -507,7 +528,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -516,7 +537,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
