@@ -5,13 +5,36 @@
         <link>https://bangdexuanyuan.github.io</link>
         <description>欢迎大家来到邦的轩辕的小屋，这里会分享everything</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 18 Dec 2023 22:13:26 +0800</pubDate>
-        <lastBuildDate>Mon, 18 Dec 2023 22:13:26 +0800</lastBuildDate>
+        <pubDate>Sun, 10 Mar 2024 19:40:00 +0800</pubDate>
+        <lastBuildDate>Sun, 10 Mar 2024 19:40:00 +0800</lastBuildDate>
+        <category>stm32</category>
         <category>音乐</category>
-        <category>哈尔滨生活</category>
         <category>青岛生活</category>
         <category>单片机</category>
-        <category>stm32</category>
+        <category>哈尔滨生活</category>
+        <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/</guid>
+            <title>无线下载器</title>
+            <link>https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/</link>
+            <category>stm32</category>
+            <pubDate>Sun, 10 Mar 2024 19:40:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;无线通讯：&lt;/p&gt;
+&lt;p&gt;无线空中传输速率，指的是无线模块在空中传输的频率。&lt;/p&gt;
+&lt;p&gt;2M：速度最快，此时调试器的性能最大，最快&lt;/p&gt;
+&lt;p&gt;1M：速度会减慢，但是减慢的速度并不多，可以稍微增加一点距离，但是增加的不多。&lt;/p&gt;
+&lt;p&gt;250K：距离增加的非常多，但是调试器速度下降也比较多。建议远距离的可以使用。&lt;/p&gt;
+&lt;p&gt;无限地址的设置：&lt;/p&gt;
+&lt;p&gt;内部无线模块的地址，接收端和发送端的地址必须一样。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;唯一使用的注意事项：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在keil中，我们点击魔术棒按钮，然后在Debug这个界面里面，在右侧界面，把stlink的选项设置为CMSIS-DAP-Debugger。&lt;/p&gt;
+&lt;p&gt;之后点击settings按钮，通过观察右侧的SW Device看看对于单片机的类型，是否进行了识别。&lt;/p&gt;
+&lt;p&gt;然后把CMSIS-DAP-JTAG&amp;#x2F;SW Adapter这个选项修改成第二行。&lt;/p&gt;
+&lt;p&gt;并把端口的类型改成SW类型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips：&lt;/strong&gt;使用的时候，我们接收端直接通过USB与电脑相连，另一个接收端，通过SW，采用杜邦线和目标单片机进行相连。&lt;/p&gt;
+&lt;p&gt;需要注意的是，我们接收端的供电采用充电宝或者自己画板子的时候，可以加一个供电的USB口。&lt;/p&gt;
+&lt;p&gt;另外，自己于2024.3.10日调试的时候，因为单片机的问题，也曾出现过，检测不到单片机的问题。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/PWM/</guid>
             <title></title>
@@ -576,6 +599,24 @@ GPIO_Init(GPIOA, &amp;amp;GPIO_InitStructure);
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</guid>
+            <title>青岛之旅</title>
+            <link>https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</link>
+            <category>青岛生活</category>
+            <pubDate>Sat, 02 Sep 2023 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;2023年8月7~9，和zjx和lh去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。&lt;/p&gt;
+&lt;p&gt;去了海军博物馆&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;去了小麦岛，去了鹿儿岛&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;去了栈桥，人是真的多嘞&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记得凌晨3，4点的火车硬座，还有LOL的solo的时候，zjx的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/hello-world/</guid>
             <title>hello world</title>
             <link>https://bangdexuanyuan.github.io/life/hello-world/</link>
@@ -594,24 +635,6 @@ GPIO_Init(GPIOA, &amp;amp;GPIO_InitStructure);
 &lt;h3 id=&#34;Deploy-to-remote-sites&#34;&gt;&lt;a href=&#34;#Deploy-to-remote-sites&#34; class=&#34;headerlink&#34; title=&#34;Deploy to remote sites&#34;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ hexo deploy
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</guid>
-            <title>青岛之旅</title>
-            <link>https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</link>
-            <category>青岛生活</category>
-            <pubDate>Sat, 02 Sep 2023 10:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;2023年8月7~9，和zjx和lh去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。&lt;/p&gt;
-&lt;p&gt;去了海军博物馆&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;去了小麦岛，去了鹿儿岛&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;去了栈桥，人是真的多嘞&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;记得凌晨3，4点的火车硬座，还有LOL的solo的时候，zjx的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

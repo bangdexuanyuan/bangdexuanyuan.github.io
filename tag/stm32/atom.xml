@@ -3,12 +3,35 @@
     <id>https://bangdexuanyuan.github.io</id>
     <title> • Posts by &#34;stm32&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
-    <updated>2023-09-02T16:21:00.000Z</updated>
+    <updated>2024-03-10T11:40:00.000Z</updated>
+    <category term="stm32" />
     <category term="音乐" />
-    <category term="哈尔滨生活" />
     <category term="青岛生活" />
     <category term="单片机" />
-    <category term="stm32" />
+    <category term="哈尔滨生活" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/</id>
+        <title>无线下载器</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/"/>
+        <content type="html">&lt;p&gt;无线通讯：&lt;/p&gt;
+&lt;p&gt;无线空中传输速率，指的是无线模块在空中传输的频率。&lt;/p&gt;
+&lt;p&gt;2M：速度最快，此时调试器的性能最大，最快&lt;/p&gt;
+&lt;p&gt;1M：速度会减慢，但是减慢的速度并不多，可以稍微增加一点距离，但是增加的不多。&lt;/p&gt;
+&lt;p&gt;250K：距离增加的非常多，但是调试器速度下降也比较多。建议远距离的可以使用。&lt;/p&gt;
+&lt;p&gt;无限地址的设置：&lt;/p&gt;
+&lt;p&gt;内部无线模块的地址，接收端和发送端的地址必须一样。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;唯一使用的注意事项：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在keil中，我们点击魔术棒按钮，然后在Debug这个界面里面，在右侧界面，把stlink的选项设置为CMSIS-DAP-Debugger。&lt;/p&gt;
+&lt;p&gt;之后点击settings按钮，通过观察右侧的SW Device看看对于单片机的类型，是否进行了识别。&lt;/p&gt;
+&lt;p&gt;然后把CMSIS-DAP-JTAG&amp;#x2F;SW Adapter这个选项修改成第二行。&lt;/p&gt;
+&lt;p&gt;并把端口的类型改成SW类型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips：&lt;/strong&gt;使用的时候，我们接收端直接通过USB与电脑相连，另一个接收端，通过SW，采用杜邦线和目标单片机进行相连。&lt;/p&gt;
+&lt;p&gt;需要注意的是，我们接收端的供电采用充电宝或者自己画板子的时候，可以加一个供电的USB口。&lt;/p&gt;
+&lt;p&gt;另外，自己于2024.3.10日调试的时候，因为单片机的问题，也曾出现过，检测不到单片机的问题。&lt;/p&gt;
+</content>
+        <category term="stm32" />
+        <updated>2024-03-10T11:40:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</id>
         <title>EXTI外部中断</title>

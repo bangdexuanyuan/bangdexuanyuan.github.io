@@ -27,12 +27,12 @@
   <meta name="keywords" content="stm32" />
 
 
-<link rel="canonical" href="https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/">
 
 
 
   <title>
-stm32定时器外设时钟 - stm32学习 |
+无线下载器 - stm32学习 |
 bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,23 +60,23 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">stm32定时器外设时钟
+  <h1 itemprop="name headline">无线下载器
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-09-02 15:28:00">
+  <span class="item" title="创建时间：2024-03-10 19:40:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-02T15:28:00+08:00">2023-09-02</time>
+    <time itemprop="dateCreated datePublished" datetime="2024-03-10T19:40:00+08:00">2024-03-10</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.1k</span>
+    <span>497</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>2 分钟</span>
+    <span>1 分钟</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,7 +153,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/">
+  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -168,81 +168,21 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <pre><code class="c">void RCC_AHBPeriphClockCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState);
-void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);
-void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState);
-</code></pre>
-<p>定时器函数</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210427151456665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjI5NTYz,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);</p>
-<p>NewState参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE和DISABLE。</p>
-<p><strong>例1-1</strong>：以下代码片段用于使能GPIOA和USART1外设的时钟：</p>
-<pre><code class="text">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);
-</code></pre>
-<p>在操作外设之前，必须先使能其时钟。</p>
-<h3 id="2、引脚配置"><a href="#2、引脚配置" class="headerlink" title="2、引脚配置"></a>2、引脚配置</h3><p>GPIO_InitTypeDef结构体是STM32固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个GPIO引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉&#x2F;下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此STM32固件库提供了GPIO_InitTypeDef结构体，它封装了对GPIO外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置GPIO引脚的多个参数。</p>
-<p>先配置GPIO_InitTypeDef结构体；结构体的定义如下：</p>
-<p>这个是已经配置好的模式</p>
-<pre><code class="text">typedef struct
-&#123;
-  uint16_t GPIO_Pin;             /*!&lt; Specifies the GPIO pins to be configured.
-                                      This parameter can be any value of @ref GPIO_pins_define */
-
-  GPIOSpeed_TypeDef GPIO_Speed;  /*!&lt; Specifies the speed for the selected pins.
-                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */
-
-  GPIOMode_TypeDef GPIO_Mode;    /*!&lt; Specifies the operating mode for the selected pins.
-                                      This parameter can be a value of @ref GPIOMode_TypeDef */
-&#125;GPIO_InitTypeDef;
-</code></pre>
-<p>GPIO_Pin表示要配置的GPIO引脚，可以使用逻辑或运算符“|”将多个引脚组合在一起。</p>
-<p>GPIO_Mode表示GPIO引脚的工作模式。</p>
-<table>
-<thead>
-<tr>
-<th>输入</th>
-<th></th>
-<th>输出</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>GPIO_Mode_AIN</td>
-<td>模拟输入</td>
-<td>GPIO_Mode_Out_OD</td>
-<td>普通开漏输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IN_FLOATING</td>
-<td>浮空输入</td>
-<td>GPIO_Mode_Out_PP</td>
-<td>普通推挽输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IPU</td>
-<td>上拉输入</td>
-<td>GPIO_Mode_AF_OD</td>
-<td>复用推挽输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IPD</td>
-<td>下拉输入</td>
-<td>GPIO_Mode_AF_PP</td>
-<td>复用开漏输出</td>
-</tr>
-</tbody></table>
-<p>GPIO_Speed表示GPIO引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。</p>
-<p>一般默认为普通推挽输出</p>
-<p><strong>例2-1：</strong>将PA0和PA1两个引脚配置为50MHz的推挽输出，并应用于GPIOA外设。</p>
-<pre><code class="c">GPIO_InitTypeDef GPIO_InitStructure;//这个GPIO_InitStructure就是一个结构体的名称，你也可以改为u,然后后面的名称对应都变成u就行
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
-GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
-</code></pre>
-<p>以上代码将GPIOA的PA0引脚输出低&#x2F;高电平，即将PA0引脚对应的寄存器的输出位设置为0&#x2F;1。</p>
-<p>注意：在操作GPIO引脚之前，必须先配置其为输出模式。否则，GPIO引脚将不能输出电平。</p>
-<p>*注意：在很多开发板上，GPIO输出控制LED等外设的亮灭，常常使用了PNP型晶体管或是开漏输出方式。这种方式下，当GPIO引脚输出低电平时，PNP型晶体管或是开漏输出器件会通电，外设（如LED）被点亮，而当GPIO引脚输出高电平时，PNP型晶体管或是开漏输出器件不通电，外设（如LED）被熄灭。</p>
+    <p>无线通讯：</p>
+<p>无线空中传输速率，指的是无线模块在空中传输的频率。</p>
+<p>2M：速度最快，此时调试器的性能最大，最快</p>
+<p>1M：速度会减慢，但是减慢的速度并不多，可以稍微增加一点距离，但是增加的不多。</p>
+<p>250K：距离增加的非常多，但是调试器速度下降也比较多。建议远距离的可以使用。</p>
+<p>无限地址的设置：</p>
+<p>内部无线模块的地址，接收端和发送端的地址必须一样。</p>
+<p><strong>唯一使用的注意事项：</strong></p>
+<p>在keil中，我们点击魔术棒按钮，然后在Debug这个界面里面，在右侧界面，把stlink的选项设置为CMSIS-DAP-Debugger。</p>
+<p>之后点击settings按钮，通过观察右侧的SW Device看看对于单片机的类型，是否进行了识别。</p>
+<p>然后把CMSIS-DAP-JTAG&#x2F;SW Adapter这个选项修改成第二行。</p>
+<p>并把端口的类型改成SW类型。</p>
+<p><strong>tips：</strong>使用的时候，我们接收端直接通过USB与电脑相连，另一个接收端，通过SW，采用杜邦线和目标单片机进行相连。</p>
+<p>需要注意的是，我们接收端的供电采用充电宝或者自己画板子的时候，可以加一个供电的USB口。</p>
+<p>另外，自己于2024.3.10日调试的时候，因为单片机的问题，也曾出现过，检测不到单片机的问题。</p>
 
       <div class="tags">
           <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
@@ -257,7 +197,7 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-09-02 16:34:22" itemprop="dateModified" datetime="2023-09-02T16:34:22+08:00">2023-09-02</time>
+    <time title="修改时间：2024-03-10 19:55:07" itemprop="dateModified" datetime="2024-03-10T19:55:07+08:00">2024-03-10</time>
   </span>
 </div>
 
@@ -283,7 +223,7 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">https://bangdexuanyuan.github.io/stm32/固件库学习/</a>
+    <a href="https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">https://bangdexuanyuan.github.io/stm32/无线通讯下载器/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -302,22 +242,14 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
     <div class="item left">
       
 
-  <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec19819f345e8d03feec11.jpg" title="定时器学习">
+  <a href="/stm32/PWM/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="未命名">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> stm32学习</span>
-  <h3>定时器学习</h3>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a189f345e8d0300cedf.jpg" title="EXTI外部中断">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> stm32学习</span>
-  <h3>EXTI外部中断</h3>
-  </a>
-
     </div>
 </div>
 
@@ -334,11 +266,10 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">2、引脚配置</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="定时器学习">定时器学习</a></li><li class="active"><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" rel="bookmark" title="stm32定时器外设时钟">stm32定时器外设时钟</a></li><li><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="EXTI外部中断">EXTI外部中断</a></li><li><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" rel="bookmark" title="无线下载器">无线下载器</a></li>
+          <li><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="定时器学习">定时器学习</a></li><li><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" rel="bookmark" title="stm32定时器外设时钟">stm32定时器外设时钟</a></li><li><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" rel="bookmark" title="EXTI外部中断">EXTI外部中断</a></li><li class="active"><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" rel="bookmark" title="无线下载器">无线下载器</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -421,12 +352,10 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -458,10 +387,10 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -471,7 +400,26 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -490,7 +438,17 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
       
@@ -506,38 +464,10 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
   </ul>
@@ -568,7 +498,7 @@ GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'stm32/固件库学习/',
+    path: 'stm32/无线通讯下载器/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
