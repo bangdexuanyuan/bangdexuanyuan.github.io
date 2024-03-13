@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://bangdexuanyuan.github.io</id>
+    <title> • Posts by &#34;英语&#34; tag</title>
+    <link href="https://bangdexuanyuan.github.io" />
+    <updated>2024-03-13T10:30:00.000Z</updated>
+    <category term="哈尔滨生活" />
+    <category term="英语" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="单片机" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/study/hello-world/</id>
+        <title>英语论文学习</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/study/hello-world/"/>
+        <content type="html">&lt;p&gt;英语论文写作的时候，一般由以下的结构组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;title,author,abstract,keywords&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Descriptive (说明性的) information that lets readers search for an article.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What is the context for this project?&lt;/p&gt;
+&lt;p&gt;How does it fit in with other research on the topic?&lt;/p&gt;
+&lt;p&gt;What is the research question?&lt;/p&gt;
+&lt;p&gt;总结：以上说的是 WHY 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What did the author do to answer the research question?&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 HOW 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What was the answer to the question?&lt;/p&gt;
+&lt;p&gt;This is often shown in tables and figures.&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 WHAT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Discussion/Conclusion&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What is the significance of this project?&lt;/p&gt;
+&lt;p&gt;How does it fit in with what else is known about the topic?&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 SO WHAT 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;References&lt;/strong&gt;（参考文献部分）&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="英语" />
+        <updated>2024-03-13T10:30:00.000Z</updated>
+    </entry>
+</feed>

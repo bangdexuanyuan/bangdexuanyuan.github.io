@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"学习\" category",
+    "description": "欢迎大家来到邦的轩辕的小屋，这里会分享everything",
+    "home_page_url": "https://bangdexuanyuan.github.io",
+    "items": [
+        {
+            "id": "https://bangdexuanyuan.github.io/study/hello-world/",
+            "url": "https://bangdexuanyuan.github.io/study/hello-world/",
+            "title": "英语论文学习",
+            "date_published": "2024-03-13T10:30:00.000Z",
+            "content_html": "<p>英语论文写作的时候，一般由以下的结构组成：</p>\n<ul>\n<li><strong>title,author,abstract,keywords</strong></li>\n</ul>\n<p>Descriptive (说明性的) information that lets readers search for an article.</p>\n<ul>\n<li><strong>Information</strong></li>\n</ul>\n<p>What is the context for this project?</p>\n<p>How does it fit in with other research on the topic?</p>\n<p>What is the research question?</p>\n<p>总结：以上说的是 WHY 部分</p>\n<ul>\n<li><strong>Methods</strong></li>\n</ul>\n<p>What did the author do to answer the research question?</p>\n<p>总结：以上部分说的是 HOW 部分</p>\n<ul>\n<li><strong>Results</strong></li>\n</ul>\n<p>What was the answer to the question?</p>\n<p>This is often shown in tables and figures.</p>\n<p>总结：以上部分说的是 WHAT</p>\n<ul>\n<li><strong>Discussion/Conclusion</strong></li>\n</ul>\n<p>What is the significance of this project?</p>\n<p>How does it fit in with what else is known about the topic?</p>\n<p>总结：以上部分说的是 SO WHAT 部分</p>\n<ul>\n<li><strong>References</strong>（参考文献部分）</li>\n</ul>\n",
+            "tags": [
+                "英语"
+            ]
+        }
+    ]
+}
