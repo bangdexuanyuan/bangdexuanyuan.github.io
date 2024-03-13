@@ -7,12 +7,12 @@
         <language>zh-CN</language>
         <pubDate>Sun, 10 Mar 2024 19:40:00 +0800</pubDate>
         <lastBuildDate>Sun, 10 Mar 2024 19:40:00 +0800</lastBuildDate>
-        <category>音乐</category>
         <category>哈尔滨生活</category>
         <category>青岛生活</category>
-        <category>英语</category>
-        <category>单片机</category>
         <category>stm32</category>
+        <category>音乐</category>
+        <category>单片机</category>
+        <category>英语</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/</guid>
             <title>无线下载器</title>
