@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"under water robot\" category",
+    "description": "欢迎大家来到邦的轩辕的小屋，这里会分享everything",
+    "home_page_url": "https://bangdexuanyuan.github.io",
+    "items": [
+        {
+            "id": "https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/",
+            "url": "https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/",
+            "title": "STM32串口传输数据",
+            "date_published": "2024-03-21T10:30:00.000Z",
+            "content_html": "<ul>\n<li>\n<p><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mi>T</mi><mi>M</mi><mn>32</mn><mi>C</mi><mi>U</mi><mi>B</mi><mi>E</mi><mi>M</mi><mi>X</mi></mrow><annotation encoding=\"application/x-tex\">STM32CUBEMX</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.68333em;vertical-align:0em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05764em;\">S</span><span class=\"mord mathnormal\" style=\"margin-right:0.13889em;\">T</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">M</span><span class=\"mord\">3</span><span class=\"mord\">2</span><span class=\"mord mathnormal\" style=\"margin-right:0.07153em;\">C</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right:0.05017em;\">B</span><span class=\"mord mathnormal\" style=\"margin-right:0.05764em;\">E</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">M</span><span class=\"mord mathnormal\" style=\"margin-right:0.07847em;\">X</span></span></span></span> 利用串口传输数据</p>\n<p>1. 串口的发送与接收</p>\n<ul>\n<li>\n<p>HAL_UART_Transmit (); 串口发送数据，使用超时管理机制</p>\n</li>\n<li>\n<p>HAL_UART_Receive (); 串口接收数据，使用超时管理机制</p>\n</li>\n<li>\n<p>HAL_UART_Transmit_IT (); 串口中断模式发送</p>\n</li>\n<li>\n<p>HAL_UART_Receive_IT (); 串口中断模式接收</p>\n</li>\n<li>\n<p>HAL_UART_Transmit_DMA (); 串口 DMA 模式发送</p>\n</li>\n<li>\n<p>HAL_UART_Transmit_DMA (); 串口 DMA 模式接收</p>\n</li>\n</ul>\n<pre><code class=\"language-c++\">HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)\n\n</code></pre>\n<p>功能：<strong>串口</strong>发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。</p>\n<pre><code>UART_HandleTypeDef*huart 例如huart1就是其中一个别名\n</code></pre>\n</li>\n</ul>\n",
+            "tags": [
+                "stm32"
+            ]
+        }
+    ]
+}
