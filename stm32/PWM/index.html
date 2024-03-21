@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b5039f345e8d03991b3f.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b8dd9f345e8d03b13f5e.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,14 +166,14 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>PWM参数计算</p>
+    <p>PWM 参数计算</p>
 <p>时基单元：</p>
-<p><img data-src="/"></p>
-<p>![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\图片笔记\Snipaste_2023-12-18_21-35-40.png)</p>
-<p>跟Keil51一样，先进行预分频。</p>
-<p>自动重装器：设置一个值ARR，每次计数从0开始，计数到ARR后清零，计数ARR+1次</p>
-<p>计数器cnt：后根据内部时钟进行计数，每次和CCR捕获比较器进行比较；当CNT&lt;CCR时，电平置为有效电平；同理，当CNT&gt;&#x3D;CCR时，置为无效电平，即为零；之后根据占空比进行电压的输出。</p>
-<p>keil中代码的讲述</p>
+<p><img data-src="" alt=""></p>
+<p>![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-12-18_21-35-40.png)</p>
+<p>跟 Keil51 一样，先进行预分频。</p>
+<p>自动重装器：设置一个值 ARR，每次计数从 0 开始，计数到 ARR 后清零，计数 ARR+1 次</p>
+<p>计数器 cnt：后根据内部时钟进行计数，每次和 CCR 捕获比较器进行比较；当 CNT&lt;CCR 时，电平置为有效电平；同理，当 CNT&gt;=CCR 时，置为无效电平，即为零；之后根据占空比进行电压的输出。</p>
+<p>keil 中代码的讲述</p>
 <pre><code>void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1);
 void TIM_SetCompare2(TIM_TypeDef* TIMx, uint16_t Compare2);
 void TIM_SetCompare3(TIM_TypeDef* TIMx, uint16_t Compare3);
@@ -187,10 +187,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 </code></pre>
 <p>这个是用结构体来初始化输出</p>
 <hr>
-<p>一.舵机不听指挥乱动</p>
+<p>一。舵机不听指挥乱动</p>
 <p>没有与单片机共地</p>
-<p>舵机有三条线，分别是正负极和信号线(用来输入PWM信号)，因为舵机所需要的驱动电压比较大，一般在6v往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然PWM信号输入后舵机会不听使唤乱动，因为PWM信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。</p>
-<p>PWM需要和单片机共地，事实确实是这样</p>
+<p>舵机有三条线，分别是正负极和信号线 (用来输入 PWM 信号)，因为舵机所需要的驱动电压比较大，一般在 6v 往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然 PWM 信号输入后舵机会不听使唤乱动，因为 PWM 信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。</p>
+<p>PWM 需要和单片机共地，事实确实是这样</p>
 
   </div>
 
@@ -247,7 +247,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item left">
       
 
-  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="未命名">
+  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030b661c6c8e546e24bd.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -257,7 +257,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item right">
       
 
-  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81f00.jpg" title="无线下载器">
+  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a189f345e8d0300cedf.jpg" title="无线下载器">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>无线下载器</h3>
@@ -389,10 +389,19 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
   </li>
 
       
@@ -408,10 +417,9 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -421,16 +429,17 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -456,10 +465,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
@@ -469,17 +478,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
   </ul>
