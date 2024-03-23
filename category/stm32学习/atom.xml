@@ -3,13 +3,34 @@
     <id>https://bangdexuanyuan.github.io</id>
     <title> • Posts by &#34;stm32学习&#34; category</title>
     <link href="https://bangdexuanyuan.github.io" />
-    <updated>2024-03-10T11:40:00.000Z</updated>
-    <category term="哈尔滨生活" />
-    <category term="青岛生活" />
-    <category term="stm32" />
-    <category term="单片机" />
-    <category term="音乐" />
+    <updated>2024-03-23T07:43:12.000Z</updated>
     <category term="英语" />
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="stm32" />
+    <category term="青岛生活" />
+    <category term="单片机" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
+        <title>关于keil中出现No target connnect问题的解决</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+        <content type="html">&lt;h4 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;IDE: Keil5&lt;/li&gt;
+&lt;li&gt;仿真器：ST-LINK/V2 (使用 SWJ 调试)&lt;/li&gt;
+&lt;li&gt;出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204801926-505140701.png&#34; alt=&#34;img&#34;&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204916335-1440071308.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;情况swj功能在代码中被关闭了&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#情况swj功能在代码中被关闭了&#34;&gt;#&lt;/a&gt; 情况：SWJ 功能在代码中被关闭了&lt;/h2&gt;
+&lt;p&gt;这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。&lt;strong&gt;并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了&lt;/strong&gt;（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了&lt;/strong&gt;。这部分的代码在&lt;strong&gt; stm32f1xx_hal_msp.c&lt;/strong&gt; 这个文件的 **HAL_MspInit ()&lt;strong&gt; 函数里，&lt;br&gt;
+如图：正是&lt;/strong&gt;__HAL_AFIO_REMAP_SWJ_DISABLE ()** 这个函数把 SWJ 调试功能屏蔽了，所以你连接 swj 没反应。&lt;br&gt;
+&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是 JTAG 调试，道理类似）&lt;/p&gt;
+</content>
+        <category term="stm32" />
+        <updated>2024-03-23T07:43:12.000Z</updated>
+    </entry>
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/</id>
         <title>无线下载器</title>

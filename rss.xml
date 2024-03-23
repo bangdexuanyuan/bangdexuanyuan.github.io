@@ -5,14 +5,35 @@
         <link>https://bangdexuanyuan.github.io</link>
         <description>欢迎大家来到邦的轩辕的小屋，这里会分享everything</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 21 Mar 2024 18:30:00 +0800</pubDate>
-        <lastBuildDate>Thu, 21 Mar 2024 18:30:00 +0800</lastBuildDate>
-        <category>哈尔滨生活</category>
-        <category>青岛生活</category>
-        <category>stm32</category>
-        <category>单片机</category>
-        <category>音乐</category>
+        <pubDate>Sat, 23 Mar 2024 15:43:12 +0800</pubDate>
+        <lastBuildDate>Sat, 23 Mar 2024 15:43:12 +0800</lastBuildDate>
         <category>英语</category>
+        <category>哈尔滨生活</category>
+        <category>音乐</category>
+        <category>stm32</category>
+        <category>青岛生活</category>
+        <category>单片机</category>
+        <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+            <title>关于keil中出现No target connnect问题的解决</title>
+            <link>https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+            <category>stm32</category>
+            <pubDate>Sat, 23 Mar 2024 15:43:12 +0800</pubDate>
+            <description><![CDATA[ &lt;h4 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;IDE: Keil5&lt;/li&gt;
+&lt;li&gt;仿真器：ST-LINK/V2 (使用 SWJ 调试)&lt;/li&gt;
+&lt;li&gt;出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204801926-505140701.png&#34; alt=&#34;img&#34;&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204916335-1440071308.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;情况swj功能在代码中被关闭了&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#情况swj功能在代码中被关闭了&#34;&gt;#&lt;/a&gt; 情况：SWJ 功能在代码中被关闭了&lt;/h2&gt;
+&lt;p&gt;这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。&lt;strong&gt;并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了&lt;/strong&gt;（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了&lt;/strong&gt;。这部分的代码在&lt;strong&gt; stm32f1xx_hal_msp.c&lt;/strong&gt; 这个文件的 **HAL_MspInit ()&lt;strong&gt; 函数里，&lt;br&gt;
+如图：正是&lt;/strong&gt;__HAL_AFIO_REMAP_SWJ_DISABLE ()** 这个函数把 SWJ 调试功能屏蔽了，所以你连接 swj 没反应。&lt;br&gt;
+&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是 JTAG 调试，道理类似）&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
             <title>STM32串口传输数据</title>

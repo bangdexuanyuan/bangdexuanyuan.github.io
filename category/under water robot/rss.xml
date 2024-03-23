@@ -7,12 +7,12 @@
         <language>zh-CN</language>
         <pubDate>Thu, 21 Mar 2024 18:30:00 +0800</pubDate>
         <lastBuildDate>Thu, 21 Mar 2024 18:30:00 +0800</lastBuildDate>
-        <category>哈尔滨生活</category>
-        <category>青岛生活</category>
-        <category>stm32</category>
-        <category>单片机</category>
-        <category>音乐</category>
         <category>英语</category>
+        <category>哈尔滨生活</category>
+        <category>音乐</category>
+        <category>stm32</category>
+        <category>青岛生活</category>
+        <category>单片机</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
             <title>STM32串口传输数据</title>

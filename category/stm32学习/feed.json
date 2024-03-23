@@ -5,6 +5,16 @@
     "home_page_url": "https://bangdexuanyuan.github.io",
     "items": [
         {
+            "id": "https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
+            "url": "https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
+            "title": "关于keil中出现No target connnect问题的解决",
+            "date_published": "2024-03-23T07:43:12.000Z",
+            "content_html": "<h4 id=\"问题描述\"><a class=\"markdownIt-Anchor\" href=\"#问题描述\">#</a> 问题描述：</h4>\n<ul>\n<li>IDE: Keil5</li>\n<li>仿真器：ST-LINK/V2 (使用 SWJ 调试)</li>\n<li>出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：</li>\n</ul>\n<p><img data-src=\"https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204801926-505140701.png\" alt=\"img\"><img data-src=\"https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204916335-1440071308.png\" alt=\"img\"></p>\n<h2 id=\"情况swj功能在代码中被关闭了\"><a class=\"markdownIt-Anchor\" href=\"#情况swj功能在代码中被关闭了\">#</a> 情况：SWJ 功能在代码中被关闭了</h2>\n<p>这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。<strong>并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了</strong>（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。<img data-src=\"https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png\" alt=\"img\"></p>\n<p><strong>出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了</strong>。这部分的代码在<strong> stm32f1xx_hal_msp.c</strong> 这个文件的 **HAL_MspInit ()<strong> 函数里，<br>\n如图：正是</strong>__HAL_AFIO_REMAP_SWJ_DISABLE ()** 这个函数把 SWJ 调试功能屏蔽了，所以你连接 swj 没反应。<br>\n<img data-src=\"https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png\" alt=\"img\"></p>\n<p>解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是 JTAG 调试，道理类似）</p>\n",
+            "tags": [
+                "stm32"
+            ]
+        },
+        {
             "id": "https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/",
             "url": "https://bangdexuanyuan.github.io/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/",
             "title": "无线下载器",

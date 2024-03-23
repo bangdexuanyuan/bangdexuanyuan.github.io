@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
         </ul>
       </div>
     </header>
@@ -154,12 +154,13 @@
         <ul class="posts">
             <li><a title="EXTI外部中断" href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/">EXTI外部中断</a></li>
             <li><a title="stm32定时器外设时钟" href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/">stm32定时器外设时钟</a></li>
+            <li><a title="关于keil中出现No target connnect问题的解决" href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">关于keil中出现No target connnect问题的解决</a></li>
             <li><a title="定时器学习" href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">定时器学习</a></li>
             <li><a title="无线下载器" href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/">无线下载器</a></li>
         </ul>
         <div class="meta footer">
           <span>
-            <i class="ic i-file"></i>4 篇文章
+            <i class="ic i-file"></i>5 篇文章
           </span>
         </div>
         <a href="/categories/stm32/" itemprop="url" title="stm32学习" class="btn">more...</a>
@@ -170,6 +171,56 @@
       </div>
     <h2 class="divider">文章列表</h2>
     <div class="segments posts">
+        
+<article class="item">
+  <div class="cover">
+    <a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url" title="关于keil中出现No target connnect问题的解决"><img data-src="https://pic.imgdb.cn/item/65fe886a9f345e8d03943f18.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2024-03-23 15:43:12">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2024-03-23T15:43:12+08:00">2024-03-23</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>426</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></h3>
+    <div class="excerpt">
+        # 问题描述：
+
+IDE: Keil5
+仿真器：ST-LINK/V2 (使用 SWJ 调试)
+出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：
+
+# 情况：SWJ 功能在代码中被关闭了
+这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。
+出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了。这部分的代码在...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/stm32/" itemprop="url" title="stm32学习"><i class="ic i-flag"></i>stm32学习</a>
+      </span>
+    </div>
+    <a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url" title="关于keil中出现No target connnect问题的解决" class="btn">more...</a>
+  </div>
+</article>
+
         
 <article class="item">
   <div class="cover">
@@ -228,7 +279,7 @@ HAL_UART_Transmit_DMA (); 串口 DMA...
         
 <article class="item">
   <div class="cover">
-    <a href="/study/hello-world/" itemprop="url" title="英语论文学习"><img data-src="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></a>
+    <a href="/study/hello-world/" itemprop="url" title="英语论文学习"><img data-src="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></a>
   </div>
   <div class="info">
     
@@ -285,7 +336,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" title="无线下载器"><img data-src="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></a>
+    <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" title="无线下载器"><img data-src="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></a>
   </div>
   <div class="info">
     
@@ -336,7 +387,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/PWM/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></a>
+    <a href="/stm32/PWM/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></a>
   </div>
   <div class="info">
     
@@ -379,7 +430,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></a>
+    <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></a>
   </div>
   <div class="info">
     
@@ -426,7 +477,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></a>
+    <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></a>
   </div>
   <div class="info">
     
@@ -516,7 +567,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></a>
+    <a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></a>
   </div>
   <div class="info">
     
@@ -556,7 +607,7 @@ What did...
         
 <article class="item">
   <div class="cover">
-    <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="EXTI外部中断"><img data-src="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></a>
+    <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" title="EXTI外部中断"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></a>
   </div>
   <div class="info">
     
@@ -601,50 +652,6 @@ stm32 有 68 个可屏蔽中断通道，包含 EXTI、TIM、ADC、USART、SPI、
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" title="stm32定时器外设时钟"><img data-src="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2023-09-02 15:28:00">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-02T15:28:00+08:00">2023-09-02</time>
-  </span>
-  <span class="item" title="本文字数">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>2k</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="阅读时长">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>2 分钟</span>
-  </span>
-</div>
-
-    <h3><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" title="stm32定时器外设时钟">stm32定时器外设时钟</a></h3>
-    <div class="excerpt">
-        void RCC_AHBPeriphClockCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState);void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState);定时器函数
-
-void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/stm32/" itemprop="url" title="stm32学习"><i class="ic i-flag"></i>stm32学习</a>
-      </span>
-    </div>
-    <a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" itemprop="url" title="stm32定时器外设时钟" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -680,7 +687,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">13</span>
+        <span class="count">14</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -774,6 +781,15 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
   <li class="item">
     
 <div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
@@ -784,18 +800,10 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
   </li>
 
       
@@ -805,7 +813,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
@@ -842,9 +850,10 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
       
@@ -854,7 +863,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
       
@@ -863,7 +872,7 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph,...
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
