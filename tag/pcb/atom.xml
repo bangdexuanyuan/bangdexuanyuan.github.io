@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://bangdexuanyuan.github.io</id>
+    <title> • Posts by &#34;pcb&#34; tag</title>
+    <link href="https://bangdexuanyuan.github.io" />
+    <updated>2024-03-25T15:00:00.000Z</updated>
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="英语" />
+    <category term="stm32" />
+    <category term="pcb" />
+    <category term="水下机器人" />
+    <category term="单片机" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</id>
+        <title>水下机器人画板子的时候遇到的一些问题</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
+        <content type="html">&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/6600519a9f345e8d030af8c2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在自己画板子的时候，第一版板子，自己并没有注意到一个问题，就是这个电源的母端接口，也就是U2那个部分，自己设计的时候，想让焊盘弄得大一些，让电流能够更好地通过，但是自己忽略了一个问题，就是这个焊盘太大了，导致负极的焊盘和正极的那个电源插口连接上了，导致短路。&lt;/p&gt;
+&lt;p&gt;真是个低级的问题，但是自己还是犯了，很抽象。&lt;/p&gt;
+&lt;p&gt;幸亏自己是通过电压表测量了一下，没有直接接到电源上，否则，不知道会出现什么问题。可能直接就炸了吧。&lt;/p&gt;
+&lt;p&gt;还有，自己得学会开窗得操作，根据百度，对于PCB开窗的解释如下：&lt;/p&gt;
+&lt;p&gt;阻焊覆盖，就是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3YvdGFnLzgyLw==&#34;&gt;PCB&lt;/span&gt;上的导线都是盖油的，可以防止短路，对器件造成伤害，其实就是自己平时嘉立创打板之后，&lt;/p&gt;
+&lt;p&gt;所谓开窗就是去掉导线上的油漆层，让导线裸露可以上锡。&lt;/p&gt;
+&lt;p&gt;开窗还有一个很常见功能，就是后期烫锡增加铜箔厚度，方便过大&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3RhZ3MvJUU3JTk0JUI1JUU2JUI1JTgxLw==&#34;&gt;电流&lt;/span&gt;，散热，这在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaHFjaGlwLmNvbS9hcHAuaHRtbA==&#34;&gt;电源&lt;/span&gt;板和&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9iYnMuZWxlY2ZhbnMuY29tL3podXRpX2RpYW5qaV8xLmh0bWw=&#34;&gt;电机控制&lt;/span&gt;板中比较常见。&lt;/p&gt;
+&lt;p&gt;然后，明白一点，就是在自己直接用封装进行PCB绘制的时候，网络一定要统一，就是该是GND的，可以在&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/660059a99f345e8d033c3631.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如右图所示，网络是可以进行修改的，因为我们并没有进行原理图的绘制，所以，我们本应该是GND的网络，会变成未知的网络格式，比如s24820,这个时候，我们铺铜的时候，也会发现，其显示是否保存成为一个孤岛，这个也就间接表示，我们的网络其实建立的不对。&lt;/p&gt;
+&lt;p&gt;然后自己的程序，明天接着进行调试。&lt;/p&gt;
+&lt;p&gt;主手部分的那个PCB板子，手柄处，进行了测量，还是存在a,b处存在短接的问题，这个问题仍然没有解决，这可能也是主控板的串口，通过232转ttl，并没有输出数据的原因。&lt;/p&gt;
+&lt;p&gt;明天的事情，我们明天再聊。&lt;/p&gt;
+&lt;p&gt;卧槽了，太离谱了，他竟然又好用了。&lt;/p&gt;
+&lt;p&gt;然后现在得进度就是我们需要把PCB板子重新画一边，因为刚才的原因嘛，导致电池的正极和负极是导通的状态，这个肯定是不行的。&lt;/p&gt;
+&lt;p&gt;然后根据昨天的经验，我们可以通过把网络进行修改，然后使得自己PCB板子好用。&lt;/p&gt;
+&lt;p&gt;最后，记得开窗，就是把阻焊覆盖这层给去掉，让其散热均匀。&lt;/p&gt;
+&lt;p&gt;然后其实这一版PCB改完之后，我们其实可以考虑，把舵机的信号线加上了，因为主手的程序可以出来了，所以我们也可以考虑把主手的信号线加上了。&lt;/p&gt;
+&lt;p&gt;关于电子舱的设计部分，全由我自己全全进行设计&lt;/p&gt;
+&lt;p&gt;目前有问题的就是水下摄像头的部分，首先是摄像头和树莓派相连，然后树莓派通过网线和电力载波相连，电力载波通过a和b线将信号传输到水上，水上也有一个电力载波模块，将电力载波模块通过网线和电脑相连，实现实时图像的传输。&lt;/p&gt;
+&lt;p&gt;关于供电部分，树莓派需要进行供电，电力载波也需要进行供电。树莓派的供电，可以使用typec口进行供电，所以考虑怎么引出来一个usb口，从而给树莓派供电。&lt;/p&gt;
+</content>
+        <category term="pcb" />
+        <updated>2024-03-25T15:00:00.000Z</updated>
+    </entry>
+</feed>

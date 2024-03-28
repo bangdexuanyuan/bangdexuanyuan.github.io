@@ -3,30 +3,391 @@
     <id>https://bangdexuanyuan.github.io</id>
     <title></title>
     <link href="https://bangdexuanyuan.github.io" />
-    <updated>2024-03-23T07:43:12.000Z</updated>
-    <category term="英语" />
+    <updated>2024-03-27T17:08:05.166Z</updated>
     <category term="哈尔滨生活" />
     <category term="音乐" />
-    <category term="stm32" />
     <category term="青岛生活" />
+    <category term="英语" />
+    <category term="stm32" />
+    <category term="pcb" />
+    <category term="水下机器人" />
     <category term="单片机" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
+        <title></title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"/>
+        <content type="html">&lt;p&gt;弯矩，剪力与分布载荷集荷之间的关系及其应用&lt;/p&gt;
+&lt;p&gt;分布载荷集度$q(x)$向上为正，向下为负&lt;/p&gt;
+&lt;p&gt;$dF_s(x)&amp;#x2F;dx &amp;#x3D; q(x)$&lt;/p&gt;
+&lt;p&gt;$dF_s(x) &amp;#x3D; q(x)dx&amp;#x3D;dS_q$&lt;/p&gt;
+&lt;p&gt;$F_s(x)$的意思是两个截面剪力的差，$dS_q$表示q围成的面积&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;C:/%E8%B5%84%E6%96%99%E7%9B%98/%E5%A4%A7%E5%AD%A6%E6%96%87%E5%8C%96%E8%AF%BE/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/Snipaste_2024-03-28_00-13-50.png&#34;&gt;&lt;/p&gt;
+</content>
+        <updated>2024-03-27T17:08:05.166Z</updated>
+    </entry>
+    <entry>
+        <id>https://bangdexuanyuan.github.io/pcb/%E4%BB%A3%E7%A0%81/</id>
+        <title></title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/pcb/%E4%BB%A3%E7%A0%81/"/>
+        <content type="html">&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include &amp;quot;main.h&amp;quot;
+#include &amp;quot;usart.h&amp;quot;
+#include &amp;quot;gpio.h&amp;quot;
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+uint8_t  RxBuffer[300];
+uint8_t cnt;
+uint8_t Rx_data[300];
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+int fputc(int ch, FILE *f)
+&amp;#123;
+  HAL_UART_Transmit(&amp;amp;huart1, (uint8_t *)&amp;amp;ch, 1, 0xffff);
+  return ch;
+&amp;#125;
+ 
+/**
+  * 函数功能: 重定向c库函数getchar,scanf到DEBUG_USARTx
+  * 输入参数: 无
+  * 返 回 值: 无
+  * 说    明：无
+  */
+int fgetc(FILE *f)
+&amp;#123;
+  uint8_t ch = 0;
+  HAL_UART_Receive(&amp;amp;huart1, &amp;amp;ch, 1, 0xffff);
+  return ch;
+&amp;#125;
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+void servo(float angle1,float angle2,float angle3,float angle4)
+&amp;#123;
+        
+&amp;#125;
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+static float  AixAngf1 = 0;
+static float  AixAngf2 = 0;
+static float  AixAngf3 = 0;
+static float  AixAngf4 = 0;
+/* USER CODE END PFP */
+static uint16_t  AixAng1 = 0;
+static uint16_t  AixAng2 = 0;
+static uint16_t  AixAng3 = 0;
+static uint16_t  AixAng4 = 0;
+static uint16_t open_angle =0;
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+&amp;#123;
+    if(huart-&amp;gt;Instance==USART2)//首先判断是否是USART2触发的中断
+        &amp;#123;
+//			printf(&amp;quot;%c%c%c%c%c&amp;quot;,Rx_data[0],Rx_data[1],Rx_data[2],Rx_data[3],Rx_data[4]);
+//	&amp;amp;&amp;amp;Rx_data[1]==0x01&amp;amp;&amp;amp;Rx_data[17]==0x77
+       if(Rx_data[0]==0x7F&amp;amp;&amp;amp;Rx_data[1]==0x01&amp;amp;&amp;amp;Rx_data[17]==0x77) &amp;#123;
+                AixAng1 = Rx_data[3]|(Rx_data[4]&amp;lt;&amp;lt;8);
+                AixAng2 = Rx_data[5]|(Rx_data[6]&amp;lt;&amp;lt;8);
+                AixAng3 = Rx_data[7]|(Rx_data[8]&amp;lt;&amp;lt;8);
+                AixAng4 = Rx_data[9]|(Rx_data[10]&amp;lt;&amp;lt;8);
+                open_angle =  Rx_data[13]|(Rx_data[14]&amp;lt;&amp;lt;8);
+                printf(&amp;quot;%d\r\n&amp;quot;,open_angle);
+
+                AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
+            
+                AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
+            //AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
+            //实际应该是0~45但是传感器输出的数据是0~90
+            
+                AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
+            //AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
+                AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
+                printf(&amp;quot;%f\r\n&amp;quot;,AixAngf1);
+                printf(&amp;quot;%f\r\n&amp;quot;,AixAngf2);
+                printf(&amp;quot;%f\r\n&amp;quot;,AixAngf3);
+                printf(&amp;quot;%f\r\n&amp;quot;,AixAngf4);
+
+//				 &amp;#125;
+//				 if(Rx_data[1]==0x02)
+//				 &amp;#123;
+//					printf(&amp;quot;关灯&amp;quot;);
+//				 &amp;#125;
+//				 if(Rx_data[1]==0x03)
+//				 &amp;#123;
+//						printf(&amp;quot;老等&amp;quot;);
+//				 &amp;#125;
+//					 
+//					switch (Rx_data[1]) &amp;#123;
+//                  case 0x01: &amp;#123;
+//                      printf(&amp;quot;Servo_1 turn\r\n&amp;quot;);
+//                      printf(&amp;quot;angle=%d\r\n&amp;quot;, Rx_data[2] * 256 + Rx_data[3]);
+//                  &amp;#125;
+//                      break;
+//                  case 0x02: &amp;#123;
+//                      printf(&amp;quot;Servo_2 turn\r\n&amp;quot;);
+//                      printf(&amp;quot;angle=%d\r\n&amp;quot;, Rx_data[2] * 256 + Rx_data[3]);
+//                  &amp;#125;
+//                      break;
+//                  case 0x03: &amp;#123;
+//                      printf(&amp;quot;Servo_3 turn\r\n&amp;quot;);
+//                      printf(&amp;quot;angle=%d\r\n&amp;quot;, Rx_data[2] * 256 + Rx_data[3]);
+//                  &amp;#125;
+//                      break;
+//                  case 0x04: &amp;#123;
+//                      printf(&amp;quot;Servo_4 turn\r\n&amp;quot;);
+//                      printf(&amp;quot;angle=%d\r\n&amp;quot;, Rx_data[2] * 256 + Rx_data[3]);
+//                  &amp;#125;
+//                      break;
+//                  default:
+//                      printf(&amp;quot;data_error!&amp;quot;);
+//              &amp;#125;
+//          &amp;#125;
+//          else
+//          &amp;#123;
+//              printf(&amp;quot;Data——error!\r\n&amp;quot;);
+//          &amp;#125;
+                    &amp;#125;
+          for (int i = 0; i &amp;lt; 18; ++i) &amp;#123;
+              Rx_data[i]=0;
+          &amp;#125;
+            HAL_UART_Receive_IT(&amp;amp;huart2,(uint8_t*)Rx_data,18);
+        &amp;#125;
+&amp;#125;
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+&amp;#123;
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
+  /* USER CODE BEGIN 2 */
+    HAL_UART_Receive_IT(&amp;amp;huart2,(uint8_t*)Rx_data,18);
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  &amp;#123;
+        
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+//		HAL_UART_Transmit(&amp;amp;huart1 ,(uint8_t*)Tx_data , 5,0xffff);
+//		HAL_Delay(2000);
+  &amp;#125;
+  /* USER CODE END 3 */
+&amp;#125;
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+&amp;#123;
+  RCC_OscInitTypeDef RCC_OscInitStruct = &amp;#123;0&amp;#125;;
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = &amp;#123;0&amp;#125;;
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  if (HAL_RCC_OscConfig(&amp;amp;RCC_OscInitStruct) != HAL_OK)
+  &amp;#123;
+    Error_Handler();
+  &amp;#125;
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&amp;amp;RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  &amp;#123;
+    Error_Handler();
+  &amp;#125;
+&amp;#125;
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+&amp;#123;
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  &amp;#123;
+  &amp;#125;
+  /* USER CODE END Error_Handler_Debug */
+&amp;#125;
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+&amp;#123;
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf(&amp;quot;Wrong parameters value: file %s on line %d\r\n&amp;quot;, file, line) */
+  /* USER CODE END 6 */
+&amp;#125;
+#endif /* USE_FULL_ASSERT */
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2024-03-27T03:32:09.754Z</updated>
+    </entry>
+    <entry>
+        <id>https://bangdexuanyuan.github.io/pcb/123/</id>
+        <title></title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/pcb/123/"/>
+        <content type="html">&lt;p&gt;1150是从上到下的第二个舵机的机械中值。&lt;/p&gt;
+</content>
+        <updated>2024-03-26T16:50:22.284Z</updated>
+    </entry>
+    <entry>
+        <id>https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</id>
+        <title>水下机器人画板子的时候遇到的一些问题</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
+        <content type="html">&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/6600519a9f345e8d030af8c2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在自己画板子的时候，第一版板子，自己并没有注意到一个问题，就是这个电源的母端接口，也就是U2那个部分，自己设计的时候，想让焊盘弄得大一些，让电流能够更好地通过，但是自己忽略了一个问题，就是这个焊盘太大了，导致负极的焊盘和正极的那个电源插口连接上了，导致短路。&lt;/p&gt;
+&lt;p&gt;真是个低级的问题，但是自己还是犯了，很抽象。&lt;/p&gt;
+&lt;p&gt;幸亏自己是通过电压表测量了一下，没有直接接到电源上，否则，不知道会出现什么问题。可能直接就炸了吧。&lt;/p&gt;
+&lt;p&gt;还有，自己得学会开窗得操作，根据百度，对于PCB开窗的解释如下：&lt;/p&gt;
+&lt;p&gt;阻焊覆盖，就是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3YvdGFnLzgyLw==&#34;&gt;PCB&lt;/span&gt;上的导线都是盖油的，可以防止短路，对器件造成伤害，其实就是自己平时嘉立创打板之后，&lt;/p&gt;
+&lt;p&gt;所谓开窗就是去掉导线上的油漆层，让导线裸露可以上锡。&lt;/p&gt;
+&lt;p&gt;开窗还有一个很常见功能，就是后期烫锡增加铜箔厚度，方便过大&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3RhZ3MvJUU3JTk0JUI1JUU2JUI1JTgxLw==&#34;&gt;电流&lt;/span&gt;，散热，这在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaHFjaGlwLmNvbS9hcHAuaHRtbA==&#34;&gt;电源&lt;/span&gt;板和&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9iYnMuZWxlY2ZhbnMuY29tL3podXRpX2RpYW5qaV8xLmh0bWw=&#34;&gt;电机控制&lt;/span&gt;板中比较常见。&lt;/p&gt;
+&lt;p&gt;然后，明白一点，就是在自己直接用封装进行PCB绘制的时候，网络一定要统一，就是该是GND的，可以在&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/660059a99f345e8d033c3631.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如右图所示，网络是可以进行修改的，因为我们并没有进行原理图的绘制，所以，我们本应该是GND的网络，会变成未知的网络格式，比如s24820,这个时候，我们铺铜的时候，也会发现，其显示是否保存成为一个孤岛，这个也就间接表示，我们的网络其实建立的不对。&lt;/p&gt;
+&lt;p&gt;然后自己的程序，明天接着进行调试。&lt;/p&gt;
+&lt;p&gt;主手部分的那个PCB板子，手柄处，进行了测量，还是存在a,b处存在短接的问题，这个问题仍然没有解决，这可能也是主控板的串口，通过232转ttl，并没有输出数据的原因。&lt;/p&gt;
+&lt;p&gt;明天的事情，我们明天再聊。&lt;/p&gt;
+&lt;p&gt;卧槽了，太离谱了，他竟然又好用了。&lt;/p&gt;
+&lt;p&gt;然后现在得进度就是我们需要把PCB板子重新画一边，因为刚才的原因嘛，导致电池的正极和负极是导通的状态，这个肯定是不行的。&lt;/p&gt;
+&lt;p&gt;然后根据昨天的经验，我们可以通过把网络进行修改，然后使得自己PCB板子好用。&lt;/p&gt;
+&lt;p&gt;最后，记得开窗，就是把阻焊覆盖这层给去掉，让其散热均匀。&lt;/p&gt;
+&lt;p&gt;然后其实这一版PCB改完之后，我们其实可以考虑，把舵机的信号线加上了，因为主手的程序可以出来了，所以我们也可以考虑把主手的信号线加上了。&lt;/p&gt;
+&lt;p&gt;关于电子舱的设计部分，全由我自己全全进行设计&lt;/p&gt;
+&lt;p&gt;目前有问题的就是水下摄像头的部分，首先是摄像头和树莓派相连，然后树莓派通过网线和电力载波相连，电力载波通过a和b线将信号传输到水上，水上也有一个电力载波模块，将电力载波模块通过网线和电脑相连，实现实时图像的传输。&lt;/p&gt;
+&lt;p&gt;关于供电部分，树莓派需要进行供电，电力载波也需要进行供电。树莓派的供电，可以使用typec口进行供电，所以考虑怎么引出来一个usb口，从而给树莓派供电。&lt;/p&gt;
+</content>
+        <category term="pcb" />
+        <updated>2024-03-25T15:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</id>
+        <title>水上和水下双单片机串口沟通</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/"/>
+        <content type="html">&lt;p&gt;由于项目的需要，需要一个水上stm32单片机与水下的电子仓里面的stm32进行通讯。&lt;/p&gt;
+&lt;p&gt;我的思路是这样的，先不考虑距离传输，直接采用串口进行传输。&lt;/p&gt;
+&lt;p&gt;然后我的思路是，采用$stm32cubemx$对串口进行配置，因为是全双工的，所以我想法是利用串口ttl模块&lt;/p&gt;
+&lt;p&gt;通过查阅资料，一般的串口通讯ttl能传播的距离为10m左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用485模块，通过485模块，将水下机器人的传播距离增大至1km.&lt;/p&gt;
+&lt;p&gt;之前测试的时候，我是想通过ttl模块，直接对单片机发送16进制的数据，测试hal库的中断接收好不好用，但是在测试的过程中，我发现，通过ttl模块对单片机发送的数据和在hal里面，调用发送中断函数，其发送的16进制的数据，并不一样，在这个地方。我卡了好久，&lt;/p&gt;
+&lt;p&gt;现在考虑怎么把控制速度和舵机的进行融合，我们可以这样。&lt;/p&gt;
+&lt;p&gt;在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的ADC值进行融合，然后发送数据包，通过485发送给水下单片机，从而操作其工作。&lt;/p&gt;
+</content>
+        <category term="水下机器人" />
+        <updated>2024-03-24T07:10:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
         <title>关于keil中出现No target connnect问题的解决</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-        <content type="html">&lt;h4 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述：&lt;/h4&gt;
-&lt;ul&gt;
+        <content type="html">&lt;h4 id=&#34;问题描述：&#34;&gt;&lt;a href=&#34;#问题描述：&#34; class=&#34;headerlink&#34; title=&#34;问题描述：&#34;&gt;&lt;/a&gt;问题描述：&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;IDE: Keil5&lt;/li&gt;
-&lt;li&gt;仿真器：ST-LINK/V2 (使用 SWJ 调试)&lt;/li&gt;
-&lt;li&gt;出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：&lt;/li&gt;
+&lt;li&gt;仿真器：ST-LINK&amp;#x2F;V2(使用SWJ调试)&lt;/li&gt;
+&lt;li&gt;出现问题：烧录程序时，出现No target connected的提示，具体如下图所示：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204801926-505140701.png&#34; alt=&#34;img&#34;&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204916335-1440071308.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;情况swj功能在代码中被关闭了&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#情况swj功能在代码中被关闭了&#34;&gt;#&lt;/a&gt; 情况：SWJ 功能在代码中被关闭了&lt;/h2&gt;
-&lt;p&gt;这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。&lt;strong&gt;并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了&lt;/strong&gt;（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了&lt;/strong&gt;。这部分的代码在&lt;strong&gt; stm32f1xx_hal_msp.c&lt;/strong&gt; 这个文件的 **HAL_MspInit ()&lt;strong&gt; 函数里，&lt;br&gt;
-如图：正是&lt;/strong&gt;__HAL_AFIO_REMAP_SWJ_DISABLE ()** 这个函数把 SWJ 调试功能屏蔽了，所以你连接 swj 没反应。&lt;br&gt;
-&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是 JTAG 调试，道理类似）&lt;/p&gt;
+&lt;h2 id=&#34;情况：SWJ功能在代码中被关闭了&#34;&gt;&lt;a href=&#34;#情况：SWJ功能在代码中被关闭了&#34; class=&#34;headerlink&#34; title=&#34;情况：SWJ功能在代码中被关闭了&#34;&gt;&lt;/a&gt;情况：SWJ功能在代码中被关闭了&lt;/h2&gt;&lt;p&gt; 这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。&lt;strong&gt;并且当你一直按着开发板的reset键时，你会发现又能识别设备了&lt;/strong&gt;（根据这个现象，网上有给出先按住reset键，在点烧录按钮后立刻松开reset的笨办法，这个方法看手速和人品，有概率解决）。&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;出现这种情况的原因是，你烧录的代码里把芯片的SWJ调试功能给屏蔽了&lt;/strong&gt;。这部分的代码在&lt;strong&gt;stm32f1xx_hal_msp.c&lt;/strong&gt;这个文件的**HAL_MspInit()&lt;strong&gt;函数里，&lt;br&gt;如图：正是&lt;/strong&gt;__HAL_AFIO_REMAP_SWJ_DISABLE()**这个函数把SWJ调试功能屏蔽了，所以你连接swj没反应。&lt;br&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是JTAG调试，道理类似）&lt;/p&gt;
 </content>
         <category term="stm32" />
         <updated>2024-03-23T07:43:12.000Z</updated>
@@ -36,31 +397,23 @@
         <title>STM32串口传输数据</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/"/>
         <content type="html">&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;STM32CUBEMX&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05017em;&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 利用串口传输数据&lt;/p&gt;
-&lt;p&gt;1. 串口的发送与接收&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;$STM32CUBEMX$利用串口传输数据&lt;/p&gt;
+&lt;p&gt;1.串口的发送与接收&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit (); 串口发送数据，使用超时管理机制&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Transmit();串口发送数据，使用超时管理机制 &lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Receive (); 串口接收数据，使用超时管理机制&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Receive();串口接收数据，使用超时管理机制&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_IT (); 串口中断模式发送&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_IT();串口中断模式发送  &lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Receive_IT (); 串口中断模式接收&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Receive_IT();串口中断模式接收&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式发送&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_DMA();串口DMA模式发送&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式接收&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_DMA();串口DMA模式接收&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
-
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;功能：&lt;strong&gt;串口&lt;/strong&gt;发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;UART_HandleTypeDef*huart 例如huart1就是其中一个别名
@@ -79,33 +432,120 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;title,author,abstract,keywords&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Descriptive (说明性的) information that lets readers search for an article.&lt;/p&gt;
+&lt;p&gt;Descriptive(说明性的) information that lets readers search for an article.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What is the context for this project?&lt;/p&gt;
 &lt;p&gt;How does it fit in with other research on the topic?&lt;/p&gt;
 &lt;p&gt;What is the research question?&lt;/p&gt;
-&lt;p&gt;总结：以上说的是 WHY 部分&lt;/p&gt;
+&lt;p&gt;总结：以上说的是WHY部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What did the author do to answer the research question?&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 HOW 部分&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是HOW部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What was the answer to the question?&lt;/p&gt;
 &lt;p&gt;This is often shown in tables and figures.&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 WHAT&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是WHAT&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Discussion/Conclusion&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Discussion&amp;#x2F;Conclusion&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What is the significance of this project?&lt;/p&gt;
 &lt;p&gt;How does it fit in with what else is known about the topic?&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 SO WHAT 部分&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是SO WHAT部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;References&lt;/strong&gt;（参考文献部分）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Features of Academic English&lt;/strong&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it uses formal academic language and avoids colloqualisms(n.口语)&lt;/li&gt;
+&lt;li&gt;it avoid  等待补坑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Concrete example&lt;/strong&gt;(专业英语风格的例子)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;No idiomatic(习语)&amp;#x2F;colloquial(口语)&amp;#x2F;slang(俚语)    kid&amp;#x2F;boss&amp;#x2F;staff&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No phrasal verbs没有动词短语     take up&amp;#x2F;get rid of&amp;#x2F;look into&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No personal pronouns没有人称代词       i&amp;#x2F;me&amp;#x2F;you&amp;#x2F;your&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No contractions  (没有使用缩略形式)     It’ll &amp;#x2F; It’s&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No questions(不使用问题)  So why did the project fail?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No emotional adverbs（不使用情绪化副词）  surprisingly&amp;#x2F;unfortunately&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No vague language(不适用含糊不清的语言)     and so on &amp;#x2F;etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No bullet points(不使用要点符号)   比如最前面的那个小黑点&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No reputation（不要重复）constant repeating same words(exclude key words)关键词除外&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;No basic language&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;like 换成for example&lt;/p&gt;
+&lt;p&gt;things 换成factor&lt;/p&gt;
+&lt;p&gt;lots of 换成significant amount&lt;/p&gt;
+&lt;p&gt;get 换成obtain&lt;/p&gt;
+&lt;p&gt;big替换为large &lt;/p&gt;
+&lt;p&gt;look at examine 换成examine&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;YES passive stucture  we analyse换成the data is&lt;/li&gt;
+&lt;li&gt;YES accurate vocabulary   law-rule-regulation&lt;/li&gt;
+&lt;li&gt;YES precise figures&amp;#x2F;facts      a few hours换成 x hours     5 years ago 换成in   2015 &lt;/li&gt;
+&lt;li&gt;YES caution&amp;#x2F;tentative voice(谨慎&amp;#x2F;试探性的声音)  seem&amp;#x2F;appear&amp;#x2F;could&amp;#x2F;may&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Essentials(n.要点) of an Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Research of background&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why is the research important?Why would a reader be interested in the research?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Existing problem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(What problem does the research attempt to solve?What is the purpose or the scope of the project?)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Methods employed(这里的employed应该是应用的意思)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What are the scientific  approaches used in the study?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Results or findings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How do the research data indicate the results of the project?&lt;/p&gt;
+&lt;p&gt;研究数据如何表明项目的结果？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conclusions from the research&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What can we conclude from the research ?What changes should be implemented as a result of the works?&lt;/p&gt;
+&lt;p&gt;我们可以从研究中得出什么结论？工程结束后，应实施哪些更改？&lt;/p&gt;
+&lt;p&gt;考试专用：&lt;/p&gt;
+&lt;p&gt;一些英语论文中专业的用法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;systematically review     系统综述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;reach a mature stage     达到成熟阶段&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;aim &amp;#x2F;attempt&amp;#x2F;intend to  目的&amp;#x2F;企图&amp;#x2F;打算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;assess&amp;#x2F;estimate the efficacy of   评估&amp;#x2F;估计…的功效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;investigate(调查)&amp;#x2F;explore the relationship(探索关系)&amp;#x2F;interaction(相互影响) between …….and…….&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;the primary(主要的，首要的）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;proposed（提出了）……outperform（胜过）……on&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;……allow for a conclusive interpretation(总结性的解释)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;we introduce the notion(概念)&amp;#x2F;framework(框架，结构)  of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;a major area of interest within the field of       ……. 的主要兴趣领域&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </content>
         <category term="英语" />
@@ -123,13 +563,13 @@
 &lt;p&gt;无限地址的设置：&lt;/p&gt;
 &lt;p&gt;内部无线模块的地址，接收端和发送端的地址必须一样。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;唯一使用的注意事项：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在 keil 中，我们点击魔术棒按钮，然后在 Debug 这个界面里面，在右侧界面，把 stlink 的选项设置为 CMSIS-DAP-Debugger。&lt;/p&gt;
-&lt;p&gt;之后点击 settings 按钮，通过观察右侧的 SW Device 看看对于单片机的类型，是否进行了识别。&lt;/p&gt;
-&lt;p&gt;然后把 CMSIS-DAP-JTAG/SW Adapter 这个选项修改成第二行。&lt;/p&gt;
-&lt;p&gt;并把端口的类型改成 SW 类型。&lt;/p&gt;
-&lt;p&gt;**tips：** 使用的时候，我们接收端直接通过 USB 与电脑相连，另一个接收端，通过 SW，采用杜邦线和目标单片机进行相连。&lt;/p&gt;
-&lt;p&gt;需要注意的是，我们接收端的供电采用充电宝或者自己画板子的时候，可以加一个供电的 USB 口。&lt;/p&gt;
-&lt;p&gt;另外，自己于 2024.3.10 日调试的时候，因为单片机的问题，也曾出现过，检测不到单片机的问题。&lt;/p&gt;
+&lt;p&gt;在keil中，我们点击魔术棒按钮，然后在Debug这个界面里面，在右侧界面，把stlink的选项设置为CMSIS-DAP-Debugger。&lt;/p&gt;
+&lt;p&gt;之后点击settings按钮，通过观察右侧的SW Device看看对于单片机的类型，是否进行了识别。&lt;/p&gt;
+&lt;p&gt;然后把CMSIS-DAP-JTAG&amp;#x2F;SW Adapter这个选项修改成第二行。&lt;/p&gt;
+&lt;p&gt;并把端口的类型改成SW类型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips：&lt;/strong&gt;使用的时候，我们接收端直接通过USB与电脑相连，另一个接收端，通过SW，采用杜邦线和目标单片机进行相连。&lt;/p&gt;
+&lt;p&gt;需要注意的是，我们接收端的供电采用充电宝或者自己画板子的时候，可以加一个供电的USB口。&lt;/p&gt;
+&lt;p&gt;另外，自己于2024.3.10日调试的时候，因为单片机的问题，也曾出现过，检测不到单片机的问题。&lt;/p&gt;
 </content>
         <category term="stm32" />
         <updated>2024-03-10T11:40:00.000Z</updated>
@@ -138,14 +578,14 @@
         <id>https://bangdexuanyuan.github.io/stm32/PWM/</id>
         <title></title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/PWM/"/>
-        <content type="html">&lt;p&gt;PWM 参数计算&lt;/p&gt;
+        <content type="html">&lt;p&gt;PWM参数计算&lt;/p&gt;
 &lt;p&gt;时基单元：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-12-18_21-35-40.png)&lt;/p&gt;
-&lt;p&gt;跟 Keil51 一样，先进行预分频。&lt;/p&gt;
-&lt;p&gt;自动重装器：设置一个值 ARR，每次计数从 0 开始，计数到 ARR 后清零，计数 ARR+1 次&lt;/p&gt;
-&lt;p&gt;计数器 cnt：后根据内部时钟进行计数，每次和 CCR 捕获比较器进行比较；当 CNT&amp;lt;CCR 时，电平置为有效电平；同理，当 CNT&amp;gt;=CCR 时，置为无效电平，即为零；之后根据占空比进行电压的输出。&lt;/p&gt;
-&lt;p&gt;keil 中代码的讲述&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/&#34;&gt;&lt;/p&gt;
+&lt;p&gt;![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\图片笔记\Snipaste_2023-12-18_21-35-40.png)&lt;/p&gt;
+&lt;p&gt;跟Keil51一样，先进行预分频。&lt;/p&gt;
+&lt;p&gt;自动重装器：设置一个值ARR，每次计数从0开始，计数到ARR后清零，计数ARR+1次&lt;/p&gt;
+&lt;p&gt;计数器cnt：后根据内部时钟进行计数，每次和CCR捕获比较器进行比较；当CNT&amp;lt;CCR时，电平置为有效电平；同理，当CNT&amp;gt;&amp;#x3D;CCR时，置为无效电平，即为零；之后根据占空比进行电压的输出。&lt;/p&gt;
+&lt;p&gt;keil中代码的讲述&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1);
 void TIM_SetCompare2(TIM_TypeDef* TIMx, uint16_t Compare2);
 void TIM_SetCompare3(TIM_TypeDef* TIMx, uint16_t Compare3);
@@ -159,10 +599,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这个是用结构体来初始化输出&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;一。舵机不听指挥乱动&lt;/p&gt;
+&lt;p&gt;一.舵机不听指挥乱动&lt;/p&gt;
 &lt;p&gt;没有与单片机共地&lt;/p&gt;
-&lt;p&gt;舵机有三条线，分别是正负极和信号线 (用来输入 PWM 信号)，因为舵机所需要的驱动电压比较大，一般在 6v 往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然 PWM 信号输入后舵机会不听使唤乱动，因为 PWM 信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。&lt;/p&gt;
-&lt;p&gt;PWM 需要和单片机共地，事实确实是这样&lt;/p&gt;
+&lt;p&gt;舵机有三条线，分别是正负极和信号线(用来输入PWM信号)，因为舵机所需要的驱动电压比较大，一般在6v往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然PWM信号输入后舵机会不听使唤乱动，因为PWM信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。&lt;/p&gt;
+&lt;p&gt;PWM需要和单片机共地，事实确实是这样&lt;/p&gt;
 </content>
         <updated>2023-12-18T14:13:26.699Z</updated>
     </entry>
@@ -174,14 +614,12 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 &lt;ul&gt;
 &lt;li&gt;理想电压源阻抗为零，原因为：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;理想电压源 无论有多少电流流过都不会改变两端的电势差 ，所以内阻理想为零&lt;/p&gt;
+&lt;p&gt; 理想电压源 无论有多少电流流过都不会改变两端的电势差 ，所以内阻理想为零&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;理想电流源阻抗为正无穷，原因如下：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/651d2bb1c458853aef9aa5d4.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;而理想化就是让他们两个的效率达到 100%&lt;br&gt;
- 那么对于电流源，效率最大就是让电流全流过工作电阻，即负载电阻 R，那么仅当内阻 Ro 为无穷大时能满足，此时为理想电流源。&lt;br&gt;
-同理，对于电压源，效率最大是把电压全加载负载电阻 R 两端，那么仅当内阻 Ro 为 0 时，Ro 不能分到电压，电压全分给 R，此时为理想电压源。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/651d2bb1c458853aef9aa5d4.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;而理想化就是让他们两个的效率达到100%&lt;br&gt;那么对于电流源，效率最大就是让电流全流过工作电阻，即负载电阻R，那么仅当内阻Ro为无穷大时能满足，此时为理想电流源。&lt;br&gt;同理，对于电压源，效率最大是把电压全加载负载电阻R两端，那么仅当内阻Ro为0时，Ro不能分到电压，电压全分给R，此时为理想电压源。&lt;/p&gt;
 </content>
         <updated>2023-10-04T10:57:34.951Z</updated>
     </entry>
@@ -190,9 +628,8 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
         <title></title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/"/>
         <content type="html">&lt;p&gt;电路基础&lt;/p&gt;
-&lt;h5 id=&#34;明白什么是参考方向&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#明白什么是参考方向&#34;&gt;#&lt;/a&gt; 明白什么是参考方向&lt;/h5&gt;
-&lt;p&gt;首先，对于一个电路，一开始拿到手，我们是并不知道这个电路的电流和电压方向，那么就需要我们首先假定，假定电流一个流向，假定电压一个方向，也就是设定了一个参考方向&lt;/p&gt;
-&lt;p&gt;那么，如果我们电流算出来了一个数，比如&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;0.2&lt;/mn&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;I_A=-0.2A&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.83333em;vertical-align:-0.15em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;I&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.32833099999999993em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.76666em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，就说明这个电流的实际方向，与参考方向是相反的，电压同理。那么很自然就会想到，电压电流，两个对象，一共就有 2*2 中组合方案，有参考方向相同的，就有参考方向相反的。于是我们引入关联与非关联，我们称电流的参考方向与电压的参考方向相同的，叫做关联，反之，称之为非关联。&lt;/p&gt;
+&lt;h5 id=&#34;明白什么是参考方向&#34;&gt;&lt;a href=&#34;#明白什么是参考方向&#34; class=&#34;headerlink&#34; title=&#34;明白什么是参考方向&#34;&gt;&lt;/a&gt;明白什么是参考方向&lt;/h5&gt;&lt;p&gt;首先，对于一个电路，一开始拿到手，我们是并不知道这个电路的电流和电压方向，那么就需要我们首先假定，假定电流一个流向，假定电压一个方向，也就是设定了一个参考方向&lt;/p&gt;
+&lt;p&gt;那么，如果我们电流算出来了一个数，比如$I_A&amp;#x3D;-0.2A$，就说明这个电流的实际方向，与参考方向是相反的，电压同理。那么很自然就会想到，电压电流，两个对象，一共就有2*2中组合方案，有参考方向相同的，就有参考方向相反的。于是我们引入关联与非关联，我们称电流的参考方向与电压的参考方向相同的，叫做关联，反之，称之为非关联。&lt;/p&gt;
 &lt;p&gt;如果电压与电流关联，那么我们可&lt;/p&gt;
 </content>
         <updated>2023-09-14T08:25:48.744Z</updated>
@@ -217,15 +654,15 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
         <id>https://bangdexuanyuan.github.io/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
         <title></title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-        <content type="html">&lt;p&gt;Tim 定时器学习&lt;/p&gt;
+        <content type="html">&lt;p&gt;Tim定时器学习&lt;/p&gt;
 &lt;p&gt;定时器可以对输入的时钟进行计数，并在计数达到设定值的时候触发中断。当这个计数器的输入是一个准确可靠的基准时钟时，那它在对这个基准时钟进行计数的过程，实际上就是计时的过程&lt;/p&gt;
-&lt;p&gt;16 位计数器、预分频器、自动重装寄存器的时基单元，在 72MHz 计数时钟下可以实现最大 59.65s 的定时。&lt;/p&gt;
-&lt;p&gt;这里的计数器其实就是用来执行计数定时的一个寄存器，每来一个时钟，计数器加 1&lt;/p&gt;
+&lt;p&gt;16位计数器、预分频器、自动重装寄存器的时基单元，在72MHz计数时钟下可以实现最大59.65s的定时。&lt;/p&gt;
+&lt;p&gt;这里的计数器其实就是用来执行计数定时的一个寄存器，每来一个时钟，计数器加1&lt;/p&gt;
 &lt;p&gt;预分频器，可以对计数器的时钟进行分频，让这个计数更加灵活。&lt;/p&gt;
 &lt;p&gt;自动重装寄存器就是计数的目标值，就是我想到计多少个时钟申请中断。&lt;/p&gt;
 &lt;p&gt;这些寄存器构成了定时器最核心的部分，我们把这一块电路，成为时基单元。&lt;/p&gt;
-&lt;p&gt;那这个时基单元里面的计数器，预分频器，自动重装寄存器都是 16 位。&lt;/p&gt;
-&lt;p&gt;2 的 16 次方时 65536，也就是如果预分频器设置最大，自动重装也设置最大&lt;/p&gt;
+&lt;p&gt;那这个时基单元里面的计数器，预分频器，自动重装寄存器都是16位。&lt;/p&gt;
+&lt;p&gt;2的16次方时65536，也就是如果预分频器设置最大，自动重装也设置最大&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -235,8 +672,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 &lt;th&gt;功能&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
+&lt;tbody&gt;&lt;tr&gt;
 &lt;td&gt;高级定时器&lt;/td&gt;
 &lt;td&gt;TIM1、TIM8&lt;/td&gt;
 &lt;td&gt;APB2&lt;/td&gt;
@@ -252,12 +688,11 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 &lt;td&gt;基本定时器&lt;/td&gt;
 &lt;td&gt;TIM6、TIM7&lt;/td&gt;
 &lt;td&gt;APB1&lt;/td&gt;
-&lt;td&gt;拥有定时中断、主模式触发 DAC 的功能&lt;/td&gt;
+&lt;td&gt;拥有定时中断、主模式触发DAC的功能&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;STM32F103C8T6 定时器资源：TIM1、TIM2、TIM3、TIM4&lt;/p&gt;
-&lt;p&gt;并额外具有重复计数器、死区生成、互补输出、刹车输入等功能，&lt;/p&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;STM32F103C8T6定时器资源：TIM1、TIM2、TIM3、TIM4&lt;/p&gt;
+&lt;p&gt;并额外具有重复计数器、死区生成、互补输出、刹车输入等功能,&lt;/p&gt;
 </content>
         <updated>2023-09-06T14:18:20.175Z</updated>
     </entry>
@@ -265,79 +700,103 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
         <id>https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/</id>
         <title>EXTI外部中断</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/"/>
-        <content type="html">&lt;h4 id=&#34;exti外部中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#exti外部中断&#34;&gt;#&lt;/a&gt; EXTI 外部中断&lt;/h4&gt;
-&lt;p&gt;NVIC 的名字叫做，嵌套中断向量控制器&lt;/p&gt;
-&lt;p&gt;NVIC 的出现，就是为了当 CPU 的秘书，如果我们把所有的中断都接在 CPU 上，CPU 对应位置就得进行适配，设计上就很麻烦。并且如果很多中断进行申请，造成了拥堵，CPU 也会很难搞，因为 CPU 还是主要负责进行运算的，中断分配的任务就放到别的地方吧。&lt;/p&gt;
-&lt;p&gt;NVIC 有很多个输入口，你有多少个中断都可以接过来&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35828661c6c8e54dee9d2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;NVIC 只有一个输出口，直接接到 CPU 上&lt;/p&gt;
-&lt;p&gt;stm32 有 68 个可屏蔽中断通道，包含 EXTI、TIM、ADC、USART、SPI、I2C、RTC 等多个外设使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级&lt;/p&gt;
-&lt;p&gt;NVIC 的中断优先级由优先级寄存器的 4 位（0~15）决定，这 4 位可以进行切分，分为高 n 位的抢占优先级和低 4-n 位的响应优先级，记住，值越小的优先级越高，比如 0 就是最高的优先级&lt;/p&gt;
+        <content type="html">&lt;h4 id=&#34;EXTI外部中断&#34;&gt;&lt;a href=&#34;#EXTI外部中断&#34; class=&#34;headerlink&#34; title=&#34;EXTI外部中断&#34;&gt;&lt;/a&gt;EXTI外部中断&lt;/h4&gt;&lt;p&gt;NVIC的名字叫做，嵌套中断向量控制器&lt;/p&gt;
+&lt;p&gt;NVIC的出现，就是为了当CPU的秘书，如果我们把所有的中断都接在CPU上，CPU对应位置就得进行适配，设计上就很麻烦。并且如果很多中断进行申请，造成了拥堵，CPU也会很难搞，因为CPU还是主要负责进行运算的，中断分配的任务就放到别的地方吧。&lt;/p&gt;
+&lt;p&gt;NVIC有很多个输入口，你有多少个中断都可以接过来&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35828661c6c8e54dee9d2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;NVIC只有一个输出口，直接接到CPU上&lt;/p&gt;
+&lt;p&gt;stm32有68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设使用NVIC统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级&lt;/p&gt;
+&lt;p&gt;NVIC的中断优先级由优先级寄存器的4位（0~15）决定，这4位可以进行切分，分为高n位的抢占优先级和低4-n位的响应优先级，记住，值越小的优先级越高，比如0就是最高的优先级&lt;/p&gt;
 &lt;p&gt;抢占优先级高的可以中断嵌套，响应优先级高的可以优先排队，&lt;strong&gt;抢占优先级和响应优先级均相同的按中断号排队&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35a2d661c6c8e54df3a92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f35a2d661c6c8e54df3a92.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;举个例子，就好像是有个医生在给一个人进行看病，抢占优先级高的可以直接把看病的那个人挤开，让自己去看。然后响应优先级就好像是有个人排队，他就应该排在第一位，大概就是这个意思。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;综上所述，现在我们可以这么理解，NVIC 其实可以理解成为一个叫号系统，而 CPU 就是那个医生，下面我们来介绍第一位病人，EXTI 外部中断&lt;/p&gt;
+&lt;p&gt;综上所述，现在我们可以这么理解，NVIC其实可以理解成为一个叫号系统，而CPU就是那个医生，下面我们来介绍第一位病人，EXTI外部中断&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;EXTI（Extern Interrupt）外部中断&lt;/p&gt;
-&lt;p&gt;EXTI 可以监测指定 GPIO 口的电平信号，当其指定的 GPIO 口产生电平变化时，EXTI 将立即向 NVIC 发出中断申请，经过 NVIC 裁决后即可中断 CPU 主程序，使 CPU 执行 EXTI 对应的中断程序&lt;/p&gt;
-&lt;p&gt;支持的触发方式：上升沿 / 下降沿 / 双边沿 / 软件触发&lt;/p&gt;
+&lt;p&gt;EXTI可以监测指定GPIO口的电平信号，当其指定的GPIO口产生电平变化时，EXTI将立即向NVIC发出中断申请，经过NVIC裁决后即可中断CPU主程序，使CPU执行EXTI对应的中断程序&lt;/p&gt;
+&lt;p&gt;支持的触发方式：上升沿&amp;#x2F;下降沿&amp;#x2F;双边沿&amp;#x2F;软件触发&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解释一下&lt;/strong&gt;：这里的上升沿是指由低电平上升到高电平，下降沿是由高电平降低到低电平，而双边沿就是指上下都计数&lt;/p&gt;
-&lt;p&gt;支持的 GPIO 口：所有 GPIO 口，但相同的 Pin 不能同时触发中断&lt;/p&gt;
-&lt;p&gt;通道数：16 个 GPIO_Pin，外加 PVD 输出、RTC 闹钟、USB 唤醒、以太网唤醒&lt;/p&gt;
-&lt;p&gt;触发响应方式：中断响应 / 事件响应&lt;/p&gt;
-&lt;h4 id=&#34;首先介绍一下exti的基本结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#首先介绍一下exti的基本结构&#34;&gt;#&lt;/a&gt; 首先介绍一下 EXTI 的基本结构&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;这里的每个 GPIO 都有 16 个引脚，显然对于只有 16 个输入口的 EXT 是远远超出的，所以我们中间加一个 AFIO 中断引脚选择器，你可以理解为 GPIOA，B，C 共用一个 Pin 引脚口，那么就可以解释了，为什么相同的引脚不能同时触发中断，因为这样，你根本不知道是哪个 GPIO 口发生了中断。&lt;/p&gt;
-&lt;p&gt;经过 EXTI 后，分为了两种输出，一种直接接到 NVIC，一种接入其他外设。&lt;/p&gt;
-&lt;p&gt;根据常理，本来 20 种的中断输入应该有 20 种的中断输出，但是可能是 STM 公司觉得有点占用 NVIC 的通道，于是，将 EXTI5~9， EXTI10~15 分别合并为了一种通道， 也就是说 EXTI5~9 会触发同一种中断函数，同理 10 到 15 也是&lt;/p&gt;
+&lt;p&gt;支持的GPIO口：所有GPIO口，但相同的Pin不能同时触发中断&lt;/p&gt;
+&lt;p&gt;通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒&lt;/p&gt;
+&lt;p&gt;触发响应方式：中断响应&amp;#x2F;事件响应&lt;/p&gt;
+&lt;h4 id=&#34;首先介绍一下EXTI的基本结构&#34;&gt;&lt;a href=&#34;#首先介绍一下EXTI的基本结构&#34; class=&#34;headerlink&#34; title=&#34;首先介绍一下EXTI的基本结构&#34;&gt;&lt;/a&gt;首先介绍一下EXTI的基本结构&lt;/h4&gt;&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这里的每个GPIO都有16个引脚，显然对于只有16个输入口的EXT是远远超出的，所以我们中间加一个AFIO中断引脚选择器，你可以理解为GPIOA，B，C共用一个Pin引脚口，那么就可以解释了，为什么相同的引脚不能同时触发中断，因为这样，你根本不知道是哪个GPIO口发生了中断。&lt;/p&gt;
+&lt;p&gt;经过EXTI后，分为了两种输出，一种直接接到NVIC，一种接入其他外设。&lt;/p&gt;
+&lt;p&gt;根据常理，本来20种的中断输入应该有20种的中断输出，但是可能是STM公司觉得有点占用NVIC的通道，于是，将EXTI5&lt;del&gt;9， EXTI10&lt;/del&gt;15分别合并为了一种通道， 也就是说EXTI5~9会触发同一种中断函数，同理10到15也是&lt;/p&gt;
 &lt;p&gt;对于合并通道的中断函数，还需根据标志位进一步确定这个是由哪个中断函数进来的&lt;/p&gt;
-&lt;h4 id=&#34;afio复用io口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#afio复用io口&#34;&gt;#&lt;/a&gt; AFIO 复用 IO 口&lt;/h4&gt;
-&lt;p&gt;AFIO 主要用于引脚复用功能的选择和重定义，在 STM32 中，AFIO 主要完成两个任务：复用功能引脚重映射、中断引脚选择。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f360b1661c6c8e54e160f5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;这就是 AFIO 的作用&lt;/p&gt;
-&lt;h4 id=&#34;exti外部中断的框图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#exti外部中断的框图&#34;&gt;#&lt;/a&gt; EXTI 外部中断的框图&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a337661c6c8e541d2cc6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;记住其中带弧度的是或门，只要有一个输入端是 1，那最终输出端的数值就是 1&lt;/p&gt;
+&lt;h4 id=&#34;AFIO复用IO口&#34;&gt;&lt;a href=&#34;#AFIO复用IO口&#34; class=&#34;headerlink&#34; title=&#34;AFIO复用IO口&#34;&gt;&lt;/a&gt;AFIO复用IO口&lt;/h4&gt;&lt;p&gt;AFIO主要用于引脚复用功能的选择和重定义，在STM32中，AFIO主要完成两个任务：复用功能引脚重映射、中断引脚选择。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f360b1661c6c8e54e160f5.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这就是AFIO的作用&lt;/p&gt;
+&lt;h4 id=&#34;EXTI外部中断的框图&#34;&gt;&lt;a href=&#34;#EXTI外部中断的框图&#34; class=&#34;headerlink&#34; title=&#34;EXTI外部中断的框图&#34;&gt;&lt;/a&gt;EXTI外部中断的框图&lt;/h4&gt;&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a337661c6c8e541d2cc6.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记住其中带弧度的是或门，只要有一个输入端是1，那最终输出端的数值就是1&lt;/p&gt;
 &lt;p&gt;平的是与门，记住电路的符号就行&lt;/p&gt;
 &lt;p&gt;这也就能解释为什么软件的外部中断，也可以进行中断&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a5f3661c6c8e541d9481.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;由于自身设计的微妙，我们可以做到 A，B 两个端口输出的波的相位差 90 度，可以通过判断 A，B 端口的高低电平，从而确定此时是正转还是反转。&lt;/p&gt;
-&lt;p&gt;分析 A 端，当左端的端口并未进行接通时，由于 VCC 连接 R1，相当于进行电位的上拉，从此 A 点的电位为高电位。而当左端的端口接上时 A 端相当于直接接 GND。这里的 R3 起到了限流电阻的作用，防止电流过大。&lt;/p&gt;
-&lt;p&gt;这里的 C1 起到了&lt;strong&gt;滤波电容&lt;/strong&gt;的作用，防止输出的电位过于抖动&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f4a5f3661c6c8e541d9481.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由于自身设计的微妙，我们可以做到A，B两个端口输出的波的相位差90度，可以通过判断A，B端口的高低电平，从而确定此时是正转还是反转。&lt;/p&gt;
+&lt;p&gt;分析A端，当左端的端口并未进行接通时，由于VCC连接R1，相当于进行电位的上拉，从此A点的电位为高电位。而当左端的端口接上时A端相当于直接接GND。这里的R3起到了限流电阻的作用，防止电流过大。&lt;/p&gt;
+&lt;p&gt;这里的C1起到了&lt;strong&gt;滤波电容&lt;/strong&gt;的作用，防止输出的电位过于抖动&lt;/p&gt;
 &lt;p&gt;滤波电容这块，感觉还是不太会&lt;/p&gt;
 &lt;p&gt;右端的电路同理&lt;/p&gt;
 &lt;p&gt;程序部分&lt;/p&gt;
-&lt;p&gt;首先在 Hardware 文件夹中新建 CountSensor.h 和 CountSensor.c 文件&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;CountSensor&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;h文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifndef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;_COUNT_SENSOR_H&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;_COUNT_SENSOR_H&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;CountSensor_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;那么如何配置外部的中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#那么如何配置外部的中断&#34;&gt;#&lt;/a&gt; 那么如何配置外部的中断&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;只需要把从 GPIO 到 NVIC 这一路的信号电路都打开即可&lt;/p&gt;
-&lt;p&gt;第一步，配置 RCC，把我们这里涉及到的外设时钟都打开，不打开时钟，外设是无法工作的&lt;/p&gt;
-&lt;p&gt;第二步，配置 GPIO 口，选择我们的端口为输入模式&lt;/p&gt;
-&lt;p&gt;第三步，配置 AFIO，选择我们用的这一路 GPIO，连接到后面的 EXTI&lt;/p&gt;
-&lt;p&gt;第四步，配置 EXTI，选择边沿触发模式，不如上升沿，下降沿，或者双边沿&lt;/p&gt;
-&lt;p&gt;第五步，配置 NVIC，给我们这个中断一个合适的优先级别&lt;/p&gt;
-&lt;p&gt;最后通过 NVIC，外部中断的信号就能进入 CPU 了，这样，CPU 才能收到中断信号来跳转到中断函数里面，执行中断程序&lt;/p&gt;
+&lt;p&gt;首先在Hardware文件夹中新建CountSensor.h和CountSensor.c文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;CountSensor.h文件
+    #ifndef _COUNT_SENSOR_H
+    #define _COUNT_SENSOR_H
+
+    void CountSensor_Init(void);
+    uint16_t get(void);
+
+    #endif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;那么如何配置外部的中断&#34;&gt;&lt;a href=&#34;#那么如何配置外部的中断&#34; class=&#34;headerlink&#34; title=&#34;那么如何配置外部的中断&#34;&gt;&lt;/a&gt;那么如何配置外部的中断&lt;/h4&gt;&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f355a9661c6c8e54de9017.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;只需要把从GPIO到NVIC这一路的信号电路都打开即可&lt;/p&gt;
+&lt;p&gt;第一步，配置RCC，把我们这里涉及到的外设时钟都打开，不打开时钟，外设是无法工作的&lt;/p&gt;
+&lt;p&gt;第二步，配置GPIO口，选择我们的端口为输入模式&lt;/p&gt;
+&lt;p&gt;第三步，配置AFIO，选择我们用的这一路GPIO，连接到后面的EXTI&lt;/p&gt;
+&lt;p&gt;第四步，配置EXTI，选择边沿触发模式，不如上升沿，下降沿，或者双边沿&lt;/p&gt;
+&lt;p&gt;第五步，配置NVIC，给我们这个中断一个合适的优先级别&lt;/p&gt;
+&lt;p&gt;最后通过NVIC，外部中断的信号就能进入CPU了，这样，CPU才能收到中断信号来跳转到中断函数里面，执行中断程序&lt;/p&gt;
 &lt;p&gt;那，这五步就是外部中断的配置流程&lt;/p&gt;
-&lt;p&gt;1. 首先第一步，配置时钟 RCC&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;RCC_APB2PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;RCC_APB2Periph_GPIOB&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ENABLE&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意是 RCC_APB2 因为 GPIOB 是 APB2 的外设&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;RCC_APB2PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;RCC_APB2Periph_AFIO&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;ENABLE&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当你不确定这个外设是接在哪个总线上的时候，我们可以跳转到这个函数的定义&lt;/p&gt;
-&lt;p&gt;比如这个函数 RCC_APB2 这个函数，可以通过 arg 看到所有的这些外设类型&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @brief  Enables or disables the High Speed APB (APB2) peripheral clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @param  RCC_APB2Periph: specifies the APB2 peripheral to gates its clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *   This parameter can be any combination of the following values:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg RCC_APB2Periph_AFIO, RCC_APB2Periph_GPIOA, RCC_APB2Periph_GPIOB,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_GPIOC, RCC_APB2Periph_GPIOD, RCC_APB2Periph_GPIOE,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_GPIOF, RCC_APB2Periph_GPIOG, RCC_APB2Periph_ADC1,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_ADC2, RCC_APB2Periph_TIM1, RCC_APB2Periph_SPI1,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM8, RCC_APB2Periph_USART1, RCC_APB2Periph_ADC3,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM15, RCC_APB2Periph_TIM16, RCC_APB2Periph_TIM17,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *          RCC_APB2Periph_TIM9, RCC_APB2Periph_TIM10, RCC_APB2Periph_TIM11     &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @param  NewState: new state of the specified peripheral clock.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *   This parameter can be: ENABLE or DISABLE.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @retval None&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;接着还需要打开 EXTI 和 NVIC 的外设&lt;/strong&gt;，但是这两个外设的时钟是一直打开的，所以不需要再次打开，&lt;/p&gt;
-&lt;p&gt;NVIC 不需要开启时钟的原因是因为，NVIC 属于内核的外设，内核的外设都是不需要开启时钟的&lt;/p&gt;
-&lt;p&gt;而 RCC 管的都是内核外的外设，所以管不到 NVIC&lt;/p&gt;
-&lt;p&gt;第二步，配置 GPIO&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;GPIO_InitTypeDef GPIO_InitStructure;//注释，这里的GPIO_InitStructure只是一个名称，也可以替换成为u，等等其他的名字
+&lt;p&gt;1.首先第一步，配置时钟RCC&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意是RCC_APB2因为GPIOB是APB2的外设&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当你不确定这个外设是接在哪个总线上的时候，我们可以跳转到这个函数的定义&lt;/p&gt;
+&lt;p&gt;比如这个函数RCC_APB2这个函数，可以通过arg看到所有的这些外设类型&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;/**
+  * @brief  Enables or disables the High Speed APB (APB2) peripheral clock.
+  * @param  RCC_APB2Periph: specifies the APB2 peripheral to gates its clock.
+  *   This parameter can be any combination of the following values:
+  *     @arg RCC_APB2Periph_AFIO, RCC_APB2Periph_GPIOA, RCC_APB2Periph_GPIOB,
+  *          RCC_APB2Periph_GPIOC, RCC_APB2Periph_GPIOD, RCC_APB2Periph_GPIOE,
+  *          RCC_APB2Periph_GPIOF, RCC_APB2Periph_GPIOG, RCC_APB2Periph_ADC1,
+  *          RCC_APB2Periph_ADC2, RCC_APB2Periph_TIM1, RCC_APB2Periph_SPI1,
+  *          RCC_APB2Periph_TIM8, RCC_APB2Periph_USART1, RCC_APB2Periph_ADC3,
+  *          RCC_APB2Periph_TIM15, RCC_APB2Periph_TIM16, RCC_APB2Periph_TIM17,
+  *          RCC_APB2Periph_TIM9, RCC_APB2Periph_TIM10, RCC_APB2Periph_TIM11     
+  * @param  NewState: new state of the specified peripheral clock.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;接着还需要打开EXTI和NVIC的外设&lt;/strong&gt;，但是这两个外设的时钟是一直打开的，所以不需要再次打开，&lt;/p&gt;
+&lt;p&gt;NVIC不需要开启时钟的原因是因为，NVIC属于内核的外设，内核的外设都是不需要开启时钟的&lt;/p&gt;
+&lt;p&gt;而RCC管的都是内核外的外设，所以管不到NVIC&lt;/p&gt;
+&lt;p&gt;第二步，配置GPIO&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;GPIO_InitTypeDef GPIO_InitStructure;//注释，这里的GPIO_InitStructure只是一个名称，也可以替换成为u，等等其他的名字
 GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;//这个输入模式，具体需要什么，需要到stm32手册中进行查询
 GPIO_InitStructure.GPIO_Pin=GPIO_Pin_14;
 GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
 GPIO_Init(GPIOB,&amp;amp;GPIO_InitStructure);
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下来进行第三步，配置 AFIO，AFIO 并没有自己独立的库函数，它的对应函数在 GPIO 的文件中&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource);
+&lt;p&gt;接下来进行第三步，配置AFIO，AFIO并没有自己独立的库函数，它的对应函数在GPIO的文件中&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后在其中进行跳转，可以查到对应的&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;/**
   * @brief  Selects the GPIO pin used as EXTI Line.
   * @param  GPIO_PortSource: selects the GPIO port to be used as source for EXTI lines.
   *   This parameter can be GPIO_PortSourceGPIOx where x can be (A..G).
@@ -357,13 +816,12 @@ void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
   AFIO-&amp;gt;EXTICR[GPIO_PinSource &amp;gt;&amp;gt; 0x02] |= (((uint32_t)GPIO_PortSource) &amp;lt;&amp;lt; (0x04 * (GPIO_PinSource &amp;amp; (uint8_t)0x03)));
 &amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;通过最后两行，我们可以发现，其实，这个函数就是配置 AFIO 的函数&lt;/p&gt;
-&lt;p&gt;如果你想配置 PB14 号口为中断口，那么我们就可以这样写&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource14);
+&lt;p&gt;通过最后两行，我们可以发现，其实，这个函数就是配置AFIO的函数&lt;/p&gt;
+&lt;p&gt;如果你想配置PB14号口为中断口，那么我们就可以这样写&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource14);
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;第四步配置exti文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第四步配置exti文件&#34;&gt;#&lt;/a&gt; 第四步，配置 EXTI 文件&lt;/h4&gt;
-&lt;p&gt;首先先来学习一下 EXTI 的基本库函数&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void EXTI_DeInit(void);//调用它，就可以把EXTI的配置都清除，恢复成上电默认的状态
+&lt;h4 id=&#34;第四步，配置EXTI文件&#34;&gt;&lt;a href=&#34;#第四步，配置EXTI文件&#34; class=&#34;headerlink&#34; title=&#34;第四步，配置EXTI文件&#34;&gt;&lt;/a&gt;第四步，配置EXTI文件&lt;/h4&gt;&lt;p&gt;首先先来学习一下EXTI的基本库函数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;void EXTI_DeInit(void);//调用它，就可以把EXTI的配置都清除，恢复成上电默认的状态
 void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct);//可以根据这个结构体里的函数配置EXTI外设，初始化EXTI主要用的就是这个函数，使用方法与GPIO_Init等同对比就行 
 void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct);
 void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line);
@@ -374,7 +832,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;代码书写&lt;/p&gt;
 &lt;p&gt;我们首先肯定得初始化外设&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;/**
+&lt;pre&gt;&lt;code class=&#34;C++&#34;&gt;/**
   * @brief  Initializes the EXTI peripheral according to the specified
   *         parameters in the EXTI_InitStruct.
   * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure
@@ -384,48 +842,195 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line);
 void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后根据提示，进行相关参数的配置&lt;/p&gt;
-&lt;p&gt;在文档中查找相关词 EXTI_InitTypeDef，可以得到如下的代码&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;	EXTI_InitTypeDef a;
-	a.EXTI_Line=EXTI_Line14;//这四项直接在定义完a后会直接出来
-	a.EXTI_LineCmd=ENABLE;
-	a.EXTI_Mode=EXTI_Mode_Interrupt;
-	a.EXTI_Trigger=EXTI_Trigger_Falling;
-	EXTI_Init(&amp;amp;a);//初始化a去
+&lt;p&gt;在文档中查找相关词EXTI_InitTypeDef，可以得到如下的代码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;    EXTI_InitTypeDef a;
+    a.EXTI_Line=EXTI_Line14;//这四项直接在定义完a后会直接出来
+    a.EXTI_LineCmd=ENABLE;
+    a.EXTI_Mode=EXTI_Mode_Interrupt;
+    a.EXTI_Trigger=EXTI_Trigger_Falling;
+    EXTI_Init(&amp;amp;a);//初始化a去
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在全局寻找 EXTI_Line，&lt;strong&gt;第一个参数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line0&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00001&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 0 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line1&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00002&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 1 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line2&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00004&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 2 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line3&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00008&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 3 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line4&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00010&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 4 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line5&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00020&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 5 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line6&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00040&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 6 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line7&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00080&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 7 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line8&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00100&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 8 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line9&lt;/span&gt;       &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00200&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 9 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line10&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00400&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 10 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line11&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x00800&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 11 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line12&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x01000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 12 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line13&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x02000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 13 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line14&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x04000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 14 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line15&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x08000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 15 */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line16&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x10000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 16 Connected to the PVD Output */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line17&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x20000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 17 Connected to the RTC Alarm event */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line18&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x40000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 18 Connected to the USB Device/USB OTG FS&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                                   Wakeup from suspend event */&lt;/span&gt;                                    &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;EXTI_Line19&lt;/span&gt;      &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x80000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External interrupt line 19 Connected to the Ethernet Wakeup event */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;第二个参数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;FunctionalState EXTI_LineCmd&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; Specifies the new state of the selected EXTI lines.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                         This parameter can be set either to ENABLE or DISABLE */&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;开始中断还是不开启，ENABLE还是DISABLE&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;第三个参数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;enum&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI_Mode_Interrupt &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x00&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI_Mode_Event &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x04&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;EXTIMode_TypeDef&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;是外部中断还是事件中断，这里我们采用外部中断&lt;/p&gt;
+&lt;p&gt;在全局寻找EXTI_Line，&lt;strong&gt;第一个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;
+#define EXTI_Line0       ((uint32_t)0x00001)  /*!&amp;lt; External interrupt line 0 */
+#define EXTI_Line1       ((uint32_t)0x00002)  /*!&amp;lt; External interrupt line 1 */
+#define EXTI_Line2       ((uint32_t)0x00004)  /*!&amp;lt; External interrupt line 2 */
+#define EXTI_Line3       ((uint32_t)0x00008)  /*!&amp;lt; External interrupt line 3 */
+#define EXTI_Line4       ((uint32_t)0x00010)  /*!&amp;lt; External interrupt line 4 */
+#define EXTI_Line5       ((uint32_t)0x00020)  /*!&amp;lt; External interrupt line 5 */
+#define EXTI_Line6       ((uint32_t)0x00040)  /*!&amp;lt; External interrupt line 6 */
+#define EXTI_Line7       ((uint32_t)0x00080)  /*!&amp;lt; External interrupt line 7 */
+#define EXTI_Line8       ((uint32_t)0x00100)  /*!&amp;lt; External interrupt line 8 */
+#define EXTI_Line9       ((uint32_t)0x00200)  /*!&amp;lt; External interrupt line 9 */
+#define EXTI_Line10      ((uint32_t)0x00400)  /*!&amp;lt; External interrupt line 10 */
+#define EXTI_Line11      ((uint32_t)0x00800)  /*!&amp;lt; External interrupt line 11 */
+#define EXTI_Line12      ((uint32_t)0x01000)  /*!&amp;lt; External interrupt line 12 */
+#define EXTI_Line13      ((uint32_t)0x02000)  /*!&amp;lt; External interrupt line 13 */
+#define EXTI_Line14      ((uint32_t)0x04000)  /*!&amp;lt; External interrupt line 14 */
+#define EXTI_Line15      ((uint32_t)0x08000)  /*!&amp;lt; External interrupt line 15 */
+#define EXTI_Line16      ((uint32_t)0x10000)  /*!&amp;lt; External interrupt line 16 Connected to the PVD Output */
+#define EXTI_Line17      ((uint32_t)0x20000)  /*!&amp;lt; External interrupt line 17 Connected to the RTC Alarm event */
+#define EXTI_Line18      ((uint32_t)0x40000)  /*!&amp;lt; External interrupt line 18 Connected to the USB Device/USB OTG FS
+                                                   Wakeup from suspend event */                                    
+#define EXTI_Line19      ((uint32_t)0x80000)  /*!&amp;lt; External interrupt line 19 Connected to the Ethernet Wakeup event */
+                                          
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;第二个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;FunctionalState EXTI_LineCmd;     /*!&amp;lt; Specifies the new state of the selected EXTI lines.
+                                         This parameter can be set either to ENABLE or DISABLE */ 
+
+开始中断还是不开启，ENABLE还是DISABLE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;第三个参数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;
+typedef enum
+&amp;#123;
+  EXTI_Mode_Interrupt = 0x00,
+  EXTI_Mode_Event = 0x04
+&amp;#125;EXTIMode_TypeDef;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;是外部中断还是事件中断，这里我们采用外部中断&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第四个参数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/** &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @brief  EXTI Trigger enumeration  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;enum&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI_Trigger_Rising &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x08&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI_Trigger_Falling &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x0C&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI_Trigger_Rising_Falling &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x10&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;EXTITrigger_TypeDef&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这里代表的是选择上升沿触发，下降沿触发，还是上升下降沿都触发&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;/** 
+  * @brief  EXTI Trigger enumeration  
+  */
+
+typedef enum
+&amp;#123;
+  EXTI_Trigger_Rising = 0x08,
+  EXTI_Trigger_Falling = 0x0C,  
+  EXTI_Trigger_Rising_Falling = 0x10
+&amp;#125;EXTITrigger_TypeDef;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里代表的是选择上升沿触发，下降沿触发，还是上升下降沿都触发&lt;/p&gt;
 &lt;p&gt;到此为止，外部中断配置完成，第四步结束&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;EXTI_InitTypeDef a&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	a&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;EXTI_Line&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;EXTI_Line14&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	a&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;EXTI_LineCmd&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;ENABLE&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	a&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;EXTI_Mode&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;EXTI_Mode_Interrupt&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	a&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;EXTI_Trigger&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;EXTI_Trigger_Falling&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token function&#34;&gt;EXTI_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;a&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h5 id=&#34;第五步配置nvic外设&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第五步配置nvic外设&#34;&gt;#&lt;/a&gt; 第五步，配置 NVIC 外设&lt;/h5&gt;
-&lt;p&gt;因为 NVIC 属于 stm32 内核，所以其库函数，被分配到杂项 misc 中&lt;/p&gt;
-&lt;p&gt;先学习一下 NVIC 的库函数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;NVIC_PriorityGroupConfig&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; NVIC_PriorityGroup&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个函数用来配置中断分组的，参数是中断分组的方式&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;NVIC_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;NVIC_InitTypeDef&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; NVIC_InitStruct&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;根据 NVIC 结构体中指定的参数初始化 NVIC&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;    EXTI_InitTypeDef a;
+    a.EXTI_Line=EXTI_Line14;
+    a.EXTI_LineCmd=ENABLE;
+    a.EXTI_Mode=EXTI_Mode_Interrupt;
+    a.EXTI_Trigger=EXTI_Trigger_Falling;
+    EXTI_Init(&amp;amp;a);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;第五步，配置NVIC外设&#34;&gt;&lt;a href=&#34;#第五步，配置NVIC外设&#34; class=&#34;headerlink&#34; title=&#34;第五步，配置NVIC外设&#34;&gt;&lt;/a&gt;第五步，配置NVIC外设&lt;/h5&gt;&lt;p&gt;因为NVIC属于stm32内核，所以其库函数，被分配到杂项misc中&lt;/p&gt;
+&lt;p&gt;先学习一下NVIC的库函数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个函数用来配置中断分组的，参数是中断分组的方式&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;根据NVIC结构体中指定的参数初始化NVIC&lt;/p&gt;
 &lt;p&gt;跳转&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;NVIC_PriorityGroupConfig&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;查到&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @brief  Configures the priority grouping: pre-emption priority and subpriority.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @param  NVIC_PriorityGroup: specifies the priority grouping bits length. &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *   This parameter can be one of the following values:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg NVIC_PriorityGroup_0: 0 bits for pre-emption priority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *                                4 bits for subpriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg NVIC_PriorityGroup_1: 1 bits for pre-emption priority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *                                3 bits for subpriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *                                2 bits for subpriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg NVIC_PriorityGroup_3: 3 bits for pre-emption priority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *                                1 bits for subpriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *     @arg NVIC_PriorityGroup_4: 4 bits for pre-emption priority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  *                                0 bits for subpriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  * @retval None&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;NVIC_PriorityGroupConfig&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; NVIC_PriorityGroup&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;/* Check the parameters */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token function&#34;&gt;assert_param&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;IS_NVIC_PRIORITY_GROUP&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;NVIC_PriorityGroup&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;/* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  SCB&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;AIRCR &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; AIRCR_VECTKEY_MASK &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; NVIC_PriorityGroup&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//pre-emption priority 代表的是抢占优先级，subpriority 代表的是相应优先级&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这里我们选择第二组，两位响应，两位抢占，稍微平均一点&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;NVIC_PriorityGroupConfig
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查到&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;/**
+  * @brief  Configures the priority grouping: pre-emption priority and subpriority.
+  * @param  NVIC_PriorityGroup: specifies the priority grouping bits length. 
+  *   This parameter can be one of the following values:
+  *     @arg NVIC_PriorityGroup_0: 0 bits for pre-emption priority
+  *                                4 bits for subpriority
+  *     @arg NVIC_PriorityGroup_1: 1 bits for pre-emption priority
+  *                                3 bits for subpriority
+  *     @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority
+  *                                2 bits for subpriority
+  *     @arg NVIC_PriorityGroup_3: 3 bits for pre-emption priority
+  *                                1 bits for subpriority
+  *     @arg NVIC_PriorityGroup_4: 4 bits for pre-emption priority
+  *                                0 bits for subpriority
+  * @retval None
+  */
+void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+&amp;#123;
+  /* Check the parameters */
+  assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));
+  
+  /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  SCB-&amp;gt;AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+&amp;#125;
+
+//pre-emption priority代表的是抢占优先级，subpriority代表的是相应优先级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里我们选择第二组，两位响应，两位抢占，稍微平均一点&lt;/p&gt;
 &lt;p&gt;即配置成&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;void NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后就是经典操作了&lt;/p&gt;
-&lt;p&gt;对 NVIC 的初始化&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;NVIC_InitTypeDef b&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannel&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannelCmd&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannelPreemptionPriority&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannelSubPriority&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token function&#34;&gt;NVIC_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;接下来就是配置参数&lt;/p&gt;
-&lt;p&gt;跳转定义，全局工程文件搜索 IRQn_Type&lt;/p&gt;
+&lt;p&gt;对NVIC的初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;    NVIC_InitTypeDef b;
+    b.NVIC_IRQChannel= ;
+    b.NVIC_IRQChannelCmd= ;
+    b.NVIC_IRQChannelPreemptionPriority= ;
+    b.NVIC_IRQChannelSubPriority=  ;
+    NVIC_Init(&amp;amp;b);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来就是配置参数&lt;/p&gt;
+&lt;p&gt;跳转定义，全局工程文件搜索IRQn_Type&lt;/p&gt;
 &lt;p&gt;根据我们选择芯片的种类，选择对应的中断函数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifdef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;STM32F10X_MD&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  ADC1_2_IRQn                 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; ADC1 and ADC2 global Interrupt                       */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USB_HP_CAN1_TX_IRQn         &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USB Device High Priority or CAN1 TX Interrupts       */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USB_LP_CAN1_RX0_IRQn        &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USB Device Low Priority or CAN1 RX0 Interrupts       */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  CAN1_RX1_IRQn               &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; CAN1 RX1 Interrupt                                   */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  CAN1_SCE_IRQn               &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; CAN1 SCE Interrupt                                   */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI9_5_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External Line[9:5] Interrupts                        */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM1_BRK_IRQn               &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM1 Break Interrupt                                 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM1_UP_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM1 Update Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM1_TRG_COM_IRQn           &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM1 Trigger and Commutation Interrupt               */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM1_CC_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM1 Capture Compare Interrupt                       */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM2_IRQn                   &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM2 global Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM3_IRQn                   &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM3 global Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  TIM4_IRQn                   &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; TIM4 global Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  I2C1_EV_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; I2C1 Event Interrupt                                 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  I2C1_ER_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; I2C1 Error Interrupt                                 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  I2C2_EV_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; I2C2 Event Interrupt                                 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  I2C2_ER_IRQn                &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; I2C2 Error Interrupt                                 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  SPI1_IRQn                   &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; SPI1 global Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  SPI2_IRQn                   &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; SPI2 global Interrupt                                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USART1_IRQn                 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USART1 global Interrupt                              */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USART2_IRQn                 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USART2 global Interrupt                              */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USART3_IRQn                 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USART3 global Interrupt                              */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  EXTI15_10_IRQn              &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; External Line[15:10] Interrupts                      */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  RTCAlarm_IRQn               &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; RTC Alarm through EXTI Line Interrupt                */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  USBWakeUp_IRQn              &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;42&lt;/span&gt;      &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; USB Device WakeUp from suspend through EXTI Line Interrupt */&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/* STM32F10X_MD */&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;配置第一个参数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannel&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;EXTI15_10_IRQn &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;配置第二个参数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;FunctionalState NVIC_IRQChannelCmd&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;         &lt;span class=&#34;token comment&#34;&gt;/*!&amp;lt; Specifies whether the IRQ channel defined in NVIC_IRQChannel&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                                   will be enabled or disabled. &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                                   This parameter can be set either to ENABLE or DISABLE */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;负责确定中断通道是使能还是失能，这里我们选择 ENABLE&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;#ifdef STM32F10X_MD
+  ADC1_2_IRQn                 = 18,     /*!&amp;lt; ADC1 and ADC2 global Interrupt                       */
+  USB_HP_CAN1_TX_IRQn         = 19,     /*!&amp;lt; USB Device High Priority or CAN1 TX Interrupts       */
+  USB_LP_CAN1_RX0_IRQn        = 20,     /*!&amp;lt; USB Device Low Priority or CAN1 RX0 Interrupts       */
+  CAN1_RX1_IRQn               = 21,     /*!&amp;lt; CAN1 RX1 Interrupt                                   */
+  CAN1_SCE_IRQn               = 22,     /*!&amp;lt; CAN1 SCE Interrupt                                   */
+  EXTI9_5_IRQn                = 23,     /*!&amp;lt; External Line[9:5] Interrupts                        */
+  TIM1_BRK_IRQn               = 24,     /*!&amp;lt; TIM1 Break Interrupt                                 */
+  TIM1_UP_IRQn                = 25,     /*!&amp;lt; TIM1 Update Interrupt                                */
+  TIM1_TRG_COM_IRQn           = 26,     /*!&amp;lt; TIM1 Trigger and Commutation Interrupt               */
+  TIM1_CC_IRQn                = 27,     /*!&amp;lt; TIM1 Capture Compare Interrupt                       */
+  TIM2_IRQn                   = 28,     /*!&amp;lt; TIM2 global Interrupt                                */
+  TIM3_IRQn                   = 29,     /*!&amp;lt; TIM3 global Interrupt                                */
+  TIM4_IRQn                   = 30,     /*!&amp;lt; TIM4 global Interrupt                                */
+  I2C1_EV_IRQn                = 31,     /*!&amp;lt; I2C1 Event Interrupt                                 */
+  I2C1_ER_IRQn                = 32,     /*!&amp;lt; I2C1 Error Interrupt                                 */
+  I2C2_EV_IRQn                = 33,     /*!&amp;lt; I2C2 Event Interrupt                                 */
+  I2C2_ER_IRQn                = 34,     /*!&amp;lt; I2C2 Error Interrupt                                 */
+  SPI1_IRQn                   = 35,     /*!&amp;lt; SPI1 global Interrupt                                */
+  SPI2_IRQn                   = 36,     /*!&amp;lt; SPI2 global Interrupt                                */
+  USART1_IRQn                 = 37,     /*!&amp;lt; USART1 global Interrupt                              */
+  USART2_IRQn                 = 38,     /*!&amp;lt; USART2 global Interrupt                              */
+  USART3_IRQn                 = 39,     /*!&amp;lt; USART3 global Interrupt                              */
+  EXTI15_10_IRQn              = 40,     /*!&amp;lt; External Line[15:10] Interrupts                      */
+  RTCAlarm_IRQn               = 41,     /*!&amp;lt; RTC Alarm through EXTI Line Interrupt                */
+  USBWakeUp_IRQn              = 42      /*!&amp;lt; USB Device WakeUp from suspend through EXTI Line Interrupt */  
+#endif /* STM32F10X_MD */  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置第一个参数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;b.NVIC_IRQChannel=EXTI15_10_IRQn ;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置第二个参数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;FunctionalState NVIC_IRQChannelCmd;         /*!&amp;lt; Specifies whether the IRQ channel defined in NVIC_IRQChannel
+                                                   will be enabled or disabled. 
+                                                   This parameter can be set either to ENABLE or DISABLE */ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;负责确定中断通道是使能还是失能，这里我们选择ENABLE&lt;/p&gt;
 &lt;p&gt;配置第三个参数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;NVIC_IRQChannelPreemptionPriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;这个是负责的抢占优先级&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;NVIC_IRQChannelSubPriority&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    这个是负责相应优先级&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;对于当前我们的这种情况，因为只有一种中断，所以我们采用参数可以 随便一点，只有当有很多个中断的时候，才会出现拥挤&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannelPreemptionPriority&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	b&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;NVIC_IRQChannelSubPriority&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;高电平 (GPIO_PIN_SET)、低电平 (GPIO_PIN_RESET)。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;NVIC_IRQChannelPreemptionPriority
+这个是负责的抢占优先级
+NVIC_IRQChannelSubPriority
+    这个是负责相应优先级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于当前我们的这种情况，因为只有一种中断，所以我们采用参数可以 随便一点，只有当有很多个中断的时候，才会出现拥挤&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;    b.NVIC_IRQChannelPreemptionPriority=1 ;
+    b.NVIC_IRQChannelSubPriority= 1 ;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;高电平(GPIO_PIN_SET)、低电平(GPIO_PIN_RESET)。&lt;/p&gt;
 &lt;p&gt;那么中断程序应该放在哪里呢，这就需要我们写一个中断函数&lt;/p&gt;
-&lt;p&gt;在 STM32 中，中断函数的名称都是固定的，每个中断通道都对应一个中断函数&lt;/p&gt;
+&lt;p&gt;在STM32中，中断函数的名称都是固定的，每个中断通道都对应一个中断函数&lt;/p&gt;
 &lt;p&gt;中断函数的名字，我们可以参照一下启动文件，在其中找到中断函数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;EXTI15_10_IRQHandler&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意，这个中断函数一定要书写正确，因为如果中断函数写错了，那么程序就无法进入中断了&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;EXTI15_10_IRQHandler&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;EXTI_GetITStatus&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;EXTI_Line14&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 获取一下是哪个中断置为 1 了&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;			&lt;span class=&#34;token function&#34;&gt;EXTI_ClearITPendingBit&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;EXTI_Line14&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 这里需要清除一下中断，因为如果中断函数不清除的话，会一直在中断函数里面循环。如果你不清楚中断标志位，那么它就会一直申请中断。这样程序就会不断相应中断，执行中断程序，那么程序就会卡死在中断程序里面了，所以我们每次中断程序结束后，都应该清除一下标志位&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;			num&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;		&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;EXTI15_10_IRQHandler
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，这个中断函数一定要书写正确，因为如果中断函数写错了，那么程序就无法进入中断了&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void EXTI15_10_IRQHandler(void)
+&amp;#123;
+        if(EXTI_GetITStatus(EXTI_Line14)==1)//获取一下是哪个中断置为1了
+        &amp;#123;
+            EXTI_ClearITPendingBit(EXTI_Line14);//这里需要清除一下中断，因为如果中断函数不清除的话，会一直在中断函数里面循环。如果你不清楚中断标志位，那么它就会一直申请中断。这样程序就会不断相应中断，执行中断程序，那么程序就会卡死在中断程序里面了，所以我们每次中断程序结束后，都应该清除一下标志位
+            num++;
+        &amp;#125;		
+    
+&amp;#125;	
+&lt;/code&gt;&lt;/pre&gt;
+</content>
         <category term="stm32" />
         <updated>2023-09-02T16:21:00.000Z</updated>
     </entry>
@@ -433,18 +1038,35 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
         <id>https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/</id>
         <title>stm32定时器外设时钟</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/"/>
-        <content type="html">&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;RCC_AHBPeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; RCC_AHBPeriph&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; FunctionalState NewState&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;RCC_APB2PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; RCC_APB2Periph&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; FunctionalState NewState&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;RCC_APB1PeriphClockCmd&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; RCC_APB1Periph&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; FunctionalState NewState&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;定时器函数&lt;/p&gt;
+        <content type="html">&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void RCC_AHBPeriphClockCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState);
+void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);
+void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;定时器函数&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://img-blog.csdnimg.cn/20210427151456665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjI5NTYz,size_16,color_FFFFFF,t_70&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);&lt;/p&gt;
-&lt;p&gt;NewState 参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE 和 DISABLE。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;例 1-1&lt;/strong&gt;：以下代码片段用于使能 GPIOA 和 USART1 外设的时钟：&lt;/p&gt;
-&lt;figure class=&#34;highlight text&#34;&gt;&lt;figcaption data-lang=&#34;text&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在操作外设之前，必须先使能其时钟。&lt;/p&gt;
-&lt;h3 id=&#34;2-引脚配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-引脚配置&#34;&gt;#&lt;/a&gt; 2、引脚配置&lt;/h3&gt;
-&lt;p&gt;GPIO_InitTypeDef 结构体是 STM32 固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个 GPIO 引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉 / 下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此 STM32 固件库提供了 GPIO_InitTypeDef 结构体，它封装了对 GPIO 外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置 GPIO 引脚的多个参数。&lt;/p&gt;
-&lt;p&gt;先配置 GPIO_InitTypeDef 结构体；结构体的定义如下：&lt;/p&gt;
+&lt;p&gt;NewState参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE和DISABLE。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;例1-1&lt;/strong&gt;：以下代码片段用于使能GPIOA和USART1外设的时钟：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;text&#34;&gt;RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在操作外设之前，必须先使能其时钟。&lt;/p&gt;
+&lt;h3 id=&#34;2、引脚配置&#34;&gt;&lt;a href=&#34;#2、引脚配置&#34; class=&#34;headerlink&#34; title=&#34;2、引脚配置&#34;&gt;&lt;/a&gt;2、引脚配置&lt;/h3&gt;&lt;p&gt;GPIO_InitTypeDef结构体是STM32固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个GPIO引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉&amp;#x2F;下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此STM32固件库提供了GPIO_InitTypeDef结构体，它封装了对GPIO外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置GPIO引脚的多个参数。&lt;/p&gt;
+&lt;p&gt;先配置GPIO_InitTypeDef结构体；结构体的定义如下：&lt;/p&gt;
 &lt;p&gt;这个是已经配置好的模式&lt;/p&gt;
-&lt;figure class=&#34;highlight text&#34;&gt;&lt;figcaption data-lang=&#34;text&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;typedef struct&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&amp;#123;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  uint16_t GPIO_Pin;             /*!&amp;lt; Specifies the GPIO pins to be configured.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                      This parameter can be any value of @ref GPIO_pins_define */&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  GPIOSpeed_TypeDef GPIO_Speed;  /*!&amp;lt; Specifies the speed for the selected pins.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  GPIOMode_TypeDef GPIO_Mode;    /*!&amp;lt; Specifies the operating mode for the selected pins.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                      This parameter can be a value of @ref GPIOMode_TypeDef */&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&amp;#125;GPIO_InitTypeDef;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;GPIO_Pin 表示要配置的 GPIO 引脚，可以使用逻辑或运算符 “|” 将多个引脚组合在一起。&lt;/p&gt;
-&lt;p&gt;GPIO_Mode 表示 GPIO 引脚的工作模式。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;text&#34;&gt;typedef struct
+&amp;#123;
+  uint16_t GPIO_Pin;             /*!&amp;lt; Specifies the GPIO pins to be configured.
+                                      This parameter can be any value of @ref GPIO_pins_define */
+
+  GPIOSpeed_TypeDef GPIO_Speed;  /*!&amp;lt; Specifies the speed for the selected pins.
+                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */
+
+  GPIOMode_TypeDef GPIO_Mode;    /*!&amp;lt; Specifies the operating mode for the selected pins.
+                                      This parameter can be a value of @ref GPIOMode_TypeDef */
+&amp;#125;GPIO_InitTypeDef;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;GPIO_Pin表示要配置的GPIO引脚，可以使用逻辑或运算符“|”将多个引脚组合在一起。&lt;/p&gt;
+&lt;p&gt;GPIO_Mode表示GPIO引脚的工作模式。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -454,8 +1076,7 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
 &lt;th&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
+&lt;tbody&gt;&lt;tr&gt;
 &lt;td&gt;GPIO_Mode_AIN&lt;/td&gt;
 &lt;td&gt;模拟输入&lt;/td&gt;
 &lt;td&gt;GPIO_Mode_Out_OD&lt;/td&gt;
@@ -479,14 +1100,19 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
 &lt;td&gt;GPIO_Mode_AF_PP&lt;/td&gt;
 &lt;td&gt;复用开漏输出&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;GPIO_Speed 表示 GPIO 引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。&lt;/p&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;GPIO_Speed表示GPIO引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。&lt;/p&gt;
 &lt;p&gt;一般默认为普通推挽输出&lt;/p&gt;
-&lt;p&gt;** 例 2-1：** 将 PA0 和 PA1 两个引脚配置为 50MHz 的推挽输出，并应用于 GPIOA 外设。&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;GPIO_InitTypeDef GPIO_InitStructure&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 这个 GPIO_InitStructure 就是一个结构体的名称，你也可以改为 u, 然后后面的名称对应都变成 u 就行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;GPIO_InitStructure&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;GPIO_Pin &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; GPIO_Pin_0 &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; GPIO_Pin_1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;GPIO_InitStructure&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;GPIO_Mode &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; GPIO_Mode_Out_PP&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;GPIO_InitStructure&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;GPIO_Speed &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; GPIO_Speed_50MHz&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;GPIO_Init&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;GPIOA&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;GPIO_InitStructure&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;以上代码将 GPIOA 的 PA0 引脚输出低 / 高电平，即将 PA0 引脚对应的寄存器的输出位设置为 0/1。&lt;/p&gt;
-&lt;p&gt;注意：在操作 GPIO 引脚之前，必须先配置其为输出模式。否则，GPIO 引脚将不能输出电平。&lt;/p&gt;
-&lt;p&gt;* 注意：在很多开发板上，GPIO 输出控制 LED 等外设的亮灭，常常使用了 PNP 型晶体管或是开漏输出方式。这种方式下，当 GPIO 引脚输出低电平时，PNP 型晶体管或是开漏输出器件会通电，外设（如 LED）被点亮，而当 GPIO 引脚输出高电平时，PNP 型晶体管或是开漏输出器件不通电，外设（如 LED）被熄灭。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;例2-1：&lt;/strong&gt;将PA0和PA1两个引脚配置为50MHz的推挽输出，并应用于GPIOA外设。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;GPIO_InitTypeDef GPIO_InitStructure;//这个GPIO_InitStructure就是一个结构体的名称，你也可以改为u,然后后面的名称对应都变成u就行
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_Init(GPIOA, &amp;amp;GPIO_InitStructure);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上代码将GPIOA的PA0引脚输出低&amp;#x2F;高电平，即将PA0引脚对应的寄存器的输出位设置为0&amp;#x2F;1。&lt;/p&gt;
+&lt;p&gt;注意：在操作GPIO引脚之前，必须先配置其为输出模式。否则，GPIO引脚将不能输出电平。&lt;/p&gt;
+&lt;p&gt;*注意：在很多开发板上，GPIO输出控制LED等外设的亮灭，常常使用了PNP型晶体管或是开漏输出方式。这种方式下，当GPIO引脚输出低电平时，PNP型晶体管或是开漏输出器件会通电，外设（如LED）被点亮，而当GPIO引脚输出高电平时，PNP型晶体管或是开漏输出器件不通电，外设（如LED）被熄灭。&lt;/p&gt;
 </content>
         <category term="stm32" />
         <updated>2023-09-02T07:28:00.000Z</updated>
@@ -495,19 +1121,18 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
         <id>https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/</id>
         <title>定时器学习</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/"/>
-        <content type="html">&lt;h4 id=&#34;stm32-6-1tim定时器中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stm32-6-1tim定时器中断&#34;&gt;#&lt;/a&gt; stm32 6-1Tim 定时器中断&lt;/h4&gt;
-&lt;p&gt;stm32 拥有 16 位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2 的 16 次方，因为 2 的 16 次方为 66536&lt;/p&gt;
-&lt;p&gt;在 72MHz 计数时钟下可以实现最大 59.65s 的定时&lt;/p&gt;
+        <content type="html">&lt;h4 id=&#34;stm32-6-1Tim定时器中断&#34;&gt;&lt;a href=&#34;#stm32-6-1Tim定时器中断&#34; class=&#34;headerlink&#34; title=&#34;stm32 6-1Tim定时器中断&#34;&gt;&lt;/a&gt;stm32 6-1Tim定时器中断&lt;/h4&gt;&lt;p&gt;stm32拥有16位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2的16次方，因为2的16次方为66536&lt;/p&gt;
+&lt;p&gt;在72MHz计数时钟下可以实现最大59.65s的定时&lt;/p&gt;
 &lt;p&gt;这部分之后再听一遍&lt;/p&gt;
 &lt;p&gt;不仅具有基本的定时中断功能，而且还包括内外时钟源的选择，输入捕获，输出比较，编码器接口，主从触发模式等多种功能&lt;/p&gt;
-&lt;p&gt;![](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-08-24_22-05-54.png)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/650fb062c458853aef4a4114.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;时基单元：由自动重装寄存器，预分频器与 CNT 计数器组成，预分频器之前，连接的就是基准计数时钟的输入，最终来到了控制器的这个位置，由于基本定时器只能选择内部时钟，所以你可以直接认为这根线直接连接到了输入端这里，也就是内部时钟 CK_INT，内部时钟的来源是 RCC 的 TIMxCLK，这里的频率一般是内部系统的主频 72MHz&lt;/p&gt;
-&lt;p&gt;我们看时基单元，它可以首先对输入进来的 72MHz 计数时钟进行预分频，比如这个寄存器写 0，就是不分频，或者说是 1 分频，这个时候的输出频率等于输入频率等于 72MHz，如果预分频器写 1，就是 2 分频，那么输出的频率就为 36MHz，如果写 2，就是三分频，输出频率等于 72/3 等于 24MHz，以此类推&lt;/p&gt;
-&lt;p&gt;实际的分频系数等于预分频器的系数加一，这个预分频器是 16 位的，所以最大值可以写 65535，也就是最大 65536 分频的，这就是预分频器，就是对输入的频率提前进行预分频的操作&lt;/p&gt;
-&lt;p&gt;然后就是计数器，就是对预分频后的计数时钟进行计数，计数时钟每来一个上升沿，计数时钟的值就加一，这个计数器也是 16 位的，可以从 0 计数到 65535；如果再加的话，计数器就会回到零，重新进行计数，所以计数器的值在运行过程中会不断进行自增运行，当自增达到目标值的时候，产生中断，就完成了定时的任务。&lt;/p&gt;
-&lt;p&gt;所以现在还需要一个存储目标值函数的计数器，就是自动重装载寄存器，自动重装载计数器也是 16 位的，它存储的就是我们的计数目标，在运行的过程中，计数值不断增加，自动重装值是固定的目标，当计数值等于重装计数器的值的时候，也就是即使时间到了，那它就会产生一个中断信号，并且清零计数器&lt;/p&gt;
-&lt;p&gt;在这里有一个向上的箭头，表示这里会产生一个中断信号，像这种计数值等于重装值产生的中断，我们一般称之为更新中断，这个更新中断之后，就会通往 NVIC，我们再配置好 NVIC 的定时器通道，那定时器的更新中断就能得到 CPU 的响应了，这里向下的箭头，代表这里会产生一个事件，这里对应的事件，就叫做更新事件&lt;/p&gt;
+&lt;p&gt;![](C:\all study document\Microcontroller study\32\图片笔记\Snipaste_2023-08-24_22-05-54.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/650fb062c458853aef4a4114.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;时基单元：由自动重装寄存器，预分频器与CNT计数器组成，预分频器之前，连接的就是基准计数时钟的输入，最终来到了控制器的这个位置，由于基本定时器只能选择内部时钟，所以你可以直接认为这根线直接连接到了输入端这里，也就是内部时钟CK_INT，内部时钟的来源是RCC的TIMxCLK，这里的频率一般是内部系统的主频72MHz&lt;/p&gt;
+&lt;p&gt;我们看时基单元，它可以首先对输入进来的72MHz计数时钟进行预分频，比如这个寄存器写0，就是不分频，或者说是1分频，这个时候的输出频率等于输入频率等于72MHz，如果预分频器写1，就是2分频，那么输出的频率就为36MHz，如果写2，就是三分频，输出频率等于72&amp;#x2F;3等于24MHz，以此类推&lt;/p&gt;
+&lt;p&gt;实际的分频系数等于预分频器的系数加一，这个预分频器是16位的，所以最大值可以写65535，也就是最大65536分频的，这就是预分频器，就是对输入的频率提前进行预分频的操作&lt;/p&gt;
+&lt;p&gt;然后就是计数器，就是对预分频后的计数时钟进行计数，计数时钟每来一个上升沿，计数时钟的值就加一，这个计数器也是16位的，可以从0计数到65535；如果再加的话，计数器就会回到零，重新进行计数，所以计数器的值在运行过程中会不断进行自增运行，当自增达到目标值的时候，产生中断，就完成了定时的任务。&lt;/p&gt;
+&lt;p&gt;所以现在还需要一个存储目标值函数的计数器，就是自动重装载寄存器，自动重装载计数器也是16位的，它存储的就是我们的计数目标，在运行的过程中，计数值不断增加，自动重装值是固定的目标，当计数值等于重装计数器的值的时候，也就是即使时间到了，那它就会产生一个中断信号，并且清零计数器&lt;/p&gt;
+&lt;p&gt;在这里有一个向上的箭头，表示这里会产生一个中断信号，像这种计数值等于重装值产生的中断，我们一般称之为更新中断，这个更新中断之后，就会通往NVIC，我们再配置好NVIC的定时器通道，那定时器的更新中断就能得到CPU的响应了，这里向下的箭头，代表这里会产生一个事件，这里对应的事件，就叫做更新事件&lt;/p&gt;
 </content>
         <category term="单片机" />
         <updated>2023-09-02T02:32:00.000Z</updated>
@@ -517,15 +1142,18 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
         <title>hello world</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/life/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Quick-Start&#34;&gt;&lt;a href=&#34;#Quick-Start&#34; class=&#34;headerlink&#34; title=&#34;Quick Start&#34;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&#34;Create-a-new-post&#34;&gt;&lt;a href=&#34;#Create-a-new-post&#34; class=&#34;headerlink&#34; title=&#34;Create a new post&#34;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ hexo new &amp;quot;My New Post&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Run-server&#34;&gt;&lt;a href=&#34;#Run-server&#34; class=&#34;headerlink&#34; title=&#34;Run server&#34;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ hexo server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Generate-static-files&#34;&gt;&lt;a href=&#34;#Generate-static-files&#34; class=&#34;headerlink&#34; title=&#34;Generate static files&#34;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ hexo generate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Deploy-to-remote-sites&#34;&gt;&lt;a href=&#34;#Deploy-to-remote-sites&#34; class=&#34;headerlink&#34; title=&#34;Deploy to remote sites&#34;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ hexo deploy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
 </content>
         <category term="哈尔滨生活" />
         <updated>2023-09-02T02:00:00.000Z</updated>
@@ -534,16 +1162,16 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
         <id>https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</id>
         <title>青岛之旅</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/"/>
-        <content type="html">&lt;p&gt;2023 年 8 月 7~9，和 zjx 和 lh 去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。&lt;/p&gt;
+        <content type="html">&lt;p&gt;2023年8月7~9，和zjx和lh去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。&lt;/p&gt;
 &lt;p&gt;去了海军博物馆&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;去了小麦岛，去了鹿儿岛&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;去了栈桥，人是真的多嘞&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;记得凌晨 3，4 点的火车硬座，还有 LOL 的 solo 的时候，zjx 的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记得凌晨3，4点的火车硬座，还有LOL的solo的时候，zjx的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
 </content>
         <category term="青岛生活" />
         <updated>2023-09-02T02:00:00.000Z</updated>
