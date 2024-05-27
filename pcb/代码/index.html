@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b8dd9f345e8d03b13f5e.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,7 +166,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <pre><code class="c++">/* USER CODE BEGIN Header */
+    <pre><code class="language-c++">/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -225,7 +225,7 @@ int fgetc(FILE *f)
 /* USER CODE BEGIN PD */
 void servo(float angle1,float angle2,float angle3,float angle4)
 &#123;
-        
+		
 &#125;
 /* USER CODE END PD */
 
@@ -259,30 +259,30 @@ static uint16_t open_angle =0;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 &#123;
     if(huart-&gt;Instance==USART2)//首先判断是否是USART2触发的中断
-        &#123;
+		&#123;
 //			printf(&quot;%c%c%c%c%c&quot;,Rx_data[0],Rx_data[1],Rx_data[2],Rx_data[3],Rx_data[4]);
 //	&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77
        if(Rx_data[0]==0x7F&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77) &#123;
-                AixAng1 = Rx_data[3]|(Rx_data[4]&lt;&lt;8);
-                AixAng2 = Rx_data[5]|(Rx_data[6]&lt;&lt;8);
-                AixAng3 = Rx_data[7]|(Rx_data[8]&lt;&lt;8);
-                AixAng4 = Rx_data[9]|(Rx_data[10]&lt;&lt;8);
-                open_angle =  Rx_data[13]|(Rx_data[14]&lt;&lt;8);
-                printf(&quot;%d\r\n&quot;,open_angle);
+				AixAng1 = Rx_data[3]|(Rx_data[4]&lt;&lt;8);
+				AixAng2 = Rx_data[5]|(Rx_data[6]&lt;&lt;8);
+				AixAng3 = Rx_data[7]|(Rx_data[8]&lt;&lt;8);
+				AixAng4 = Rx_data[9]|(Rx_data[10]&lt;&lt;8);
+				open_angle =  Rx_data[13]|(Rx_data[14]&lt;&lt;8);
+				printf(&quot;%d\r\n&quot;,open_angle);
 
-                AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
-            
-                AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
-            //AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
-            //实际应该是0~45但是传感器输出的数据是0~90
-            
-                AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
-            //AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
-                AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
-                printf(&quot;%f\r\n&quot;,AixAngf1);
-                printf(&quot;%f\r\n&quot;,AixAngf2);
-                printf(&quot;%f\r\n&quot;,AixAngf3);
-                printf(&quot;%f\r\n&quot;,AixAngf4);
+				AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
+			
+				AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
+			//AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
+			//实际应该是0~45但是传感器输出的数据是0~90
+			
+				AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
+			//AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
+				AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
+				printf(&quot;%f\r\n&quot;,AixAngf1);
+				printf(&quot;%f\r\n&quot;,AixAngf2);
+				printf(&quot;%f\r\n&quot;,AixAngf3);
+				printf(&quot;%f\r\n&quot;,AixAngf4);
 
 //				 &#125;
 //				 if(Rx_data[1]==0x02)
@@ -323,12 +323,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 //          &#123;
 //              printf(&quot;Data——error!\r\n&quot;);
 //          &#125;
-                    &#125;
+					&#125;
           for (int i = 0; i &lt; 18; ++i) &#123;
               Rx_data[i]=0;
           &#125;
-            HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
-        &#125;
+			HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
+		&#125;
 &#125;
 /* USER CODE END 0 */
 
@@ -363,7 +363,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-    HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
+	HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
 
   /* USER CODE END 2 */
 
@@ -371,7 +371,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   &#123;
-        
+		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -455,6 +455,7 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 &#125;
 #endif /* USE_FULL_ASSERT */
+
 </code></pre>
 
   </div>
@@ -512,7 +513,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item left">
       
 
-  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861824.jpg" title="未命名">
+  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -522,7 +523,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item right">
       
 
-  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="未命名">
+  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -558,7 +559,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">19</span>
+        <span class="count">22</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -570,7 +571,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">8</span>
+        <span class="count">9</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -666,7 +667,55 @@ void assert_failed(uint8_t *file, uint32_t line)
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/diary/2024.5.27/" title="2024.5.27随记">2024.5.27随记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
+</div>
+
+    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -693,56 +742,10 @@ void assert_failed(uint8_t *file, uint32_t line)
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
     <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
