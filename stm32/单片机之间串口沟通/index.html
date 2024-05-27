@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>474</span>
+    <span>454</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -161,13 +161,13 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>由于项目的需要，需要一个水上 stm32 单片机与水下的电子仓里面的 stm32 进行通讯。</p>
+    <p>由于项目的需要，需要一个水上stm32单片机与水下的电子仓里面的stm32进行通讯。</p>
 <p>我的思路是这样的，先不考虑距离传输，直接采用串口进行传输。</p>
-<p>然后我的思路是，采用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>m</mi><mn>32</mn><mi>c</mi><mi>u</mi><mi>b</mi><mi>e</mi><mi>m</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">stm32cubemx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">m</span><span class="mord">3</span><span class="mord">2</span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal">b</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mord mathnormal">x</span></span></span></span> 对串口进行配置，因为是全双工的，所以我想法是利用串口 ttl 模块</p>
-<p>通过查阅资料，一般的串口通讯 ttl 能传播的距离为 10m 左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用 485 模块，通过 485 模块，将水下机器人的传播距离增大至 1km.</p>
-<p>之前测试的时候，我是想通过 ttl 模块，直接对单片机发送 16 进制的数据，测试 hal 库的中断接收好不好用，但是在测试的过程中，我发现，通过 ttl 模块对单片机发送的数据和在 hal 里面，调用发送中断函数，其发送的 16 进制的数据，并不一样，在这个地方。我卡了好久，</p>
+<p>然后我的思路是，采用$stm32cubemx$对串口进行配置，因为是全双工的，所以我想法是利用串口ttl模块</p>
+<p>通过查阅资料，一般的串口通讯ttl能传播的距离为10m左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用485模块，通过485模块，将水下机器人的传播距离增大至1km.</p>
+<p>之前测试的时候，我是想通过ttl模块，直接对单片机发送16进制的数据，测试hal库的中断接收好不好用，但是在测试的过程中，我发现，通过ttl模块对单片机发送的数据和在hal里面，调用发送中断函数，其发送的16进制的数据，并不一样，在这个地方。我卡了好久，</p>
 <p>现在考虑怎么把控制速度和舵机的进行融合，我们可以这样。</p>
-<p>在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的 ADC 值进行融合，然后发送数据包，通过 485 发送给水下单片机，从而操作其工作。</p>
+<p>在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的ADC值进行融合，然后发送数据包，通过485发送给水下单片机，从而操作其工作。</p>
 
       <div class="tags">
           <a href="/tags/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag"><i class="ic i-tag"></i> 水下机器人</a>
@@ -237,7 +237,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861852.jpg" title="水下机器人画板子的时候遇到的一些问题">
+  <a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="水下机器人画板子的时候遇到的一些问题">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> pcb</span>
   <h3>水下机器人画板子的时候遇到的一些问题</h3>
@@ -372,9 +372,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
       
@@ -384,7 +385,55 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -403,7 +452,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -412,55 +461,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
-</div>
-
-    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
+    <span><a href="/study/%E9%80%9A%E8%BF%87%E8%99%9A%E6%8B%9F%E5%AE%9E%E9%AA%8C%E6%84%9F%E7%9F%A5%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E8%A3%85%E9%85%8D%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BA%BF%E4%B8%8B%E5%8A%A8%E6%89%8B%E7%BB%84%E8%A3%85%E5%92%8C%E5%AE%9E%E9%AA%8C%E6%B5%8B%E8%AF%95%EF%BC%8C%20%E5%85%B7%E6%9C%89%E6%9C%BA%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E7%9F%A5%E5%92%8C%E5%AE%9E%E9%AA%8C%E8%83%BD%E5%8A%9B%EF%BC%8C%E6%84%9F%E6%82%9F%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E3%80%81%E5%B7%A5%E7%A8%8B%E6%80%A7%E5%92%8C%20%E5%A4%A7%E5%B1%80%E8%A7%82%EF%BC%8C%E6%8F%90%E5%8D%87%E5%B7%A5%E7%A7%91%E6%9C%BA%E6%A2%B0%E5%9F%BA%E7%A1%80%E7%B4%A0%E5%85%BB%EF%BC%8C%E6%B5%8B%E8%AF%95%E6%9C%BA%E6%A2%B0%E6%9C%BA%E6%9E%84%E8%BF%90%E5%8A%A8%E5%AD%A6%E4%B8%8E%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0%E3%80%82%20%EF%BC%881%EF%BC%89%E5%9F%BA%E4%BA%8E%E7%BA%BF%E4%B8%8A%E6%A1%88%E4%BE%8B%E6%9C%BA%E5%99%A8%E8%99%9A%E6%8B%9F%E8%A3%85%E9%85%8D%E7%BB%93%E6%9E%9C/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

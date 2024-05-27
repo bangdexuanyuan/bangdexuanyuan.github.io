@@ -5,13 +5,13 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-13T10:30:00.000Z</updated>
     <category term="感想" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
-    <category term="stm32" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <category term="pcb" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
+    <category term="哈尔滨生活" />
+    <category term="青岛生活" />
+    <category term="音乐" />
     <category term="英语" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/hello-world/</id>
@@ -21,85 +21,75 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;title,author,abstract,keywords&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Descriptive (说明性的) information that lets readers search for an article.&lt;/p&gt;
+&lt;p&gt;Descriptive(说明性的) information that lets readers search for an article.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What is the context for this project?&lt;/p&gt;
 &lt;p&gt;How does it fit in with other research on the topic?&lt;/p&gt;
 &lt;p&gt;What is the research question?&lt;/p&gt;
-&lt;p&gt;总结：以上说的是 WHY 部分&lt;/p&gt;
+&lt;p&gt;总结：以上说的是WHY部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What did the author do to answer the research question?&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 HOW 部分&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是HOW部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What was the answer to the question?&lt;/p&gt;
 &lt;p&gt;This is often shown in tables and figures.&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 WHAT&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是WHAT&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Discussion/Conclusion&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Discussion&amp;#x2F;Conclusion&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What is the significance of this project?&lt;/p&gt;
 &lt;p&gt;How does it fit in with what else is known about the topic?&lt;/p&gt;
-&lt;p&gt;总结：以上部分说的是 SO WHAT 部分&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是SO WHAT部分&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;References&lt;/strong&gt;（参考文献部分）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Features of Academic English&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Features of Academic English&lt;/strong&gt; &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;it uses formal academic language and avoids colloqualisms (n. 口语)&lt;/li&gt;
+&lt;li&gt;it uses formal academic language and avoids colloqualisms(n.口语)&lt;/li&gt;
 &lt;li&gt;it avoid  等待补坑&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Concrete example&lt;/strong&gt; (专业英语风格的例子)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Concrete example&lt;/strong&gt;(专业英语风格的例子)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;No idiomatic (习语)/colloquial (口语)/slang (俚语)    kid/boss/staff&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No idiomatic(习语)&amp;#x2F;colloquial(口语)&amp;#x2F;slang(俚语)    kid&amp;#x2F;boss&amp;#x2F;staff&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No phrasal verbs 没有动词短语     take up/get rid of/look into&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No phrasal verbs没有动词短语     take up&amp;#x2F;get rid of&amp;#x2F;look into&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No personal pronouns 没有人称代词       i/me/you/your&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No personal pronouns没有人称代词       i&amp;#x2F;me&amp;#x2F;you&amp;#x2F;your&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No contractions  (没有使用缩略形式)     It’ll / It’s&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No contractions  (没有使用缩略形式)     It’ll &amp;#x2F; It’s&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No questions (不使用问题)  So why did the project fail?&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No questions(不使用问题)  So why did the project fail?&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No emotional adverbs（不使用情绪化副词）  surprisingly/unfortunately&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No emotional adverbs（不使用情绪化副词）  surprisingly&amp;#x2F;unfortunately&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No vague language (不适用含糊不清的语言)     and so on /etc&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No vague language(不适用含糊不清的语言)     and so on &amp;#x2F;etc&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No bullet points (不使用要点符号)   比如最前面的那个小黑点&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No bullet points(不使用要点符号)   比如最前面的那个小黑点&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No reputation（不要重复）constant repeating same words (exclude key words) 关键词除外&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No reputation（不要重复）constant repeating same words(exclude key words)关键词除外&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;No basic language&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No basic language&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;like 换成 for example&lt;/p&gt;
-&lt;p&gt;things 换成 factor&lt;/p&gt;
-&lt;p&gt;lots of 换成 significant amount&lt;/p&gt;
-&lt;p&gt;get 换成 obtain&lt;/p&gt;
-&lt;p&gt;big 替换为 large&lt;/p&gt;
-&lt;p&gt;look at examine 换成 examine&lt;/p&gt;
+&lt;p&gt;like 换成for example&lt;/p&gt;
+&lt;p&gt;things 换成factor&lt;/p&gt;
+&lt;p&gt;lots of 换成significant amount&lt;/p&gt;
+&lt;p&gt;get 换成obtain&lt;/p&gt;
+&lt;p&gt;big替换为large &lt;/p&gt;
+&lt;p&gt;look at examine 换成examine&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;YES passive stucture  we analyse 换成 the data is&lt;/li&gt;
+&lt;li&gt;YES passive stucture  we analyse换成the data is&lt;/li&gt;
 &lt;li&gt;YES accurate vocabulary   law-rule-regulation&lt;/li&gt;
-&lt;li&gt;YES precise figures/facts      a few hours 换成 x hours     5 years ago 换成 in   2015&lt;/li&gt;
-&lt;li&gt;YES caution/tentative voice (谨慎 / 试探性的声音)  seem/appear/could/may&lt;/li&gt;
+&lt;li&gt;YES precise figures&amp;#x2F;facts      a few hours换成 x hours     5 years ago 换成in   2015 &lt;/li&gt;
+&lt;li&gt;YES caution&amp;#x2F;tentative voice(谨慎&amp;#x2F;试探性的声音)  seem&amp;#x2F;appear&amp;#x2F;could&amp;#x2F;may&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Essentials (n. 要点) of an Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Essentials(n.要点) of an Abstract&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Research of background&lt;/li&gt;
 &lt;/ul&gt;
@@ -109,7 +99,7 @@
 &lt;/ul&gt;
 &lt;p&gt;(What problem does the research attempt to solve?What is the purpose or the scope of the project?)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Methods employed (这里的 employed 应该是应用的意思)&lt;/li&gt;
+&lt;li&gt;Methods employed(这里的employed应该是应用的意思)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What are the scientific  approaches used in the study?&lt;/p&gt;
 &lt;ul&gt;
@@ -125,35 +115,25 @@
 &lt;p&gt;考试专用：&lt;/p&gt;
 &lt;p&gt;一些英语论文中专业的用法：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;systematically review     系统综述&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;systematically review     系统综述&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;reach a mature stage     达到成熟阶段&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;reach a mature stage     达到成熟阶段&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;aim /attempt/intend to  目的 / 企图 / 打算&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;aim &amp;#x2F;attempt&amp;#x2F;intend to  目的&amp;#x2F;企图&amp;#x2F;打算&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;assess/estimate the efficacy of   评估 / 估计… 的功效&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;assess&amp;#x2F;estimate the efficacy of   评估&amp;#x2F;估计…的功效&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;investigate (调查)/explore the relationship (探索关系)/interaction (相互影响) between …and…&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;investigate(调查)&amp;#x2F;explore the relationship(探索关系)&amp;#x2F;interaction(相互影响) between …….and…….&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;the primary (主要的，首要的）&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;the primary(主要的，首要的）&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;proposed（提出了）…outperform（胜过）…on&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;proposed（提出了）……outperform（胜过）……on&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;…allow for a conclusive interpretation (总结性的解释)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;……allow for a conclusive interpretation(总结性的解释)&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;we introduce the notion (概念)/framework (框架，结构)  of&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;we introduce the notion(概念)&amp;#x2F;framework(框架，结构)  of&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;a major area of interest within the field of       … 的主要兴趣领域&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;a major area of interest within the field of       ……. 的主要兴趣领域&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
