@@ -4,15 +4,15 @@
     <title></title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-05-27T13:54:00.000Z</updated>
-    <category term="mind" />
     <category term="哈尔滨生活" />
-    <category term="stm32" />
-    <category term="单片机" />
+    <category term="mind" />
     <category term="音乐" />
-    <category term="水下机器人" />
-    <category term="pcb" />
-    <category term="英语" />
     <category term="青岛生活" />
+    <category term="单片机" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="英语" />
+    <category term="pcb" />
     <entry>
         <id>https://bangdexuanyuan.github.io/diary/2024.5.27/</id>
         <title>2024.5.27随记</title>
@@ -33,101 +33,6 @@
 &lt;p&gt;分析的时候使用的方法是右手定则。&lt;/p&gt;
 </content>
         <updated>2024-04-08T16:10:32.484Z</updated>
-    </entry>
-    <entry>
-        <id>https://bangdexuanyuan.github.io/study/%E9%80%9A%E8%BF%87%E8%99%9A%E6%8B%9F%E5%AE%9E%E9%AA%8C%E6%84%9F%E7%9F%A5%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E8%A3%85%E9%85%8D%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BA%BF%E4%B8%8B%E5%8A%A8%E6%89%8B%E7%BB%84%E8%A3%85%E5%92%8C%E5%AE%9E%E9%AA%8C%E6%B5%8B%E8%AF%95%EF%BC%8C%20%E5%85%B7%E6%9C%89%E6%9C%BA%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E7%9F%A5%E5%92%8C%E5%AE%9E%E9%AA%8C%E8%83%BD%E5%8A%9B%EF%BC%8C%E6%84%9F%E6%82%9F%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E3%80%81%E5%B7%A5%E7%A8%8B%E6%80%A7%E5%92%8C%20%E5%A4%A7%E5%B1%80%E8%A7%82%EF%BC%8C%E6%8F%90%E5%8D%87%E5%B7%A5%E7%A7%91%E6%9C%BA%E6%A2%B0%E5%9F%BA%E7%A1%80%E7%B4%A0%E5%85%BB%EF%BC%8C%E6%B5%8B%E8%AF%95%E6%9C%BA%E6%A2%B0%E6%9C%BA%E6%9E%84%E8%BF%90%E5%8A%A8%E5%AD%A6%E4%B8%8E%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0%E3%80%82%20%EF%BC%881%EF%BC%89%E5%9F%BA%E4%BA%8E%E7%BA%BF%E4%B8%8A%E6%A1%88%E4%BE%8B%E6%9C%BA%E5%99%A8%E8%99%9A%E6%8B%9F%E8%A3%85%E9%85%8D%E7%BB%93%E6%9E%9C/</id>
-        <title></title>
-        <link rel="alternate" href="https://bangdexuanyuan.github.io/study/%E9%80%9A%E8%BF%87%E8%99%9A%E6%8B%9F%E5%AE%9E%E9%AA%8C%E6%84%9F%E7%9F%A5%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E8%A3%85%E9%85%8D%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BA%BF%E4%B8%8B%E5%8A%A8%E6%89%8B%E7%BB%84%E8%A3%85%E5%92%8C%E5%AE%9E%E9%AA%8C%E6%B5%8B%E8%AF%95%EF%BC%8C%20%E5%85%B7%E6%9C%89%E6%9C%BA%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%9D%E6%AD%A5%E8%AE%A4%E7%9F%A5%E5%92%8C%E5%AE%9E%E9%AA%8C%E8%83%BD%E5%8A%9B%EF%BC%8C%E6%84%9F%E6%82%9F%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%80%A7%E3%80%81%E5%B7%A5%E7%A8%8B%E6%80%A7%E5%92%8C%20%E5%A4%A7%E5%B1%80%E8%A7%82%EF%BC%8C%E6%8F%90%E5%8D%87%E5%B7%A5%E7%A7%91%E6%9C%BA%E6%A2%B0%E5%9F%BA%E7%A1%80%E7%B4%A0%E5%85%BB%EF%BC%8C%E6%B5%8B%E8%AF%95%E6%9C%BA%E6%A2%B0%E6%9C%BA%E6%9E%84%E8%BF%90%E5%8A%A8%E5%AD%A6%E4%B8%8E%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0%E3%80%82%20%EF%BC%881%EF%BC%89%E5%9F%BA%E4%BA%8E%E7%BA%BF%E4%B8%8A%E6%A1%88%E4%BE%8B%E6%9C%BA%E5%99%A8%E8%99%9A%E6%8B%9F%E8%A3%85%E9%85%8D%E7%BB%93%E6%9E%9C/"/>
-        <content type="html">&lt;p&gt;通过虚拟实验感知实际机器的组成与装配过程，线下动手组装和实验测试， 具有机器原理与结构的初步认知和实验能力，感悟实际机器的系统性、工程性和 大局观，提升工科机械基础素养，测试机械机构运动学与力学性能参数。 （1）基于线上案例机器虚拟装配结果，形成具体的部件 BOM，线下完成设 备的拆装。 （2）通过机构原理分析，熟悉测试机器机构运动学与力学性能参数的方法， 理解测试参数所代表的物理意义，以及对机器的性能指标有初步的认识。&lt;/p&gt;
-&lt;p&gt;实验内容包括机械实物装配、电气实物装配、实验数据采集分析。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.1&lt;/strong&gt; &lt;strong&gt;机械实物装配&lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;1）物料出库：根据线上生成的 BOM 表，进行线下实物装配所需零件领取&lt;/p&gt;
-&lt;p&gt;2）物料组装 &lt;/p&gt;
-&lt;p&gt;①根据线上的整机展示安装视频，先安装执行构件&lt;/p&gt;
-&lt;p&gt;②在执行构件上安装滑块铰链，将曲柄组件根据三维模型进行安装位置测量 并安装，再通过连杆将滑块铰链与曲柄组件连接到一起&lt;/p&gt;
-&lt;p&gt;③将传动装置从主轴长端一侧穿入，固定在机架的一侧&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.2&lt;/strong&gt; &lt;strong&gt;电气实物装配&lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;①根据实验机的实验所需的电气零部件及其测试工装安装在实验机的相应 &lt;/p&gt;
-&lt;p&gt;位置上，进行电阻式位移传感器的安装&lt;/p&gt;
-&lt;p&gt;②编码器和编码器安装板固定在实验机主轴一侧&lt;/p&gt;
-&lt;p&gt;③驱动装置伺服电机和减速器安装在实验机的传动装置上&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.3&lt;/strong&gt; &lt;strong&gt;实验数据采集分析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;通过实验测试，可以验证冲压六杆实验机的精度、稳定性和可靠性。实验结果可以反映设备在实际操作中的性能表现，为设备的改进和优化提供依据。通过多次重复实验，可以评估冲压工艺的可重复性和稳定性。如果实验结果具有较高的一致性，说明该工艺具有较高的稳定性和可靠性，适用于批量生产&lt;/p&gt;
-&lt;p&gt;思考题：&lt;/p&gt;
-&lt;p&gt;（1）：&lt;/p&gt;
-&lt;p&gt;安装需要进行思考，有些零件外形相似，容易出现配合不上的情况&lt;/p&gt;
-&lt;p&gt;（2）：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;载荷传递不准确：由于杆件长度误差或连接处间隙，载荷在六杆机构中的传递可能发生偏差，导致实验结果不准确。&lt;/li&gt;
-&lt;li&gt;机构运动不平稳：装配误差可能使六杆机构在运动过程中出现卡滞、抖动或振动等现象，这不仅影响试验的重复性，还可能对试验机造成损伤。&lt;/li&gt;
-&lt;li&gt;应力分布不均：角度偏差等装配误差可能导致六杆机构在受力时应力分布不均，使得某些部件承受过大的应力，从而影响其使用寿命和安全性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;（3）：&lt;/p&gt;
-&lt;p&gt;异常现象及原因分析&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;实验结果不稳定&lt;ul&gt;
-&lt;li&gt;原因：可能是由于装配误差导致六杆机构在运动过程中受力不均或运动不平稳，也可能是由于控制系统的精度不足或传感器老化等原因。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;六杆机构运动不流畅&lt;ul&gt;
-&lt;li&gt;原因：可能是由于杆件连接处存在间隙或摩擦过大，导致机构在运动过程中受到阻碍。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;实验过程中出现噪音或振动&lt;ul&gt;
-&lt;li&gt;原因：可能是由于六杆机构装配不当或某些部件松动，导致在受力时产生不必要的振动和噪音。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;实验数据偏差大&lt;ul&gt;
-&lt;li&gt;原因：除了装配误差，还可能是测量系统不准确、数据处理方法不当或环境因素影响（如温度、湿度变化）等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;改进措施和避免措施&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;提高装配精度&lt;ul&gt;
-&lt;li&gt;严格按照设计要求进行装配，使用精密测量工具确保各部件的尺寸和角度精度。&lt;/li&gt;
-&lt;li&gt;定期对装配精度进行校验，及时调整或更换不符合要求的部件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;优化六杆机构设计&lt;ul&gt;
-&lt;li&gt;通过结构分析和模拟仿真，优化六杆机构的设计，减少其对装配精度的敏感性。&lt;/li&gt;
-&lt;li&gt;选用高质量的材料和制造工艺，提高六杆机构的刚性和耐磨性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;完善控制系统和测量系统&lt;ul&gt;
-&lt;li&gt;升级控制系统，提高控制精度和响应速度，确保实验过程的稳定性和准确性。&lt;/li&gt;
-&lt;li&gt;定期对测量系统进行校准和维护，确保测量数据的准确性和可靠性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;加强设备维护和保养&lt;ul&gt;
-&lt;li&gt;制定详细的设备维护和保养计划，定期对冲压实验机进行清洁、润滑和紧固等操作。&lt;/li&gt;
-&lt;li&gt;及时发现并处理设备异常情况，防止问题扩大化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;（4）：&lt;/p&gt;
-&lt;p&gt;装配过程：&lt;/p&gt;
-&lt;p&gt;3.1 机械实物装配 &lt;/p&gt;
-&lt;p&gt;1）物料出库：根据线上生成的 BOM 表，进行线下实物装配所需零件领取&lt;/p&gt;
-&lt;p&gt;2）物料组装 &lt;/p&gt;
-&lt;p&gt;①根据线上的整机展示安装视频，先安装执行构件&lt;/p&gt;
-&lt;p&gt;②在执行构件上安装滑块铰链，将曲柄组件根据三维模型进行安装位置测量 并安装，再通过连杆将滑块铰链与曲柄组件连接到一起&lt;/p&gt;
-&lt;p&gt;③将传动装置从主轴长端一侧穿入，固定在机架的一侧&lt;/p&gt;
-&lt;p&gt;3.2电气实物装配&lt;/p&gt;
-&lt;p&gt;①根据实验机的实验所需的电气零部件及其测试工装安装在实验机的相应 &lt;/p&gt;
-&lt;p&gt;位置上，进行电阻式位移传感器的安装&lt;/p&gt;
-&lt;p&gt;②编码器和编码器安装板固定在实验机主轴一侧&lt;/p&gt;
-&lt;p&gt;③驱动装置伺服电机和减速器安装在实验机的传动装置上&lt;/p&gt;
-&lt;p&gt;3.3 实验数据采集分析&lt;/p&gt;
-&lt;p&gt;实验测试的过程：&lt;/p&gt;
-&lt;p&gt;通过云互联网，进行传感器数据的采集，包括位移传感器和编码器，将数据传输到电脑上，并且对其通过六杆算法进行分析。&lt;/p&gt;
-&lt;p&gt;（5）：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;位移：位移是指冲压过程中冲头或工件在垂直方向上的移动距离。它用于描述冲压过程的进行程度。&lt;/li&gt;
-&lt;li&gt;编码器测量：通过编码器测量的是对应的速度。&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-        <updated>2024-04-03T01:27:56.460Z</updated>
     </entry>
     <entry>
         <id>https://bangdexuanyuan.github.io/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
