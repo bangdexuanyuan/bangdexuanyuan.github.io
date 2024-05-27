@@ -7,15 +7,15 @@
         <language>zh-CN</language>
         <pubDate>Wed, 13 Mar 2024 18:30:00 +0800</pubDate>
         <lastBuildDate>Wed, 13 Mar 2024 18:30:00 +0800</lastBuildDate>
-        <category>感想</category>
-        <category>pcb</category>
-        <category>stm32</category>
-        <category>水下机器人</category>
-        <category>单片机</category>
+        <category>mind</category>
         <category>哈尔滨生活</category>
-        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>单片机</category>
         <category>音乐</category>
+        <category>水下机器人</category>
+        <category>pcb</category>
         <category>英语</category>
+        <category>青岛生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/study/hello-world/</guid>
             <title>英语论文学习</title>

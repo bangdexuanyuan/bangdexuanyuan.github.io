@@ -7,15 +7,15 @@
         <language>zh-CN</language>
         <pubDate>Sat, 23 Mar 2024 15:43:12 +0800</pubDate>
         <lastBuildDate>Sat, 23 Mar 2024 15:43:12 +0800</lastBuildDate>
-        <category>感想</category>
-        <category>pcb</category>
-        <category>stm32</category>
-        <category>水下机器人</category>
-        <category>单片机</category>
+        <category>mind</category>
         <category>哈尔滨生活</category>
-        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>单片机</category>
         <category>音乐</category>
+        <category>水下机器人</category>
+        <category>pcb</category>
         <category>英语</category>
+        <category>青岛生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
             <title>关于keil中出现No target connnect问题的解决</title>

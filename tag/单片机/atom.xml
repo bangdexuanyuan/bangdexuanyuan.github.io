@@ -4,15 +4,15 @@
     <title> • Posts by &#34;单片机&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2023-09-02T02:32:00.000Z</updated>
-    <category term="感想" />
-    <category term="pcb" />
-    <category term="stm32" />
-    <category term="水下机器人" />
-    <category term="单片机" />
+    <category term="mind" />
     <category term="哈尔滨生活" />
-    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="单片机" />
     <category term="音乐" />
+    <category term="水下机器人" />
+    <category term="pcb" />
     <category term="英语" />
+    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/</id>
         <title>定时器学习</title>
