@@ -7,15 +7,16 @@
         <language>zh-CN</language>
         <pubDate>Thu, 21 Mar 2024 18:30:00 +0800</pubDate>
         <lastBuildDate>Thu, 21 Mar 2024 18:30:00 +0800</lastBuildDate>
-        <category>哈尔滨生活</category>
+        <category>mistake</category>
+        <category>stm32</category>
         <category>mind</category>
+        <category>单片机</category>
+        <category>水下机器人</category>
+        <category>pcb</category>
         <category>音乐</category>
         <category>青岛生活</category>
-        <category>单片机</category>
-        <category>stm32</category>
-        <category>水下机器人</category>
         <category>英语</category>
-        <category>pcb</category>
+        <category>哈尔滨生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
             <title>STM32串口传输数据</title>
@@ -23,23 +24,31 @@
             <category>stm32</category>
             <pubDate>Thu, 21 Mar 2024 18:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;$STM32CUBEMX$利用串口传输数据&lt;/p&gt;
-&lt;p&gt;1.串口的发送与接收&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;STM32CUBEMX&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05017em;&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 利用串口传输数据&lt;/p&gt;
+&lt;p&gt;1. 串口的发送与接收&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Transmit();串口发送数据，使用超时管理机制 &lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit (); 串口发送数据，使用超时管理机制&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Receive();串口接收数据，使用超时管理机制&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Receive (); 串口接收数据，使用超时管理机制&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_IT();串口中断模式发送  &lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_IT (); 串口中断模式发送&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Receive_IT();串口中断模式接收&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Receive_IT (); 串口中断模式接收&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_DMA();串口DMA模式发送&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式发送&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HAL_UART_Transmit_DMA();串口DMA模式接收&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式接收&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;功能：&lt;strong&gt;串口&lt;/strong&gt;发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;UART_HandleTypeDef*huart 例如huart1就是其中一个别名

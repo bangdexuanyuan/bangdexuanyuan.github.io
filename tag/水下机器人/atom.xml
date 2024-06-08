@@ -4,26 +4,27 @@
     <title> • Posts by &#34;水下机器人&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-24T07:10:00.000Z</updated>
-    <category term="哈尔滨生活" />
+    <category term="mistake" />
+    <category term="stm32" />
     <category term="mind" />
+    <category term="单片机" />
+    <category term="水下机器人" />
+    <category term="pcb" />
     <category term="音乐" />
     <category term="青岛生活" />
-    <category term="单片机" />
-    <category term="stm32" />
-    <category term="水下机器人" />
     <category term="英语" />
-    <category term="pcb" />
+    <category term="哈尔滨生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</id>
         <title>水上和水下双单片机串口沟通</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/"/>
-        <content type="html">&lt;p&gt;由于项目的需要，需要一个水上stm32单片机与水下的电子仓里面的stm32进行通讯。&lt;/p&gt;
+        <content type="html">&lt;p&gt;由于项目的需要，需要一个水上 stm32 单片机与水下的电子仓里面的 stm32 进行通讯。&lt;/p&gt;
 &lt;p&gt;我的思路是这样的，先不考虑距离传输，直接采用串口进行传输。&lt;/p&gt;
-&lt;p&gt;然后我的思路是，采用$stm32cubemx$对串口进行配置，因为是全双工的，所以我想法是利用串口ttl模块&lt;/p&gt;
-&lt;p&gt;通过查阅资料，一般的串口通讯ttl能传播的距离为10m左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用485模块，通过485模块，将水下机器人的传播距离增大至1km.&lt;/p&gt;
-&lt;p&gt;之前测试的时候，我是想通过ttl模块，直接对单片机发送16进制的数据，测试hal库的中断接收好不好用，但是在测试的过程中，我发现，通过ttl模块对单片机发送的数据和在hal里面，调用发送中断函数，其发送的16进制的数据，并不一样，在这个地方。我卡了好久，&lt;/p&gt;
+&lt;p&gt;然后我的思路是，采用&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;stm32cubemx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 对串口进行配置，因为是全双工的，所以我想法是利用串口 ttl 模块&lt;/p&gt;
+&lt;p&gt;通过查阅资料，一般的串口通讯 ttl 能传播的距离为 10m 左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用 485 模块，通过 485 模块，将水下机器人的传播距离增大至 1km.&lt;/p&gt;
+&lt;p&gt;之前测试的时候，我是想通过 ttl 模块，直接对单片机发送 16 进制的数据，测试 hal 库的中断接收好不好用，但是在测试的过程中，我发现，通过 ttl 模块对单片机发送的数据和在 hal 里面，调用发送中断函数，其发送的 16 进制的数据，并不一样，在这个地方。我卡了好久，&lt;/p&gt;
 &lt;p&gt;现在考虑怎么把控制速度和舵机的进行融合，我们可以这样。&lt;/p&gt;
-&lt;p&gt;在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的ADC值进行融合，然后发送数据包，通过485发送给水下单片机，从而操作其工作。&lt;/p&gt;
+&lt;p&gt;在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的 ADC 值进行融合，然后发送数据包，通过 485 发送给水下单片机，从而操作其工作。&lt;/p&gt;
 </content>
         <category term="水下机器人" />
         <updated>2024-03-24T07:10:00.000Z</updated>
