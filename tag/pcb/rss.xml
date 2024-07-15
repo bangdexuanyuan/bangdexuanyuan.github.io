@@ -7,16 +7,16 @@
         <language>zh-CN</language>
         <pubDate>Mon, 25 Mar 2024 23:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 25 Mar 2024 23:00:00 +0800</lastBuildDate>
-        <category>mistake</category>
-        <category>stm32</category>
-        <category>mind</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
         <category>pcb</category>
-        <category>音乐</category>
-        <category>青岛生活</category>
-        <category>英语</category>
         <category>哈尔滨生活</category>
+        <category>青岛生活</category>
+        <category>mistake</category>
+        <category>mind</category>
+        <category>stm32</category>
+        <category>音乐</category>
+        <category>水下机器人</category>
+        <category>单片机</category>
+        <category>英语</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
             <title>水下机器人画板子的时候遇到的一些问题</title>

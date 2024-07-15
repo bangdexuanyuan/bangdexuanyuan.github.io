@@ -4,16 +4,16 @@
     <title> • Posts by &#34;水下机器人&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-24T07:10:00.000Z</updated>
-    <category term="mistake" />
-    <category term="stm32" />
-    <category term="mind" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <category term="pcb" />
-    <category term="音乐" />
-    <category term="青岛生活" />
-    <category term="英语" />
     <category term="哈尔滨生活" />
+    <category term="青岛生活" />
+    <category term="mistake" />
+    <category term="mind" />
+    <category term="stm32" />
+    <category term="音乐" />
+    <category term="水下机器人" />
+    <category term="单片机" />
+    <category term="英语" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</id>
         <title>水上和水下双单片机串口沟通</title>

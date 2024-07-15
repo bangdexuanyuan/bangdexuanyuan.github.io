@@ -4,16 +4,16 @@
     <title> • Posts by &#34;stm32&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-23T07:43:12.000Z</updated>
-    <category term="mistake" />
-    <category term="stm32" />
-    <category term="mind" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <category term="pcb" />
-    <category term="音乐" />
-    <category term="青岛生活" />
-    <category term="英语" />
     <category term="哈尔滨生活" />
+    <category term="青岛生活" />
+    <category term="mistake" />
+    <category term="mind" />
+    <category term="stm32" />
+    <category term="音乐" />
+    <category term="水下机器人" />
+    <category term="单片机" />
+    <category term="英语" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
         <title>关于keil中出现No target connnect问题的解决</title>
