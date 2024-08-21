@@ -3,17 +3,29 @@
     <id>https://bangdexuanyuan.github.io</id>
     <title></title>
     <link href="https://bangdexuanyuan.github.io" />
-    <updated>2024-07-13T14:00:00.000Z</updated>
-    <category term="pcb" />
+    <updated>2024-08-21T04:50:00.000Z</updated>
     <category term="哈尔滨生活" />
-    <category term="青岛生活" />
-    <category term="mistake" />
-    <category term="mind" />
-    <category term="stm32" />
+    <category term="南京" />
     <category term="音乐" />
+    <category term="mistake" />
+    <category term="青岛生活" />
+    <category term="mind" />
+    <category term="英语" />
+    <category term="pcb" />
+    <category term="stm32" />
     <category term="水下机器人" />
     <category term="单片机" />
-    <category term="英语" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/</id>
+        <title>海航游记</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/"/>
+        <content type="html">&lt;p&gt;如今我更愿意相信人生是守恒的，今天的努力未必会在你规定的时间回报你，但一定会在未来落到你的身上。&lt;/p&gt;
+&lt;p&gt;最有希望的 e2 寄掉了，没绷住，最没有希望的 b2 有了，世事真是无常。&lt;/p&gt;
+&lt;p&gt;明年再来吧，也算是圆了自己一个国赛的梦。&lt;/p&gt;
+</content>
+        <category term="南京" />
+        <updated>2024-08-21T04:50:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://bangdexuanyuan.github.io/life/%E9%82%93%E7%B4%AB%E6%A3%8B/</id>
         <title>邓紫棋演唱会</title>
