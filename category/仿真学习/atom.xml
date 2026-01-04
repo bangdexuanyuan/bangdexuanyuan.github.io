@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://bangdexuanyuan.github.io</id>
+    <title> • Posts by &#34;仿真学习&#34; category</title>
+    <link href="https://bangdexuanyuan.github.io" />
+    <updated>2026-01-04T03:02:00.000Z</updated>
+    <category term="南京" />
+    <category term="mistake" />
+    <category term="悟" />
+    <category term="mind" />
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="pcb" />
+    <category term="水下机器人" />
+    <category term="stm32" />
+    <category term="单片机" />
+    <category term="ROS2" />
+    <category term="英语" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/</id>
+        <title>ROS2 仿真学习day1</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/"/>
+        <content type="html">&lt;p&gt;ubuntu 怎么查看版本编号：&lt;/p&gt;
+&lt;p&gt;需要用到语句：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic1.imgdb.cn/item/6959dead355893cb826db877.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;目前遇到了 ROS2 无法安装的问题&lt;/p&gt;
+&lt;p&gt;经过排查，发现是虚拟机没有连接网络的问题&lt;/p&gt;
+&lt;p&gt;检查过程：&lt;/p&gt;
+&lt;p&gt;1. 先通过 ping 语句，检查一下网络&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;比如说ping 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;linux 终端会返回&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=187 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=128 time=186 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;初步说明网络出口没问题，接下来我们进行双边通信的验证&lt;/p&gt;
+&lt;p&gt;2. 之后 ping 一个网站，例如百度网站，看看会不会有信号的回传&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;u@u-virtual-machine:~$ ping baidu.com
+PING baidu.com (111.63.65.247) 56(84) bytes of data.
+64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=1 ttl=128 time=64.5 ms
+64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=2 ttl=128 time=98.6 ms
+64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=3 ttl=128 time=87.9 ms
+64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=4 ttl=128 time=90.4 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也没有问题，说明网络方面的问题已经被排查完毕&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export TURTLEBOT3_MODEL=waffle
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装 ROS2 Gazebo 集成包&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 安装完整的Gazebo ROS集成包
+sudo apt update
+sudo apt install ros-humble-gazebo-ros-pkgs
+sudo apt install ros-humble-gazebo-plugins
+
+# 重新安装turtlebot3仿真包
+sudo apt install --reinstall ros-humble-turtlebot3-gazebo
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;启动 Gazebo 仿真（服务端）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 设置环境
+source /opt/ros/humble/setup.bash
+export TURTLEBOT3_MODEL=waffle
+
+# 启动Gazebo服务器（等待它完全启动）
+gzserver --verbose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;linux 终端返回&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[Msg] Waiting for master.
+[Msg] Connected to gazebo master @ http://127.0.0.1:11345
+[Msg] Publicized address: 192.168.159.128
+[Msg] Loading world file [/usr/share/gazebo-11/worlds/empty.world]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;启用 Gazebo 仿真（客户端）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gzclient
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成 TurtleBot3 机器人&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 生成TurtleBot3机器人
+ros2 run gazebo_ros spawn_entity.py \
+  -entity turtlebot3_waffle \
+  -file /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf \
+  -x -2.0 -y -0.5 -z 0.01
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;以上的步骤，还未实现，总是卡在 Gazebo 服务端开始之后，调用 TurtleBot3 机器人，无法生成&lt;/p&gt;
+&lt;p&gt;目前好用的方法，可以自行进行对比&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 新开一个终端
+source /opt/ros/humble/setup.bash
+export TURTLEBOT3_MODEL=waffle
+
+# 启动Gazebo（包含图形界面）
+ros2 launch turtlebot3_gazebo empty_world.launch.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个可以加载空的地图，就是只有一个机器人的地图，如果你想要加载带地图边缘的，可以使用语句&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;键盘控制&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 键盘控制
+ros2 run turtlebot3_teleop teleop_keyboard
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmdpdEBnaXRodWIuY29t&#34;&gt;git@github.com&lt;/span&gt;:bangdexuanyuan/bangdexuanyuan.github.io.git&lt;/p&gt;
+</content>
+        <category term="ROS2" />
+        <updated>2026-01-04T03:02:00.000Z</updated>
+    </entry>
+</feed>

@@ -4,17 +4,19 @@
     <title> • Posts by &#34;南京&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-08-21T04:50:00.000Z</updated>
-    <category term="哈尔滨生活" />
     <category term="南京" />
-    <category term="音乐" />
     <category term="mistake" />
-    <category term="青岛生活" />
+    <category term="悟" />
     <category term="mind" />
-    <category term="英语" />
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="青岛生活" />
     <category term="pcb" />
-    <category term="stm32" />
     <category term="水下机器人" />
+    <category term="stm32" />
     <category term="单片机" />
+    <category term="ROS2" />
+    <category term="英语" />
     <entry>
         <id>https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/</id>
         <title>海航游记</title>
@@ -25,5 +27,16 @@
 </content>
         <category term="南京" />
         <updated>2024-08-21T04:50:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://bangdexuanyuan.github.io/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/</id>
+        <title>南京游</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/"/>
+        <content type="html">&lt;p&gt;南京是一座浪漫的城市，南京的黄昏，灯火阑珊，给你温暖的气息。小巷里的小吃，永远也吃不够。玄武湖上的游船和远处的鸡鸣寺，伴着那天的暴雨，永远刻在我的记忆里。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/66c57738d9c307b7e9e2e583.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;梧桐枝桠疯长，爱意贯穿心脏&lt;/p&gt;
+</content>
+        <category term="南京" />
+        <updated>2024-08-16T04:00:00.000Z</updated>
     </entry>
 </feed>
