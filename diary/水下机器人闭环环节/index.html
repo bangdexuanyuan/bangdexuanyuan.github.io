@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
         </ul>
       </div>
     </header>
@@ -167,32 +167,32 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     
 
     <p>水下机器人闭环环节</p>
-<p>一直目前我写的 MPU6050 向前是</p>
-<p><img data-src="https://images.tcdn.com.br/img/img_prod/715570/acelerometro_e_giroscopio_3_eixos_mpu_6050_mpu6050_359657_1_20201213232607.jpg" alt=""></p>
-<p>规定，纸面的左右是 x 轴，当这个 mpu6050 模块绕着 x 轴旋转的时候，此时产生的角是 roll，且如果上方向着纸面里面旋转，此时的 roll 角会越来越大，直到 90 度</p>
-<p>再规定，纸面的上下形成一条直线，这个线称为 y 轴，此时 mpu6050 绕着这个轴旋转的时候，此时产生的角是 pitch, 且如果左边的边是向纸面里面旋进的，这个时候的 pitch 会越来越大，直到 90 度。</p>
-<p>MPU6050 的初始化一定记得放在延时之前</p>
-<pre><code class="language-c++">res = MPU6050_DMP_Init();
-	if(res!=0)
-	&#123;
-		printf(&quot;MPU6050 Init ERROR res = %d \r\n&quot;,res);
-		while(res)//这句话的意思是当res的值不为0时，一直保持while循环
-		&#123;
-			HAL_Delay(300);
-			res = MPU6050_DMP_Init();
-			printf(&quot;MPU6050 Init ERROR res=%d \r\n &quot;,res);
-		&#125;
-		printf(&quot;MPU6050 Init SUCCEED! \r\n&quot;);
-	&#125;
-	else 
-	&#123;
-		printf(&quot;MPU6050 Init SUCCEED! \r\n&quot;);
-	&#125;
-	HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_2);
-	__HAL_TIM_SetCompare(&amp;htim1, TIM_CHANNEL_1, 1500);
-	__HAL_TIM_SetCompare(&amp;htim1, TIM_CHANNEL_2, 1500);
-	HAL_Delay(5000);
+<p>一直目前我写的MPU6050向前是</p>
+<p><img data-src="https://images.tcdn.com.br/img/img_prod/715570/acelerometro_e_giroscopio_3_eixos_mpu_6050_mpu6050_359657_1_20201213232607.jpg"></p>
+<p>规定，纸面的左右是x轴，当这个mpu6050模块绕着x轴旋转的时候，此时产生的角是roll，且如果上方向着纸面里面旋转，此时的roll角会越来越大，直到90度</p>
+<p>再规定，纸面的上下形成一条直线，这个线称为y轴，此时mpu6050绕着这个轴旋转的时候，此时产生的角是pitch,且如果左边的边是向纸面里面旋进的，这个时候的pitch会越来越大，直到90度。</p>
+<p>MPU6050的初始化一定记得放在延时之前</p>
+<pre><code class="c++">res = MPU6050_DMP_Init();
+    if(res!=0)
+    &#123;
+        printf(&quot;MPU6050 Init ERROR res = %d \r\n&quot;,res);
+        while(res)//这句话的意思是当res的值不为0时，一直保持while循环
+        &#123;
+            HAL_Delay(300);
+            res = MPU6050_DMP_Init();
+            printf(&quot;MPU6050 Init ERROR res=%d \r\n &quot;,res);
+        &#125;
+        printf(&quot;MPU6050 Init SUCCEED! \r\n&quot;);
+    &#125;
+    else 
+    &#123;
+        printf(&quot;MPU6050 Init SUCCEED! \r\n&quot;);
+    &#125;
+    HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_2);
+    __HAL_TIM_SetCompare(&amp;htim1, TIM_CHANNEL_1, 1500);
+    __HAL_TIM_SetCompare(&amp;htim1, TIM_CHANNEL_2, 1500);
+    HAL_Delay(5000);
 </code></pre>
 <p>应该这样写.</p>
 
@@ -254,7 +254,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b46f9f345e8d039570f2.webp" title="未命名">
+  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -290,7 +290,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">31</span>
+        <span class="count">30</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -302,7 +302,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">13</span>
+        <span class="count">12</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -386,10 +386,9 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -398,7 +397,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
   </li>
 
       
@@ -408,7 +417,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
   </li>
 
       
@@ -418,17 +427,16 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -438,16 +446,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
       
@@ -464,20 +462,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
