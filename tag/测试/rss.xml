@@ -7,23 +7,23 @@
         <language>zh-CN</language>
         <pubDate>Sun, 04 Jan 2026 20:29:00 +0800</pubDate>
         <lastBuildDate>Sun, 04 Jan 2026 20:29:00 +0800</lastBuildDate>
+        <category>mistake</category>
         <category>哈尔滨生活</category>
-        <category>股票交易</category>
+        <category>mind</category>
         <category>读博</category>
         <category>南京</category>
         <category>青岛生活</category>
         <category>音乐</category>
+        <category>stm32</category>
+        <category>单片机</category>
+        <category>水下机器人</category>
+        <category>股票交易</category>
         <category>ROS2</category>
         <category>ROS指令</category>
         <category>DDS通信</category>
         <category>ROS</category>
-        <category>测试</category>
         <category>英语</category>
-        <category>mind</category>
-        <category>mistake</category>
-        <category>stm32</category>
-        <category>水下机器人</category>
-        <category>单片机</category>
+        <category>测试</category>
         <category>pcb</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/</guid>
@@ -35,12 +35,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;040115dba9e31097c1da114d7b3af4a1a980ad5049afec78130998640b2ff1e8&#34;
-     data-nonce=&#34;ea82cf04248111cd3e89c7fd&#34;
+     data-salt=&#34;9ab6497fb79c77bf4c2ae9b4c8e51299a4184b592a1a40e515fc53f4d3ba55cb&#34;
+     data-nonce=&#34;c1acd8dd21673304f0edb8c9&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    8c73e869b1a8d45b572f27fdaff0837b0c953f1cd0c5fb19aba3d3487270d928c9762ab0a351079eeb45a79a0c63680715e3a22a7305719015063f77f3a790ccd4d88883513528a8d9e4a71cc58aeb5633249c769ae424e8c04dc803dc861c874666752e0f8958ea5d0b43b8c1a8a36ff175d72300305834226067c23405c02d
+    b5c3b96b6cd9a72fe8b77a8180404cc6b95dd7a579f61a4782e1f98f78c3bb6ecc1787a423f9783f5160b9f9f37a8dc4186fd65c5afa3a46e092ef06c4dd58a05e4b0b39140feafe7a3b7a8272ad6f05cf80720622a3782d27599b3fdff83238bf2702215342a089e8f714002c64490f78ba1a272c8df75bd3ff
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;

@@ -2189,6 +2189,17 @@ const algoliaSearch = function(pjax) {
     }
   });
 }
+// Strip PJAX marker headers: some networks drop requests that carry them,
+// which made article navigation hang after the request left the browser.
+(function() {
+  const originalSetHeader = XMLHttpRequest.prototype.setRequestHeader;
+  XMLHttpRequest.prototype.setRequestHeader = function(name, value) {
+    const lower = String(name).toLowerCase();
+    if (lower === 'x-pjax' || lower === 'x-pjax-selectors') return;
+    return originalSetHeader.call(this, name, value);
+  };
+})();
+
 const domInit = function() {
   $.each('.overview .menu > .item', function(el) {
     siteNav.child('.menu').appendChild(el.cloneNode(true));
