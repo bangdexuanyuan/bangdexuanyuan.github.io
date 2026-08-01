@@ -4,24 +4,23 @@
     <title> • Posts by &#34;南京&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-08-21T04:50:00.000Z</updated>
-    <category term="mistake" />
     <category term="mind" />
+    <category term="mistake" />
+    <category term="pcb" />
     <category term="读博" />
     <category term="南京" />
     <category term="哈尔滨生活" />
     <category term="音乐" />
     <category term="青岛生活" />
-    <category term="股票交易" />
-    <category term="ROS2" />
+    <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
+    <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="pcb" />
-    <category term="stm32" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <entry>
         <id>https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/</id>
         <title>海航游记</title>
@@ -30,12 +29,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;61e5bf2fd882d8906985473b9aa701763d9faecf1181ead3557fb40e7ac8b36b&#34;
-     data-nonce=&#34;62297fa5fa95703b614b777d&#34;
+     data-salt=&#34;588e2a7e225f41628a5bd1495ba26130fc898bf8005da2aa6775e0395f04f263&#34;
+     data-nonce=&#34;eeff1e9b236635178e707279&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    38747cc158bae21d0898293add1ba59ef6d04b4ee23cd579eb1e7f30c0b97e6b1c03f73bc44544d11f545ecca6d379b4e67a8203b288dbb92764fd862fe8ce0bd994da0dd24ba3fbe67f3f4362dbe8f61667ca09440fd351166b2b023ca4932a09a1ce480f6355daf9e8f39f3e78df98c839cd8a9ef7457b16f73dd1a711c610a03f2629549a9fc1fa62b6a5ae3435a59b1fede62d8bb84782282eb316a6c7cd846195c0398305ac9bc4850e77aaa14ac53cf259b9790175b236e2b945810f5fc963bec048bdd9fd92e0c2ba93c0dc25027c6bb3212042ed83fd57b6b217b82c2165b19d356adacd05b2a4c7c4efa150ed92736dcee910b8763384204e0d303c11a855b5591036d4ddde5cdb7ced7aa34d06848bd82e9afb31b0e387134accc71e5494a18f237672ebb5ee7f915f2c44656926f3ece497b6eb2cb0f2ad326ddac099a59a877beee5d8c66d67745bbf4a2bdc62
+    644362a24bd68cc91e779dac9f401b2e9c37a888eb8858ee9014d8d8443e3be322f8eace12c687ac641db6722399024e60c1f611ff51ece74808e494055b807dbd911d97693a8a0b47af8c5c8e6df5bf6c92a9601e549197e6410dfc2e1b9db372ff5d413872998c9b8d903efab1323c41b78cb182be830cd94ec814a2063e4daadfe00814c10c319c0318b9cf4badfb37e5120a7111f39371e848bb3750ec7ac4265c11694b2d86af444906e6886b82d838b5b4c93b9b789f04ff9031ae7beecfed9e722f65f46ec456dea1ccadf50969d50c2253733a102854f4abddaac3911584e3f15cfd74f87fd32096f9856543af528ae55e38ef57856bf5e786fcae74bc483a8b2bea55f60efceeed4467de3428cb108d5dd59b75235890af795e23006a0cf4513bf700e83a8a4355ee59215e07c842775d1de5c715da30ecb17f99da110485077ba2178fb687f7f79667c3
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
@@ -62,12 +61,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;1bbd07838246acffda2e6ececd0305b51a794dfd2ff5ef2e58bd2da82bd94319&#34;
-     data-nonce=&#34;86f21b7947f169ec209ecc19&#34;
+     data-salt=&#34;813fd1b6a16c2dc20425475a72b26c1ca83f65db893dda635f91bed744139860&#34;
+     data-nonce=&#34;a427b4323d40775d423028e8&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    b2eac0f2e0c96aad4a3d4062fc972fdbe83d9b2997caf53d37ad5c83af7685a4dba4a3e4f2edf264316b5c7848f0e712b1ecd8940393229f0af6ee5e3b6e87a7a0b6e110c94c3dbc6ea9ddbd8bca8b26803c2670e5fcf8975f17c844b112b39ee9c5f17e5bfeebf39d8c3d26b72f0c1bcaa47423ec18b6bfb9964428c62bb3eeb86fe128a43235c40468efcee37c07600118da6f0938a964b9e210b80e936bd2fe4b3e1f7faa8ce031510d2511e18a7d959ed0bdc5013a81f51786221f4327561ae394c843e53bc802b97467429e59f04235b22679be3a803f5a72f40fe30af8ea466fee2322a1cd344e33ca767d86c2ddef4a523e33d523ee62c932689f97514d05b96e7446134530531b716bd77ad3e24117a9a89a5cddedd5c4d00a55b0f229928c608d569a4d8132edfe5144b831cfbad1360cda6d997ca207fbddafd24ac8a96bc6a55243247b88d93c9a8a53639bbf1e0e22202b300879010f487fcbfc5e10b47a828f6e1339814cf3646c8b163dd5da1485e94ba0c59b23edb6ee18aabad47497
+    fd43fef6a920da27cebb785ab3f25d32e9b1389054599e6cfc27e38e71798b7014dde70c9d49d8f0a3664e73d6215e9c4b71401d6dc436fdaa03d37f05cf2f54a39aabf2175fac349441ef49f610beb7384789bbaa4bda730810080ddcabec84a3549a5269f74dfa3c1d9320bfc76b14ac329f6859602dbc3634a3546e2c07dfd95fc2d1881b3660482eff3fca4d45071f94adaa9cbcc7a665d5695de1a20972d3c538f359e6489ce0be3e326fbe8faaa200d949c6d1a08d58888e9fb81bd3dafe63d68792b73614f69a10585aa7d257da237e24a9d14bf8568d8753f9b9d26c740a8691f4e6d715d148c0b2d6c14b7cd7ade615ab940e6065ced5f5287eb8834f41156d28d9cad78d2d5e0dad9c8260cc02313002415d0fa820e8a5e7dceeb5dc1e77a494ee101a1b92ba37dc052a784c07bfdbb05ca561edc1f04c515d0fbbbe776d80776399d72dc0dcd40d6393d2f4f542d0ca5ad4042e62e0bd3a8257b4ddf1ff75b7e1e05aabd1e1163c24d83c6db1f60ee20541c5be75ff4545
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;

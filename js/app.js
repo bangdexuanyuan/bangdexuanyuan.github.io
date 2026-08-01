@@ -2192,12 +2192,19 @@ const algoliaSearch = function(pjax) {
 // Strip PJAX marker headers: some networks drop requests that carry them,
 // which made article navigation hang after the request left the browser.
 ;(function() {
-  const originalSetHeader = XMLHttpRequest.prototype.setRequestHeader;
-  XMLHttpRequest.prototype.setRequestHeader = function(name, value) {
-    const lower = String(name).toLowerCase();
-    if (lower === 'x-pjax' || lower === 'x-pjax-selectors') return;
-    return originalSetHeader.call(this, name, value);
-  };
+  const RealXHR = window.XMLHttpRequest;
+  function SafeXHR() {
+    const xhr = new RealXHR();
+    const originalSetHeader = xhr.setRequestHeader;
+    xhr.setRequestHeader = function(name, value) {
+      const lower = String(name).toLowerCase();
+      if (lower === 'x-pjax' || lower === 'x-pjax-selectors') return;
+      return originalSetHeader.call(this, name, value);
+    };
+    return xhr;
+  }
+  SafeXHR.prototype = RealXHR.prototype;
+  window.XMLHttpRequest = SafeXHR;
 })();
 
 const domInit = function() {

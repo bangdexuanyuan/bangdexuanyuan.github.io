@@ -4,24 +4,23 @@
     <title> • Posts by &#34;life&#34; category</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-05-27T13:54:00.000Z</updated>
-    <category term="mistake" />
     <category term="mind" />
+    <category term="mistake" />
+    <category term="pcb" />
     <category term="读博" />
     <category term="南京" />
     <category term="哈尔滨生活" />
     <category term="音乐" />
     <category term="青岛生活" />
-    <category term="股票交易" />
-    <category term="ROS2" />
+    <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
+    <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="pcb" />
-    <category term="stm32" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <entry>
         <id>https://bangdexuanyuan.github.io/diary/2024.5.27/</id>
         <title>2024.5.27随记</title>
@@ -30,12 +29,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;bc4292cbfe9fe6f785a8bb0d34f79913366952f7b8c147fa9e31201b79df3d41&#34;
-     data-nonce=&#34;3d92046f2d81e6fdd8c0d927&#34;
+     data-salt=&#34;e5c962e339cfcc03d8f394282ca413b560878d8d4296cfcbc272a4ea5dca8644&#34;
+     data-nonce=&#34;01a16190164996f3bf07246b&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    06b8bcfb3f1b74aa7bf5a971732a360f9c1af2fc376092076c2fe678ac3c5b347cdfda65c43c68e2eb869c722b651051ccfb825217a54ddd817fa2ac3e8ba98fa2c1dc4405310f56395ffc86c7bbce514bbe9568d3c271c1273536bd1f4d3a170b7e733ea4726434f600e400abe12878c0e9
+    b0eb70d31bba6284e38c4ed37c4216e2707eacaca184567b7ad2be7fb42a124bbac732b5df23b687617a57198b15fa9464505df46f3daa3a99c7f0b93ee7caaa1e87985055177a00c8953a61fd941d0842c3f7cc8117c24e35c80ab388292b8fd0e659c35c2faa9eaeadf5140d61103e9b46
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
