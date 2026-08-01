@@ -4,22 +4,22 @@
     <title> • Posts by &#34;测试&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2026-01-04T12:29:00.000Z</updated>
-    <category term="pcb" />
-    <category term="stm32" />
-    <category term="单片机" />
-    <category term="读博" />
-    <category term="水下机器人" />
-    <category term="mistake" />
     <category term="哈尔滨生活" />
     <category term="南京" />
+    <category term="读博" />
     <category term="青岛生活" />
+    <category term="stm32" />
     <category term="音乐" />
+    <category term="mistake" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
     <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
+    <category term="pcb" />
     <category term="mind" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/</id>
@@ -29,12 +29,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;9df0f46cd8e1e00d32ae866c1a8aa1bdb099c7ec77d820547807aea34dd40407&#34;
-     data-nonce=&#34;c8ff7ce39dc4070e180f7da4&#34;
+     data-salt=&#34;0f079db63d48d1319ae294086d7ea8b3ff76ee814ee19f57661f41e2defe9739&#34;
+     data-nonce=&#34;4a81d01c18f754091778d43f&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    030903611e8e0adfcbf38047226d66e60dbc98fe87b307649e70e3afae34e11d3f830ebbf65ba0005a46b7121e3c65e7b491b5f1b0ef84d8fabe07fb3812cc35b19782cfb1697e942b8e9138d52c3a08a142fcae5c9b9219edaf0862d17fb6757dc6b4ae6f1d104095d7f3c7212773d0df564c0cf09775e112ff
+    10466d7e69e3f8854d1ee004a9f3226dcf3c83668ae5ae185ab68e4db8a3d45524b9d244e666e6e614c22f748eb17b261e6913641fbe125f1179ac51f4988934e6800c6750d09babcb0aed79ef32a64f94862488cc5944d1ac6e62d667c0b03cb4bc57e886ae51c461397e4c06f1ba37143f7fb9547041d6f7eccaa6e782a706
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
