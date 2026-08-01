@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,450 +166,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>PD 充电协议：</p>
-<p>前置名词：</p>
-<p>DFP：Downstream Facing Port 也就是 host 主机，下行通信</p>
-<p>UFP：Upstream Facing Port 也就是 Device 从机，上行通信</p>
-<p>DRP：既可以做主机，也可以做从机</p>
-<p>Source：通常指电源提供端，如电源适配器</p>
-<p>Sink：通常指电源消耗端，如手机、平板</p>
-<p>CC (Configuration Channel) ：配置通道，用于识别、控制</p>
-<p>BMC (Biphase Mark Coding)：双相位标识编码，通过 CC 通信</p>
-<p>SOP（Start of Packet Sequences）：所有的 PD 传输流程，都是以 SOP 开始，SOP * 代表 SOP，SOP’，SOP’’</p>
-<p>EOP（End of Packet）：数据包结束的标志</p>
-<h5 id="1cc引脚"><a class="markdownIt-Anchor" href="#1cc引脚">#</a> <strong>1.CC 引脚：</strong></h5>
-<p>CC 引脚（configuration channel）：通过引脚实现设备角色识别与电源协商</p>
-<p>CC1 和 CC2 负责配置通道，检测线缆插入方向，确定供电角色，建立 PD 通信链路</p>
-<p>其具体的原理为物理层的电压检测</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">设备类型</th>
-<th style="text-align:left">CC 端接方式</th>
-<th style="text-align:left">典型阻值</th>
-<th style="text-align:left">功能作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">DFP（源端）</td>
-<td style="text-align:left">上拉至 VBUS</td>
-<td style="text-align:left">RP = 56kΩ / 22kΩ / 默认</td>
-<td style="text-align:left">表明可供电</td>
-</tr>
-<tr>
-<td style="text-align:left">UFP（受电端）</td>
-<td style="text-align:left">下拉至 GND</td>
-<td style="text-align:left">RD = 5.1kΩ</td>
-<td style="text-align:left">表明需取电</td>
-</tr>
-<tr>
-<td style="text-align:left">Cable</td>
-<td style="text-align:left">Ra（有 e-Marker 线缆）或开路</td>
-<td style="text-align:left">约 800Ω</td>
-<td style="text-align:left">标识线缆能力</td>
-</tr>
-</tbody>
-</table>
-<p>在 DFP（如笔记本电脑、充电器）中，CC 引脚通过上拉电阻（RP）连接至 VCONN 或 VBUS；而在 UFP（上行端口，如手机）中，则通过 5.1kΩ 下拉电阻接地。</p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123163101575.png" alt="image-20260123163101575"></p>
-<h5 id="usb-pd协议的数据格式"><a class="markdownIt-Anchor" href="#usb-pd协议的数据格式">#</a> USB PD 协议的数据格式：</h5>
-<p><img data-src="C:%5CUsers%5C86155%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260122181801106.png" alt="image-20260122181801106"></p>
-<p>一个完整的 USB PD 数据包由前导码 (Preamble)，使用场景码 (SOP*)，消息头 (MessageHeader)，数据码 (Byte0-n)、校验码 (CRC)</p>
-<p>以及结束码 (EOP) 组成，如果数据部分为空，说明数据包仅作为控制指令使用，称为控制消息。有数据内容的称为数据消息，</p>
-<p>通常数据消息里包含了要变化的电压值和电流值等信息。整个 USB PD 数据包中，除了前导码不需要进行 4b5b 编码外，数据包</p>
-<p>的其他部分均需要进行 4b5b 编码，指定数据经过 4b5b 编码后，数据包中所有数据都需要使用 BMC 编码之后才能通过 CC 发送。</p>
-<h6 id="前导码preamble"><a class="markdownIt-Anchor" href="#前导码preamble">#</a> 前导码（Preamble）</h6>
-<p>前导码是为了锁定接收端，预示发送端将要有数据到达，前导码由交替的’0’和’1’组成，以’0’开始，以’1’结束</p>
-<p>0101010101…</p>
-<p><strong>消息头（Message Header）</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123141229552.png" alt="image-20260123141229552"></p>
-<p>消息头长度为 16Bits，其包含数据包的类型，端口角色（UFP，DFP）等信息</p>
-<ul>
-<li>
-<p>Extended（15）：控制或数据消息时为 0</p>
-</li>
-<li>
-<p>Number of Data Objects（12-14）：表示消息头后面的 32 位数据对象的数量</p>
-</li>
-<li>
-<p>MessageID（9-11）：其作用其实就是计数，开机时应该初始化为 0，当收到 Source 端收到 GoodCRC 消息时，消息计数器应该增加 1</p>
-</li>
-<li>
-<p>端口电源角色（8）：0 表示 Sink，电源消耗端，1 表示 Source，即供电端</p>
-</li>
-<li>
-<p>Specification Revision（6-7）：规范修订 00-Revision 1.0；01-Revision 2.0；10-Revision 3.0；11 - 保留，不得使用</p>
-</li>
-<li>
-<p>Port Data Role (5)：端口数据角色，0 表示 UFP ，1 表示 DFP</p>
-</li>
-<li>
-<p>Message Type (0-4)：消息类型，需要看 Number of Data Objects 的数值，Number of Data Objects 如果为 0，那么 Message type 表示控制指令；Number of Data Objects 如果为 1，表示传输数据</p>
-<p>​                                                                                                  <strong>控制消息</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144345852.png" alt="image-20260123144345852"></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123151032539.png" alt="image-20260123151032539"></p>
-<p>​                                                                                                    <strong>数据消息</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144354444.png" alt="image-20260123144354444"></p>
-<p>下面解释一下 Data Message Types 这几个类型的具体含义：<br>
-**Source _Capabilities：**0x01，源广播能力，充电器告诉设备我能提供这些挡位</p>
-<p><strong>Requeset</strong>：0x02 设备告诉充电器，选择第几挡，需要多少电压，需要多少电流</p>
-<p><strong>BIST</strong> ：0x03，自置内测试，用于链路测试</p>
-<p><strong>Sink_Capabilities</strong>：0x04，设备能力，设备主动告知充电器自己的充电需求，在 DRP 角色切换的时候使用</p>
-<p><strong>Battery_status</strong>：0x05，报告设备内部电池的详细信息（电量，健康度等）</p>
-<p><strong>Alert</strong>：0x06，报警时间，随时通知警告时间，比如说过热等</p>
-</li>
-</ul>
-<h3 id="实例"><a class="markdownIt-Anchor" href="#实例">#</a> 实例</h3>
-<p><strong>1. 首先充电器进行广播 ——Source_Capabilities</strong></p>
-<p>比如充电器告知手机有三个档位，5V/3A。9V/2.22A，12V/1.67A</p>
-<p>那么由于其是进行广播，所以 Message_type 等于 00001</p>
-<ul>
-<li><code>Message Type</code>  (0-4):  <code>0x01</code>  ( <code>00001</code> )</li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>3</code>  ( <code>011</code> )</li>
-<li><code>MessageID</code>  (9-11):  <code>1</code>  ( <code>001</code> ) <em>（会话开始）</em></li>
-<li>第 8 位，由于是电源，所以为 1</li>
-</ul>
-<p>那么消息头就可以生成为：</p>
-<table>
-<thead>
-<tr>
-<th>15</th>
-<th>14</th>
-<th>13</th>
-<th>12</th>
-<th>11</th>
-<th>10</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>完整的数据包</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x67</span> <span class="token number">0x41</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO1</span><span class="token punctuation">(</span><span class="token number">5</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO2</span><span class="token punctuation">(</span><span class="token number">9</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO3</span><span class="token punctuation">(</span><span class="token number">12</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>2. 手机端请求供电 ——requset 请求</strong></p>
-<p>比如请求 9V，2A 的电流</p>
-<ul>
-<li><code>Message Type</code>  (0-4):  <code>0x02</code>  ( <code>00010</code> )</li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> )</li>
-<li><code>MessageID</code>  (9-11):  <code>2</code>  ( <code>010</code> ) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>15</th>
-<th>14</th>
-<th>13</th>
-<th>12</th>
-<th>11</th>
-<th>10</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>完整的数据包</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x14</span> <span class="token number">0x82</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">RDO</span><span class="token punctuation">(</span>请求<span class="token number">9</span>V<span class="token operator">/</span><span class="token number">2</span>A<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>3. 充电器接收请求 ——Accept</strong></p>
-<p>充电器确认收到并同意手机的请求。这是关键的协议控制步骤。</p>
-<ul>
-<li><code>Message Type</code> :  <code>0x03</code>  ( <code>00011</code> )，<em>沿用之前假设的控制消息编码</em></li>
-<li><code>Number of Data Objects</code> :  <code>0</code>  ( <code>000</code> ) <strong>控制消息无数据</strong></li>
-<li><code>MessageID</code> :  <code>3</code>  ( <code>011</code> ) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code> :  <code>1</code>  (Source)</li>
-<li><code>Port Data Role</code> :  <code>1</code>  (DFP)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>15</th>
-<th>14</th>
-<th>13</th>
-<th>12</th>
-<th>11</th>
-<th>10</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>4. 设备主动报告状态 -  <code>Battery_Status</code> </strong></p>
-<p>手机主动向充电段报告当前电池电量为 85%</p>
-<ul>
-<li><code>Message Type</code>  (0-4): <strong> <code>0x05</code> </strong> ( <code>00101</code> ) <em>（你指定的编码）</em></li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个电池数据对象 BDO）</em></li>
-<li><code>MessageID</code>  (9-11):  <code>4 (</code> 100) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>15</th>
-<th>14</th>
-<th>13</th>
-<th>12</th>
-<th>11</th>
-<th>10</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>完整的数据包：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x16</span> <span class="token number">0x85</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">BDO</span><span class="token punctuation">(</span>电量<span class="token number">85</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>5. 充电器事件告警 -  <code>Alert</code> </strong></p>
-<p>充电器检测到内部温度过高，向手机发送警报。</p>
-<ul>
-<li><code>Message Type</code>  (0-4): <strong> <code>0x06</code> </strong> ( <code>00110</code> ) <em>（你指定的编码）</em></li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个警报数据对象 ADO）</em></li>
-<li><code>MessageID</code>  (9-11):  <code>5 (</code> 101`) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>1</code>  (Source)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>15</th>
-<th>14</th>
-<th>13</th>
-<th>12</th>
-<th>11</th>
-<th>10</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>6.<strong> 手机请求停止充电 ( <code>Request</code> )</strong></p>
-<p>电池管理系统确认完全充满，请求零电流，实质停止充电。</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="52c9cbdcb21fa8401b473572e1292ca25e09ed25f9bfb17ac5cfe0e4c7fddc52"
+     data-nonce="4e285c6f16c6af86ffde4879"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    72949b97ba5dded4a968d5cb2bc541cf5dd97d41d0ace1ba420368a0695944497ea45e66dde259c87ac5572cfb74a44b883eb6aaa68ff3076c13f3699d1dbe0045ceffd6b4b7561d7b4bd17b6a8975563780626f5f04af1fc5571b5dd534216d71a8e65ade7c03e47bfa367a982543b3e448bc4ec3ab720140cd84ac016d33f1eab59bbe1fd35b75cec4f92e9349b4e0ef7a8b9758ced60aac6792a8bf639733fab91f3673eb7b82008349b61735f850a9480ba47c74bf98d1d01c670e403d7a11607fb130c92522a6dadbc99cf98e8866fe60eb9d5ce4863cb83624483c0c1c2ad7e25571eaea5cc10a7b2d1e64de6ec5787279c06e2ace04cf4c239f0b66922a1db6f675df5644a5a081b9b9dada96440bec3e19aa66245feb314b6b51ad7bb6fcf8abe5e55cb64f2345d41d20f0133789989fbbc9cf605d57d382726ff5dfa10fe7edb10c0f104ee7b6af5e622131da14aca90db56135c4e7b957ac701d0a16ce91cb90c3d80889a6c0fa37e32d9222a92939ad7f985836f000e94474954e915d880225d6b74e21a764b67eb4a79b99136c3782898ad911b88d4e35c4b235c0145b649896f513b3c8cd9fa4f8fd60c0398a279e3dacdda93e3bbd8b78fdf75d56b30fe23bb1c5f2b113717fc2d2779f249ada350316bddd4dfbc443c58dbd14a1e1f1f7addb6751946ceb7ce7e4b4bb8bcb41e13a06c82ffb02c74ba2c622e37bd9834f9f1e59ecfdbe357c6f6d8403ef6ec926d00a450a6841e33fcb4b1534a94f91396d5f9031779a0aa6deda8120a92370317dff33a973b8cefd0b6f69607cf21cf316a9c8ec17429e98b8bb3526c186039a1dca119537b6cc790e5022149325632060958f3b9c8de74fdad9e9b62c848e3c2939751f6f684d5e7d1b82c1eb19453cdeb88ce7a8a60c4eb06219f4752c0f0f30e167930f24369edf488b08eabafc94b2153418f5a04671a07a2ad457253906097c614534de39398449ffb70701c854082fb83911e592a78f8207fce3c2f4b89c4973989808b0394b19c0ef60b1c5696b73c1b76b6418e72679720902960480bdb907b6efac4a129ee5a9a874a8571d28304cddc808d05f9e181a3dda56d8222dc912ee134ee833a1a0089e55d4de770d52bc02a24c418d37cee3577b515a0c333defb538ffb4359d6a6d214dc7ddb312864011137229cb4c16fc4c6106d798aa6fde7f1ffeec21a89d49b3a26e0d9e95e8c5d98a39e7d23b7e5fd63fe520e66918c7a355ca36dca4dfff6066cc6ec9d9460a13f2dfcd8712f696e1e2e735538bdc89a324e586e43f56ca88b0e971ed593a71c8c7edd2389a5553292e59f593cd98091fbd400476ec39fd2bac2b3a671c44097618bc86cf21caa7834253ede03dd541d52255a37664d3b89f390a22f09855617f9f2affceeaaf641e34a79430c71d03481d2e0013c0b2f4c247d4f1d0a0a481872b75049f020d2d10e1eac4f5a008896ad72f1709246c14202a95ee13ba875795ad456fad9e37fb898e1d0c55f101f1ef62bdeb9576965d945010a7a8927bee6e65642e1c2238480444cedc765466ea52b47c1139f7edca7dd00c6a763fec3219c91bd20374d50ca8b87f10cd489ce183a82c0626affae1a10cc9aa693d004fae83813556093f151285137712085fea91c7b8cefc3185513391a2afc8c7cf261a7e775a47f553646bb15abd202a00101b7ca74fd967a2d266541ff0f03ecfd77e58a390d058373cf91252730ac2cab46a529bee4dc62ac7ebe70331642b8f2f1adcd4328fa434d426bd93cec0f8b92e03f1daef994501dd309eeedcde8bad159c8b03564a1cfeccee2e5cfd49a9e1e718000d583dda1a29deb65cbc6842540936352c1e9ad77c62838795135d8ade02aa3f5ddc0a2b0c21e72eb495010b80a460acb678e258702c5c527ed13bd2a6e7ff0541620c14a1eb73b9c672ee28952c47f0667e2566bb08f91000193fdf78a250b4f0472663f3e76f51cda62eb317787ec1e98840166fe9a342d81574f207d8883d1dedefa455d495630c4a03a968480e6b69a970e6e73fb47afc114f2812da673d5e2ccc4d4232b0c9ba80760d19f585455af04c45d79dc81fdea166b1fa6210fd8f9e3b6184af20fa617cddc5e38e5f12746ec8ab580c3558542020b11a086b66cebd552e9aba2850b6ffa08f7b385f3243f63980ab7b8421fffb9e1fed41f871fdf2c8507c7f1768d44ea749f1cc37e4897a7671124acd01cfd6bcfe2160f9fe6994518e5f1ebda85d7760e9d2d282e57e1bef85b16f67b8b25316ca10861c57108b7abafabd08bfc6d8b2cc4dbe3be3b30dbdf17424628fa16666b39a7accf74f83f364c4af8402309a831af3ffe9c8198a99c5f8c365538db19d2b0c0b2d28165d9d711fe8aecf3292ea31378a603c62c2fa9787846a9ac24b6cf0fc2e9d63c99603b11dc967c4f4ba09449405ee28ad2b97210b97d33b85295ebda475024e28bdf94c52ae68489cf7784096168ee480625b15263c02d9a55c7d06236275bdd20ded3dc67b75d62533df489a3bb6c017beea85d3a77973f7139778b3cdcad08ea5063eb4dc2d76c415b176ae6e84422dd8b823f04669d3ee5fc4d94f9a71c3fab262c3bf963be4827a94ec0d5c5f5f320b9e51e51f3113cf5aecec1e75106b878d7ee7940d9bee9af792484cf521ccc994a37b16c3ff0f3e8c745ccd9cdd808502920b61e8f043631b6fe95b0f1d071363b8828184d7172763c709cf37e41b6dc49e563dda5bcf713efb6f897d9c973067e6f2b3325bdae3f469026c28f99e9c0ba5e0b378fa9703a76a1ed90859202fb234f139855cd1cfc88a35c3e441bbe40ff5df68ae57f81fe6ab90bc84db68aafee6610490dead5bf22358757252caa292ff17e6949326de68e1aab89e5dccf09562222d4f8e4292ff8f01c8579f758623f2c8e251690562a7d260848aaba31151f241736b646246af3d228851367bf8d0263cc59b77a60fe80c567c41d260b495492d3b5a682b83336d79c138a896043db1c34e2bcad7cb28a94bb9298e19662ddbb2c47ecf932270f7a45f3485399fb707dd8539c6ca990fbd08f5edd03238f806edd2ecf4118f434a984ebb1860a68b291c1bcd5d445c4f14246dc4c0147543587516dbdc1e8999338148c0fc6123376123c0ca3e255e05c0b37707794dbc4311b57782e2406b903a157194235cff1049c9061cddd08759f10bf42c18247408ad79068c49aa0acbf95744b3839006023b0c1f2c8d11b81c96e05eaa59459bdddedbf6160926ffaaf0cb31b95ddd799c922f54f0809b0abb38a467a843dd1f4231beee1164c9370bd7584761f97c99f59f02c391d100fd5b28c1037872f998f32eaa9081bb321ad20481b4a761464b75fd4c174c79ee32b37d012c9c58b76d4127852d24aedfba6611ff5ce75b3ad98501339389ced6d7afd26d70da367018155870e686985d0c9d9078fc035aace984b89f983face8adf186985b709f1bf8b1cdc3b16b6ce4534f5f088aec44f6cc9102421e304b6428f8b5bf2294a7f67e43a0e61b0f35fb552d2664e10cfcd4ca83128fb847c5f52099313fa85773814a2ce34ecb90ba9a78391ac7cf46bee38974622cf8b0a5b90bf240290c341e29971e0f566dd8475ed2188a78b1071b002d2751420ce269efef01a48d1fcdc7ae5c2b7b63e15b60974103118be7d1a7aa3556b6fac7484c601dee694748d0c456339e0ec1e7d4fe15e00aabfce7fd8d2b32b223ea1319d2a9d04c4bb3f3db5292b0e575ea25ee8597f874446f0c18a56452640b694b6412f62184ecb9c17f71c6d09470cd372ab4c368c9a353efb028482cddce34c21dd5d3524989e59a8c31910f4e7cda30236c74d11b319a7a7947fbeda6edb62b7354669b7b5c8818b6ab58d0e478c5c839e45718b8620fdd73a1769e269dc5e49d384be8aec39bf54b0ead18a3a4f601a8d9790607bcd67005ce1442fec1320a96296824746b2bb4ace83113c7590695ca42861455c5b38b849fea541b05b222c5650543a37d84d092410b4905cb4f173de6ea7663a9af42c4f2d327c729eb35a514de776904846aec755f39f1a75e31ba1ca2faf98de35b85b9947d7ef6f24133d0345712d48bbc1a65fd4c5ad3603b71faa236d88b370f3b7f43440f9484fc0cbacb07cc7b121f218a8469f23718d75d34b48cc36109384ac8e0bd47b57496b72d463fb9a2e14280522f4efa32c71e04c75890199588a6f305c0946450a0010d3a15f464ee3e792695ab6a0d233f8c0b2c6dc8ba4671d0157c3c998fe2b6ac2393455947a3ae763efaa0a4e0ef6f71c3452c8ecff88bcb3ce3c5b69a49b18e2a57b4c0efb9d4efebc106715683ded1d7531e9dd98bd89043e163beeeb1edd2412f496981248c7f7423788683ae443b37f8e7880290d1d919e059f110208ac5f78e2c5a650f2f96325bac09cfa241f20af4c1f7fa5aa6ea1d2fa80529cfd7a52badc31f8c52bfe734201b585135498d16641ea160fd5c4841dfb4bfac1ae9807aae18fc06a52298d638a862fa7a55e98bef464ef029af303a43a79b521fdf6bb96142a8971abc2f8f1aa11c392ea2cf54ba71a4606583134d9374572b67118a0f843c7645052b9f56d3ca174c72d1a20013101124b8ef2f6665a72e99f7e396f02bec129e49b9a7cb55d26448ddbbee386ed531d36f8707b2cb60479088692a54872f21f5c9c25768d50b14941eeaa7be3b9b064b82fa601ce8c715723b9a6ffb62e666edd1f25b325aa7b775058fe838c960a83039f6df6d3069723c9616113a6e1ab3b064381882047ec5d15f8295056cf14dc754684b95671407f651f1210e56a7fa81a616df1a5cb281ecfb8d9c8d79641f9bcae6e96034b41d62d82ed59ca95efbd25f25a6a1185993e2f023e4036300a8b930ff8bd9693c9182d801e14091fcc22482dcec1267184bb21df164f079b3065efb4281f871f2962d0ed4c78bf1c654919706f8f7d4a7751d4f53ddbf230d6678b4ae93b00864d23a6eb315bbb50feb547d37da64e531b8d0dd04ef0d93bb9cdf1a612c3cacd0751d6ec815a8b9cad87755a1a3385075b22b42928b68853eafa3dc0591d29176651eef125dd5885452cd2822ea9a839905f5dab5756ba1a3ff74c9900ffba4c7f18c3effb8f340351bbb708181911676c76ff9f480b5fe2e3ff0d991ff39a976a77f3d7e635f111a5431b2d30e45225c930d0a217fd72db68e6034112dd4231997484c04888b29ec5c3a4699794799fc2913101aae192c505c248ea4e80261e295de4d2f94cac4b922943b736b5a8cd89059549620e0fcb1fb4ebac1532d1a5d84542cc880d8f5241e7c3d932624681ad2b9e31db65575b63009a63865e95e090dd6032d98ee9829c844d190244122270710d904f7463e0aa5930892b1383afda484aee4a26d449d7587a886d167f88829c47124036627539071364a9e34845277e219b4de4880faba17c87e501f81ccf8cabb4f82da5484b0c36f0b1e1a189c50b0c506fb06f9c67dea33ed9e25760f11cf35d62cd444508b090cb511cfcd7660d80ec184bf54fbf09a7ff700f49addb7545dba41f190f9caa8f8ae1bc626703638bfd3ddacf9398996fae3e79f97e4b37ecc90fd8d6c4c062ae18da024d45a82a2a1670f76eadcb350907c87854c019aa47a6ba25f4580d48dcc6cfd494036424da1e6e5833aa3ce5d9c9fa709728c3594713c6655624088911588a29b40e99f6fac5255b6932f1f8402a9ae762c3d600bc17c699fd8307f5d35622ec4f613fe8abd0534fe75fa8f4893315a82d3b316269949c3656344ea7c9a4521016499e919943d73a201d38d97bcd560d9c29198bc37072dda5dba95828cd23cc6d42a37913137c8e4baf2252239a9cb2f6eacb916d0bc97dc584fefadfcc131a56a901e7bb28654a2618a6094dde15f4ee5d34765fcc0b3b7b76d0044840aae56e5d811c116769569631269f387caa9fb8ca76f124ce9b2a0d0a19a2d09eadf28d515d5d75598d925f71022465d013701d509fd982b3450b00b125aae1fad65de5cc6ef1054e0eee722664bb0f8d8b1777615defb5ff50e5dd0a037f001feb8a995e9cd623fcaa1aa1fd58120018c06e80793dd886a4a0b2d1c9fed4a4eed7e22a7ce4d02e38d5a8646f0cd6288423b97a32f77b24672cdcd019770183e34030a21c9eb5222d8ac2cae89b7d82e41e8e1f101f9ec5ffb4c1f5833ddf43bc4db4ebfa5cc368d24203bea170c1661cfc30497b1bfa2ab69f44b9f3c55223a7b8008d0b895dd09ebfc8d8aec625632af20cc833c47fe4226ab7d6aca0d78f23530daf41feb00785d1b4a64e5ab7da95512db8614eba46f97eaf2330deb1e2f6610aa1652f8ee9800b04033ab890f88f672dbccc7ceefca1d1a20c1d77bd1812867a9ef91fbb99465d641b02d8f65e2564af866b3dd3f918b7a2395880201d0e522a0bfc2961dc9ab1c064bbd508f619c64766649ce7b7ccda9bf6e2a99961aaec63889707e69f046f68d6013f8cb36cf2fcfeace6e64fb8bb134c836beb1686b6464fb9f7fdaed3bc59072b178e91d259804337a207e1189f073ceb54a79c6301d74d0b034e4a70975be58cb0274db0a5cf67eec87bb43490c40b0cca01716d4ef08ef6a19f4d0342612606f431801fe3068f1dee981ad154e1df9a91e43f5e3c4854658bef2cd61d84262c77da08c8ad1ac655ba03f52f66e73693197d40d8f12b63195c15f5619840d7e2bd47028b7df858847411b9237487830fb8199de70820422e12fbeda74cceadf893166b1f97ae3773b2a2e385ee3b1748e77b5ccc61aa598d2d2188a8bda1a3e15ac13cfb93a519a74a6caf2945a46dd1eb3baee19a7f7ed1f4d116dfcefe854d58b7a447139557e2202e188cbeb2b84d4bff16d4885d15e43c56be7df1492c1df01c558071790ae1b31d2407b8da7fde531b03308ad5056eb655db588bb459626451b75451931af2d626a31915fe1922fb67a4ad8ce9af2fff797ccde9cee97e956f0d16e787315c4f2f99af3ad06a3d449d2f932ddc4bd8576c5da365500badad8aa26d49b809794d896a5d8e6b6f219d54b3f31f60605ed266054f30c752a91d5066e02bf9c969a74b2f90caeaac3c2aa7218cfb0d742757a71cbcbd1d24c48f594a5abfea0ff4f16ee285fa1255b51a1a7da772f9626703b1028265d0cba18eb84b8a8bdd77c5cf624a4518e6d2b0d62a274506ec5d2dcd51350cd022943dacab336998d527619bd39879818338c689dcf68cd78b1798467e1c4c3c502e2fd9e378c03e8b29c5b4209d972cc14ebd68fc2d24153ba95c2959bc61872a75884da63260d106f960b5636bcf4bdbb7b1135314bdc7f9767f633e2f9703bbd9f6f17c4912136dd4b9b9507a60a765b832cd5a3a0c3f6cf5930a4d6972e5be8249fa2776badff7d488fa08334fcede02cf72c49a33b101d4c2cf01316feef954882141c2970f262b0f78fe289f826b8ab02d2ee2d8673b804d91341af572bd8de161c7e0b580a95e9a70ea944429e5bd38914532cd3df685852d3942019775de64b218427a2ee1348b50ae3a4edc703702626116864feb16e909c574af222b2ca17e6ff96a30c3d055435e4dbd444acefc7cf89cd5126c345e17f4d254097c5194846e91a7caa7007e585d2970835539070787bf0c01c47d206113d2da2a2d44d1ee733f672ec44c5987055ed7bac372659eb6f023cd25b45aeab7e8e86ce1f9093be9bb804f98ad65cb60b68459e5af82ef53b9c2c63f5cd1ece04b20e9b29f7fb5ad03173636672cd8ca0d8b842c3f85d0cb19babf8f8d0ddacdc625de1459a3cb42d638f092d9a889f86726c77f474d01a76713aa8456cc0a458ebf5e07c1ee522374d4ebb854c09a9cac6d7ecfaf087af6a795d923896264d941a181efca9367561d5172bab017b3d3cd57d334e2fc7f855644e276962814031e3f8369f811195dcdc57e848d7a14a1825f61b4715dcc94de37858721c7c14ba102e94f37e6414675f827d73de8974dc192e09589a654998ec25c9deeb48d3ca61b1ff2e1220f0652328deb75d5b1a6097f8062ae7f8fc55f755a65cd1d916125886a3a806d43d412432723db674da24fa1a473e91d29fac0e5f12754a4aa927bfa51eb12574df9d750bcd4912b1436509f0abbc7bd64a30774d182f55b0d8d4b805d31d6e7ff05569063dfedd45ac1f215f7853040fcf54cccdc6e10f2579f4c110a1887df0434381b4ac44a0d9b9e27eab4c0ed215d14370a9c3b86f772d81771f97e32ff8698bf153e658790487fea276072fe448dda52720f8cf646eb9d88b71310cd480c3bcc2d0ef653cfc65ae5c4facd1bdfea1d6849d32c436a593a01c1d2f31c4acfdee072cb71a84d02e28cb1b99a9a41f00e1e72c8d4ae27496599b21191f6ef11f82ffa1db49943e520d9a05d0305f6ae9756871aa56aeb79f1d7637e0eede7ad081f16ad7f7d608760a885f1dde374f893343002ce0603290f16a6d24e99d3e5593f7e8394220dfbda2f1cb46c267afa3770884ee42dc4182d594e83666f3d928262074a958a05ec3e8790c5802320697461d6e38b1cb93ea0e3d75787c93963f96cd2ed3a7643d93a84f18171a4c887a4a374b6a9e24fa579878b40eb040b5fb83f0a6f64f85089be9856c82c1c484f475138d2ab8c5a5c3014ccfb0a447cbe7422ca9f9766867a1277581b59d5f163d0b2d724f806953cb6076c2bff489aabcde0e2be6a60a70d62ccfe77293c95db9ccc584b0d1d920b26307e8cfbf50681a55e411faae08f27b942b2f10389487a2ede0c895326af63670e530739f178b0325f1f7f94031f1282e29f7029becc415fc64b7e5fb3591edf8ef1d1e75f208027ba6d75ad3781cc93611c09d892e387d2a766c8920a0ddfbd50b932a6c46bc29d07feef5afa70e4cf34ccbcecddfc2632240467e01176ffb9ce3c08576f3ef4afc545ffe74c7e4b2a488ea26d74005f24ee714f8d8199fdf63d08d2f510416b71d46868b0db1c8e8e087800942dd535c8b493944e9ffd6832df75ff3822aa9b297436f1f19d423d3bf2b76cdcafff8c06eff4228370a170c2f7033aeddfab78c4fdd7641c355e23f4b75e0ae2d2d5b4ad31ace8dc04f5dfac5a9caeb8975630556c93d182308be62bfc082a96a45d0e444a9875b256761a6c7f6b331c3933800ffce9c53e5f53fde6f1c992ea830275c0f11b98640aca4edf80232fdacaca4c27075179d47976d49f4fe42e6e861a8ab76a779b557a87e164521a0ccf5e4b8222d7e30abf78eec488eeca3e499c60471cc0aadac7f26d33afbf3f68d0fdd87e354d1e157b179cd177aa97f695ffce056cfedb77b6ed19b3f2767fbdd8c86a941f06ef731aea592004303ae0816caece762f4604d34c66272db25781659acc2727b1d2dda71805caf063abf2595cc88f95c9a3a2cd12f2ebc1c79e7e704e55488de2e860a2c8bd6258879c452c2d0e4900549ca5193e620f1e8dd868228353a2cca60bd343484398591128588ceb8065b0acf00d58d7cc2061187d3cd518a84540218d7ae2a17580f83107970ff9e216a18129983a58c9def6d6b00cc804325995df463c91166e7b925bb9b87adec73a0fd09af7230ad3dd630d9f85545776ee92cc2815a707eb803146fdeb384f12e6920963fb9e2d0f51d4190340cccfcfabccfe7108e4ec98f0a61ec3aeafe4f237d077e6466d685f6e28569f70db8cb1a6d23717c5e30a13586901c270d7526d7ce687492339557d86a8d43a90af84edc3aa2b79f678dd4bd67307c6bebb3c0ad65c22019b5beadb43ebce950a8d7d6807246bcd320c701ff9691784e74f709d2c401d7724750fea27134c992c4d97944c2fb52c8330debf00d0a702338ac262fd20d2b9104a55e89b259eb19ea1296b58a6178481cf3b55db3b4e1e6663a4388e3b407703c6e59ed9c55191567dfa9dca4acea61c68f1c57727ee66caffd4cd76defbb3c778b2546a9a7879f813dab5aa1aecddfdce6e45215287c868348cdfc023fa2591dc443f67867400593510d519a0b9a309e06e32373d1d8fd24d794a2cba8be849e9d853b8707d30e4a06d174b319bcb1d0de84ad1e4c3149be75430399245538f24001e4fec00f55affc78f3b8c5716727e6414f334d7be8bf094d17e74295ea0cda99674540959e59b5f3a920419b182ee44f761152137b01e2a28ee40a4b6c18956aa96e6867bc3cccee13950f5fd1c1778872029d5e5ebd1a130c02c7cea2102d020cd6fbe972da6e70a4c66d07785070fa666e4a484edc5dd79f036008fd7e8ad911dd2062761b357a1b74327fa9e0c6e4dd52339678b02b6138580e782638a1dc8515824ccc3d4031b26332430162dedcccd95ea197cebe8d1d434954b030cdb0676207f62551fc625cdf524206a55657b98c284449382186065fca5bd9b785087e993f87a345e9b1ce4dd148e585a675ccc2f773f1b82e58aacaadc22a4f7798e6a0bd3f3da01a9362a66cf01651c34e1d1a61760ca82cb553d27ae450ba765d2ced24489b0be968769c7f16b235173d51505581fb2cb275f915415a8c07faa016c2315ea2557a529da09da41d087a27d09d97bb736e5c91abca399f2511ea9c3f5fbe0d6dc73d919ddaf1350616c012e8d16ef9700155443d8b9ba35541df1af0147cc66a4f2b2b8ff546c8e6c8e90e94c211621af46eb83714153eb742c1358623ea965d3e9bc0dfdce758ee6d81a30cd0f153be835dbd1cc525bb901c29f0ba3e1d12abbbde418a928df4cd7d1bba9836db96874520e1343d835d51e49a15401499fc910be2bf2df6ce5a965de19a04e1c0c0e0714420f87b1dba1162eb97c6a23cd86e038e0da4d01b0345eeb2a7ada5d2e7d8b455607e6f5027453c16d6a4caafa407714382fc4b3eb0e8cd6083ec17c9e250c7a8fc96e9aec2791a19e7a0e4865d4d13401fd8a6d46976cd4bba51529f41c88019b2555b52362e009b87176bef32258cf8c80efb39ec33d14bc0c5aed1a4c9983d506b2280a2769c93cbc3c242d8e68604da0749044c2091111d3ad31a5234de0853fc3e980a9dbfa6f3116f31ee1f5b98575e7c4f7806b0f53748eab7469eb0f471e2c9ea11902ad425cecc4d2ad51fb0c6d07fa60b84f11f458992798a2c3ae8d83b874a8072c156726662269c4f4b22d2b8f548df03ed377230914f3678d87690b95e4dc8c4643495692fcb806000d37681e725bc2066babc36d97c66155e81eb933e581a8f9db355dac324ffb48b4e8170b1cb75e984585182d3278327b56bcf84c6a5c1f94009d952b638dbead10d995d78a779566760e398ba1daa213b876fc72a541c09a52d173817066789f2aba8537f4e3424abe7d30d2e86d241b2cf0bdf10bc60ac1987a11f08bbc4f58c17acb39ee39553ae1b428d68388eadc20a8d405d3839e78078944392a26d66f8b0911bb3a4c95fa40fdb43e81b98d7054b8d98a225a2df266beba6e6e72a07f9db1ed4a0f0c668d3b0a2c34d021bdc23fd38b97b1c25b07afd7df3b2732b11e6612530a16a53ca54cd8c7c8b12d62bfb8420f274b801bf4c5fbf5f11cac93a3456d9470cb7c9f35376b2947dc254f9098d00ba3a4b6eef48a34b8da62ba4667bb71e35f35506395abe40e250a76bae93ecf27c326fd4125e8d7340741e2523961c6676cfb633274eb14efb7c2092cea87c420c949fd7c17400758621de1f6a06112741af649a33ef5702d3ca1790c1d8fbbf98e30d8fdbfabc2a9d8f505bb0ddd228f0df115699f067b73aceaf0f34b918603da93839ea21398128a2c677e9adc08365926d754ad87bae430532442edf728229a9a3e9acdba59492935468c2ead0a78974d6ccf8159676f3a0c59520b06220aa11f2e96bf179e436da2c529eef03eee57eacc70d433077fd61d177b26f4bcc4fce6d0943aec94f58f7ec8a84d91bd4656a401318792ecf2b6d7c03f731452582328940cb25cd5674566a4c45a83ee5347d64a78e5572be31cedde72935a38ec44c40f5607328c723dd5a2b7b4abc3570ba376a343c0396b5d314975ca36868ef9c089fb798142fe03390496316edf5059b10054e658e91546b1d2a5e545e2aa218ce3655b67d2b6cd48ecbf875854ffe93ac25be766e6761d1db8041efb7c9a9b136155b9e460df8037a8875e61a0b60d3b51660a1e43d868a09dfea67a19fc975b48d4c06b293561670253a15543a8dd67a6362a959bc6b02087bd9576099b178d988b5eeae96bc1ce0c7e7685abd7bde96512f6ef2eac51b9f627ec731a0bd724db7d76617f63823e045d7946ade4a36ca9988f6efef926f8fce46586d3cd02c8755ef6d76623c6ca3f96e847c27f30949336fe3b780d6454fee803a48514b4a11f59ddc8b32f2885f3747a25f81abee6849c5860b444b6ae227d1eeacd47974079e816461aa67e6117789ef53cbfa06e44138e621c2f1403ba029f0a7d7cde7188857c8ed55b68aca2b04052b58a6e476c3c730ed20e92fd55d75e022a0e1ce5a9c7b49cb6551ffd9ed638a667246a3b503114c6d3f76017b0ce99c4f4930467665153219f2d473d4c14f295b1ab464f032c77b596f76c42611a0ca2af735af7d2a92f02e49739c75035cb05369e6dff8f833cb5c33e7ded6964a62402fef8ad9faa56fc0b9bb286fa8c0759cce62089a6317134424975fd9acdde2fd5c6ab6b78968f28e36636f8e2b835c4ee77f61775a8d3ccc5b3e046542979e6dd8a4051f5b342da3a649f37f0830432c1c477b25f77f214091da7ec75444475fe85a2ea3e9254490ee63c6c34b7cbda00b69b157c88618aacdeb5b61e41447cc6e84e5d27dd78d16b7c6f39d3e57ddd6cc9f86977b0b47490c2504daac63f4530fba90e2dd851b979074efd9a6ebab2ed0111a2758722a66cad308a41d41a3feda7ade6aa3bcaf93e9ff7d4b9064738b1c3377a39bfb825444899ca620949c59da5139422b825ea9dfe1c04be87c2b0aade1c6df3c861b89b686b24663f8d68ef5a0dbadbed2b5f8eb7fb0922a4332186f717286a06921c8a0ba7bdae6ae72536a0a1f6b532b69b3a8aa7077d5e79857ed7441527e98ef48bc6ed2951c979f3b3e6154b57744e78674436d0b027b79d6ee91910d306d476ed63ea1ee77ff8fafc8a1cc109c1a8b49ed64ea82eef53b47c6e6f043f88dd55a00b0ea14ad9414fae7a4e07ea6a6a09e23147dde49bb661fb59adbc609368d2944ad869a60907341b33d8edbcf7a77415c90374021d184dedf18ab4e9a0627273996373e79cc4701995783c4f928210f516ce37e6446bbb9778681c8554f05b3d3800c9f766b53cce6ce76bda14c4588cad78e8883e42c6716f8b50997c1d93d37c34bbf569198264ea4de7c12a54778020f2ed85d012e1f6748ec8a46de585997bc2563dbbe0183fda4e956918fc5ae762c4afdbeacb0e8405e241d11b72371dc146918bb7761c7d62e97e47544541e962cf5d8ff14fdcc2314834df10b2eac1c46739da5dfc57f6fb7a3fd8d9b58fb0dddbfddfa271323a112f121c6b33c4c1f72e764104d016bc892bffd6e0fa790e7d9c3ed673f2626c29baf5dd9f03326d91722ce9415a9ad7ea4ad49e3b038c11686901dd5445b4b3453a7a8f090105020034d1096e39037f9c6670c89f7fee95645b36ae21e5a7adbe2f423bbbbc037ddef2164d634c373ddad4be783deacdc5f1b0b7e113b6818164eafdd9e4e267e100429b84643bf0cf46050895ece7569397c77d040e32aeaeb8076a2c3701142c592ad04b146dd8765125b9db1c5883cfc84b1ab8f650118be247b7fbc20791a9248bc1e9df3c4553f5d25aa42aaa0221cdbf1078725f642a0841636037f44e3ec7ce1cc7ce2819134189de4fa1d3804993aa02df7683815005b1853cc6852d24c58702e9c79f14a3214dcf15f300a75e9f1be7505da01896b4d584cd51e90c0b2c86384abca1bcce40cb5ee53a0d3cb8846666e71be3d9ed8603b3da65e95bd2b171644a66abfcb5fc43f7604b6d7b8d54d4d9cb144b76933bad86aac9681c59521528de07afe8163c6a7701b60aff267309b01d17d61d5919bd8a2bfb5a228de35ec66a18c7b0029b3065cec5e00d8cfe2ad00f8a36ea16079dbcc451a79634110757c3d6e36f183cd4afcae53b1c562eec02b4f5eb2fc4b07c0284d162846aefab483ad85e41442bf8a782ce008193d1c989ef0278a53e38f5c2e26c467f0c4696aa452188e8a40e26f8d7db0d0c95d8c33c223a8b2b5d76ece19f63dbb763f3f81081d1d267b404b3933ce7e52bc70a484e8a2dabe33936927fbe3098a37e7d74047f3336021e10c5d0550e5d607c9b2abbe7b98a88f7076a81c75af1e9ef0b6daeaaaecaf07b11c1894f67779752d3da8b99233d9ad94bd5fcb1360eefe4c158ed84f9322e4e5b2bd486376f09d38cc844e53e6575cb862b0568acf75f9fcade69391d708e30b3adaf18828dfbad1cc7cd3532cdd945c18f624aa272280acc0850c95f1a27e343860aeaeed8ea31bc97b10c82807cedb9bc2abf99774cdf6b497df14924edf03d502e6d43fa4c031a0cbaaf67036278880e68853386e4c469ba65cc29399dedf774467f8bcd10477ccc30013f5f58ac2f3bb6c90c4f7d2e7b595843f8bc64402db4ba78407a3052ba3e8d49052a294eaba1cccd96b888d03e6763c9d4c169d2063e29f2c28d477b7ddceb0d1dee3e57b3a13303f8e5d7ab12ef04d82a2e068bbdb9e83bf2a51f763ad93229bb3bcc55bd013aca8c79d6d762c7a80d2b272c449e179678e0e4163db0751854dbbe5b5a91eed6fd10c344fe214d795e1acd66bba66f0cc98f9f290bf68278d204159e11e6ea74488a8dff9ee5c7fc5e7a0301b2125ff96fc7d35cb350da16c8ddad1b0b0cb43d569db141e28de5d1f814c45b9a7299c6e00464ae3e8113857f978398aaef59cf822e7e4e7c9ac54fd39eb96af558c9fc724e8916d2bb7feea36e3dd19f9ccaf712d31c4187ef6c3acd4c9d64b6b892cd61a9f03bd3d5f0462a47a09624281399bedc36ab50dd77afc445fe86e93607ec86b14f0682c51b5cc4910cd6bca7b4e9c11bb56e189afda59c6af9e8da983794b38b3e4aaccb0d92938c39903268fbf6c86e980798cb299feb0ba5c7b960f88effa7b3b9b9835d1283cbee85cb06f9c2fbd1aec246c3f3298f21fc6adb3183c1b76b9f96fd512e1d31b88fcff2d022d65ae556cda6a204caaf11786c7ccc56171968eaaaf68d80ee7c93fe52664b66fa4149247fe2bed43262daed8615a79b7ad5c24ef5673fde3d11602c7bf82e373dd922d2d2fcb0b159f40f0a8d8599f0c0343c77d90c277cab9cfe60ab8a3a8305f07250fed425652ae0fa5ba06e1494a1e65b2df6bf66c41418073f0562491b8ee95aed59ed7f229c3c95add1ce23dc1f8d85b8083dcb20f4a630570c5859d9aa453bf4f5ba6951287a18430208026855c788aa0303bb8033c01e2a5fc15b5a26a68a82e0f98aef3efb01efd78140b5e4045f7ec90b7b6afc1bb06bb0725b555f4f9ccd3ba55a5ea1e979a60a844c0326941ed0e6b667fd252f747c67b71e0d97548b06102e6df53eaa6d421ee3ddd430ce7b938cf1419b658e2f79ff59458df0e9edaa42f8e5b053c48effa8922364c6dfc93cb3e55ae310e0a95c1c4cd5ba3846c9b57764df5de41cea837956edd25142a2669484b3491a59be63ab467d927a7fe7daea2c449ac338f144bb843b5cba69c5b95f81d55715418b351ef755b976bfb5e2eef42a1ef581b8f84f8afb5fb8c9236dc46853664d6ce3813ecbbeefad711ef0bae9167f571b807326749374e33fc71ef7aa0fb0a03322fd31dd9f55594a928f86e8e4a7bdabce9ace9443e40e5b6e3281b29736593dbe55dd09f5bf2783c18c7cef55a0b481c51c5142a977fc9ed8fa586b16ce40044a809d291956bb7a18e29ac50efc9aada0b908c1e4b04c2e226939a2be87be3d90efd9153ac43f32ecbb5b649108d641b2fcbe59933ab43cfaf82856879272a5244999f18d26f2d1c1af9533cec99d7d4b1522d13fb81f95c276af3b652059afdab27c6b4020c7c47dd76f156ba0fb1f835ce1cd6b93b767f3f88a6da371ac8cb6102267bb67c59527e6df7b7e5847f810afe5070913605cb07f725f144ef853876e0e69851a4929bea436f612ebd4cbc8f8c74929349af630cfad9bd805b2f3ae89f4cdf598196a16d6ea56a63fc967a9730e32fa83416584e80a1ac7a23316690ba91421b3a8b6d1fbbc844fabf18fc18e9b574aa2722006423d80cfc928396e34d1b1ac79cb914c89964392756940b3bdefc438eff4c7deb85f08d5ea0cf82651bad100ee6f23637b93e1605292fa6c462726ba1a107dab5664b1cd17071364e5e2320acd07c3a843e9195a348f4722344f48ad66762e1f41eb4b394a4c4745ad09260a00d52bed907a8c2de556fe61e54cce0f72066f13e427952252221ae31c19d6c663d820d3d1fc62ce174097d7753938a3a8b6cf10323409e7498228605f14b23cca59a2b950ca36b5cadb28fd4c3cfa8a92e0ed542150a415174098cff068695d870c98d1b034b1df91a6e4b92addc16cc95c1799f9e075dca1865393718a6a7a1ba062284a9a2a85335ce4a677394fe92001048583f8c3844d5559aeb08c71617596da267bcf8d014ea3d87a59c59dc18948a129a42ff97d555d98c369774c58076037e9e1a29d24344bc48f8f09b5be936a7be188dc073318e22d5a544714516b722bcbf45b836cdc6dfed1cc75474127b6ae8385f634bd1893166a78688573e8e6ba467ab57165fc0f443cc96d93b818928b18f8d67d06c7f29fbb2f239c51374c8edad575aaee78454fe1dfa41769107a26972e712ebce2641ef415bd27f7fcfd1abde3fb0eaba5079a4d43a53de1462cfbc6b98f3a57139fedf89c2b6ca936f48ad0acb2006074bb781a50d0b73eb9fb866d1cc9a91650b4f43217817579e25349da0162972b4e433b7e667fd4ca503e433f13ad7c62a653f5cfbf975bb25bc7c02a963a51035c1b3527ccadf6dec9719c75874974c8b6078980babb52e3bcad862fcd226cfdcfda8dd8acc04a28071a937b4d31b333ec167b159102b4d22615376081be660e419c528cb60a914b0a81bb7918066adad9979c5c8aacae15962c2297c856ee34f82214bf9d9c281095682dbb5436321b682a668daa369b4712f0c23e95e755e948ba5a920087cf1f9615b1605e48808a1b53c381149cbde19d28995a81d1aa5b8a690a760c212e144fbd0302994d169d7a20baa76cf420fd1dbeb2d0032b31ca9b7d4971c8f2ca31ea77fe8386ca83a13b770c76c139a16d670e6973b34205d78596c2a5cd4047e28733cbf2413869fcfa61898c2566f75f255ce2afb2d4a68863694ce35e83638f19847f4740ac8028748e0c68126b386d2d6502f47b7a529038f3319d53c11b615b94ca4ff3d1abf4b809d3bfb06fb27d7cf3a4dbefc58dd95321fd10e9e81258fe4eaea0e7d4252e006b6947266e6f6eb474b87c5fb42662c1f6e4da4ec4ff93fdaff21e5be3e83142a3f988e186fce7b2072b0ce8c20d8bf70c8510a5c30c2c4332b724db6ee0722cdb75ebe959a9e2014a67c7ee16cad04695f8815a822b31e2c64dfc4c2033ce3548183fc15ec5615354666cc7268bf42b15fe1374eaaab0e798c4d436640ec4082ce540dd7e8b1e1949e79dc2653a9edfc0e8b8601c6648cbf6e836910b4d4d38989a1ddd34a0cbe7cadd76268f8bf45ccf56041144e57038d188a707f9cc10c40393c0c427c6dba615a
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   </div>
 
    <footer>
@@ -620,7 +201,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2026-01-23 18:29:22" itemprop="dateModified" datetime="2026-01-23T18:29:22+08:00">2026-01-23</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -693,7 +274,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="未命名">
+  <a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a189f345e8d0300cedf.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -717,7 +298,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1cc%E5%BC%95%E8%84%9A"><span class="toc-number">1.</span> <span class="toc-text"> 1.CC 引脚：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#usb-pd%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text"> USB PD 协议的数据格式：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%89%8D%E5%AF%BC%E7%A0%81preamble"><span class="toc-number">2.1.</span> <span class="toc-text"> 前导码（Preamble）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number"></span> <span class="toc-text"> 实例</span></a>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -826,28 +406,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 life">life</a>
 </div>
 
-    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
+    <span><a href="/diary/2024.5.27/" title="2024.5.27随记">2024.5.27随记</a></span>
   </li>
 
       
@@ -863,10 +425,69 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
   </li>
 
       
@@ -877,45 +498,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

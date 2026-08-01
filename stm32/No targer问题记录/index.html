@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>426</span>
+    <span>429</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -161,20 +161,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h4 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述">#</a> 问题描述：</h4>
-<ul>
-<li>IDE: Keil5</li>
-<li>仿真器：ST-LINK/V2 (使用 SWJ 调试)</li>
-<li>出现问题：烧录程序时，出现 No target connected 的提示，具体如下图所示：</li>
-</ul>
-<p><img data-src="https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204801926-505140701.png" alt="img"><img data-src="https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105204916335-1440071308.png" alt="img"></p>
-<h2 id="情况swj功能在代码中被关闭了"><a class="markdownIt-Anchor" href="#情况swj功能在代码中被关闭了">#</a> 情况：SWJ 功能在代码中被关闭了</h2>
-<p>这种情况的特点往往是：之前烧录都好好的，某次烧录后突然就不行。<strong>并且当你一直按着开发板的 reset 键时，你会发现又能识别设备了</strong>（根据这个现象，网上有给出先按住 reset 键，在点烧录按钮后立刻松开 reset 的笨办法，这个方法看手速和人品，有概率解决）。<img data-src="https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105215825006-2077899545.png" alt="img"></p>
-<p><strong>出现这种情况的原因是，你烧录的代码里把芯片的 SWJ 调试功能给屏蔽了</strong>。这部分的代码在<strong> stm32f1xx_hal_msp.c</strong> 这个文件的 **HAL_MspInit ()<strong> 函数里，<br>
-如图：正是</strong>__HAL_AFIO_REMAP_SWJ_DISABLE ()** 这个函数把 SWJ 调试功能屏蔽了，所以你连接 swj 没反应。<br>
-<img data-src="https://img2020.cnblogs.com/blog/1936876/202011/1936876-20201105221408760-1793201712.png" alt="img"></p>
-<p>解决办法是：把这句代码删了，编译后用上面的笨办法烧录进去，以后只点烧录按钮即可！（如果是 JTAG 调试，道理类似）</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="b4f238a36f050325177980b4151c3258e283c76763814ab67fd4e5fa45c42a2f"
+     data-nonce="08c520cfc2bbe2044fd99272"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    a89dd05d4638522fd93c5f2e1b6d666aafd126c4a703450e4b7f9dfe91c6b1cc6f145c3dd6b939ef4888e27ef21a9785f1e85b14d14af7e280549c94b31c6ab693e1bd0ef147765b1a4e07b9c4d912e155788849933f1f9089e2c7113ee8777b97b9562ac151275a109d21425eb1b51c434a4042fdd4b5558f6522699ba9e054b1e60ea8b91ab217d9fc6683cb522c319e1d46ec4ad7785a3f6424b300084e2219f12a96d2a3629fb45160ec3426e53f5d3debc55c07896d6d3bfd7fe56c3674f5ec7d53d3f732fc7349aa49aa0de876f4dc9a3603c0f405e5b587ea6348b926ec773fb1995d1d3888ee4e0eec8eed915baf283970df27561b9b210b8ef0ca8730e638134f1601aa4ded7d14157cca8b3fe9e213c32824cc26385ba38ea58132a009fec2cc8f383e80ab6a23101edd9c13067fa4c1eea8298cef9e637c7204bfba39db753dd11632baff4e2e7ce52c234ddf00f174434752561b7d92441cf5fbaf5c4cf2df8bc6f57f66901f416ddbcf0fc1c36db1e9edcbe72fa8cab8bb540cf561bf0c6169d809334702b062f0c57c393bdd05610baeb91846f65a6cf3dee75e0749938c14f0ca913eaf7d862c3c19a8f969ac4520630a0012be4c4bbfb408646a5deb70aff95d84d010f0e689ae940390c7dda6c2f5f6871b0a2b32e034ab4e3111661370a59be0df1d3a921299af53e5ae808be9cd6fad794190a0aa435f61b15d611bba819f5ad390337eecca02febd0a1bd51258a9b9c5e5decf8a6d05d68ac6d9e02da13ee1cc8f2d69d1cc32dd3f1f907e6e79be84d82f8446f2fc714ad6594a1284bdcfef5a7b9408b5a5af3c1ec2ff270498c568a38ae1f5a212f26dcdd12732d9bf0529d8e325d6c2bc3ed8a083bdb312bfab3dc8254711cf78fb7ae221a54054719cfaec2da405844cdb5dd37f0739dfef86bdba8b0ed493e1d6026045c4e185399e2c2d4272cbc1e34e20173a29688ab57bc9ee7fb67a8a52397177afea432a3823042a4ace9bfb32c24599721fbdb706e850ec2fc87f83bdb99035cde28b3c14f0a7f2b77bf0a13e435a9b81a0c06e5a8b35fb79e74ba3101582ffd925ead0c9987a1bd31484a5141201f82f71c325338a1535713b885aa27c389fb7fb13600563c1c720f332b386592812836a15c54129916592b38b2f538c45cd13325bdb208e285e4b5cb4535ce34b52498e16ed3efac2daf3ea5f78d0af91a367b8e72b04a7b0a2fd5b6667fb61389e645a187e269ceaf2db3d400400d6305a4c5f011be908545d9b8537747154696a717bab85a403cd5c496d6a29e5e318507422fc27cd524f73d7d82638a647d56694496a2b2bf8872fec7eb35d45f330a986eeaff19b9a490e660b94ddf844be4897cf8b019c0c5251203f3431492cd537f8dc055caf64b919429d71496628eab7b15009287851e9a5de437744eca5f42e5c5c47de6d863804bc9fc069c9471c87eb7d84eb829b491e872393b0cdadab73eb186ea49affdd696ec44f4fceed1a43543fc963d690e7102aea76f719c052ab8d5e05e0f539f940ae6dbf07e48c0f87e706266ac7cd94ee754a941e94df0437a5ef21f6f707cce6192a9507895ee59558aa485c5978b22eb2ab3cfc78273e34cbaf3bcf94a2b3e24fc3e34b5f5077c3e9b51ef75e895d53b204c607f3178f07754fa6cc02f0bf6e19db4608afcb88e37a59139e23e3811f699d85e27de6e43bde41d02b860b83fee97f70aeaea8b727a6ccc3c9edcfd3e843e0a0246246f5be0271e6c0f51b9b94e81a0d4404d01a382a134e327ae850b169768fb6854e1f1188e6b4e9c8f362c66dd8017141aaa288c44fecfe2e3a7f66fb4d8d41ec54f647b5d74f724afec040994f38679512a86f3ea6ce700d38431e04307c02c9fe7c6d53fa38d641d5295054b2c90b4c5d1c1bb12c0df382e0cd790247da3ed67bd3d41938e9429933bacf5676c86cc3aa3735fc769a0a9953d07045d7cb6e6dd15860f59dc74706043d8863dc935d187463d7169b901b150cbe78bf0f1f65639cc1271425f323fd585bf4baf6a773eec35775f02d09f5bfc12fa5c001f6a80aa4b93f05ced43501bf87e9bed1807ef79edb972af3b821296e841893202f628854162edcbb8740a0d7658571632f22c9bd7ab51d3ef734dadd9d3f73a035aed15e120fff6469e388ff8faf0c10b855403fc90d4a36025b5844441bf07ff6f739822dc9d3004f4f021f38443552de0cfae9ba06d8814a7e50eff65a640fd1a1bec21786fe15b360f640473b32fb401f7e4a20d9961c9c5ea94b1bef89422b50ea00d21e5f1aa65727e4d4803db1682e1cb83020bd2f7a1c24adcde3d27fd0d0bac37124c258a218d7adf8837b2856f1725ae5b256f3cfa5aac8e07bfe07ba2d57325cf7579a31c55735668a9d922a57a8d6fd6017f3a7a496d4bbb4266a4b42b88e50d7e1d5d3ef9b0e163586c8f1e3036f79aa829f7d97e83c69aefad3f356de4ecef861446b47825a664c24f32f378f450fae892a24ccb8fc524d6765e2c434932fb8e4cc6166d92a49a08bda92681b7afa92f76eb1adf1bb889799dddb32ecae24cf5f1dda40516b8abf09904986f39912d4f7cf695fe2fd2d7ff8142302a59c714cfcd9cd81e6a08991f79e2741c95c08e9a471b652e7c259b5e689fa74a473015385d4937a4362d792c4c44c16a617a7fb28c443701f03c0fb59211da12d5c
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
       </div>
@@ -188,7 +199,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-23 15:55:56" itemprop="dateModified" datetime="2024-03-23T15:55:56+08:00">2024-03-23</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -293,7 +304,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 问题描述：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%85%E5%86%B5swj%E5%8A%9F%E8%83%BD%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%A2%AB%E5%85%B3%E9%97%AD%E4%BA%86"><span class="toc-number"></span> <span class="toc-text"> 情况：SWJ 功能在代码中被关闭了</span></a>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -407,29 +417,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
@@ -440,25 +431,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -477,7 +449,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -487,17 +459,55 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

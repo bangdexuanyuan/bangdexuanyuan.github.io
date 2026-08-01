@@ -161,37 +161,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>今天刚开始，Linux 网络无法连接，今天总结一下与 Linux 网络连接相关的东西：</p>
-<h4 id="1网卡"><a class="markdownIt-Anchor" href="#1网卡">#</a> 1. 网卡</h4>
-<p>我们首先可以通过命令</p>
-<p>tips: 命令学习 1</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>ip a</pre></td></tr></table></figure><p>进行 IP 地址的查询，然后我们会得到如下的命令返回，可以看到 ens33 这一行，其对应的状态是 DOWN，关闭的状态</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>u@u<span class="token operator">-</span>virtual<span class="token operator">-</span>machine<span class="token operator">:</span><span class="token operator">~</span>$ ip a</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">1</span><span class="token operator">:</span> lo<span class="token operator">:</span> <span class="token operator">&lt;</span>LOOPBACK<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    link<span class="token operator">/</span>loopback <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span> brd <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    inet <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">/</span><span class="token number">8</span> scope host lo</pre></td></tr><tr><td data-num="5"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="6"></td><td><pre>    inet6 <span class="token operator">::</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">128</span> scope host </pre></td></tr><tr><td data-num="7"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token number">2</span><span class="token operator">:</span> ens33<span class="token operator">:</span> <span class="token operator">&lt;</span>BROADCAST<span class="token punctuation">,</span>MULTICAST<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc noop state DOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    link<span class="token operator">/</span>ether <span class="token number">00</span><span class="token operator">:</span><span class="token number">0</span>c<span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span><span class="token number">62</span><span class="token operator">:</span><span class="token number">9</span>c brd ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff</pre></td></tr><tr><td data-num="10"></td><td><pre>    altname enp2s1</pre></td></tr></table></figure><p>如果 ens33 工作正常，其<strong> ens33 的正常状态</strong>应该如下所示</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>u@u<span class="token operator">-</span>virtual<span class="token operator">-</span>machine<span class="token operator">:</span><span class="token operator">~</span>$ ip a</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">1</span><span class="token operator">:</span> lo<span class="token operator">:</span> <span class="token operator">&lt;</span>LOOPBACK<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    link<span class="token operator">/</span>loopback <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span> brd <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    inet <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">/</span><span class="token number">8</span> scope host lo</pre></td></tr><tr><td data-num="5"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="6"></td><td><pre>    inet6 <span class="token operator">::</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">128</span> scope host </pre></td></tr><tr><td data-num="7"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token number">2</span><span class="token operator">:</span> ens33<span class="token operator">:</span> <span class="token operator">&lt;</span>BROADCAST<span class="token punctuation">,</span>MULTICAST<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc fq_codel state UP group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    link<span class="token operator">/</span>ether <span class="token number">00</span><span class="token operator">:</span><span class="token number">0</span>c<span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span><span class="token number">62</span><span class="token operator">:</span><span class="token number">9</span>c brd ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff</pre></td></tr><tr><td data-num="10"></td><td><pre>    altname enp2s1</pre></td></tr><tr><td data-num="11"></td><td><pre>    inet <span class="token number">192.168</span><span class="token number">.159</span><span class="token number">.128</span><span class="token operator">/</span><span class="token number">24</span> brd <span class="token number">192.168</span><span class="token number">.159</span><span class="token number">.255</span> scope global dynamic ens33</pre></td></tr><tr><td data-num="12"></td><td><pre>       valid_lft <span class="token number">1261</span>sec preferred_lft <span class="token number">1261</span>sec</pre></td></tr><tr><td data-num="13"></td><td><pre>    inet6 fe80<span class="token operator">::</span><span class="token number">20</span>c<span class="token operator">:</span><span class="token number">29ff</span><span class="token operator">:</span>fe97<span class="token operator">:</span><span class="token number">629</span>c<span class="token operator">/</span><span class="token number">64</span> scope link </pre></td></tr><tr><td data-num="14"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr></table></figure><p>解释一下这里面的语句，ens33 是网卡端口，是 Linux 系统对以太网卡的命名：</p>
-<ul>
-<li>
-<p><code>en</code>  表示以太网（Ethernet）</p>
-</li>
-<li>
-<p><code>s33</code>  中的  <code>s</code>  代表热插拔插槽（hot-plug Slot）， <code>33</code>  为插槽编号</p>
-</li>
-<li>
-<p>同类接口： <code>eth0</code> （旧版命名）、 <code>enp0s3</code> （PCI 总线位置命名）</p>
-</li>
-</ul>
-<p>更准确地说： <code>ens33</code> 、 <code>enp0s3</code>  这类名字属于 systemd 的<strong>可预测网络接口命名</strong>，按硬件位置、PCI 总线编号等规则生成，不同虚拟机 / 主板环境名称会不同（常见还有  <code>ens33</code> 、 <code>enp2s1</code> 、 <code>eth0</code> ），所以排查网络时不要死记接口名，直接看  <code>ip a</code>  里哪块网卡是  <code>UP</code> 。</p>
-<p>那么如果 ens33 显示关闭的状态，我们该怎么办呢，可以通过</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo ip link set ens33 up</pre></td></tr></table></figure><p>设置完成之后，ens33 显示为开的状态，此时，再次进行 ping 网络尝试，仍然不可连接</p>
-<h4 id="2dhcp检查"><a class="markdownIt-Anchor" href="#2dhcp检查">#</a> 2.DHCP 检查</h4>
-<p>DHCP 可以做到动态获取 IP 地址，从而进行联网操作</p>
-<p>对于 DHCP 的设置，我们需要先进行 DHCP 的释放，使用语句</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo dhclient <span class="token operator">-</span>r ens33</pre></td></tr></table></figure><p>之后进行再次重启</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo dhclient <span class="token operator">-</span>v ens33</pre></td></tr></table></figure><p>重启之后，就可以进行网址的通信，可以通过 ping 代码进行验证</p>
-<blockquote>
-<p>说明： <code>dhclient</code>  是 DHCP 客户端工具， <code>-r</code>  表示 release（释放）， <code>-v</code>  表示 verbose（显示详细过程）。如果  <code>dhclient</code>  不可用，Ubuntu 桌面版常用 NetworkManager，也可以  <code>sudo nmcli device reapply ens33</code>  重新获取地址。</p>
-</blockquote>
-<p>比如说我和百度的网址进行沟通，那么就是</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>ping baidu<span class="token punctuation">.</span>com</pre></td></tr><tr><td data-num="2"></td><td><pre>其网站会返回</pre></td></tr><tr><td data-num="3"></td><td><pre>PING baidu<span class="token punctuation">.</span><span class="token function">com</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data<span class="token punctuation">.</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">1</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">27.0</span> ms</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">2</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">13.6</span> ms</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">3</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">11.2</span> ms</pre></td></tr></table></figure>
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="8cab7652c9ce9bc4e80dd3dedc357417a01bdcbf9a86d26d821b98b52f6e563e"
+     data-nonce="ee6c0eec495f5efa4e458eca"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    249101af39f6e1cc11f2c0f6338f6cb32aa9e13c6dac5dc839661341e936467af3d8f69122f2fda3c2ad38665e9c838879be2d1bd248cb9a2d185b1529188c0f0f3ebd1d9f4337728991eef57b340ce4adacb8efff6b69ce2492b14d9dec106e0e714e62fcb7c1fd95ca8cd55b15cac5250fc1c5dd67397fc79c216e1a632c9be25e390e94aabbaedbc7f97a369f02fe47407a64ec4543487fb88c1492861b55236a1cb20a45dcc863721cbe0bc8a069a354ca098d17cfa9861f59821e92064de1bcd5c8ad30583cb3f31b7ba99da594e27cbebef79dfe4da8ae052d5bad5a94329cea89bc9fff47501515b7eb37cfb79d45f55e8060cce68fbac2a74e3403e52bce2feb5525274d853321a637c17a7b423addeaac49a3b0902c033819bef0be0b4f158c15abca98c72d3273285327673f92ea1d82cfa7f28557a8363bbf3786420c82978f47664ab0731fc83a26dcc14a6a568b0bc1c60df88bcc15f0bfbe998545ac8df62e1cb7a52028a5e5d78859c5ea7440eec85628f8429b1b7b7a28ab06afe277efafc0acec58a6da1abf3e007b997b75b10a437b2e9b2df11bc1214ec4911b6655c2fbed455d3a2b348f9ab32ace61446ea62ffc0e7951010bf73d92d1931692fe0102cd1c4c7fb1e543bb44edcf9aa960ad6fdce022b6425128ee8b826dfbef5fe34857e50737802de7dbd9f6885e99d6e3dcee63183f30d3998bbd8df2c24e396a32269e05375e6591236d090e872dda84119683e7f0e5d8be431ed44974cd29ce5841a8418ff16bbdbdb6195ef27952602293f26191b629c329cf672baed036f1a1923b5064bb0ec6390f9888a5a0b968fa8191fa18733baf16f791ebf13d03e52b7b9311a692f5019acfff38811d429c01b32cab4e2858c47afbefa20dfe7b2e410267782b4ab4776fe81191c52d980c90ff81095c97b6e5bbb750d3ff388fa6ad4dcaae7b9e8430f5a663bbc32913d12f773b15f7736a968cfff724ae6097a8278fa33c1e2a45449f4d024b9247031de112d3c929d0d112e65fc5c8824194dc1a344a9bdc106562f14cb391d61f89305d2fbc53b302e5fd850b8aca59db73284991f011159f676ab2042a731584777e42f7357b4e56b8470f0ead53d46fd238c570a542aa0d1dd180e44d18b83763cf358fb4ab25031a3e2336cd5550b8c29b083b4274ed13da8e550c65fd4cc820a63b72aafa8e0f35eed006b31689fa72374318fe672f37762f5e8bf80ca96db4ea1cd4f2409a8d0fa79f74200431cf225e5bdf4f344f02b37ba36ed02293f4ff418d0402b571ebdc7b3eb3b4e9541ffa685077de465779cfdbb2721a9f5f5a64dde665185ae090dd2179b7076d463fc3c47e4301386e2bb231e7daaead9b03034c61e47f20d1648902e0312750d50c4c00d043c45a3f6ab7c89be3a609356f1443b358e0d33d0649238d749e6013a632c61e681cd53ecb19a12ebf0a9c459619777b08b38cf5001223201cbf2ff077b9308bd1c2a3b0ae30967dc0145143696ee3dedb80a061bd95de891dd2bdfd388b7c95a806cc9aaddb89335115cd45f496ef7c4875c7ade88e0fe4c0ee6c3df9be0b533947369a59c3d921496c3315f07619ce957d133cdc2e36e707244c464dc2889d7b07a35382f1fdd5ade00cc24cd12aa38ef8abac14b140b9c466f07325fb0442ffba6569a766994fe03233d14762b2bb07fbb72b25814a1b4f3b24e18f2d13dafb6e5d5552bcdcdf23c6bdac28e93db279c3f38e55ded4f9a2c566ae147f72483bd2c69d641188bcf87293268c9becc057572ced17ba21ccefdb435a17d66908664c1de468f727df9d2a8d645f569d75456f3a52793a4f260b2a879880747870012bbb79362fc2784874d59fff4b021cce698aa10818076f197f2be109f356de90306f8d03239cf3b723a3e33b08a8902061ac52b97f6ef54a8dc71c362fd5b8a7c819cc35e3bed17e85afcce0ffbef182fad0c17eb59d0ca7653753473d7851bbc7b72b700447925a7f7d500955000fe20aa879342f8ef3150f58530e3d3c3f2db7b7f8af8f254f40ad9b22e533f8f3f9b0cdec7580047e7017e142850508b94aa4d1b3ed95dacc75512b99a0f5adb7018160fe50472894d0b0fe7618c1be99323bf95c6ff591f3327bb26cff5fb4f56c404899fd3be8905e4a5d567da8bf87b39a54460dd78e85c222a08cf42b4382f468372ef7c80cca18c10a1d7e65bbca67ba27775813200306f26276853f3bffffafce7e22aea67580a5b0f1329b10f553cc9d05c41671cac1d9cd6687d870af23c052fa4b5379685cd2419f1be8930657558f9e2d01d066d0362e5dbd1ad5a8ab7eaec9a1902795ea348b8201663d713fb4fff7db08c4b749e38668c37b617cd83a286952b034b081e711ce4a95efa8dfb961cf4ba4cd5dcdce1b9f7a6a9727565bbab4d253cefee0e3a1b22df2aec860d9580a926d3bb9572b9ae4e34f8d097debf6d49858c11899dc422ad8058088147bd7f87786118c659dcc29e958d9e040d8fd57ff97bbc4be28e20bfecfadefd77f35c36e8dfd8a862939cccf9511c91cc6029bf42acb501143d4dd836e0493075448c4a5e6bb2d4f2c842ad5252046f60df2b861abee73e8eb73795ec1e10c27cf4df105478ccc1a70230d8faf4828c2f5608db0543f57173c11d77ce185ed91805a5a265661680687e081d0566e27cf9e6261403604dc991ffa340c6ed3e87ffb409c47d84ba0e2ef6022d3836006e996feaeef93b1b1383dfa9ddc976ff0fe5fb725268d95f60f71ff193931d57b02ec3cb046d8465d339b0eeaeb6bb06e6db286dd056483d28703e28af41dbba06390296fd7c2837875bff92df052727da8635e4d33a09d212f6a989114368e82be39d730328bf17a3cd31f785db0a768a596013b774ff542fa8ac95b3fb18d1084ce646ac284a74a3c707e3d8df0093dd230abeb946ce0ebfa6ea3cef84b75b11218a729cb6a1468c69fab77e25a408fc709f64511956840db722285000249b23c86a09cef25792e37f109b9d937eb3d2f6886992467c73b1f56b0beea87262b077c23575e56e24b6bd65620cf0b9346fd0d067ed7262461e17a0a508d48812e5c5bef67b1e6cccaea034eaa578a687c82b5fac1684c4d99f26f38ca83b995efa784776b2a29e578ae193633f7b33775022d6e8b5d19e6d46e237440b807e7448566cef20e4af36652e6530ddeb95316bd466b79054888949653b4f2e988c384fd72151f996e5345b418444f54b3dbab63927e8c941d55ac7136072c52f298d7bbf19d47b504efb3575aaed1a940850a4e7732891140a3375a0b62bdabcc5ccdbdfe73e7e166b7e201275f86d101bf1d8b6038634a67fa2e39efb9589e639fe16628389f71f5d51afb74197ea4120e26b18caa23af56c57fee9c9b8dbd20f5d901639d87831694521db732a9df20498d7562b4db3cebc2d637afe77cd6c49b1ece6fe778b806350a53151ed445a40a7e33510425d785e8ba7f889ba79d826e679bcf723a1bf5c20aca7e68ba5b6d6e61fb77c6df99b70b219736f0fcf8da50609c4f93eaf59c13489a5d3587cf11ed7b448e3e6a9a94e043210e4d5368bc9b9a0481f1541edbb7d7fba5fd37f33c523cacad2ad2d49e4c5711a6805d89cd59953ab99565ef4ad7966c61111ff23cf39af3cf8ce59b6b2bfdbca83d3678449f3c4837c8ca249b12e9c24bc20d992a2bc8b510b81f5c6a8c23f59de29258fc5f27e2c9df91fa9d218b274862a01df4e80488a9afc7898a3e9c7e530a07372899df8c08fd9375ac192f30392b94fb35b0f6851c6f07c0e7f461a744e5cd07df129877f48402597b1b689d8a044f4a6a540840b6718949f89968c2fbb58ff4cd8fea3fc371d7d545d16dc1baf20529ee61a14cdd27df9d5d59f4d36aa15a5b8a28fa086837c0ee15e99b56f8d6f9abffda107f898aebc23e5f01bc632d0851917367d11aab696b73a24f87b6a841c0d78c6e91caa7672ceb82e54f98d73e152957308405da2eef5317d01b3f303030c8680ac1accd67a812e3a2cb3035442815b8ab57c914f41197214cbe25ed52bd08812e47623c856316122d7802d4128827784eae806f3752e669b38226ec55cd79acff7ded54f126e61a17144e05c54782f9c52a170075debc1c17ae68bf272d60b1587f6f37ac8f7deedff44b88a868af1ead03a0e351768adb6690b1921f41f2bde0163d65a1d243e1aa2a65dbaf89aaa7eaf0c932f1b8d1bcfe2d24aa32435ec5f2a9f9c941694bd25c7af6d29a40566cdc385a1429c71260d5bf4420108294c620e8fbcdbf8ae57d59a68d16fa43a7c14f4a7c359d8630839896bebc18eb4717c4b24e921a2842b8e44522379851c7539ff9600becb6a84ef24236c013347887c10d5e09d538e0cad5d823715373a6d2bdfd652f3b162dbbe63214cfed98d0c661e6b7c811b79fe8ea9c47ffdd179d73c5a14c69d6d5d231e6b7379c5f6a31ce77730782efdff251c3057d46d77a07783030c3aaaa61a05d570694728ae04a0c818d722960940220f834f1d9f0dfb753c7ad8fea2cc951f91fcd2181fd39b0fb1fb548b1b5dce8340cbe7e65d3c2dd8ec93f9aef839dbdc8dd14b7a0f2ce8428bc4415e838d943ed64dfb3138ae1d96e1f6c7754ff6b21fbe6b2868562137c60f006f057a79db46174630cd807164adcbf9931792d25af6836e14f11ab2e72d1f1451d43bb0ab11866c841ace17a050f7c7b16192340bb315edc96d82c3d56181271ab6935c3cbb9556ffd847d42961c34a904565224b11efc894c1321834cb755e55a1c8be20ef76ba67e423e4a28e1d4edcbd370e90e09e3aa6b4ac6019ac80d909574d8ce2411215947db78c58bd293de4da9e3508916dbc0746c347d3157fab692559ce4fb9601f4392e91820a0811e88a0694633a91955ba76881043ddbc1d00bf6cbcc9cb73d39709d761cbe9cbc312d65d0b42865ef52d76be65c6544293ef068f45ec0d411cb8d2dd35d16888bd4ea559aecc63c069326fe524156032ae02003ad029febe6423bc2ec9e8caecc08f043f1eb45be2b03cb1fc57fc440fbc30e4f8ec759e27a34f26077f2a26d60d488295d7731aef33db421400589a71d1ebdd208d219f8cf1ea64b203f807950fd37d7ac9373074adba3cf86770d11b71a12022e1ce49dbda23c3d3023874123dd27f46332c8385ffd8aa26e3515f1b0cbed4adb06fe88a40ae38b0435ad6f53de2806ef2912758247002141e1a906226ae866add003930b6cf5ba09ecd8eddd3530a645fcf1facb68ee0c42cf012aa1a6922d66a1d97bc14b63436a11d54af46279fcd567f3d48ea29244cc0ef002fb0e22f0577c0137db965b51d84386329643cb0baa8b4affc8f04351ed7b6bffb2bbeb0e23968c947a61dc8bf11f126e78bb1f05a0848078bf8eef7a43a353330d83242cd7a77af03c592f4746dfd19a942d2de530c7b17318b84cdb5171b383a4df168dfc7ba444f1adef27c5469ade1c14fafcee9ec0176f79da0cf6d8662b0943cce1821025e1dd37f686232028bd4568bacf14c94f18591940e69a28c3e6f67671893565e099b6f4bdce362025d71b1636309c48fa4fd8f07a308a151e6712fc5a297d1bd73382d0f660e0f46abc40a194cac7555640a7e0cc9eb544f2f0f8422d9440341a5720dc333f85e86468f84d600039f81ac8a6be5cef1453e596204acc5a9d2ceda87a7f392ec596a1bdbc558608cec346bbd3aa4edf8e85b03b253a41684a380f5b562cd1eef756f2927409acbc8a84fc222f66243aae0ee13b1f1cad38c3bdd9be698c52a3a36abdd70990ca2dd16710b235172858da97583310e3cee899f3071769e4bdca1b3687a3c7477a6a69a95143e5c256e542583b02dce457a867b8dc44912c916aedaef7ad1e8da0abe72511fddecc375e8d5108eb0e48c6dccf4085398c1e8fcf4c8ac107e6abdf8591fc2e60b99ed5114b5f3dfd6cad48d6c5b32fa4e4d58f6a20e531e752b16b7ce5768379a286dba73e02e7898063b46e4bd22e1222eed148beac704bd0b5748ae008daf908ac495fbda9
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/ROS2/" rel="tag"><i class="ic i-tag"></i> ROS2</a>
       </div>
@@ -205,7 +199,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2026-08-01 21:23:54" itemprop="dateModified" datetime="2026-08-01T21:23:54+08:00">2026-08-01</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -278,7 +272,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b5039f345e8d03991b3f.webp" title="截图">
+  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b85e9f345e8d03adb73e.jpg" title="截图">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 学习</span>
   <h3>截图</h3>
@@ -288,7 +282,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861809.jpg" title="2026.1.5日复盘总结">
+  <a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b4d49f345e8d0397e1c4.webp" title="2026.1.5日复盘总结">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 股票</span>
   <h3>2026.1.5日复盘总结</h3>
@@ -310,7 +304,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E7%BD%91%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text"> 1. 网卡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2dhcp%E6%A3%80%E6%9F%A5"><span class="toc-number">2.</span> <span class="toc-text"> 2.DHCP 检查</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -426,17 +419,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
-</div>
-
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -445,37 +428,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
-</div>
-
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -492,20 +445,60 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%82%A1%E7%A5%A8/" title="分类于 股票">股票</a>
+</div>
+
+    <span><a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" title="2026.1.5日复盘总结">2026.1.5日复盘总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 life">life</a>
+</div>
+
+    <span><a href="/diary/2024.5.27/" title="2024.5.27随记">2024.5.27随记</a></span>
   </li>
 
       
@@ -514,7 +507,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

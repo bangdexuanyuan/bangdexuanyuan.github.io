@@ -7,39 +7,56 @@
         <language>zh-CN</language>
         <pubDate>Sun, 24 Mar 2024 15:10:00 +0800</pubDate>
         <lastBuildDate>Sun, 24 Mar 2024 15:10:00 +0800</lastBuildDate>
-        <category>mistake</category>
-        <category>mind</category>
+        <category>股票交易</category>
+        <category>读博</category>
         <category>南京</category>
         <category>哈尔滨生活</category>
         <category>音乐</category>
-        <category>读博</category>
         <category>青岛生活</category>
-        <category>股票交易</category>
-        <category>pcb</category>
+        <category>mistake</category>
+        <category>mind</category>
         <category>stm32</category>
+        <category>单片机</category>
+        <category>水下机器人</category>
         <category>ROS指令</category>
         <category>ROS2</category>
         <category>DDS通信</category>
         <category>ROS2, Movax</category>
-        <category>测试</category>
         <category>ROS</category>
         <category>英语</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
+        <category>测试</category>
+        <category>pcb</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</guid>
             <title>水上和水下双单片机串口沟通</title>
             <link>https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</link>
             <category>水下机器人</category>
             <pubDate>Sun, 24 Mar 2024 15:10:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;由于项目的需要，需要一个水上 stm32 单片机与水下的电子仓里面的 stm32 进行通讯。&lt;/p&gt;
-&lt;p&gt;我的思路是这样的，先不考虑距离传输，直接采用串口进行传输。&lt;/p&gt;
-&lt;p&gt;然后我的思路是，采用&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;stm32cubemx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 对串口进行配置，因为是全双工的，所以我想法是利用串口 ttl 模块&lt;/p&gt;
-&lt;p&gt;通过查阅资料，一般的串口通讯 ttl 能传播的距离为 10m 左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用 485 模块，通过 485 模块，将水下机器人的传播距离增大至 1km.&lt;/p&gt;
-&lt;p&gt;之前测试的时候，我是想通过 ttl 模块，直接对单片机发送 16 进制的数据，测试 hal 库的中断接收好不好用，但是在测试的过程中，我发现，通过 ttl 模块对单片机发送的数据和在 hal 里面，调用发送中断函数，其发送的 16 进制的数据，并不一样，在这个地方。我卡了好久，&lt;/p&gt;
-&lt;p&gt;现在考虑怎么把控制速度和舵机的进行融合，我们可以这样。&lt;/p&gt;
-&lt;p&gt;在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的 ADC 值进行融合，然后发送数据包，通过 485 发送给水下单片机，从而操作其工作。&lt;/p&gt;
- ]]></description>
+            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
+     data-hbe-format=&#34;4&#34;
+     data-wpm=&#34;密码不正确，请重新输入。&#34;
+     data-whm=&#34;密码不正确，请重新输入。&#34;
+     data-salt=&#34;c110541791d4a689fca7d5ce567dbf0c5d225d77f61f8e1aaed17090cde700a8&#34;
+     data-nonce=&#34;ecb80d8cc129c1e42ffa72bb&#34;
+     data-kdf-iterations=&#34;600000&#34;
+     data-auto-save=&#34;false&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
+    95ae8f7dbd16bb37e317e5c11fa38866385f7eeb2aa1591c82043567d0065d4bb05f53b1f4ad8afa9824e30fe72cb7369230a0b4e3058bbd1b6d228fd2c05630057387565a1ce2fcf72587fee11d6d8aec67af049b143d213edc6b9ea6a691d8f4ef0bd2c5dfa45c8b6bdfa45f1b00b52537a119a988ab684158bfea66eb047cea39917ac51c3cef11b6d684f48a7f7bc3d2f3518318c329be0c043a7cdec0d2ec958944636274714b038e2c669a2b40a8247e42743fbe0286d48abd236f430dc99845475e9f54180e67e87f1c1243c959a5d01b620476b74db1a583040f07849bc96cd336586c1e16d0aee9f52c50b750900b9c0a426a1ad5e53be16b6d87cef1d306d4f45dc0020621369ba60cadbf54635fcd10eee968f2800bba76c04cdc83d5c9563310c0f48e63c0d917861634677b6096dda15fe925241da4f12cd99842793515d2f17fa1609b68e1fc732a4ee98c830cbdc08d3bea07638cd504d738473375b754f5eec57773936738a5fb7894fe79dcd89a21c8a64b86d0b43779ca641c65cb23853a451274bd7506f6e95ddf32486d02d3cd8a5e5a53daea05a4ce95731109d880a389a9e92b1e20fc75ef6266f2849b575faf67549f9f425f2e116076e463c38a35e7b95cb149cca6f8c764c03c1e3c14650b9de7934cddcf2090ce09cf136b49dfb3f467b17f1a2ff8f399da88ac6bbc4556caeff9f639a62cdb2f7cfd3dd5cae7796033c49e1854a170cb2a739dc2c297c0b6960756132066e5771c4de56671242b6dcad0cbe0c65f14a7a171ce7c2f1659e752ad6397ae4db2fb32b70cfaa08bd7707bb79fe5ec8edd46b89fd42034e8f8f4dc59656c9bcdb020889f53c41e84bfd2a90500f3f43c33b5cf12f5ae5da16ccf0e31edc3d90317cdf94f34eaf9774536598d5c2c13ff6b0d7b434116436a6f135431025248be9c903282e2677646daaa59588eb4d48a882ee90b7d9d79ee67f1031ad0ea8bdca30341ca5e52b03d80eda6ce7ef682c477a64e5303f05ab669c4923b683e5b88a36f67da41abe4df6b7dccb337308b8e954cf3bacf1f8f4044c5d13c6ea8625a465fa8ebfd2681e3db65fa662b047416ef682b9582c8585fcbd1fc1d3813c8cb4edd0c070cda00eb9c3635874a0a58a22915829f3edd7a49356b602f06a1a2362712515354c981a547abcae51e3396ba96e23f9bb273a151c5f7a10c7a3ab6980f8b58451204069913673496695fab8da57796165c84e44f542728171fe219031b1c051ac065579ee6f41332ac6dbc50de2c55baa33e67920cf57c79ffde8851d49cd7df5b8465916f2481899652ee2cfdffce2995940f37f649a3b03bec65ec1cbac083ecbfe4c941957a0ee6a6268c67ea87761faaa6e72ef138ff8f528b189901cf97b50412b96a9150900bc77b883ef9bf8da81eda12ab566a73d1ec369460e77b462adf6637ede8ee0589b0e2628cc1f39c7c847d33bf9b45349b1e16e5d18f9a687ae74243203a3673de5774e1594b835fd0c2514af593022491e8b3303e9b7a532c1fbdccb37491b63384aa1007eeebb12872c95058a23cced7a6b2ac42ecabbd53ef95df7b0721d8c6210d1bf4d84fc98ee37f0deac88921c35108d9ccaa96e4580ca4481d65d1df821ea69a6d0eb3495fc4a364ea3f5ecde1b1f51332755f05aa0f96e6dab967a3b90bcd4c93183655a39ee555bddae21b01396edbd5a5e2c110a0ab5cf008876359315c5d6f241b16c7fbe4ed11ad4c5246fb003d96042910487742ad6f715c74defd5777ade1933af6b0102e9f5e005c2056fd60838f1a198f1648c726622cf0ecf86222550edb76c4ad7d6b10f01b
+  &lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
+      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
+      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
         </item>
     </channel>
 </rss>

@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b8dd9f345e8d03b13f5e.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,29 +168,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p><img data-src="https://pic.imgdb.cn/item/6600519a9f345e8d030af8c2.png" alt=""></p>
-<p>在自己画板子的时候，第一版板子，自己并没有注意到一个问题，就是这个电源的母端接口，也就是 U2 那个部分，自己设计的时候，想让焊盘弄得大一些，让电流能够更好地通过，但是自己忽略了一个问题，就是这个焊盘太大了，导致负极的焊盘和正极的那个电源插口连接上了，导致短路。</p>
-<p>真是个低级的问题，但是自己还是犯了，很抽象。</p>
-<p>幸亏自己是通过电压表测量了一下，没有直接接到电源上，否则，不知道会出现什么问题。可能直接就炸了吧。</p>
-<p>还有，自己得学会开窗得操作，根据百度，对于 PCB 开窗的解释如下：</p>
-<p>阻焊覆盖，就是<span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3YvdGFnLzgyLw=="> PCB</span> 上的导线都是盖油的，可以防止短路，对器件造成伤害，其实就是自己平时嘉立创打板之后，</p>
-<p>所谓开窗就是去掉导线上的油漆层，让导线裸露可以上锡。</p>
-<p>开窗还有一个很常见功能，就是后期烫锡增加铜箔厚度，方便过大<span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3RhZ3MvJUU3JTk0JUI1JUU2JUI1JTgxLw==">电流</span>，散热，这在<span class="exturl" data-url="aHR0cHM6Ly93d3cuaHFjaGlwLmNvbS9hcHAuaHRtbA==">电源</span>板和<span class="exturl" data-url="aHR0cHM6Ly9iYnMuZWxlY2ZhbnMuY29tL3podXRpX2RpYW5qaV8xLmh0bWw=">电机控制</span>板中比较常见。</p>
-<p>然后，明白一点，就是在自己直接用封装进行 PCB 绘制的时候，网络一定要统一，就是该是 GND 的，可以在</p>
-<p><img data-src="https://pic.imgdb.cn/item/660059a99f345e8d033c3631.png" alt=""></p>
-<p>如右图所示，网络是可以进行修改的，因为我们并没有进行原理图的绘制，所以，我们本应该是 GND 的网络，会变成未知的网络格式，比如 s24820, 这个时候，我们铺铜的时候，也会发现，其显示是否保存成为一个孤岛，这个也就间接表示，我们的网络其实建立的不对。</p>
-<p>然后自己的程序，明天接着进行调试。</p>
-<p>主手部分的那个 PCB 板子，手柄处，进行了测量，还是存在 a,b 处存在短接的问题，这个问题仍然没有解决，这可能也是主控板的串口，通过 232 转 ttl，并没有输出数据的原因。</p>
-<p>明天的事情，我们明天再聊。</p>
-<p>卧槽了，太离谱了，他竟然又好用了。</p>
-<p>然后现在得进度就是我们需要把 PCB 板子重新画一边，因为刚才的原因嘛，导致电池的正极和负极是导通的状态，这个肯定是不行的。</p>
-<p>然后根据昨天的经验，我们可以通过把网络进行修改，然后使得自己 PCB 板子好用。</p>
-<p>最后，记得开窗，就是把阻焊覆盖这层给去掉，让其散热均匀。</p>
-<p>然后其实这一版 PCB 改完之后，我们其实可以考虑，把舵机的信号线加上了，因为主手的程序可以出来了，所以我们也可以考虑把主手的信号线加上了。</p>
-<p>关于电子舱的设计部分，全由我自己全全进行设计</p>
-<p>目前有问题的就是水下摄像头的部分，首先是摄像头和树莓派相连，然后树莓派通过网线和电力载波相连，电力载波通过 a 和 b 线将信号传输到水上，水上也有一个电力载波模块，将电力载波模块通过网线和电脑相连，实现实时图像的传输。</p>
-<p>关于供电部分，树莓派需要进行供电，电力载波也需要进行供电。树莓派的供电，可以使用 typec 口进行供电，所以考虑怎么引出来一个 usb 口，从而给树莓派供电。</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="3486c898040ea0cbb4588905c977624c1a21edc2d77f2f8a07d28801aaa34ad1"
+     data-nonce="2936638f3308544810ae0531"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    60164a2f93b21add20907795f30925168f260e98906337fae5949939aa5e82ffaf8138ed0722124ceab8bc38269052144d782c52793f10e11dc8fde619bcc191a33afd12ec3a12e9faecc45468c8aae20a479bfc20cc255b8272da4fffced02f56110d1d5ee7600efb9dc2727b761a06f98550028afeafd88c51f1cbbda0ee175ad0c2e9ecab7382178dc355b78aa47d2036bd12449acda9693ea9a6da262db6c5b5a0d1a3602475ae994e737515e5b0e8bfe6c9599f7ef0b9dcf4705eb8e618bdb29857223c82329698ae790503b915b822b167f39b7d1e46360924c1194abdc5b3cfb26841d9fb4d0976b558e7ae7ad0d868bed4e5c3f054221f2be9f5ab7b59eeff60d966b0f5d2a58a974e6b418d438892590511de8edb00d61102f9c99ba63dd6035be976ff8d86f65179475faa05e04f1d7db0e1afb27a63c4b2322259fedf1d3be1b2b145e27111d4ac4e485cbf0f70146977ae0c74f6b590abf4aac6aa3ec774a8866f94176fd2c34612f4f8b6d0ae285aab0214739d50ac3c8fcb9daaf1d172ad10acb400b3b633ecfc58afab765ba218a599156c6fcc56ae146af45edcc7be228bec7d53049e8eaea2e3336a906bbe4191212153fba939a289f761718976113731b06275bbc504b25339d01a11e5900d3e627046d52227280dfe38ce4391fdc56e9bbffd14d3121b69b3dc45a6798862c90e4c70d339b23769d01860fe575317624ae014030171fcc470bbba055d29134dafacaa43a4474cd920dc51ac170a43234dff81717fc25ab8fbdb965fa97ba00f9c0d8eaccaf468118328bd1228e6d6669ff1e293b68de499b9cb23033bd964fabb5c6eb0d8dd82c46a3d508501dba67d8507d093d76000c02c5cc488ed0578c6d6aaae8d80e19f9425c747cdc2513d5da10c61b39297b6e1fac29216742b7f5b136c4a9a0aa299e3936662ea9ea187771867efd5ef3a48814c658ad0ed363583a54d3c2d55a6e923f5b14b7231821da34bc243637a7e19841f65fcdf04aaf50ac77d570f21b2ba6072342cc74bf79764ba6d7fd05aec74c59087cdb718fef49b02b081ab4976733a46b48362892bdf318eab0c2ae62abe359b1b9050a57b41957d268b41bf558d77daed2df2f2943fbfa9554f1d857b945816072dadeaf7840f7c93d3622fd3717bf3a4d8132aa20b9772c78d123d537db5496feaa0e583a1bc5b1a7745ec09d77233a2d4e02e8c26c10bfeff1437197e4ed2786d03a7d4e1754416ac7f3b5703e6ac5a0bc282caa95b95a6fed1ddd103b7c0f2f03ad1aac74714889f8f74e4dadaf867df43201b5e7b8581e652e56b0413570c8e8fda885922b6d1f22c79be24843c40694181f07f40c5e851d7bc284bea1ae2b63a447b18e003c1da15b7c803603620451839cfe56d0bec14ee2cd056dd8e768e68a11dce31c9bbc03f55bc1f5f8373e10c4e0a4e12e1dc3adf881e87eb091ea34f897e7c51a219cf0b83145c6e0e60377ab015e440a9a9120b40f19c08c9ce86f90469d3d7d707b7d2b2e4885515e684febb2d79df5df05ee9cd3664a05c32ddba77b3b731febc0d93a3e70b1e03b2685b594dc3260dd726d256887ded27d617ea970f917a4cd376e854021f1d195737642ee9d93a6078f5ac627d28a42726252beb4300b0a74444d7cb542241f49b905a66911889c29bb5c10cdc57da33b767ce9761c28b1d00eb9bc76bdce16cd7e28b54c6235a035aca0d806cd299c747e4d1002e2cbb24c4960569f5b96981933ff24f380b5ce7c5cc02232afc46a9cbbd0f04771665b6f611be01dd3806233b602fdf247a22dbad3ec780ad823c4377c55e0eeadb34e9e7dbfab875991ed80e36b6afc9667ec4bcb26833ede72ea0abd8efde1f07d5411fe6a0e931ea578aa18d2196cb8ef8dace40a11b419cbfa70d768eb52b881ba33a98dc9d437ac2a9bc1059f7889f02ea9788ffee428d2cf67dfc58816179e0959e80ce3147a9299d2abfcad7e1de0ab9f81b432c9a997d8917e6955d5ace227639fd8dd3bd25fff540caf202757ddafbf53a9f3fc90cf01ed135a50e28c29d9a8f75fafc7cd3eb2693125d3f19e042c2f4862f0491908ca9ef685693524dcc060aea706a33097643063a25fee055bba1b844a63c01f5ce49debb83da56191b40ce363ef39001846caac84b9bac6702d6717a19d575a2a3c8737c096ae8b15dd78111d5409165e6fee073a21a28e589f5cf0954e860b74d75fe7fc87e6b1b28aa08f7f90f453777c8a500fb27badaffb5c82ba6a434e5be9aad5f0d0e57d69efe6ce2912fd55d2f6f99cd1005002325c3b35309a58a603fb86911ac2d7ebf0f0f10de5aa324fcaf248266bf8d02fb1d2485d166b7a047dedecd0e9a0619799d22aa244b1c2fa067f553cfe88abe4c084b2b0f52cfead464a1c9a9e42ac7dc90da8aaae4ee99a44837cd7f88e5e64a299516bb7cb7a37e726c717bdee1694641680311b7724ab61bf4c0e78ce64fc0f3aa134c5a29e28cca7c6b68e312f11cb9ccea4f2963a24ad791167de58105f623d57410ba7796f9f4df9edbc88f72f1c1a37b0a8127a9bd3f3af9680aa8df00f0be98ede402b569b4a5e68df32975de676ddc00d8262120c2993672bf53a0f9c254128b9061f4cf96aef8d4f04a6f91355d4cde0a24eca8655e5fd7298f06c6813be64f710686179ca57641fd634dd272e1cca059abb6036bceebfc11febc8f440249e66c1be3953f11758aa2f7384c070d0591b67935d157387ebe62b09d1596794b3683b76a81f2ea3a66c18df00ba3ad0f8f1ef57e15254efd3019c48b1f559da743a6dc945d3cd90650e92bc050e2a17214c12810c0fa60e6d9dd7534f422d1f3b127d14d715a14805c0c9bde8be3e733453fcc950b58768b4966f9fc2a97a06973ca189fe2ff06a53390dcf76a9d41aec2b18f36e5d9d263d5c0416818b2a65230cf701a62f37fd1887646d57d49ffaf7558dd9a7162054f01b3f32bce7339f8995c600a905abcf57b43558bd0c46b1df6f2514da7e4dd7064a46bb98ad076fd2f3358518ea79ef5b666d63fb282f6050f75df05db41ca1262ff05afa6bca9af6b4504e66b227a741d2cde9129315296adcfa786c5f2860f37a81340be27ae145e710c782987c7b364fe43756a4bfaf9851123f9b39d6f0366bb86d19494ac322f02028221740de8b5203fec140784b55425f814e6453c77cbf4ce8a1767783313dbd17f0ef2a388a4480600edb29ab0e1d3f5593fdc73f0a5ca5bc8231054d27e7bec9200bd9ea35f61ac68e518bb47e5c1fa9a9bc1c55be093e458ab4cf183090822a1ab4f93149286b98be50ea91a1a4f1d8df9e1c6aacec1a7dc7ba2b2179cb99ce270cfad36b35a9b516d0637a75b4b9b73427860f13002c92d7925a51d5473a21ef3a30d631629503389858cdb8c988c574ab489b0344fbb361d2f57f3a93e47dad2e1c6d26227927efeb652b28655f57f9f663385acd9dede712ad29a829395d5b13e28ac0feb2949fc6743da9eca98e77d8a75e2036441f3c27161f1e62aefc64935c1ff2895cf8c243c010c305242c47ecae43c30765f381932cb5d1fff0d77c7ec917a603b3012a9e9c46f114a2e4a8b2285f9b3a175c5bcaa06bacfc1363d4274957d4c1166e9f9c3accc79ea81cf3e366a8fc20f3123ad436ddcd6a87610f3d2f4f9e6f58f9fb958cffc07803ecdeccc6659f7232795f5a167941ab13efa7cf42eaefaf2f018f948d9e002d1d268bdd52d1c7623ffe69b44f21b86b8f6d208091d63952ac9cc7d11493d7d2d81eaebb6711230ffb9310c1b3b4a592cd1633e013a35c3db8d0b530796d333f0afd808d058d72acf967d867b6d49054f0a04f22d1e56dc6c0997c96bcd75c7d4a3635c9787b7dc89f8e8ee904c8e8f0bbf9f7ae387f1bd9fcce8e1b4fb76752d025895295cc0fc302e010058fd319ee78e388f43cf1ee69d471cfb05ebd4464d0865abaf5fba845be14e767a67239c084eb86ffe0db67de843711b9d8516fbc39b2d2076819d4ab15d5eeb54c2b5d864d06f1fa912f23dcc961db474aa1b41d7c358bedb8de68d75c8ac662ec158dc9d982cf5567e6cee0bdac676f0a346acd3e305f8ad1f9cf237ccc728dff5f97cc90a5ad0845bc7f2dba0706642583d71db36791d8884824ddc2ef997877ededc015ef882198b973c1e1efa98652e76dcd5509fabd8b4ffa25f84c196f19dbb0c60a71bfc76104e7db5e32b083b4eb5b70498356d78d59d6a278400dc9c664736a93efccddc85be603f777e3f9207e017eb31148c731c13dffa246ae4b19d81be1028f8652f8f9b85030227372e4280b0f86ca6b56630fb5178ce5afaa6fa895caa096f45db7f0907f5b8d30cc1ea06c61e110f8a72fb012be6020ac756c6ae411b03fd2091b8ccfb9919238e2bc4cd2dbec28a76d5f7e2c66607dc1f08607c59717aace21ad854d46cfe5e13b67f001db8160bdec482b9a230dc1fabb823f0d5607629101c51f4b0b58b4d77a0167a26b9f15843d416b5efa946927ed2000d46073c2797f0f783a27831045ef826f65fe5e71aed3ad36f25eeaf386437e1a674c27a48e151e073dfcbd8af79f8fb684c5ce18871aa049dae10d254f8486577ccf96374648ffb7e80cf8c719c548e5e281caf4ad07d344c45babe9c748b316ad056deb4979e50120f10dfc7147d37396771a8440290461d94f6ec4b62db2f32b64b38133174a209890e0c1219f40efe97547d397d8ee9befec01cbaa8e25e85d3b0cd02cc5228beb34d55cdaeac1d5df0b5a347181b96b70a796686c9848ad2c01de72274dc289e0482b2abb633fe7634565c0fd2e6d309ea297a8769a69bd5c09e164ddcff521e947551cdea8cf38e9a79933f67bd34148a53ba0eb3398662418bb07c4e2e345dc6902e6c02ae83ff0e858049716d0c7f35eb1ea33c1bc33c39ea526174f0ab0ec37791cb5cb2a492e77e76e38c11f700cf9941cf5c6854756d81b4dfe4650ff271124b3e8e1c80b4482569dc0af127e70510525f6fb9ee4404dbc740ceaa8ae8578f6c0bd7deb8c9370728534516e10275f38aade01035c8fada4648a59021adaef260074a605a0ef10d3d2c83ef637b941ef3d36f2ff1a50160c1fe12c687e19bc1e7ed906ed9f405c4407b338411e102786172a264690fd66abc38939b4774b27b7152a9de82619900dc9d111b6dd21d5290a3969fb241c1b874a041b541d5f53846ff8d36a171a0117c5c47ed50873c67118babf5bf134ad1e158bab865a5503f1922c33482c1aec2d227591429844b4eb763d594fe841f21f128148e803e78ed88a07b790685c15b69ab9c06a5a332cfa74705c86fba5e0f9b
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/pcb/" rel="tag"><i class="ic i-tag"></i> pcb</a>
       </div>
@@ -204,7 +206,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-28 20:01:06" itemprop="dateModified" datetime="2024-03-28T20:01:06+08:00">2024-03-28</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -287,7 +289,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/pcb/123/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="未命名">
+  <a href="/pcb/123/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a3e9f345e8d0301413c.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -422,10 +424,28 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -444,35 +464,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
   </li>
 
       
@@ -482,7 +474,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
       
@@ -499,20 +501,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
+    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
   </li>
 
   </ul>

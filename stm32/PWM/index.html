@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,32 +166,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>PWM 参数计算</p>
-<p>时基单元：</p>
-<p><img data-src="" alt=""></p>
-<p>![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-12-18_21-35-40.png)</p>
-<p>跟 Keil51 一样，先进行预分频。</p>
-<p>自动重装器：设置一个值 ARR，每次计数从 0 开始，计数到 ARR 后清零，计数 ARR+1 次</p>
-<p>计数器 cnt：后根据内部时钟进行计数，每次和 CCR 捕获比较器进行比较；当 CNT&lt;CCR 时，电平置为有效电平；同理，当 CNT&gt;=CCR 时，置为无效电平，即为零；之后根据占空比进行电压的输出。</p>
-<p>keil 中代码的讲述</p>
-<pre><code>void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1);
-void TIM_SetCompare2(TIM_TypeDef* TIMx, uint16_t Compare2);
-void TIM_SetCompare3(TIM_TypeDef* TIMx, uint16_t Compare3);
-void TIM_SetCompare4(TIM_TypeDef* TIMx, uint16_t Compare4);
-</code></pre>
-<p>这个函数用来改变通道的占空比</p>
-<pre><code>void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
-void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
-void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
-void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
-</code></pre>
-<p>这个是用结构体来初始化输出</p>
-<hr>
-<p>一。舵机不听指挥乱动</p>
-<p>没有与单片机共地</p>
-<p>舵机有三条线，分别是正负极和信号线 (用来输入 PWM 信号)，因为舵机所需要的驱动电压比较大，一般在 6v 往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然 PWM 信号输入后舵机会不听使唤乱动，因为 PWM 信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。</p>
-<p>PWM 需要和单片机共地，事实确实是这样</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="51018c871d4bcfb3f320fbd80be42b5dbb1f4e12b5c568053faedaade0c2cc3e"
+     data-nonce="565fafda193744ebb1e2add8"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    5b2c7697e126ca5502fce3d569480b0c6ec3e26b539978dfe14a6de73de11a773b06878dd78e42ed3888e160cf68b0ad80385b2bc35e633a1cbf0ad4b231d9293bd7801db8bafba34e8f6134cc23f9fb116850c771702d8a8cec1cb3126a5e27d4a4a921c0556e48511be66b53a338e892b71b870e6d22baf64a00d84b4b21795eab40ea977ffd4efa883776cd06a20ebdc16f7986f38b2faaf26bf409377abd25462ea379bcba44e1d7552d28ecfb72308f186760a670aad42a7c36dba39147a4fdbc27ff5815e8f782c4c34df25607d01cf509fbd2c73d9d50025ac8a7b83c8dcf42690b3439d88f937f98d52230bd935ae2892a2a8bcdd86bf84637a75f09d769a3fb8a289845033bd354f1bafaf663c2b28b314a1222443e12e83ce987b40dfd3133b8a51991e8763d2d8fc09713d6db844e9fbcdba470b01423073d6469f8fee10516080521cb3a4389dac54b1add77f2fca82701617fca38816a2a9a9f1b13e929549c3e9742da46371fd144933658b10857d786914a354b8fe126d1493f12f149b76e32e2d1b2e431240bbb8cb4adcd5e72e0abf45b997f7cc0b4fc74d689daa0ce93a82556ecb3726ef30e60ec7ac387c49e5dc011363dbf4382deb4ac9fd21d2988f5b38fcc458b182416e35a13b3fe246c3c1969102091673ce1456579752bff11fd41a2307384466cb9f6c4afea85ed0498855f1f9ef71bde81bcf0f9a68753b7dbd4ad27f206d3206e16324cbaa442f100cfa80ecccde90d4205d26e4a9ead1c9c09bf99b20a64075c30e9cf2f057315675db3dad6eda1359a627037dc8122278c396f90f5c6744bb431a0324b9d58dee4cea5fc6eed9ac9142f16babe21f61e293cd6c5dcd232c077c7606e5a112243e7879ca3fa7da19fd551f069ca786c39412d0f0081fb25584f5c17d05b6437b3fb37360f288be3c2a7cd9b5c6ae502dc721528b00eeb5012418a01dd603772b07efc5f94091aaca1aa641a6f29e0675a72338b54ccb00af834105d67441ee597adb9d449d59ccc481f84cf9dee77bcc868c7d3c44797ef9dc5904f561cff74f8a913d3c02ef8c1e232d36b9c270c52863bc60d1c65460c35e74eb36359c91b69ead42853a2c1cb2548c2f9cf98348509e6d5b11b35173a0174f75087c94d36229e110cdc45d8992085b5b5a96657642267f4b9c0f6fe5773be7abe5f4d9054b64ba376c955cef5e0ad1d593569bc8b437fd0ca75c27939d8a1d39cc5517bb1ce97f934e016df60b52d77611e0eca7e2bf9a2676bddcc8bbc75c45b5f0e762867557c1b32ea79524189d51d2d62dc4dffb2b7b41b61c68fa77cf71cba24e4f19a11afdbe737cfa459d87853df9a01d054536b22572b8bcf85720784eade5de5a508aca6a70b730f620e012237c114efe57a757f12777fc391ac609b4bd40161441ee7f3ac66fdc6d87a844b636e23fa6f6042ce8ffeb256c09fc6a2fe617968472aa35bb4c483418f376d0e7645e410f881a3c31c7668b86b8342d0fba9f389335da1fcb41e2b72cc9197c6867285d7fa9a6d974c5325c64b268c537f7dcfa87cb63af283dea610addc03ffcc92e9f92292f2235c0cb91d2eae2d2faf31c21c4b4bc2ecc9c167afc72da1ff29202e2f68f784a21ad861a8237393bb18c68c8b15a5deae77515319419babaedd39c8eed1f004be2c7a8c6d442172dd08fec01a5c536421cd3f1a722d6935e38d63d75060c2af55ea69b4a515bd622dc5a7528b247ab4a444a3d38670637bb615fe6e1dd36c1ab1e4619a234ec40f6d012b5d600025ebf9f65465a5500a87a69c4edae5a7d504dcec1520852ba769ffdf183f68abe2fc6e7424658f5d6e7cba4bc27e4be03caf807be3fd306ffe5f5f3808ab7b669eb2798070f2fb39f8aefcfffd6131fdf4fcd63e39ec4d9598e15671df9a4422ea0b6b955a61e29d5190ff1aae2d619c7441cde9fca6501029c10a6f91339f4e74c58dc65c51df2c5f1d51669388fdad3ae85f35f2f19b197e456c55ff56a516e93d37c89138f964d5fe28449879979bfaeddab1545096e07f6bc2f6c77d0bcbfa86b6d6331c41fe3867e9069484c76dd40e35f267e91d06fb64f2b2adb458c2d80eef23173886e539fcf7252bb736591ca0fb73ff60c9689d7a2b751471c0a428c48a9984e76e304267e95f0da0d64fa5cea5c77137becffa6aee19bea8c1a5b48017923fed407ab0d08a34c596f8636eb78c94ee64394eaff6bfcf42527ce404892904b868aa5f4ffbc648ca097571bee507218b23f9ccfcf280e8f258e7c9cc7746f4e1998996c13665e401083a12203f9f0a79f6d47d1cb502c89c78dbec281d0558757f7df987fb611d1b6a81e7bf0109cbe6a334c1ca0d52d68f33507043a97cc2659f0463b485e937c2a27dbefa222071becd7838dea38e3a7351f89249068de773426448b08e27b942b3089f27588afa96f31149b67c00e3c9f4efca2294dff90566a3592bd6f93d30fda1e0d9ea648c79f16ce4af73d3ce1e9e68c3d466497ae92aa1776387934f298a299a9501c5da50108f174e3d90ad009a24f2c04a0c1f3baad5c1b73c51e9ff31be846903085d0c7b974561df53f1fbb89110159df3f02a7e0dbe48254b1c9cfe72d16ed8738f678e2c87b1acb86f3bf59f7e600792ef5ee1909d5bd6eb980990e5a4297e1715739c91e2b035fdf27b6cb7359692528d572119fc8b1aeb259083c3baa4dc4a7df1f542848ecdf6adf805fd6588e512168d0500d01a20af32bbe1a8bccb7119fc4d00697feeda5e1b55a274fc8e073701d078
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   </div>
 
    <footer>
@@ -202,7 +201,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-12-21 00:44:52" itemprop="dateModified" datetime="2023-12-21T00:44:52+08:00">2023-12-21</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -275,7 +274,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item left">
       
 
-  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec19909f345e8d03ff1f8a.jpg" title="未命名">
+  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b5039f345e8d03991b3f.webp" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -285,7 +284,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item right">
       
 
-  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81f00.jpg" title="无线下载器">
+  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="无线下载器">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>无线下载器</h3>
@@ -417,10 +416,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
 </div>
 
-    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
   </li>
 
       
@@ -429,45 +428,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%82%A1%E7%A5%A8/" title="分类于 股票">股票</a>
-</div>
-
-    <span><a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" title="2026.1.5日复盘总结">2026.1.5日复盘总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -477,17 +438,55 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -503,10 +502,9 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
+    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

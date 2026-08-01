@@ -4,62 +4,54 @@
     <title> • Posts by &#34;under water robot&#34; category</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-21T10:30:00.000Z</updated>
-    <category term="mistake" />
-    <category term="mind" />
+    <category term="股票交易" />
+    <category term="读博" />
     <category term="南京" />
     <category term="哈尔滨生活" />
     <category term="音乐" />
-    <category term="读博" />
     <category term="青岛生活" />
-    <category term="股票交易" />
-    <category term="pcb" />
+    <category term="mistake" />
+    <category term="mind" />
     <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
     <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS2, Movax" />
-    <category term="测试" />
     <category term="ROS" />
     <category term="英语" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="测试" />
+    <category term="pcb" />
     <entry>
         <id>https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</id>
         <title>STM32串口传输数据</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;STM32CUBEMX&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05017em;&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 利用串口传输数据&lt;/p&gt;
-&lt;p&gt;1. 串口的发送与接收&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit (); 串口发送数据，使用超时管理机制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Receive (); 串口接收数据，使用超时管理机制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_IT (); 串口中断模式发送&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Receive_IT (); 串口中断模式接收&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式发送&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式接收&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;功能：&lt;strong&gt;串口&lt;/strong&gt;发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;UART_HandleTypeDef*huart 例如huart1就是其中一个别名
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
+     data-hbe-format=&#34;4&#34;
+     data-wpm=&#34;密码不正确，请重新输入。&#34;
+     data-whm=&#34;密码不正确，请重新输入。&#34;
+     data-salt=&#34;a2f3f965d0ff69da301b5c99010ce13abe876d2128ce48c1e0a7d5afe26f1d86&#34;
+     data-nonce=&#34;9bbcb7a5961498d1ba67dfbe&#34;
+     data-kdf-iterations=&#34;600000&#34;
+     data-auto-save=&#34;false&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
+    718dae7c4c6e7ee0eaa4e72560731bbec693671539fa711ed145cc6f06fc1ac569c93f11957de2bf709c6f886c2f9ec31c52db4000ce7e31bdd79c7a917cfdc68f090f359df4725782fdbec9e3b469f883f7e97840b9bd67dd35aa1b22a877697d53b786374cd320112ae5df8667dcf07add22725810140b26a0a1aa5c97cca6b59c8451ff5bfbfbd45178fe77cf3dc0027361264f4e6247df46a067cbf513f598586790f3e56568e95bf6fcf350244873a4fa0bbbff6aa013a19a51c5eb7867bfeda0d8caf2506440dc94c80aad825f7ca9bccb86457d4ca2d6ac890310dfe6476a228c313846ce56d8319fe08610af3d48547ac9c00c806cd00625d921b5bd2442b1042f01cd9f06487d4415629ae2211e81d849c20a23c093e6a86c5edd95f8cc386b27c83735dbca0ea43106d7c053767823ac2908d24b453f974379196fbb8b3bd1b70e7a67e1f5616121b257c6410a3382af17c4ed4e6ae81445a2ba70e57b5ad876a7de55ca5f494a0bb093c3b5ad88e6ffb28026c821548b93d986b397c64356ba89cd22fcb947fd3058c49ee7fabe6f1f012eded35989569746f28ad9447c4024d0ee08a7c17889f444a7c436333f3f8d8d03bf7525916d2b852c798fecd7eecd43f8bba24d24d7594341246953a1f296c69c260fbc6820fe0a6aec19373f6933f6f58174051f144f5ded79790e3a82e259d1d1d364bccb07f2b9c24283f798364794f7749afbbab7a90ca431b563edb7f35d53457bf495ba9d073aeab5ee76ce159e2cbb34ea2d9e0052b54a8889cfe6a6097750c1f717064b374d4f47e33890ea0a95ce1914ddf43951f167023605ff3e49d70b00a3708ad4fb8569683c9709dc236894a04bf5fb4c29b972ab7e842c1568c146725efdcbe4bcbd482c6706587f52f79dd78865d935ae489588c3747d2c5bc1f386437d25b7e7e309409d420bc6200e4e0d35ef4acc9cf1fe17048fbd9901bc581bb17774827ea351b4ea7bbafbf2a4c9f2d0d1efbe03f0c520ca03ef89e99a7a6d2fb4f7c2cbb3656c106ed876e2bb1606250864bccdde27ee3aca0665505904e02556c966fabb647c6471b25e115b060616af52613a8be386d7e47f76c6407383b8782f00849ff745aada04c921006431c37de948f4da0e6a39a48f33a729f1c9798255cc35dc1f0ca92e56ac836769517ebb85fadf01ba1b626718cd055880f415464f4883f9ca9b3a99a9cabf671c005981c76117d3c7a457c747dec3930f4fb79b49ce02fb1fe4083b2be5ff8fadd1ba0e325a93843ead26efad20e66d490cdf48
+  &lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
+      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
+      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
         <category term="stm32" />
         <updated>2024-03-21T10:30:00.000Z</updated>
     </entry>

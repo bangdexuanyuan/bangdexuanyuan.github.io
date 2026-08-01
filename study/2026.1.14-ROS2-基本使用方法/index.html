@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,25 +168,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>ROS 社区需要遵循一些惯例，比如说 cmd_vel 用来表示控制命令，里程计用 odom 表示，激光雷达用 scan 表示，image_raw 用来表示图像</p>
-<p>这些命名不是 ROS 2 强制规定，而是社区长期形成的<strong>通用惯例</strong>，好处是不同厂家、不同包之间可以互通：</p>
-<ul>
-<li><code>/cmd_vel</code> ：速度控制指令，消息类型通常是  <code>geometry_msgs/msg/Twist</code></li>
-<li><code>/odom</code> ：里程计数据，消息类型是  <code>nav_msgs/msg/Odometry</code></li>
-<li><code>/scan</code> ：激光雷达扫描数据，消息类型是  <code>sensor_msgs/msg/LaserScan</code></li>
-<li><code>/image_raw</code> ：相机原始图像，消息类型是  <code>sensor_msgs/msg/Image</code></li>
-</ul>
-<p>实际排查时不用猜名字，直接看系统里到底有哪些话题：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>ros2 topic list          <span class="token comment"># 列出所有话题</span></pre></td></tr><tr><td data-num="2"></td><td><pre>ros2 topic info /cmd_vel <span class="token comment"># 查看某个话题的消息类型和收发节点</span></pre></td></tr><tr><td data-num="3"></td><td><pre>ros2 interface show geometry_msgs/msg/Twist  <span class="token comment"># 查看消息结构</span></pre></td></tr></table></figure><p>怎么在 ros2 里面修改文件</p>
-<p>“修改文件” 分两种情况：</p>
-<ol>
-<li>修改功能包源码：直接编辑  <code>src/</code>  下的源码，然后回到工作空间根目录重新构建，例如  <code>colcon build --packages-select &lt;包名&gt;</code> ，再  <code>source install/setup.bash</code>  让改动生效。</li>
-<li>修改参数：不需要重新编译，可以用命令行参数（ <code>--ros-args -p 参数名:=值</code> ）、YAML 参数文件（ <code>ros2 run &lt;包名&gt; &lt;节点&gt; --ros-args --params-file xxx.yaml</code> ）等方式动态传入。</li>
-</ol>
-<blockquote>
-<p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL1R1dG9yaWFscy9CZWdpbm5lci1DTEktVG9vbHMuaHRtbA==">ROS 2 CLI 工具官方文档</span></p>
-</blockquote>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="4717669437fa84ea3ad7458b3422f102fa222018ea525bc69a2d2441410115c2"
+     data-nonce="69e523a669557efc628f7de6"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    3751ab0a625b933ce04b52a2ebcd2e8fb8dd53e37c19f23c72aa88b3bab0206a95ed16ac1d98dce19f56bcf7fbb2edbe5b38b6498fdd5d6d25c73a1ed2c76bd2da11d26a17300abef9d1637bd4a4cdb9ec87db892ad3806ffcca3cde9cba1bcb876b83aaf497b314d57dc3a7eea732baad7b21429f750b7723a5feebe2e712a8b4739116d4fba325f6966ec3c62e235c24e1f04d518d77478e66b83c76632c1a983d2186db35eae04e081a4febd49d9048364b677a73cb90b57fb52db0a23d629926822b3428bfefe7e316c641324ff93841742c831945e0acce19c0b9be62d5cda1948ad2d235b718d33a00a8d2e6822cd422081e95f2a1fd895a273cba9f866f690bd069b372f5b4d6b4d1e578924217fb536040893f9e250b4b7e023d173282749b8d689c3f6dfdf8fd399b10af234008adc02b0089ffbea64030ca911dfecb80dd989b2d3bca3b60bbce08899cf2dd1501a619b84602673c310fd26d1f52bc82192d48cbd32a03d1429b520805aded33ba3b288de5ac3ee40c0a0a8975bdf393232eb98a1f528f5ef0bb2ba6c562a8e0804a3870f8cd35b355a127f382b955ee3ab93180508bdb4fa0e6fb06b6fdf11b8b6dc122272ebc84f9bb58220b1acf52bd51ec464cf511d35dd78b779df5595adcc227d54640d951fbf7e515bc7744aa37bf960b7dbc9ac5a1531f199d2dd367e8f06746bb3475dbc9bbba3843b6420d22d41919c5ce21011dbaf61c4974c73a8abd681e4a72ebd9f4e9c77a164721769fda593ea15744243f4731327e5223b3a35309d11c925dedf23576e8c043da042437b85bad658b7fe48062c1bb29a48909aaa2da900202d030a5557c0d781deae5e20d53dc95a67aa1f94cfc9eb727fa9a6c14916f55ab4e2feadd874bb775fdc0b1161f53c9de8ac1e9057884d1ee069d5daace81e66171354006f1f2a2e72464ae6756744cfd4d7fdaa103b99106e6031bd868a18f828ac195482fab0e46805d09adc4aa9444b6411a1937f93fcc5bfdbe4102ea0ae84555fa98ef8e9dc4c0cba485dc17a864471336e9e23c5ff3632468bd4d889e6899153740c0cb99fe5d128f5d2c2e84e7a8bf998ac9d3d5b6a38772476795bd095ddfb5ce8194c8c7b085fac66193a876d93f9ecc2435af755424559a606c0e64f6a0f176868f3859a242363a652f62dfcf4a0d33b54d86647eceab8381a03f386cea02058541dadd649f70f1feecde5d31d21c2e8962a47a0669d5b68d411ba87243f33f4cbe7da44ef2d0d5f553b366287d0eb7336805ef7836d5de2003866c41f913ae0f5732978db5ab7ca6b9552027e9e074da64b12b7effb15530ad2e940b643f838c81bbd71989b4b83e0f792c09d4b7a91af0793f1f321277c7973dd7dfbac5db04a51f130b64848b1b9dc090df8ee0d510487cd983e7e4b844dc4afd299ceb2ecfc8cdf890ab033548e8bb0f6874c3f8f7a821347da878b1ddf1b9150325e4ba2b3ff8b5e21b2cee75780694bbf3a44429c020ce6c4ea3866031b9111b5603fab033018e435ce1eb1d07094c58df08697bfe7de18bcbe5cc33add306c73ff6f968c9a99e4235cbe8044faa096798e99c748e36d33b70f22459acabefafd7f66d6c73abb2cd11a3742b053a996b8cc105b6b44d088749c313a02fab7f591c28eed1e07093b43cd5207494ac5c3c5ef5cae3c0976dd21c706a6c7ff9607c2d3435cada6bf6bd2c1c21419b1d5c73574443d6b43c349c63df1ba84c5d2f771a8dc04f44e064705bd7b1a7af5fb614c89c2718b590b3206c2aee9d587b52d067825cac841276c890b8ac5fbcaa697bb05ca5340c7a8dd1bf2688e987a795ef5e773f569f3dd759a3c34c7a55ee396a8a7f30e4e5c53cfd3096a0de2c4d343138d892f6713d16250233ffe47493aca63a08e72d29b0bc5a2b3857db32e5a71ffed444c4476d428d9f070680bb3529559c3760f35e8b06ee5c7221535c7bdf151ecf39c79516d6426fd87795a79baa09e554d31aadd50bded776ef392ed6528be9153b83cf13b10e59d0a76aa1e063833a9a86fc5bd76e0156e3edea6cbd7a2d320485cb180297cf4eab928695f4c8d7f086b272516741fe5c3f2bef4bd0f8174eafc4e0cbd0fee8be75cae2eb86aceace25939c0598122802c20f1007149c01e9b393c363bd831bc7da8222e49b5ef129f80607d7f689110594ae81ad18203ec43dbd8ceaff2beec5bb62e269974658a37cf093e5fecac1b93c9a80affd9eb715a81b207c2e07cede4d49d56fec5406aeb4ae90ec7bccd761eeee96315682b691908803e47cae41b51b960570d7906e2f546438ce5b2386f57f90db2c1fbf5c7d7b99c147e39388470616cab2accbe8bfd8efeb3c757fd5497b7a7c8eb4a1274fe546fc2df485a1cc811f3f0247080b86bbe5d8f16461de03c1f34bf9874d03fbad0a3719ad9d7c3550b38f0f087133bcc514e0548e8f8c8ba9608fedde02be2f0204f0e7c8d21bc38922121fe2fe5fd3d44e3fe21143c468b6db0324df0cd830b02f0143757f573f3328d4235f27ae19440acd4c60556f087ae895b53735b5c72bc5af05c76185e1aaeab628817f604b8a004a6aa27bda0eb7151eaa525f67a0e5185fed86f36ed703ecca2963320eaf3dbdb6ecc8bc60e8b8d3fef1bf4ba573aab7bdb7a96174bbfe961fa22e696a4b914c0b8353205b6a
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/ROS2/" rel="tag"><i class="ic i-tag"></i> ROS2</a>
       </div>
@@ -200,7 +206,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2026-08-01 21:29:26" itemprop="dateModified" datetime="2026-08-01T21:29:26+08:00">2026-08-01</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -273,7 +279,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b85e9f345e8d03adb73e.jpg" title="未命名">
+  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -283,7 +289,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec15f39f345e8d03f3f7d5.jpg" title="未命名">
+  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -418,78 +424,9 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
-</div>
-
-    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%82%A1%E7%A5%A8/" title="分类于 股票">股票</a>
-</div>
-
-    <span><a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" title="2026.1.5日复盘总结">2026.1.5日复盘总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -499,7 +436,45 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -510,6 +485,34 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

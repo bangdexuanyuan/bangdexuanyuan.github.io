@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>424</span>
+    <span>404</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -161,39 +161,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <ul>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>T</mi><mi>M</mi><mn>32</mn><mi>C</mi><mi>U</mi><mi>B</mi><mi>E</mi><mi>M</mi><mi>X</mi></mrow><annotation encoding="application/x-tex">STM32CUBEMX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">3</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 利用串口传输数据</p>
-<p>1. 串口的发送与接收</p>
-<ul>
-<li>
-<p>HAL_UART_Transmit (); 串口发送数据，使用超时管理机制</p>
-</li>
-<li>
-<p>HAL_UART_Receive (); 串口接收数据，使用超时管理机制</p>
-</li>
-<li>
-<p>HAL_UART_Transmit_IT (); 串口中断模式发送</p>
-</li>
-<li>
-<p>HAL_UART_Receive_IT (); 串口中断模式接收</p>
-</li>
-<li>
-<p>HAL_UART_Transmit_DMA (); 串口 DMA 模式发送</p>
-</li>
-<li>
-<p>HAL_UART_Transmit_DMA (); 串口 DMA 模式接收</p>
-</li>
-</ul>
-<pre><code class="language-c++">HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
-
-</code></pre>
-<p>功能：<strong>串口</strong>发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。</p>
-<pre><code>UART_HandleTypeDef*huart 例如huart1就是其中一个别名
-</code></pre>
-</li>
-</ul>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="a2f3f965d0ff69da301b5c99010ce13abe876d2128ce48c1e0a7d5afe26f1d86"
+     data-nonce="9bbcb7a5961498d1ba67dfbe"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    718dae7c4c6e7ee0eaa4e72560731bbec693671539fa711ed145cc6f06fc1ac569c93f11957de2bf709c6f886c2f9ec31c52db4000ce7e31bdd79c7a917cfdc68f090f359df4725782fdbec9e3b469f883f7e97840b9bd67dd35aa1b22a877697d53b786374cd320112ae5df8667dcf07add22725810140b26a0a1aa5c97cca6b59c8451ff5bfbfbd45178fe77cf3dc0027361264f4e6247df46a067cbf513f598586790f3e56568e95bf6fcf350244873a4fa0bbbff6aa013a19a51c5eb7867bfeda0d8caf2506440dc94c80aad825f7ca9bccb86457d4ca2d6ac890310dfe6476a228c313846ce56d8319fe08610af3d48547ac9c00c806cd00625d921b5bd2442b1042f01cd9f06487d4415629ae2211e81d849c20a23c093e6a86c5edd95f8cc386b27c83735dbca0ea43106d7c053767823ac2908d24b453f974379196fbb8b3bd1b70e7a67e1f5616121b257c6410a3382af17c4ed4e6ae81445a2ba70e57b5ad876a7de55ca5f494a0bb093c3b5ad88e6ffb28026c821548b93d986b397c64356ba89cd22fcb947fd3058c49ee7fabe6f1f012eded35989569746f28ad9447c4024d0ee08a7c17889f444a7c436333f3f8d8d03bf7525916d2b852c798fecd7eecd43f8bba24d24d7594341246953a1f296c69c260fbc6820fe0a6aec19373f6933f6f58174051f144f5ded79790e3a82e259d1d1d364bccb07f2b9c24283f798364794f7749afbbab7a90ca431b563edb7f35d53457bf495ba9d073aeab5ee76ce159e2cbb34ea2d9e0052b54a8889cfe6a6097750c1f717064b374d4f47e33890ea0a95ce1914ddf43951f167023605ff3e49d70b00a3708ad4fb8569683c9709dc236894a04bf5fb4c29b972ab7e842c1568c146725efdcbe4bcbd482c6706587f52f79dd78865d935ae489588c3747d2c5bc1f386437d25b7e7e309409d420bc6200e4e0d35ef4acc9cf1fe17048fbd9901bc581bb17774827ea351b4ea7bbafbf2a4c9f2d0d1efbe03f0c520ca03ef89e99a7a6d2fb4f7c2cbb3656c106ed876e2bb1606250864bccdde27ee3aca0665505904e02556c966fabb647c6471b25e115b060616af52613a8be386d7e47f76c6407383b8782f00849ff745aada04c921006431c37de948f4da0e6a39a48f33a729f1c9798255cc35dc1f0ca92e56ac836769517ebb85fadf01ba1b626718cd055880f415464f4883f9ca9b3a99a9cabf671c005981c76117d3c7a457c747dec3930f4fb79b49ce02fb1fe4083b2be5ff8fadd1ba0e325a93843ead26efad20e66d490cdf48
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
       </div>
@@ -207,7 +199,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-21 22:57:56" itemprop="dateModified" datetime="2024-03-21T22:57:56+08:00">2024-03-21</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -280,7 +272,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/hello-world/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24c9.jpg" title="英语论文学习">
+  <a href="/study/hello-world/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a3e9f345e8d0301413c.jpg" title="英语论文学习">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 学习</span>
   <h3>英语论文学习</h3>
@@ -425,20 +417,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
-</div>
-
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
   </li>
 
       
@@ -447,37 +439,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
+    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
-</div>
-
-    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
   </li>
 
       
@@ -487,7 +459,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
+    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
   </li>
 
       
@@ -506,7 +478,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -516,7 +488,27 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
   </li>
 
   </ul>

@@ -4,34 +4,54 @@
     <title> • Posts by &#34;测试&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2026-01-04T12:29:00.000Z</updated>
-    <category term="mistake" />
-    <category term="mind" />
+    <category term="股票交易" />
+    <category term="读博" />
     <category term="南京" />
     <category term="哈尔滨生活" />
     <category term="音乐" />
-    <category term="读博" />
     <category term="青岛生活" />
-    <category term="股票交易" />
-    <category term="pcb" />
+    <category term="mistake" />
+    <category term="mind" />
     <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
     <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS2, Movax" />
-    <category term="测试" />
     <category term="ROS" />
     <category term="英语" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="测试" />
+    <category term="pcb" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/</id>
         <title>截图</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;![image-20260104202913225](hello-world - 副本.assets/image-20260104202913225.png)&lt;/p&gt;
-</content>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
+     data-hbe-format=&#34;4&#34;
+     data-wpm=&#34;密码不正确，请重新输入。&#34;
+     data-whm=&#34;密码不正确，请重新输入。&#34;
+     data-salt=&#34;82849397376f7b2d89a2d4d7184fef49dc1b3036fcb76fe80bb2f3da4098b56c&#34;
+     data-nonce=&#34;33381d3b57cb5022d926cb4d&#34;
+     data-kdf-iterations=&#34;600000&#34;
+     data-auto-save=&#34;false&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
+    ba1973ccdcd0c9f9941000105bfd04ddb30f6dc4fa3c8977c7e7102118bd396b008073c2f1561cb3b04b1b2e626103c10b88b9ade34ab060431dfd22cbe9734b4059fc2f16bbc90a399cd4e1d89510288b66813eb416f0ee1bb9efc159401532c8a314b8e06e47ddb88c50bcd700fd105f5d32a70f9f7cf05d34
+  &lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
+      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
+      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
         <category term="测试" />
         <updated>2026-01-04T12:29:00.000Z</updated>
     </entry>

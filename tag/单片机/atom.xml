@@ -4,43 +4,54 @@
     <title> • Posts by &#34;单片机&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2023-09-02T02:32:00.000Z</updated>
-    <category term="mistake" />
-    <category term="mind" />
+    <category term="股票交易" />
+    <category term="读博" />
     <category term="南京" />
     <category term="哈尔滨生活" />
     <category term="音乐" />
-    <category term="读博" />
     <category term="青岛生活" />
-    <category term="股票交易" />
-    <category term="pcb" />
+    <category term="mistake" />
+    <category term="mind" />
     <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <category term="ROS指令" />
     <category term="ROS2" />
     <category term="DDS通信" />
     <category term="ROS2, Movax" />
-    <category term="测试" />
     <category term="ROS" />
     <category term="英语" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="测试" />
+    <category term="pcb" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/</id>
         <title>定时器学习</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/"/>
-        <content type="html">&lt;h4 id=&#34;stm32-6-1tim定时器中断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stm32-6-1tim定时器中断&#34;&gt;#&lt;/a&gt; stm32 6-1Tim 定时器中断&lt;/h4&gt;
-&lt;p&gt;stm32 拥有 16 位计数器，预分频器，自动重装寄存器的实际单元。如果预分频器和自动重装寄存器都设置最大，2 的 16 次方，因为 2 的 16 次方为 66536&lt;/p&gt;
-&lt;p&gt;在 72MHz 计数时钟下可以实现最大 59.65s 的定时&lt;/p&gt;
-&lt;p&gt;这部分之后再听一遍&lt;/p&gt;
-&lt;p&gt;不仅具有基本的定时中断功能，而且还包括内外时钟源的选择，输入捕获，输出比较，编码器接口，主从触发模式等多种功能&lt;/p&gt;
-&lt;p&gt;![](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-08-24_22-05-54.png)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/650fb062c458853aef4a4114.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;时基单元：由自动重装寄存器，预分频器与 CNT 计数器组成，预分频器之前，连接的就是基准计数时钟的输入，最终来到了控制器的这个位置，由于基本定时器只能选择内部时钟，所以你可以直接认为这根线直接连接到了输入端这里，也就是内部时钟 CK_INT，内部时钟的来源是 RCC 的 TIMxCLK，这里的频率一般是内部系统的主频 72MHz&lt;/p&gt;
-&lt;p&gt;我们看时基单元，它可以首先对输入进来的 72MHz 计数时钟进行预分频，比如这个寄存器写 0，就是不分频，或者说是 1 分频，这个时候的输出频率等于输入频率等于 72MHz，如果预分频器写 1，就是 2 分频，那么输出的频率就为 36MHz，如果写 2，就是三分频，输出频率等于 72/3 等于 24MHz，以此类推&lt;/p&gt;
-&lt;p&gt;实际的分频系数等于预分频器的系数加一，这个预分频器是 16 位的，所以最大值可以写 65535，也就是最大 65536 分频的，这就是预分频器，就是对输入的频率提前进行预分频的操作&lt;/p&gt;
-&lt;p&gt;然后就是计数器，就是对预分频后的计数时钟进行计数，计数时钟每来一个上升沿，计数时钟的值就加一，这个计数器也是 16 位的，可以从 0 计数到 65535；如果再加的话，计数器就会回到零，重新进行计数，所以计数器的值在运行过程中会不断进行自增运行，当自增达到目标值的时候，产生中断，就完成了定时的任务。&lt;/p&gt;
-&lt;p&gt;所以现在还需要一个存储目标值函数的计数器，就是自动重装载寄存器，自动重装载计数器也是 16 位的，它存储的就是我们的计数目标，在运行的过程中，计数值不断增加，自动重装值是固定的目标，当计数值等于重装计数器的值的时候，也就是即使时间到了，那它就会产生一个中断信号，并且清零计数器&lt;/p&gt;
-&lt;p&gt;在这里有一个向上的箭头，表示这里会产生一个中断信号，像这种计数值等于重装值产生的中断，我们一般称之为更新中断，这个更新中断之后，就会通往 NVIC，我们再配置好 NVIC 的定时器通道，那定时器的更新中断就能得到 CPU 的响应了，这里向下的箭头，代表这里会产生一个事件，这里对应的事件，就叫做更新事件&lt;/p&gt;
-</content>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
+     data-hbe-format=&#34;4&#34;
+     data-wpm=&#34;密码不正确，请重新输入。&#34;
+     data-whm=&#34;密码不正确，请重新输入。&#34;
+     data-salt=&#34;48d90e29cce2e76b14b256c0f6dec5fa3e3a27c40558019086c5cb9917fe4987&#34;
+     data-nonce=&#34;ae55c9b730fc48a37b6c7166&#34;
+     data-kdf-iterations=&#34;600000&#34;
+     data-auto-save=&#34;false&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
+    0cfb80ca641f2d97be8dc56c5d74b0007856028cb119c27391cc2d93087a7683c7be95d439f4e53fee09d7fc8ebb9c737a8b584b0650976c6098797a6154a5fe1dee70f3e52f7f0efef4996b639a845ecff1061c1a5049b78812d41fc9185469620d59a3c8a85934a6d95bb78c06470899bc1612681956a66769fc93636d162e1dead54ad5864c7d4db736d2187e5501383f4ff01ae10b183b6482c79134381db0a1b77a1bd5ea35b25ea9884a21fa9b06908a9a278f58bbe8d144374cd465f35c451c282a0fc6e606206b17f463059d6e8252e323b6706c17aed41f4a16b6f3d4c567ca8042b32a0e92fc7b1cf9dbc116ce2b85199050b4aa9d861f1d2b037f97e6f504c7330df4fa49159613c51a6179bcb2c30617d538fae867f468b754d93fd440485513882c01885d2b1118ada77926fb0064409a5c7061ed712c2fc46f376ee1bb40cacea278f47d6f40bb60088bc32f6a3c09467995da1a341067b0c35554df931632a46da6a699087e7cd5241a0add534859150bebd9fb448475b0996909001a21af0fd4f42cf0f550d45743db17b24b7b98c801e6199b785c6eb58948d4fe4cfd98f4f925647500bfe066327465898547dcb1b817ff272ab0e429da0167d04d8a70f4980cfc6816e1e6a1fe2441fe916d8abc43d2a735e69acb0ffdf42e7edd82e15383e7061a5bff11f70247e5938b58599714b1273609d4b696a764af0422aecd05f3243055f3fe949ba00210a25015a5fbf7ee9742b587cc0a5087145138505994633ea48c8037126e2bc8536f3c88f7477a645d8cab02b6f64c7dfb75042061a480b5805e3ef0bb31ea43cb058ef03ae938ba281cb55679e6e0f234c7545d3ac975f2c4f2436cd688d2290ebf1d70d1b42c49e9eb9bcbba9f6c50b534992a97c39376433b28737e0b337dcb52e6e49063de927162e4affa2d8ddb43a991876d65cb120bd5716c64f9fd5259eed6ff89e400e5b5a781e0f3bfbb53b65f71a6692b56b9ca4c03259a9328837f69c5b51930fe6cee08cdbba38470d96eeccc89384ab175316311fdb2ee657e0a5b60806b009a6f01b6ac92c3ec3d3feba750930c85011df4ebd684013c2d4570442500227f9a272ee29c2a37b879bc76810526ed98e24c71d96b3a55a5f702221e70b531ff5e371bdcc7bb9281e6ceaa6be5b50f16e2025ae169772981d534b8b8200d652cb0567efb7d70907ce680042948d798e2d933c1c9d4a349ad8e208f1884831d101a4cb024db631a97a03dd8bd65d8e077428fc1c90b03edf55fa88a2be35725a749248c4fae6dd74c6182b3ecec9adcce7f2f64cb1332775fd9dfb4f2962fd61509449e484c0164311650c5ad825330784f234d4a7c009b763cdb543bf0b0e57fb2013c0c751a803a4091bd8f1468f71bf63f713449c56b21c102e82aed91541468d20b05768cf1f3487200e4f18ad1e901c74ebacd70df7f3a2a54a1d374dab78a03a4b95597b80b90a0e083f8894dc0fc33ef010e3c9d21b419e238174c988dbb05e3e7487a5697fa546c411732e6a1118276a58b2c274d514ac09c7748d3840a331db8f965ad72920d47c810b10c9935e940d82e158c735e959a1b89c21b5d8e3701862f02ddf4cf534665c7d256a3ac016e16b60fb8c1bec61345d169c74a1b1df871cc0affdee973b20cb1910814e7c434b8b8fe2fb7232a1b6a2626ea5baef310a8128dfb9bbf54d8fe2bc41508b71b531403a6235510cd1fc86075e1b3830c27b90735f565cfe0ed9b03d6afb8d1e7e5a58c7ec2f39285decf76af63a0d8734f8b9803a4041deb92ddc2f7eb0d902c28cf01b57fefc7b72da16c391bb6fadd28e6ab25af568d5ecbe7c9cac69ca41137d00d023aaa34ae7e85fc39a82f14774a2f980192f4933d58a5cb8100a793305077c4a842907f9590f05bfd2b4730ff747136f30ed1545ce7e9221cfea5e36491d955299614fb4e52c17d725d41b77e3d9cb6a03b50c85eff1ab36b115797e026f6208898c760795e9a00b26dfc4f309a5e970bd945298e43f31fb174c7d5bc57694b5d027a8d93ca91a309eddb68a857e98bd7d5b9b1b313eeed2a02c71fd69fab13f85be7b3c49748d0cc794b53d9aaf513c01fec5e6e1e7cbc07fd2933e992ec3b206a651907b154a719f6e6d18cf79348ffaddaccc7aab194e1886a21a4d242e972c39c8acbe2c4bfc6bc327f577dc5b712c78920dbef615fd2ffdc354ed4ddb9f3d4b8f55506ac0d7d24b261fee1775b54406a68c7e5dc5f314b46d55d0de9786a96943677b504508a51116ab7a12042ecb24fafc57371c3024b9259c41bac833f3407fdbe4de7fc8e16c966519173a6a2df01d67e195f967aa717508c39860b9423cce7ff938b4cdd50dcd47a4534bf5f91721893b7aad238f9e51d37974bba85dfaa5cfb1e145a30a3b5d3bae98d04f5a12bcbfe211de13f747d298e49db8b70fee78fc60a0870bad0dd7414c5382ba18b60029dba39e711430cc11d18298ad0d7b8ab508251e2d26d72b3c91fd8c0e88bfedff0be169ad6ef068976b9fa8cd40ca75005a44b8460117d4bada87a3b5eec652ef2b20fda56d938bd494bd58820d83d388203db032095331977382ef8ed6f7fb09e5f84b6cfb4b8da04a06ad7b6f9d8492905fb8276cd6746d60d7a6c83396e16db39cf7ead3675db7fc0e8e605c885ec71217e78718e3ab659cd2ef0f7243781f9a50edef9b1e3648f37baae04c2b5a48789484e80429343dceb82449ed31011aca943902955d369cb600e1dcf871fb78f9b72963594b47f0c8e978a68a21423d6e15f8f783437ffb2970681e4054c3f43c0288ff2ddab07146187cac66079e9b71efe7549289de6e26d1a370144128bfec252bb61e45ca54c6a5ad0d04a022ac4510dfc6f7930fb24f77df26ce2f6bf61b38037a48eae377cd269a85c33007441b8863c4b0e6055c12d4a445e3b5ef66101a79735fd4ce84bdc92008ff317611c6d1ce39f455f20eae0bc65ebebde0711ce00cd5d2a1c10f49947278dba92f5188e9a7223c35a3cca88d5344f090065091e1192d69e5fb28b23cbb8acad4fb578d97396a50acca25ec379b49fdb9b88544bb8ff895d9e0586b7375fee7caac80990063208926c9df99b8c128c499130b3dcb0e9c22e83238eeecb8427fee634bf11cb24f73569a9fea19b1308263ab54d55211b8dcd33a412beca71de5312d9f8201c2cdb9b260c56f259fe7e66c4f34af1e67212fb87f9995009c5bbe9bddfa4e26d988b7fc30edbb69639b48c55df6ae536f740815587332c07a6f52549e1be33850bd60c99eaadc6e23f0934b5cb34687bb1bfe8b5efefa2af1f5e052ee1f7c0dcc1ea8a14838bb07674ed074f0de289412dfbe89925438f852d0cf77e80e51237b0bdd23ccfb8ee4f6f706b3f57f8a2612897b4e445d1f03804a200be7b1cec75c5e45322c83b4ea08e8b66518c8e3971423e9831a692c981bb79fee3c9c78bf7a2df675664c4ace40c1033f0f9280b47bb66afacd6f97216392f581a5538674809b8c3654f663e8e91e2ecce1f3286344ff67499e62464ce66832a6b1dc974f8755f43b31f8aaed569360569980ae0551831520e7112217c1a7a0fb04c10ccdaa30e7e62897002b9fc13777f6a6a0a3e865b6b42b989b03e8e90fdf0f1628c8d008acbd1594edaa7aa8a870fa715e866d4793faaa50bc9d33d081445fb3c56dddaf831c64109b4d0e4a8a53f8dfa72fd8ca169c213c67e710782430c3423b43d63ab5b0e15560b5d1077b3d8dd98d8a4a44097997979600dc920731d8f2c2632d71f6618b8e67df014214ebf31b95b50cf65911b2f210ce2eee87cbe14b66a2552ea8fa0527198e529d9d398e509138cb860054f89408d793b75333f55ae9c63c55ffd5deb5775dc2fc831b3eabd50374d8a0fa50f2a3d9e9cdd4ae38b1d20ec125e6bc2fa2b7639315cd1d13c787266a7dffc543e045fc17e9577d2af01d1681b7c44eac38b77360042fd146cd9509892888b1ed628ad6b4410877314ec51951a15b81c60b6996fbef44a046b8dc94f04812e60a0cbce1286f9a6df3a3890b8c901b5e95605d3d37279efa8cd5e8a9f275558c94047d53acbbe833bf87ece3e30f4c7d3f9b27807ab6bd35f9896deda656a4c69bee22e79c4250bf269b57649c20452ab5646131114bdfa00ec389eb0e05658a9e5c5089244ce33b6e81b0607015fd38d8a16e9e3b1663ade9f25b828957ca1d82720fa41661a9ffbd98630ed3ac9dfdc2d85c519ce73ff043d1d878d2ac2bf1adbb5de2ff58e0c2d8713b67da6357205e0fc8b51e8a4fd4287a8752e36b6dc9faeb3494419944cc84ea2a22d5f608a62f1124a331977ac60d509b3054f5d046be7865cc709091e793130fc5d83b1a73829dac1537818f1f08897deed654136ef0ccced8bcb05395a0bb000efa334b542565cc300f9e1aa6b6145
+  &lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
+      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
+      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
         <category term="单片机" />
         <updated>2023-09-02T02:32:00.000Z</updated>
     </entry>

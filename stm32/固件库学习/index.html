@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2k</span>
+    <span>2.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b8dd9f345e8d03b13f5e.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b5039f345e8d03991b3f.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,61 +168,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_AHBPeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_AHBPeriph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_APB2PeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_APB2Periph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">void</span> <span class="token function">RCC_APB1PeriphClockCmd</span><span class="token punctuation">(</span><span class="token class-name">uint32_t</span> RCC_APB1Periph<span class="token punctuation">,</span> FunctionalState NewState<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>定时器函数</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210427151456665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjI5NTYz,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState);</p>
-<p>NewState 参数是一个枚举类型，用于指示要使能或禁用指定的外设时钟。可选值为：ENABLE 和 DISABLE。</p>
-<p><strong>例 1-1</strong>：以下代码片段用于使能 GPIOA 和 USART1 外设的时钟：</p>
-<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_USART1, ENABLE);</pre></td></tr></table></figure><p>在操作外设之前，必须先使能其时钟。</p>
-<h3 id="2-引脚配置"><a class="markdownIt-Anchor" href="#2-引脚配置">#</a> 2、引脚配置</h3>
-<p>GPIO_InitTypeDef 结构体是 STM32 固件库中提供给开发者的一个方便、易用的工具，当我们要配置一个 GPIO 引脚时，需要设置该引脚的多个参数，如引脚方向、输出类型、速度、上拉 / 下拉模式等，这些参数需要通过寄存器进行设置。而寄存器的操作比较繁琐，容易出错，因此 STM32 固件库提供了 GPIO_InitTypeDef 结构体，它封装了对 GPIO 外设寄存器的访问，使得开发者可以通过设置结构体的成员变量，来快速、简单地配置 GPIO 引脚的多个参数。</p>
-<p>先配置 GPIO_InitTypeDef 结构体；结构体的定义如下：</p>
-<p>这个是已经配置好的模式</p>
-<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>typedef struct</pre></td></tr><tr><td data-num="2"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="3"></td><td><pre>  uint16_t GPIO_Pin;             /*!&lt; Specifies the GPIO pins to be configured.</pre></td></tr><tr><td data-num="4"></td><td><pre>                                      This parameter can be any value of @ref GPIO_pins_define */</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  GPIOSpeed_TypeDef GPIO_Speed;  /*!&lt; Specifies the speed for the selected pins.</pre></td></tr><tr><td data-num="7"></td><td><pre>                                      This parameter can be a value of @ref GPIOSpeed_TypeDef */</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  GPIOMode_TypeDef GPIO_Mode;    /*!&lt; Specifies the operating mode for the selected pins.</pre></td></tr><tr><td data-num="10"></td><td><pre>                                      This parameter can be a value of @ref GPIOMode_TypeDef */</pre></td></tr><tr><td data-num="11"></td><td><pre>&#125;GPIO_InitTypeDef;</pre></td></tr></table></figure><p>GPIO_Pin 表示要配置的 GPIO 引脚，可以使用逻辑或运算符 “|” 将多个引脚组合在一起。</p>
-<p>GPIO_Mode 表示 GPIO 引脚的工作模式。</p>
-<table>
-<thead>
-<tr>
-<th>输入</th>
-<th></th>
-<th>输出</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GPIO_Mode_AIN</td>
-<td>模拟输入</td>
-<td>GPIO_Mode_Out_OD</td>
-<td>普通开漏输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IN_FLOATING</td>
-<td>浮空输入</td>
-<td>GPIO_Mode_Out_PP</td>
-<td>普通推挽输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IPU</td>
-<td>上拉输入</td>
-<td>GPIO_Mode_AF_OD</td>
-<td>复用推挽输出</td>
-</tr>
-<tr>
-<td>GPIO_Mode_IPD</td>
-<td>下拉输入</td>
-<td>GPIO_Mode_AF_PP</td>
-<td>复用开漏输出</td>
-</tr>
-</tbody>
-</table>
-<p>GPIO_Speed 表示 GPIO 引脚的速度，可选值为低速（GPIO_Speed_2MHz）、中速（GPIO_Speed_10MHz）或高速（GPIO_Speed_50MHz）。</p>
-<p>一般默认为普通推挽输出</p>
-<p>** 例 2-1：** 将 PA0 和 PA1 两个引脚配置为 50MHz 的推挽输出，并应用于 GPIOA 外设。</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>GPIO_InitTypeDef GPIO_InitStructure<span class="token punctuation">;</span><span class="token comment">// 这个 GPIO_InitStructure 就是一个结构体的名称，你也可以改为 u, 然后后面的名称对应都变成 u 就行</span></pre></td></tr><tr><td data-num="2"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Pin <span class="token operator">=</span> GPIO_Pin_0 <span class="token operator">|</span> GPIO_Pin_1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Mode <span class="token operator">=</span> GPIO_Mode_Out_PP<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Speed <span class="token operator">=</span> GPIO_Speed_50MHz<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">GPIO_Init</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span> <span class="token operator">&amp;</span>GPIO_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>以上代码将 GPIOA 的 PA0 引脚输出低 / 高电平，即将 PA0 引脚对应的寄存器的输出位设置为 0/1。</p>
-<p>注意：在操作 GPIO 引脚之前，必须先配置其为输出模式。否则，GPIO 引脚将不能输出电平。</p>
-<p>* 注意：在很多开发板上，GPIO 输出控制 LED 等外设的亮灭，常常使用了 PNP 型晶体管或是开漏输出方式。这种方式下，当 GPIO 引脚输出低电平时，PNP 型晶体管或是开漏输出器件会通电，外设（如 LED）被点亮，而当 GPIO 引脚输出高电平时，PNP 型晶体管或是开漏输出器件不通电，外设（如 LED）被熄灭。</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="acc79aa7101bfd41f36bd1b29a6d9875efba49cdacd5d16097a67e0787fbabdd"
+     data-nonce="5415cc8597443523ad727b9e"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    863e905a29e9ac7bbfc06febdef4ae6b37028c22060c7cf1fe592156eb115386b6dae68bfd9b3af94ce1fae3019dc134ac2b0e1c86d31732c9ec712ecfe166f64b0806e27c13ed9afa8ab30c7e33d55c65c8f87c63428fc6712ea4acea6e05e5c4a99a0841f50d0f786f27782a6836aef323311719ac5f9e4f6bbc366b83a491b43d35ce5314c434083ee33c5a5bab77545817c6fd7a5a271f3bd51c5514b73540e568a5b1904f671a99f5d7e0841cd43ab9260d94c39cbd198228055290f4eae9bb395f10b4c4791bb971756226ac8560e81d56d081ffd1bc3db8b19b89c6ea1522b1951073c10ab6365ee44837628d08ec26b31b2779465d4290ea9cd07a761a929de05a917b4be0159c67e09ed2506713d166220e809176fa0836b0169902ba65684d2b8810fe0056291e81eb1933d973c62822d0c4ee9b9178c6a21136f9f9efa96cf39089b35163f074fdd46db9aa4d2047ed2cf4798a1742d0fedb4f50a511b95bf3d032c2e16bd141f868461d04764f8121e40206b2ff9d0f3aa9f9a9634ca9c2c87fbfa65cd59cb662650cc70da5dde72c225616063e900ed3e9c986a9b78fb4e237c0718380e009a0bbee3a2eec6c7e8b1c48777e4b500d47bcee23ac81a2650b467b09691391ea15c20f26d2e2a08e1a032c1952e28c8afdaac9ed2bef6191b8fa241a1584a3e27189257ebff9334452bdfb0193b9f0fd75a58573e92f68027b9ea1bd140cce943605765f02426cc63650ba9c2cc4fa3b7b051921ddef06ebd0804d8aa0a3256e8cc2c0b64673890e8c5b49ce583fc30f47555a6e84bdad4128a98d13e928f615b12eac60bc2750effaa40cbb2c760c15987f7ef0a62594f1bd715cc6077dc0149c02dfa65dbf6c6e5ba31697cfc4ce8b253a30e3ad80e2d2290192bcbb97cac5892d7edac9054e2911a2c684232f8efa1c027fec2f926ca9417540740c0b6f1750f94a7e84af243cc2b414030ba922c100383338fc7f12abd3c0e346adc1066aa4dec231ff70438e1be529b6447a7139a3d06b2612402c30b900e15f6c2a1e7a7be7120824c4268c025884b9693fe8b7aa4394ad1f9de0d1906469710bd02fae6762b5dec4839d392d92b2b54f38bea4879f72df434c74e7a2d1e62311ade97a28ba58e3ee73aa56d8ddc66d65d8e714ba2de827c8d482b73ab16a58bc8e96c5dd2e019cfa5e8b6c786a979c7aa75a3bb5caa1c6723f623a0fb75d4cc0d52d23c68a07944001752f2b8ccad84a087c15f8e282fb7cb735963d3b690e88c5235bafe7bad0f861861333d02604afe36da1a328d042cb9b2edf73f58b15faf112f2d3137c275803731124ce6b8e3df1cd6ff888cd55048cd9819b8a7ff220f46353b728364179d64f5a740334328cbdc758976e2923947d8abe7351e7928de0f09db1bc277e3f3f6201cd8e79781351437bda612c81c4dbbeaa9ddeec26673f37af283c0f8c05b19b35baf5ed6a8068edef2b87f6e6767221e572dbab2539536cdc0e21ff80896dc0e1600e9acd76ad7b20a18cb825444edd1429e84c8ea67afffd624c12b2c0d5e9dcc39230006e25d42d25b84a43b11b5bfa9e67db912bd36f651c4a39ee4bacf7a7423cc95a596f5e8f6381ce665118664daf4849c95614c77ed4e7f865ece8c57762bf8883356845f9c143d893e65f8b7cdca5162db785525945d2fabccac097e097983c5002dfa836f0bf5f5e3771e491beb931e0b367400414fa9de21bdc9d55ac1926a85ad774a71d1bb498dc2f21660b986a546c1b454c9a748e6cb0ae88914ddb1b7e895d4f28363cf01d0598e0f41139f6aed68fad3823c0fa160147ce730f03c6882a46591babd5ee3384ce9e58dc07ffe191e8030b89ebad9cd1ea08869c3625af0335cd1c4a45edda52c4970c7f6b87e1d1f42c5c78942a6f76822d4c0bbfc4e4286ed231f1afa6b490fd7d3e670e8ef1e1950c286c1664432017508c4995ad4ed3e226109a359ec615cdfb60b2559f061b7cf3efcabeca49a08159baf2c5930484e021577124d574832eaeac7c164e6b0958334cc4773c8c8a4cd01f27651b5b5b2ab785774525410e93833f0b25dd0c6079adaa536d361f05a4dbfc02feffa0d11b739089388c91764e5053079fbc98dba4cc6508ecae7e04d79582f0a383a7a71f875c41064f949db6b86ff7e26db346222fdcdd6896371c679a6ee2a2a799449b20735eb7c50a70453ea17d170080a8f87ee55961be25615fa6fab600d4edfa2944468b8526508b39e7addf5227190517986c4722f90403f0f1d48da7f13f0591a1c10318e55e45ba7810994b48fd05b3287adc21c852ce50cf9f8224711defd0bfbf40ca9493722b3ac9eae03fa7f0cfcc1417cc73e882a5489429ed958b47c12c26d7eae9a6e1a25d1f2f2a616cac2d36fc16bdfe4f92da9e25f96a5594f969461c0fe23dd01ff70dce451faaf0d1e1273ac4edde4a61dea2641ebe545bb4413493065567b2ec3f424ca804a5094dd4fe25b4a72878288e2f105a1018a5533fdc3cc94a471e5b5f7449f8dbf423507146e119b5eb1e8a7390147bc565f39f35b1bc1a1712c71d4462dee676a2e66f23fb92947a59258e31a72c7dac86bb0f6d70b211f64314a607569820be5399c7cface40c251d3565a58a79efbd91a76118930cad9bfa841e4d2bc479a8cb93d914a39accca9712252d198a0b9fbfd84dc9148f7819e3c68ffc9dff39b1b1f9c05dcfcf763a236e18cad7419a46d4b55e7f5f468e0acf0f1b54b25cf9a819d0396c11bc3b64bb8fd293c3f27e8dabe86e28172159ef8a737d279a7c355dada22af4677bf383fb0807160cb906827418bc8237e22854e74b991e18e7e990f59fbd2ce336092313a83e46fe6317eb1d9461da437492afb1bb8b22009245163f167c0d95cc0eadff6b4dbd965dd7532f940e33cfda5b12ef9ec85f84912b3b703508975b88cac855c27729487d25c8a03f203cc6e56c5544fb555289dfb93aa1deb7d9129543e90c750aaaa62f1eb41bbec07e09cf6db28bcc3b01678a772f37542fdc962be8fdbae5823cd5a96d1cc1b3b18987b2c3eb40b45b8c7be60b2d69c293e121f94817aeae147762a7fb70be5e20fe09a348b36fc4917824ac38b80f8aba7c7a30a5e41d68f1891d2dd3d9d006c0b0c57acb1c2c8d0937f0e7af9c3ae806dea07bcebc4e0c97429c06ee4bf8be50540a3688103d1eca0c364439a3d67614efcfc22fba2fb81628972c0471c5f987a8aebe3f84b10107f1dcf716fad6dc14237e4a864514d681a750a109a661fd006cd7670ccb65efd23cbb256c418997162064935e53dcaa30fb2a4c82c5782aef733ee5601b4e4ecb02f5eb8ae175081a3fa87a6261a1e0b30df8b1470af5809fd55ee6e52cbc6c47a09546afbb9ff96818526a2149a488b5aece421bb902295b3b9264bc4b2cb921681fb56d2d7aeabc0062a6f978a8256da2c982ed4d37e03427b935d62dd6ccff18ba98bb55133c4f1b23e1a12f9f4a5d2c2051d42a59d1e80ebd6dd8ba537be5d9c1e4468747e7f140d9834baf248d46890e2486569d5b5a7bfbde6fe458c4ccabf5ae974eac3e31b65579d8fe097907d72161b40edd45765bc658ceb3080fe56d67a24c78df61a7b4ae63b40acf90d5cb461f377a93de5e60d9e8434f4859f07c5c931624b0b74d69df2f7f2dd0bfb5cbea4b45523cb61b3b108144210ef5b5a31779244c348502909e4f2de48a78ee612882b57562bb35e42f43b023620b3f5684bc28d544423b21dc4365580ff4289a4667aa06f8e84ac23971e802ab090ec0b7b70204f50954ca812a482abc534c871cd37e177f71be13f91b32c323666439cca8b6dce753df50df2afc88139fd3906beca4b890ba1963992f173567c0bb35146d9b88f876dc42958b9cbf33164fc91363ce0b84e420050afc5a11aeb53f315f9ee95f8ab0b9e2832e03ab28501c3c009f4ac4a0fc36000276c7796c4bc45caf65c413f9a3b6a17a7160b653cc87f6c77c58d03c80be09ccbf187d8b625666cda04ca0c51f074eb790f6500707d042c9a8ad0173dd4b51777a2d9562cf70a990f90730d5f50396355476af48b0e5e4acf901f8f4cc7aa79ba9a8646d37eb30f10c2d5f1038aea8d5707922ef48011a5d71b03649623a48b9b75389e3e0f33c83a38a261ed61a5d88e5356fc1d51121bf2c3e94d5d9724b21dea4c067e7bfd07e970a59c31c6bc803078f5784f08f6e319883f21c1ff57768e0f864081b837c7c3624424ce8d3d0c7377a47a48a2ef77bd297ed2bc744deb4fe343839a63e2b20d5f4651f17a0cc04b52359494c9d8fc7ec95bf146f70dd266c784beeb787fd942a709cfa35d85ac7012ab2f3d5c80ee5b3e37e54b7ee10aa17fec02eeb9258b9bb6fad13bb0d5109890f80b1affe0dbc0904bfc793c41522923051992edc7a045639cffa54e9b632ff6172c76eab204b9afbbeebde7ed14e43cff914f36deedf77efee9be5a3edef36da7422f94b911663b41776f212dcd937b2c0e300bc5d2d8a21929238c86f52b13996b57422beba8bbd74bd16d9b0178a9815f85e57d6884eb95f2b03d9c2d208ab04778cc8d3063b2017694fbdd3c9dbb894857e1948e63be7245489c64222d6de3ab8247103d55fee3513a1d1a12e68499012bf631e90d5469b40ed5ccc7d60f60dedfaae5dc7f6babd67a8ad7bbbe111573c995db268343cf23136837730b236f568b4b99a7e86cbdab61c74756f48ef2ef8381cbe0a4358cde9fdf99d94ac7fec4a6ac3a5dd7ba17dee50d56635bdebb17608540e0b787814a59dd0ffa725dbc3b0d9a309de55340e9fb25ec6e485cc790234253c5442a18330af61431df5194b2fa16b03b96336f8873c238f4fe18d366fa4f93ee2a1b342d8eef818374d1e570b8ace6b6c29719988c77e5ba925ebab8136c2251cb984b260f948112e2e8087c83003b4b485eb6afa54517ae5eb8c98c0315e2959dfc3ef6d5b2bd80dfd81cff8a3ca423c93a67c1260389a32b140edb124bb237f4dbcd2df4488833df35a74ac8a84df80b318fec54e95be0b18275cbb1b8e5ab9c73fd3df259553686ce20b5ffa33ad5e8b6d9ad74c18f5cbd054a3731131c0229d44f9a52cb0c6b63c3c5df316110c881dacaa7d0ae00df65fe7d4b932919ae854566edd4153d2f44894ce728ab8ffec759e1227a24590ec54104543f6ab583dbaa46eb864ef3e4d64102d8bdb7be3344d6ca259ed6e28a60aca0083ca4e665f3b5fb2c9fa151cafb9c8117faf91c73a3e309e77311fef83129a54dcef1ef1295bc9968bf1d079f7c7b27a0e3bbc1b766e49d3a68bbf398258259d71d4d4ecb7b5eab269d29afc550d4dadcb81b7674aa66dadb7e049f4975fd5e16e0688afe82b66766ffb72409d9f4577da96e2e8989da5973b3e666c7a59136b45a155dd44e738d378d9a552927241f8e6bbf7453b65348396389fa3b9046e1fa2e68ae238387b91dc69ed3ba2f485db73b1ccf72060056d7d20d382d1915a1c668d4ce861d2aa6d78d4f83c67c6f42533ee01de9ddc3ade851ad9efe7bb2f6f056f33b8ac0852e3ab6e324ae7f9243e35cf201c2a7c1567143b1ef97a9b7ebee2d723828658c8ef13d178c87154eecc6b5df1345144c465dc79f06cf62b13da0a01d67d8fe8e291308c772e53879709232a7ae8c076aab385cfcd0907632bed0f01f3429b4a78fe6f8c397c0828f643a2b6d176c15c6283e0ae9c020ee7e1eec31776747943ff69448f6e5c845abaade010636bb4fe8dc41937c29acc07b5adcaf207522e0370b9a6b7fa677b349ff928b0bb3c10ffec636ba4288491b91073157a4102cd831d7b28978b6f7365f9e833ef2759f667d9bc692df61b5398c2b075b84e8b72e7e67de47b9cef5be36f08f90bbc119ae11bd8e3dc642c38e0cc23141a90b461cfbf563583becd8a9bd87e335f8c63051a78738b96de0d9eb2b0921c0fcc1e0858917695ab5c84fd03b023d55dd7fc8d4360065dabe4855d6db10c1463f79c1fd26f9098d502ea0b73a5b33cef2dd2824a60414f863855dbef51cf55434ca45726a35a34ca63b0afb1e7e027abc79b2ce76eb105b86a7774859d3250e03c230c1f0d7aa0a9150f929f28df382762b735a6ecad0929d4dbb825f90fcfb424dbeff97072ff7243bfa47ddf905dc3fe5f636d446922f491a72b661bb54cb7be378c64b8e4d2d7fc29b3aa06b251e7f27526e5dae71beacddfe914dfad6d1ae9a02fe0258d48e4219338e4bb4afd50f55a7573dd04e5748b112b6529ffb3a0f395c0da4fd87d000ee3c71e248816b17700ec22bf7f9ad84dd6883ef59dca5b42d97646003e4ff664d4289b9a569d24ced6d59b0b59cf80dd81bf5369f3dcd330441c9af71a72483f17be0222529684ac837508c06873514cc22c36eea70d310f37ac
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/stm32/" rel="tag"><i class="ic i-tag"></i> stm32</a>
       </div>
@@ -236,7 +206,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-09-02 16:34:22" itemprop="dateModified" datetime="2023-09-02T16:34:22+08:00">2023-09-02</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -309,7 +279,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81ef0.jpg" title="定时器学习">
+  <a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862059.jpg" title="定时器学习">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>定时器学习</h3>
@@ -319,7 +289,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc87.jpg" title="EXTI外部中断">
+  <a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030b661c6c8e546e24bd.jpg" title="EXTI外部中断">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>EXTI外部中断</h3>
@@ -341,7 +311,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> 2、引脚配置</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -455,9 +424,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
 </div>
 
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
   </li>
 
       
@@ -466,7 +436,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -483,20 +453,28 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
+    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -506,7 +484,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -523,28 +511,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
   </li>
 
   </ul>

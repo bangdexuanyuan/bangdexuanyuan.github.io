@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b5039f345e8d03991b3f.webp"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,298 +166,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <pre><code class="language-c++">/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
-#include &quot;main.h&quot;
-#include &quot;usart.h&quot;
-#include &quot;gpio.h&quot;
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-uint8_t  RxBuffer[300];
-uint8_t cnt;
-uint8_t Rx_data[300];
-#include &lt;string.h&gt;
-#include &lt;stdio.h&gt;
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-int fputc(int ch, FILE *f)
-&#123;
-  HAL_UART_Transmit(&amp;huart1, (uint8_t *)&amp;ch, 1, 0xffff);
-  return ch;
-&#125;
- 
-/**
-  * 函数功能: 重定向c库函数getchar,scanf到DEBUG_USARTx
-  * 输入参数: 无
-  * 返 回 值: 无
-  * 说    明：无
-  */
-int fgetc(FILE *f)
-&#123;
-  uint8_t ch = 0;
-  HAL_UART_Receive(&amp;huart1, &amp;ch, 1, 0xffff);
-  return ch;
-&#125;
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-void servo(float angle1,float angle2,float angle3,float angle4)
-&#123;
-		
-&#125;
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
-static float  AixAngf1 = 0;
-static float  AixAngf2 = 0;
-static float  AixAngf3 = 0;
-static float  AixAngf4 = 0;
-/* USER CODE END PFP */
-static uint16_t  AixAng1 = 0;
-static uint16_t  AixAng2 = 0;
-static uint16_t  AixAng3 = 0;
-static uint16_t  AixAng4 = 0;
-static uint16_t open_angle =0;
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-&#123;
-    if(huart-&gt;Instance==USART2)//首先判断是否是USART2触发的中断
-		&#123;
-//			printf(&quot;%c%c%c%c%c&quot;,Rx_data[0],Rx_data[1],Rx_data[2],Rx_data[3],Rx_data[4]);
-//	&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77
-       if(Rx_data[0]==0x7F&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77) &#123;
-				AixAng1 = Rx_data[3]|(Rx_data[4]&lt;&lt;8);
-				AixAng2 = Rx_data[5]|(Rx_data[6]&lt;&lt;8);
-				AixAng3 = Rx_data[7]|(Rx_data[8]&lt;&lt;8);
-				AixAng4 = Rx_data[9]|(Rx_data[10]&lt;&lt;8);
-				open_angle =  Rx_data[13]|(Rx_data[14]&lt;&lt;8);
-				printf(&quot;%d\r\n&quot;,open_angle);
-
-				AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
-			
-				AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
-			//AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
-			//实际应该是0~45但是传感器输出的数据是0~90
-			
-				AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
-			//AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
-				AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
-				printf(&quot;%f\r\n&quot;,AixAngf1);
-				printf(&quot;%f\r\n&quot;,AixAngf2);
-				printf(&quot;%f\r\n&quot;,AixAngf3);
-				printf(&quot;%f\r\n&quot;,AixAngf4);
-
-//				 &#125;
-//				 if(Rx_data[1]==0x02)
-//				 &#123;
-//					printf(&quot;关灯&quot;);
-//				 &#125;
-//				 if(Rx_data[1]==0x03)
-//				 &#123;
-//						printf(&quot;老等&quot;);
-//				 &#125;
-//					 
-//					switch (Rx_data[1]) &#123;
-//                  case 0x01: &#123;
-//                      printf(&quot;Servo_1 turn\r\n&quot;);
-//                      printf(&quot;angle=%d\r\n&quot;, Rx_data[2] * 256 + Rx_data[3]);
-//                  &#125;
-//                      break;
-//                  case 0x02: &#123;
-//                      printf(&quot;Servo_2 turn\r\n&quot;);
-//                      printf(&quot;angle=%d\r\n&quot;, Rx_data[2] * 256 + Rx_data[3]);
-//                  &#125;
-//                      break;
-//                  case 0x03: &#123;
-//                      printf(&quot;Servo_3 turn\r\n&quot;);
-//                      printf(&quot;angle=%d\r\n&quot;, Rx_data[2] * 256 + Rx_data[3]);
-//                  &#125;
-//                      break;
-//                  case 0x04: &#123;
-//                      printf(&quot;Servo_4 turn\r\n&quot;);
-//                      printf(&quot;angle=%d\r\n&quot;, Rx_data[2] * 256 + Rx_data[3]);
-//                  &#125;
-//                      break;
-//                  default:
-//                      printf(&quot;data_error!&quot;);
-//              &#125;
-//          &#125;
-//          else
-//          &#123;
-//              printf(&quot;Data——error!\r\n&quot;);
-//          &#125;
-					&#125;
-          for (int i = 0; i &lt; 18; ++i) &#123;
-              Rx_data[i]=0;
-          &#125;
-			HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
-		&#125;
-&#125;
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
-int main(void)
-&#123;
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_USART1_UART_Init();
-  MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  &#123;
-		
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-//		HAL_UART_Transmit(&amp;huart1 ,(uint8_t*)Tx_data , 5,0xffff);
-//		HAL_Delay(2000);
-  &#125;
-  /* USER CODE END 3 */
-&#125;
-
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-&#123;
-  RCC_OscInitTypeDef RCC_OscInitStruct = &#123;0&#125;;
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = &#123;0&#125;;
-
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
-  if (HAL_RCC_OscConfig(&amp;RCC_OscInitStruct) != HAL_OK)
-  &#123;
-    Error_Handler();
-  &#125;
-
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&amp;RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  &#123;
-    Error_Handler();
-  &#125;
-&#125;
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-&#123;
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  &#123;
-  &#125;
-  /* USER CODE END Error_Handler_Debug */
-&#125;
-
-#ifdef  USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-&#123;
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf(&quot;Wrong parameters value: file %s on line %d\r\n&quot;, file, line) */
-  /* USER CODE END 6 */
-&#125;
-#endif /* USE_FULL_ASSERT */
-
-</code></pre>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="542b3db6f756a25acca04cc2f5d55401eafe4188aef29adf73f8187142836008"
+     data-nonce="c0d6dfe5a9140cfffdb9e26b"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    2053fc4036228c3911c879578424eb46cf84834d45def6d7a94778a41e19c6b51366f59f4179019e5f6c0603832e48d20b515727fbbea2572e4639573b55f20d18ee2faec30bc3a3bee5ff2db82973bf40f5c5fbca8b6aa5a07092b56607e16f858ea7a51036da47341a8d4bd267068e33c2e99f2cda83d01075fbf1d195814f55079554aa8f0ada7472c4c505d0901916b4edc2876e3f52095d4b917bce5a4b0cbcacfee6b9423768b2a16925fd8b74c5f09e34c852bb4ef98d7550bc808f0b931edc10d0d74271623d7ce4770e0ada20e3eddc32623fedc32ccb773278cab15a27359b09d0522028dc7e3a13a9d2c32565c76ef9b51962208dbb77d96890eaf74f997805c61ebeeec86dc8d619ceb932e00b045663d8a3ae3b7407131fda049e248d33326477470236e08591ac2d85db131b9574c201599ab6443b7aecfffb5cab2b1d658f9b26424889e6fb2ebd90af51b8ce908de65e593135769b31d11b4272bea2a1a714b89af8af1377297fb3eb6013732a19080e91ce0a71795a34014c4747d8398f4e6b0d3c97a10c85e91c2300393e1fb973d86304cba420b3752149777b1ef7c42c92a424e3594b3cfb1bd3bd74714f22c131c2bc8cf7528567c1e040fcba78f6916bcfacbc13922ef15475eae8a530e27e66c764e2907ad2016a13f86d6043b1623c05caa443b13c1a97dfc81e5d00279cfa2db540c8087bed40139bde9aeb5080fd05126d38ac6121b0b9272cfdacd6bbbf0cd88489e01510ca42ec6ff67a81e784da76ccad1133dcd5b9780e2d185855934bcbe11bb3d340e3e72aa9768412b4aa95bd4e5710c3fef71e32efad79b7c79349dd24a5db1095b074bc464f111c445ab97bf47625a05af145e886bc82f6513dde04684901d21ecbd0586a0cfc60264a3ecafb267e0e7c77f657ec852ed4c028e9fb47f6b60f2162e14de020f35c5f75a9dc6b70aa7071b78027859dcaa3fd1b6f6070ea782e5059dedc7afc0e2a810e11c891297b68b23d4f1f49645a38b17d89c091d57408c3f32cc7c5484b05e30b3b562b98d38032a90d8a076bc21f3d219b76415e7ad1d8b18978bb844bb29281462ec4f3c2abf8505a9d2fc07afcd1d7960fab64bc91f1994a85f52a863222f3183d09a03b33a9a06bce45a1e326cb1737fd38c8526d4e96d88a69a5ae1106c04e1c3f4bdc390f15737494251d0e8ccedc5081617d054e39f554f030f2780ebdd3d2d91baf6b507876469903522a06de3add45919f6476ff5cf5d2caf6204da8ac0012cd0bc10be6f1c351996d23714926b5c2a616c14dcc52d633c75a63469141f1052cfe21ba00aeb9cb713fc9d3f03441f9f683b08e47a2055286907abdafc59fa718bbbf0e48c5640de07505b8f64dee278e8f9aaafe296d536de2f97f5ba682fdb27c543d9847f1df13b84d9b2c9da99e871fc84a0f6c6d0cf4b4f5902dcb5f86544ea4ccce80e55c41cf2afc9a5eec7412eaa6fc3710739e4f256f1b0b1bf89cb8888f55c629808adf81ab825c36471b2db25f3d90df6a5cff8a5c6da615da5c4e2d6bfa6c4c7e6684aa0cc30e6f43b00987615b34caae877d1f1d758bed708ce532472ab6576291649980cb3fe569245e7b5383cb4c098f282b285495447105066aa51ec2316f4cc4eb59b55c59031eb9408f5571ae1a00df8f8d94061b60dcc87939e380530ac7650e3e0b0b16bd4e85f639b4dd63d0cf1be25f712a3c3bf30b3eb7619e8349d909a6cddfb9982d394bbe6bde5cb002fcc69426fe7f398ced42179a692f28313ecef2f0bcbb898284678c0f6d1cc3e1fa4a0bd9e5a00be6e3e566b81bc9d1f6e63f3417ba6c9f7ca891e27198555072d9d4e3d01c59f70e1df9d3e94d19a687c3c330a3630a8f1901a5acdb7b1916b7a1710e06c5cdac09663d186e9f6d2ab979cabf9c824016cd7340bf41aec78183c59834739dcc7075e3609b1b409035f9c0c77c8825f798818475f282cf9f00d96dbb67075a777bf7812ae9e3ef891b89325854fa8be1b0d1be473f7adced5b2a9c635aa5959d2c698a717b64d2cd645379f44cc9ff5144445f113a0e8d52a7cb9f1d193eac0233c69d7069442428569e7d4f9ea30643a26890189e02896d5d0ccd45faf5da44b1c43052319c3991209e8a9ad4baaea03ce03547a241622cf7ee9b97b1ccf0479628959ba28a9c340ef541d1405004ed76b50959cdc365428d2befaa13cdb9d26a6b27b8daefd1b0d3594e1cd576cec4beda4c318d81c008afbb8e0aef43307d0e054692d50868274842461a766e7aa37b99b5dbadb9b9dbbef5eaaed8a5c3670418bdb1f497e10af5710b6e9aab894bb9194dc597205bdb4c286ebab924cf1094ba0d2e321cf17fa2e77d0e506f92e675d28aedbd11c95d4ffe7916dc6ce2356b8f20bd0fba893f302a7bd63a16d16b9b2df47e3bdde236c7aae018e68a7e742afb957f2dc751fe94e838e6c74cb9cc2d9aa72ca678fa0345b4683aa553e688847eed08044cdec545d079403c4949a687d8373189b73cfa0eb6bd522855c60111a45d4c6b5eab1b5125fdf93cbb3aa3adc9958f85ebc1ac5735601de52bf946bc50248113aa609fd7b75ffaa8f66daf6ac1f3d8636163310f7b1edd047e3d26983c09022422e4bb6cf100dbcee9c33087406027c684ab5c8905451ee5cfeb9f13bb39146d773052712c3aac5834f3c5198d018dce4243e0fca5413dd7d7739d52ef0d8a2925c279ddfeaf8135cda4fd81253b1c12f506975e3b560ea4f0f542232f801022221018e072ace74e6f54f32ef78bb14551a95621133103e0446fb874f558f94fac4f33752e1af0cacdc455f53cb636c498d7c0012a38db1ea62ec99aee91120249be784be1905ea539ca476e8ac01d4e2330e71ec7e0b74a27d2b38521a9a8ec356f52402f8cabfafe545005a24168e6ab33c202dfed5c18bdcc4ebe01f0d30f9643e003abb5340f6c05934e503fddfe8fcfbebd02b8d6949f9e94db0895f90e81c077790287e2cd0a80abb4b943e4f264cc57efcd1e09269233e6a3e0cc9db3f03d510705a10d5ab54f60f60ac8eb4fd9046492b510cf2d1623cabed085a8f0ee860ca1079a415d9cb431212d1c0ba7cd3ff5138022b8dda6e99c0fde81b0346ff9db2697feb17c19a1e10e9ff0c6d300a64797906c073d015c92169aa74e4fabfb3e773a1333178209336511506efcd91c78a5fbf30eec4af11ce1d3e0b2c4e2d910b5b1529ac40d754ab83a6541e9e57ac21235e3496230863bd06959a931ce5059e81aba4ea07e401d2d3b6bd3a00d16fceac933bb9e1ab6f5e7fde3090dd27ce4943510eae4dde7cf48af0b61387ac7211add46fa8129ceb4122e3308bb16f22ab672fcbfe05a290917017e44d5b0c69525810e40bded3954fb24cd96b3bdd72d5db2e43a085a4b01e42e4e6276e3485bf2f18493650a5536cb36e34a2802d930532d91434d1fd6282ea6662191259adbc9afdb40b707a608b8d49d90e4854715caa4207f151f974c99cdab7c9517f3f395fbab95a8c3f3f543d78e6bcf7a0091657734cf8d9e5874d14104fe46b61d0186c48f522a9df737374c617630beed59912464d29cc841e0dd1219a087ce8428638b0dd73693c5aa68f912f823cb60fe8b0bd3cc9dae11894f140475e03f2680b394e1272e8e4a24dee8ce6c6ccd460a1213d0cf5437b65166cbd26e6cfeb8f09ccb6fedd96bd98bc7a0297f569551465b447de999f57b125692d755dc1f157e897592be36271e4161ab886390be3b40f64dfa893eace25e3462efebf896e917f6a29fb61e9016091101599ecc873f5af08880950e38db21c6bd2cbe4514143b5c86ef8a7be3822b3951498b63d5947dfe751ed1d416634150405ac68a3041c0241ffbc302d9e2db47b16e676ec53054fd95e43986076ae7460bc92b089aea40a70fa906a9c7a9ebabc7deae81a625dfa3e40a3d34e89c2e4c7e4c0c1e8a4ce97861480ffd2f65852aaf6bdb2b1090793bbf519ac7c052a89de3fdb621bf6346e190e4baf5763e83014897de6b76d112fae0fb49a1fc2108eb7cf57731c30d9c2e79af76eb58cd6b359bd7c5513630ea9a236f514f93fb5e637c33ff370bf2f6b95476ce4ed053efc9e17bb835c03c9a0623f98031fa56d9dba7b517cd46f5db417b5a045ffd73ad48c49d385aba833f6ae71dc0ddaaeef73a27e13edeb2c90cb024745322eb70722992015c25ac3461dc01d4e1a80ba397a313f2a604136b998460f798d3c7f9ee7f2808c705fc79f3528e2d0af306a9f71bc0d2f8e4eb8aa0d4f6b42110da7fb0fd7461a0d591a2e72e5f7e31853d48a81e0882db3e8d2318c02237572e5f11c8951ff004395cbb9fa1d039d53417865c5d519fbf41b174fc03a9d46671e3ad7f4a67dc4e2fb33d243cb4b71014480f93c3b9f7b8ffee2d7e1a98c5a04d071c7bd285fd4582bbdff1411d2b31c48ae13fd5868fce5e37c62c7bb9b9dcf02b0cf4b1aaa8e4cb3da923447e699ab5a39a36dfe1d66d04659f2ab3a18fdc37e9162bae7e8329a8dd8fcd58469c06942a689dfd351c90e807f130a8114e9cb1fc62c0b0c149442dfd9dc0aa90435a0336a9fa466b832d6fa9a54043f6f7e3e0882729d2b6c475ebf58a29050df08446c9323dd3a9acaa553e7b7273c0fe0d927255c5a7a867523c7e98be36c0f470b0c63d8fd135353375547d7c6c5a79234b90672f8db4421071bd4f241d21adda2204fc9164dc2a989f29ce2dfbb124966bcabb76b83f2cb2b1b9393c1c0b61ac3da7b05454eded22bbb00366c40a3499936cd0df81bd16c0123fc12c6b0351f7eeb3311734d9c6fc9b4d26796020e5af7f74e01c8dc05421b3da53e7e70b8aa4a340cac573153dbee2f18a83b00e8548148c68edc3d3a6bc66f9f6843fd9da08bd3a10f721e9c97656dcd1a5f3cc9d93bbac92379ac29bb7eed72d7dd3cf53780b7354889a0e508aa1952d43af8c769df676b703f1b1a958a44d903c2e6be4f9047304c0b9d78e902e327897ed69dc81aae8b52f55340e49ab7428baffcf5277b72fa63863a2897ad8ecacfce3547fae7d8895c9027dc6d0dcc801a0a029007ed4b775fe2202b838453b6d64727b25fa90a00c90f33b5e49611039365586b1f38be563f2c58c70f4352b5b6a62004433f8e65ca900df49b8372608e98008902a076bf21182e6294969657830c1f9a49b5de24ed34311d0411a42d15ea4825bd5d013649198bc9da4f502d53cf79d7d3ef6704bb1bc476ea19d52e7efa797b8f156935be65b100dd67878ccb723f918cbf92ddd6a75d9ee24c8ebcb5bc7a2b3887984e939cfbc69a21ef783fb8de54ac86f47213beb10aeab68e00a682184fbcb360fabaa6c3f072318831ce35a9dfafa81a2dce80286f7c242bb4945c697ca7e90e04925b577c995b7d53996105ccc98578661b3d29219e30bdd427d2347232d8d5f64cd9295bdc5b79376c3f10c26dfa5c133acee17404634fe2f3263f89da48f7c94de08803b2b4d99597d53a333c5095e0f79bf664e7d22d8a3aff98bb9bedb57a10d431f6f1b9122f76d6772b72b52f73f9a6c41f7c433b740c49cff880bba9116d0705ebf5b686b887ed932e7a6915dc93309bc89b70655e14eb2154a7f928aa1acbcca28467bbb25fc7437263db107f7a27e36b3723f5791043100f7f1eab05f6dcb46d74dea2bacba747b458a0e55bcd94ce2efa8cc80e51a339d591e92ad1f65d046a2350e2d444385a80ada3ef194e3a2dd05c6ca87d60e83bbfd94b0bb1bd9872ea77518793d71123564b04f654f8ecb8d870caf93c3ef260491fbfb1ba039da43fcc978a3adacd3ca7813050fe0a3b090540b418bfcd1dfdfa7ef60978a1e986349f3be1436fe111aa7c19e122ea2250c830d2cd0df93bae6b18dfb7152721905274bc15f2ed1528f1abd1019ef1c0e78294dc63ed01a67cabafd820e7fd448c4313e7b10907eba47d468ec2dfe78e3f5ef2263bfcf134ad7cbc6a3e64fb3bcc7cfb88df5213b8e3cc5d48cb61f6ffe6b69b3005a32eb9fc9ec438737935727d7c95eb10781730af271e056309a52be0b87b0363ccd340ef78d6f61cb279b93c759a47c693e8daf7591d45e84e607b7bc953cd1787184191e1bf307f6d6205c1f86ec5ed72cc7e9f6ce772c6bbe9850588826366f8447fdf8fa00b83e98363547e0bc004f81c9215747ae6315bfff21537d5c93e43e8eb70a7a44780ce5a231dbef37d1ddba293f1d7e924a1b5266d130d5b9e8d9d42a4e6a0b0d094ce93c9c7d34dd66c094e935235283094a1547d77a1fa12a679c7ba71bb7ed23551c011ea9117177decbb4d5713a491c9ccf9f39622738ea1d934ed00dcb0a06efe430001d99c7483ce20d85d75558926f43978280e4ee9188d0158b298b0cbc0c3e1f442dd75956ff0366a3d39c0ea029e34ac82dde7de59b59b75e1e52bd0205fe06e7826abefd276554dad0b60765e00e2f57406a9e91a9d72c51d625721f636b958e5c00c58036d77048edb1883205cd0a6bc3492961b5e76b999faf747103f04a96495975bc0f28ea914d61d7016bfaed114021865dd4b223d858f6e7de57e294f3de80fb9cb3e3c1a57fa74e82a363c26272bee8ccb667ce5d2b94a2c4d312792069e05db71e10d14dd22dfcd5a73eb9389e9c7536feb3bb513c2c94b5c22cd38137428fe7e02f4741f04073f9fdf78add9b3303b6089f6a391cdb6859600e05af8387ce5c2aba8d13b6001ed6618c20c37b59a218c5929d05a64f1f5c1248858c4bfb46a217c769440a7d3b03bc4b05535a429da0a4d6ea2bfbd5f4f1b5d32baae728c125c8ea344e3329ed05027ee23c836ed7655e0073d9f5d1276f34fd534342e59b541d08d420aabb416fa04e55cad4079aa0c18856b7124582dd9496d6d8fde031d23f8c17511ab72a458c37a89b9c3fce493e2c83f15ff3b13d3d73ea7f4c7492fb8f2988bf74e9cef0bfac404db0a49883c869cb63077914ff13cb015fd57a52cdd3acbb706f7b547594a03eb9728f95717e6ef01de6daa91b8279713422d1a3e7f09191d9012d1dea010f1746d50220382dbf3aa7d821e7217db9b6c472fe26194c0e86941484ac8e1e8ddf6f140f931d17aaefbc9ee78baa177180e619bff41f20738dd56ade32f18626364c0a8b75173f78c12c08abf175491ea6c7f7e9cbf7acf398cb7af9225f97f20a9e13f3399e07251f9200c8eb285c00fa876881d9c3bd06d50a00e2887ec496cf7b98945faeaa9a838ba3a4dc072901fec5eb0615b1c18b22c62d74696ccb7b798d3dd0704255081f76d52f06515e910f919f0eaafa0a53313cb5f6590e309303b44ba3c65f748bb5cb54e2851989e566a496df679ae484b21a4f4bc21945f218c4b11d8188e613e8f244570ce277739053ef067c0285f4b7c7b8d3175793a5eea92ffa32d20a8eb9d3bf9d000569701b8779f0b765c7d4e9f71f2924336a495e87c7e4f1a91240fa3fe8b512dda492e5f3541d10567f644ef85a9b59d59c25fce9a31e1b496fab205788209ac1670efaf8ccc4c556e5b264aac2c2ec9f9ecaf1ab94fbff27dac5ce864ade3bbcd89764da1a490fc8a557d4878d7d8bcc51bfc1855e94fb5603083203531dbbc2a7f7bfa9b41bb5be166ed0d4bcfe6844909a976f37233c3f9ad1ea9df13b07b23248020f26aedf07bed58725877b8dcb7a15a1702a7b23502aab5b3cf32e437ff088593e816daee397d9104aa9da81bcbf12f1ed9476ffd26988f32e9591a68dbf6e40cde266b62731c2428868fc1f078b310c56b4376a9f5926c9ff4e5a1de00fcadfcd2ac738ca3a78d5ce9f435cd0fa2c93b98cbfb14a5c3b732c8bdca4b0782e90d0a957fe0c92b87bffdcd8e388372b48a8d65b2736cfa45b09afff1aa066d4cbab6da0f33b18ecda816c35b6f70813fc298bb3bfd3461a2f94e0e970e14afe5aa6d6ae3875f8664fb5e1462234d0ac8a2803ca7033541d463598f5004de1336214f2c08351573127bea6a9143c1472724f54378aa348b614fa0f8d11fbdc03d3519ab602ae08aca46be6fbe56e852a7e7829bf28da133f9873248074a6025ae39ddd49d34814604dca39176c6acede41faba308a8d0ee2b3a1b8fa260e0b2ccb63b617f794dfac0ca041d2649ab1fc76692418cd10c357520996394766b92eff0e1ee0854a51cb2bf31d5e87cf5bc15d8cf9af6a30c364cbd4e2b909aa41d65ce86ccd9dd6eaefe14d17e8d9d95d0935ef88d2ddd21e202fd8adb40c6688d5325d49c43db3cbffa9977f10cbf27da5d23485bb2f1ffcc857cb927068e14ac3cbe0356bea8de36e71e3375ff082172ec6682febdf548823c6e8382e601ef2f64216b0017b838e147c56669c667f3b82d5e9ae245f15c1ef389433164c8cf37005ca0c5568f9831681f9406a74a0b8841240b0d763c3d57a0946c23dd35539153ee124d3dada9c90b6bd3374135c1d79507a44c75346910132097990e63c4b31220cf984902e4c01c0d46b5d3ec9faa222ecf9bf79e9fab9850cfff7085facae615ba70001036e802b186b2724a69313e25586b533aee5bb7237db3d8b578b4032b4a76743f0e92d1dd7914c99857e341a6550e821382833e8b8202e11b11b995e963a584b0623abd738cbf69c70120d552650c4a85c73dac903fd4dadd1b33496816350d0ea1df5b916b40ca9452558aa3d417bd5734a7dcff9e54de53e5a9e9e187f968a0d2ccd70383d31fa56fa95169174b11885bf2e945750d527c6178f5879e80d84284823294356ce187c4e0ffe60371d7cf205161d62fa3f9ad19f858749c031fd6af415e2dab579ab355a0f61df1506ad5795e15ad5a1dcc14f7260aa7195d87b70b68c33e94eee42ff45e3e60bd981cde0e726193c00f21da96bd652729f2c4f748798b618053a761648c10761ea07464cfb6502dabcca2169ee60c051f062dccedc7ae7adb80dff4b4735a75eea8de7df706652aa1da81d9fc254ab8f1b13e350fe4598c5725e0fa31405733409e061f9a17e08536a6bff5eb3262ee01e672088346af2c7071f36dcee71b506cb5da56392d68a16970ac5b6be13e3db46576ce44fe36f7524b77468b9005c86607c295ec0708bec5f4e4bec2a2589c454d321ba1bf18886b6e9cd24bcdc6c69188f233605c4ad04d171d14c6cb7bc33fbbd7788480e9981b458ed59502818a8f15bf4f7958439db4789ecec6aaac29f97f771a65f452975e9087629c56bb9c77a665d907e53b0676e1701138d3899005e63d49062ea1e31d18601c229cec8209cd3e2679f0dc8575c3e7e474327a677e3e7482c3fe92b76cda3399124d381910909979dc393a16c99cd24bcb12924de5bb085948e0dfd2be983cea96c3af93bca7fea61e8e51b2d5f9031cb95a6ca975a82956f391829f0424129fa730173f6e7b8ca2eb02e652180160ece1b409e5f4afb8b868108531c9da7ae977817b5feccf103e4db93c21238dbf902edcafdc15666e668d905d44442b7e95c0e18762c044e4fb69a571e91e29692db5a969cd57618113011639d9fec54a0ad8319ca839b03573264794d3d63651bb1aba2d7ec25a8bf5773245dd42425f73552dc2974d7b12b7dda4efa30eb189e2ec54ad9e39e439072adc38027196230f238d3805713f7d9ef1c1bc4b40448df3a33af8c2a36da12d14971ee4c79351bf99713af783f70d4d6107bf1683d09cba2e3bbc4a97a921d489d840f9ea2aadc063d6e50e478dccd503156d4ea1c0ec41844f0442de60029307ee3f22a0a5eb26ac7c82e7faaa141a61f6828215976afbca64ab85f821362d4dd7b3bdde5461a24e65d33dc715720d7324493980ed86cc34af69b3eed3b2aaa60a355b37eb4baf28ccbcdd463b6e9d2f00a9e514af480e2e5525b312b7ebf36ae31454790b96e2804625331c1a12b6d8eab3bad2df5809b9a98cc29647eda79a5d337e8285e8bfcdd09bc653e0a75e6c4514a8f1c9e14f33c3176378d060946d1ec2e065667db8b69ca0ff1c886129bcd9f71cbb1787a94402694ac96b241fdc9f88838ec56ee28043dabfec892077bdebc263f7942148b7cd7553399b627898599e0b78a2a642410329f3ff14c5ca4f07d1e10a46a76dabf7b62698f12f76bfdfda1b25b836fa3dba0477adf588cb1b53a63b97536d8411e0f68aca345a683aa0bba5f4a4ffa922a0385d5e72a06207747fb4bc5746a6bd1dac25beb05d16ad86ebcda7c10ae08dd5104458a2804482f9f12e1deacb2ae2cde3fef15f22b99352c5ee0f3e4092dac4c38a7384dcc0d842cd79fd0d8c3004ececed89c3b2c7d8ef86219e7a25c2cf38243d56553512f8bab86e26953d41609a369067e20f3b4bc9af9b99663edc49346ef037a2119990da79c159c5d6c9f62e22023d42fd37c268f0fa32636a677ce9e78c79a31c9d4bacc8981268b99dca0adab6544a49df2c3c2cf8a4cb1df8a9af065455eb58f0cbb94c56daf43c68fd46c9c7453e9331044f2fc66b366e417f07aa5f37d605e9187c7a96ac09a86df5eb8d931c116b31c2c219e7e8f62fbe08279a0648f3f4b3663aa08d754dbc081cfe35b6fdfd92b0c8b607cb3fd875cf4aefe29d6a7748054aabd6ead0705d8a65100388371503533795f969cb5d37bdd48fd4398981680831481d89fd94c318f06728760300511be9ea8d3f4a81a1733b01e4d91af2164ec0b768f0c4b0f6b866bc606e6476f95967b8a277f650c3eca006cafb90d8366fb8e5430ff4a4b027765db47fece29239360559e0662317640ff4854c541155254cdac83d84a76b7420cb0551cb16e5f4afa50b09ce0af6d4d43a2aca63aae02217e4b7ab131fcbee41dde38bc5171a5962316ffcfa0386cfd5f92f508068dbae8b9ea19dfa3b36969857344e13412e56e9fd2f494728f32fbc3b8f60b038fb1f84be7b680c47e3599c2d7265fccf7e6a1ad6f674b3dcde977d78c98fbcb06c1b3e08e915fa611967ab5f705afe0090ed4099a20cee862bf1b617d610e7dbdaeddf193cd49255cea19927988ff71d7b7840e963a55538735805e7131de5fdde52401532c8b6f92720134700185a0d1f90f58ab7eb021fc7748b702f87085f468836baac42981418c0faa6d0614fe6fa314c85693dcde5fd65c8f780ae433e484691108da3da3f881384aefe23aa6be458df76e39d8f8adfa278a12c45042d652c193d1488e01210767dc6927ba98ebe2c74b8a4fba60342b52576d0ace4011794ccdc2a5332a3304ed09a4bde9796014d6875785bf9f60bb73fc24e7f6c441e5b02ede5e2c75efdea6795c5e9a1a1b8d447c57dbea3b2dd4afd13b1a928e996cd83fb33ad6accbbb2c0817b1d255366419a9ad2792930dbe7539ef20c3bee6008c44d07953a59d877393b93680b319620c5498b6be28cc6e6c10cc318e256c57f76924e542d4125d71cc52af34b78675db52e9761503e9a8131e33f961d288a9d6aceeae2a824590848cb32f7e73e91042d4e51840046fb83fdec1ce68c5a8e1900c446929f9f9a81dec281c97ef7079571ebc097073a47085967299c87e139147d59fc3da119b87197f3094099dd380c0665396ae2ac189a77d85e3781fe921bc54fec6c12280d55a0184709ced151643d722dfea2c62dfe066c31b29b3028c0b18c1d995e3aefdcc6c27978a851bd78d1fea66cd22097cb6d973a7768ea12899bf9b74ea1b894e802cf9fc405f701c85a92cc7d7dee98e50eaac301e1746c41f120306c21dfa35f9d0ff7601fe167aba9e6d4669c9070281e1110405349ca8a931b5b0eb5511ddeccba6e36c073b3ad64c019c2c13db7374fe86e1c8a6fea50ce9c7be97ca0e077cb1c80b05b8c8d3a6b2592a770c5039e854746cb08ea55eed6036292acdd86906e6e293930c90e030ced6385ec4a6eebfe4d1ec5a9bc8edab4179143a55ee4551eac6f77b4effdc5729429b4be5454d938c12afed39421f224e5f500c820bb21a155ecb473872d5ad40fd2d0c8f4cb9dd1529822a88d14b4e7357f50426d4c154f54ce8377138700d497e395835d170fda11bb50a76c2a5984746d268c0a4428e4394d7428e47c0e244c95edc1a5dfa6d46317b66eca0b52d13308e1927d55419f091f979efc7063943494b4989e1e7ca15ba551b9b737bc7ce1996c09105078145ca1828c124f6d511bea01b57df06c3a5835a22267954859cb90017a52902b612e632b34f48273b8801fdc7718fff49b5e6ae3e63bb8475cde77ba883d507fdd0fe05652f80178ac56fd48f627519902f95102653dbc748e8a37e016f8694f4ad81afa8e9fbae4b7b5c74d02b357fbb4003a0019a018590a70d45683117241c49aae8a405450318f589a9cd8bd060456093d41dcef257f649500efd7a3d9e44d77bf32de385f8854efe12ce3a1855328fb2eb46df34e677e93776f7c2811cc699c858378e566e63e0e8aba1143ba6c5523630dda441a099c458f1111f4af07c67bfa5f89defd6c298d3f99443b3bc2de62235c15d4f81f95c9861baad666cc51a02e9c93e6d13a694e726d0a63cc0f07156b2470898238e42b46bc4495de8b74daf110130151f9491309e1b864f9b0db44685779671b2d3d1c2dc34b6313c31bee52414bdcf4aa68068f06b9fad1c3d1187f640f13ea8d80d4e9bdf88cd5bd7b0b99c50ee39504a2512e2cdb6bfb0645053f7f13525b7299cc0c418d76162a5de7549f0e1d36a8f972ebacb6e521f656a041b3a07b288665d83b10a2fbfe33cbd73a908fc43e1fb2e18ea81183d0f2f80f64047cc8c3a5bbe9fd3ffdcaaa8c7a5390f36cb9aa2e45e1f869a66927f1e7df8d3faed885dec01b86fb505a70d1418ddf0a2ca4c03cccaa9c33a3b0f1298ddb1a7c26b0b9a1c62bafa92f0e364a531c7f8f7271612f67bf99adedb5395ef61d55357ed23cd720f378ea8aa22ffa3126cbcfcf4ddbbb1be07e4c024aab8791dbd3b1d6b075822ef359b4ce62a76cc4a263122aaae5b269488df0efa80b42bdcc51dbd5b1b4efc1ec8dbc4a7d580512bfc3810820a653db351fe93ee152869a63b7a5861d10568cd574fd0d46b3aea93e5144826892a85dabf3c188d451dc9d97c3a5a088032fa05606906b04f5a0138abe1a5fd860b573a7433d41a7af779ce22e46e438a775ccc7f8f7f901931cff3c86118d9457e51c120e4adf5856972d23189dfd28eabc232f17161449ce09434a40977903f08aea9950a8f7b011d605f2e5afd4e95330dd74e9a80aff5341c36466d2a0a4ac3f752d9feff31160450fb730a1543bc06c4b364d6e38c6039b68552433bc32dd771b33af9aa
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   </div>
 
    <footer>
@@ -468,7 +201,7 @@ void assert_failed(uint8_t *file, uint32_t line)
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-28 01:08:07" itemprop="dateModified" datetime="2024-03-28T01:08:07+08:00">2024-03-28</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -541,7 +274,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item left">
       
 
-  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b4d49f345e8d0397e1c4.webp" title="未命名">
+  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861815.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -551,7 +284,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item right">
       
 
-  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861835.jpg" title="未命名">
+  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc7c.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -685,15 +418,6 @@ void assert_failed(uint8_t *file, uint32_t line)
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
@@ -704,7 +428,16 @@ void assert_failed(uint8_t *file, uint32_t line)
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -721,20 +454,9 @@ void assert_failed(uint8_t *file, uint32_t line)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
-</div>
-
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -744,27 +466,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -774,6 +476,36 @@ void assert_failed(uint8_t *file, uint32_t line)
 </div>
 
     <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
   </ul>

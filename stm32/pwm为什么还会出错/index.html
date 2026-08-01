@@ -161,12 +161,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>最近在调 pwm 舵机机械臂，发现我在 keil Debug 对下位机调试的时候，上位机传下来的数据，没有乱，但是反映到机械臂上，就是它会来回抽搐，然后我查询网上资料，有得人说，是因为模拟地和数字地共地得原因，但是之前也是数字地和模拟地共在了一起，当时也是好用得，而且，专家们的意见也不统一，所以这个由这个原因引起的概率十分小，那么问题在哪？</p>
-<p>频率也对，电压也在额定电压中的，信号线也没有短接。</p>
-<p>抱着试一试的心态，我换了一个机械臂测试，发现，它最终好用了。</p>
-<p>一开始，我只接上了一个舵机，好用，当接上第二个舵机的时候，本来应该一上电就自启动的 stm32, 它没有自启动，我看到稳压电源的电流值变成了 1.3A，正常的时候，电流应该是 300ma，所以我猜是舵机赌转了，然后我用万用表去测量，果然是第二次的舵机的正负短接了。但是第二次进入的舵机，我也没有对它操作，所以唯一的可能性就是这个舵机本来就是坏的，事实也是如此。</p>
-<p>综上，如果，你的硬件，软件感觉都没有问题，但是这个机器就是不按照你想的来，那么最好的办法就是换一个舵机，换一块 32，有的东西是你改变不了。</p>
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码不正确，请重新输入。"
+     data-whm="密码不正确，请重新输入。"
+     data-salt="b60797a8a721de3c002342bd2174235d97160b32913842438c9081e17d6acb21"
+     data-nonce="30b65879f639d0482b9bd9c0"
+     data-kdf-iterations="600000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    55e5b66d961bc5650b29c29bb237bdce01a8162ef6d526ba6be6174d652de019571c4aac3a8ba1bda26e670fff16d61c3a5031ea278b964c1a62635a4d18055cb7558832cb91c3ee54dfea9b9b6e1fad7e467afa837fa3da4bbab6f3be02cca5316d1d7464f8158e6b535b8e7c3dfdd965bfa747a7b98783900f14920423a5ef2a2371e24b97d79b11b093a3d1f1f56830ea9c852f5df8feebde36e6bd64f07b1342b087f4a0b58f63be9bd35cbed898fbd3df2020df3bff0b9848732a668eddc07d7acebe28eac670a26295d81a34eeae47b916f14395f6dc7e96f082df8cea1aa702df4806f5c1df34107ec93abf1042bca41843b0c9718a9ddf9e0d63fdcc3badbc304ad538096afb31c0a4b3bc7929dbf08e1ad84ec92bc3304c65f02d7f97b2f6fff4fe09a62625eaada96e712f37e14f0fb4c9149f99fd92e2161b68e9f4c85ce8a60055832c5aef5153c80ed7d48b98b2a3bf69ee13bc7d54c2c4b0a5fd0e899a450bda9110efb56ec03aead0097632d4340be44921d9de58a7e705f8440233da2939bfa801825b083b2964e1d664d4254cef95838ce07e39c7c3493e50136d7519d5ffa9856b2cc1a8c3a6c55075434486e3b1786c8c1017aaab7102ca84092262677dc9e96938ba1226838fdff8bc82faff881d50259cb2ef25dd60719e2e797897331ea1f8c54ae2bdd4eec2325f6e95a780bb5980aad084027cc486f9e7e11a783d710258a184d88d35a003bffb3be33dba6502e8f0c141a6b1487d42deea7bf63ad10296b20becf4e863f4076ea36ef61435534242ad8a0d4b40f13fe4ff331fbce5c3fea791b9bc7d8470056902e5bf0320ef1c7a2bc3760855dc6a79d156840f203462f870124b3783e3e70edf0355949e5cb988ede90026cdf6b4fb9107e112022742ebee8c3ac18aa952c60a47c32dc216f035d728856424796ea3997c467e9cc577fa3a300f37e90bdd580e59d6fc46cafd906851dd07f1af77bfea7aa8d7b824bb7dfd3062324f22f94ed0398f4b37c5261fef537da873f6d0a51d1d221ea3ef8e57bd29455cfc6aae8954473bac8cebd7323b8a12749dba63745b8947bb290a7a6d9a3dadab28c230ae9dd22e44b1f1f3a55dfc643e4c9161e97c3bc2ea6e23e5d11290e50dcc851eed8dfd0d15721223a9a859ad2d04ed2b1b91388795987d41b77bae59a40466eacc1edebc6400c00a12e083a29228a78eeab397b4d33ff65dfe6da31ec31424b5f11793b8904af51cdc8548fa665e5050cb1f11d43a0b903e58b67c3579bcca557f68a7d47a1781874f17f326277c1c033843c2173278b0d8d3eb0e4982e291efeeb45d7ac171ecf5f72cf5b6c89fb879f03e1aa1a7c1e9a0a314ba9e47289bdabdeb76987d30c6a2bda918691e94dbd11c31f72f8c1d9d5f455248e2bf47e4d9565532d23cad5a14fc62a3ed75c3fdf73321969d2d1e8af039201dc8ded60b59e08596289b9971de897059e5a1aea16bbe5d33404251b7b8584bb62d83a3b92e323dacd827b858a199c2afa1f373ce44d7617d64df4af145a5716e9b2ea5edb6d5e9da0847c31bad80273d9593b9060e832987ff456d8d517b39ca6b4c5784d772ad3bc04b2c489b39fe3631d2b96f9fc4ce2ead27733d8b90f6189117f35d3dc8a527533ae77278fafc4023cbfa2db3827844b64d90e8aaee1abeb832512753aaca13ea3d7e35eb834f54145dfa8b61f6899d5242f79295d4039cdd479230afef31fab171a9fdf0fa66082aa0af4f17a5875aea52b31d0f73a32a852249c9c1bedda2ed118012616b6215c6015a3b88e46a330570e5f00b6664df5066e789970abf482a853ae36cd703f193c6474af17d7a3dd32aec3087c63b676fdb87fc633652ee2e6201bb0017d3322055429942d47a1d53d5af413b15465164e8ada5100ae5d02f81eec1de6f78179fced33c5a3f7bbc50ea6f512b848a27bafa2a5d87012c22
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">解密</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       <div class="tags">
           <a href="/tags/mistake/" rel="tag"><i class="ic i-tag"></i> mistake</a>
       </div>
@@ -180,7 +199,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-06-08 14:07:47" itemprop="dateModified" datetime="2024-06-08T14:07:47+08:00">2024-06-08</time>
+    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -253,7 +272,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861852.jpg" title="未命名">
+  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -263,7 +282,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861809.jpg" title="未命名">
+  <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -398,28 +417,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
   </li>
 
       
@@ -429,17 +430,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
-</div>
-
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
   </li>
 
       
@@ -449,16 +440,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
   </li>
 
       
@@ -468,6 +450,25 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
       
@@ -484,10 +485,29 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
   </ul>
