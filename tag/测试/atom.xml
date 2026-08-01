@@ -6,31 +6,29 @@
     <updated>2026-01-04T12:29:00.000Z</updated>
     <category term="股票交易" />
     <category term="读博" />
-    <category term="南京" />
     <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
-    <category term="mistake" />
+    <category term="南京" />
     <category term="pcb" />
+    <category term="音乐" />
+    <category term="mistake" />
     <category term="mind" />
+    <category term="青岛生活" />
     <category term="stm32" />
     <category term="单片机" />
     <category term="水下机器人" />
+    <category term="ROS指令" />
     <category term="ROS2" />
-    <category term="ROS" />
+    <category term="ROS2, Movax" />
     <category term="DDS通信" />
+    <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="ROS指令" />
-    <category term="C++" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/</id>
         <title>截图</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;![image-20260104202913225](hello-world - 副本.assets/image-20260104202913225.png)&lt;/p&gt;
+        <content type="html">&lt;p&gt;- &lt;/p&gt;
+&lt;p&gt;![image-20260104202913225](hello-world - 副本.assets&amp;#x2F;image-20260104202913225.png)&lt;/p&gt;
 </content>
         <category term="测试" />
         <updated>2026-01-04T12:29:00.000Z</updated>

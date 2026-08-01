@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,109 +166,95 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>PD 充电协议：</p>
+    <p>PD充电协议：</p>
 <p>前置名词：</p>
-<p>DFP：Downstream Facing Port 也就是 host 主机，下行通信</p>
-<p>UFP：Upstream Facing Port 也就是 Device 从机，上行通信</p>
+<p>DFP：Downstream Facing Port 也就是host主机，下行通信</p>
+<p>UFP：Upstream Facing Port也就是Device从机，上行通信</p>
 <p>DRP：既可以做主机，也可以做从机</p>
 <p>Source：通常指电源提供端，如电源适配器</p>
 <p>Sink：通常指电源消耗端，如手机、平板</p>
-<p>CC (Configuration Channel) ：配置通道，用于识别、控制</p>
-<p>BMC (Biphase Mark Coding)：双相位标识编码，通过 CC 通信</p>
-<p>SOP（Start of Packet Sequences）：所有的 PD 传输流程，都是以 SOP 开始，SOP * 代表 SOP，SOP’，SOP’’</p>
+<p>CC(Configuration Channel) ：配置通道，用于识别、控制</p>
+<p>BMC(Biphase Mark Coding)：双相位标识编码，通过CC通信</p>
+<p>SOP（Start of Packet Sequences）：所有的PD传输流程，都是以SOP开始，SOP*代表SOP，SOP’，SOP’’ </p>
 <p>EOP（End of Packet）：数据包结束的标志</p>
-<h5 id="1cc引脚"><a class="markdownIt-Anchor" href="#1cc引脚">#</a> <strong>1.CC 引脚：</strong></h5>
-<p>CC 引脚（configuration channel）：通过引脚实现设备角色识别与电源协商</p>
-<p>CC1 和 CC2 负责配置通道，检测线缆插入方向，确定供电角色，建立 PD 通信链路</p>
+<h5 id="1-CC引脚："><a href="#1-CC引脚：" class="headerlink" title="1.CC引脚："></a><strong>1.CC引脚：</strong></h5><p>CC引脚（configuration channel）：通过引脚实现设备角色识别与电源协商</p>
+<p>CC1和CC2负责配置通道，检测线缆插入方向，确定供电角色，建立PD通信链路</p>
 <p>其具体的原理为物理层的电压检测</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">设备类型</th>
-<th style="text-align:left">CC 端接方式</th>
-<th style="text-align:left">典型阻值</th>
-<th style="text-align:left">功能作用</th>
+<th align="left">设备类型</th>
+<th align="left">CC端接方式</th>
+<th align="left">典型阻值</th>
+<th align="left">功能作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">DFP（源端）</td>
-<td style="text-align:left">上拉至 VBUS</td>
-<td style="text-align:left">RP = 56kΩ / 22kΩ / 默认</td>
-<td style="text-align:left">表明可供电</td>
+<tbody><tr>
+<td align="left">DFP（源端）</td>
+<td align="left">上拉至VBUS</td>
+<td align="left">RP &#x3D; 56kΩ &#x2F; 22kΩ &#x2F; 默认</td>
+<td align="left">表明可供电</td>
 </tr>
 <tr>
-<td style="text-align:left">UFP（受电端）</td>
-<td style="text-align:left">下拉至 GND</td>
-<td style="text-align:left">RD = 5.1kΩ</td>
-<td style="text-align:left">表明需取电</td>
+<td align="left">UFP（受电端）</td>
+<td align="left">下拉至GND</td>
+<td align="left">RD &#x3D; 5.1kΩ</td>
+<td align="left">表明需取电</td>
 </tr>
 <tr>
-<td style="text-align:left">Cable</td>
-<td style="text-align:left">Ra（有 e-Marker 线缆）或开路</td>
-<td style="text-align:left">约 800Ω</td>
-<td style="text-align:left">标识线缆能力</td>
+<td align="left">Cable</td>
+<td align="left">Ra（有e-Marker线缆）或开路</td>
+<td align="left">约800Ω</td>
+<td align="left">标识线缆能力</td>
 </tr>
-</tbody>
-</table>
-<p>在 DFP（如笔记本电脑、充电器）中，CC 引脚通过上拉电阻（RP）连接至 VCONN 或 VBUS；而在 UFP（上行端口，如手机）中，则通过 5.1kΩ 下拉电阻接地。</p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123163101575.png" alt="image-20260123163101575"></p>
-<h5 id="usb-pd协议的数据格式"><a class="markdownIt-Anchor" href="#usb-pd协议的数据格式">#</a> USB PD 协议的数据格式：</h5>
-<p><img data-src="C:%5CUsers%5C86155%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260122181801106.png" alt="image-20260122181801106"></p>
-<p>一个完整的 USB PD 数据包由前导码 (Preamble)，使用场景码 (SOP*)，消息头 (MessageHeader)，数据码 (Byte0-n)、校验码 (CRC)</p>
-<p>以及结束码 (EOP) 组成，如果数据部分为空，说明数据包仅作为控制指令使用，称为控制消息。有数据内容的称为数据消息，</p>
-<p>通常数据消息里包含了要变化的电压值和电流值等信息。整个 USB PD 数据包中，除了前导码不需要进行 4b5b 编码外，数据包</p>
-<p>的其他部分均需要进行 4b5b 编码，指定数据经过 4b5b 编码后，数据包中所有数据都需要使用 BMC 编码之后才能通过 CC 发送。</p>
-<h6 id="前导码preamble"><a class="markdownIt-Anchor" href="#前导码preamble">#</a> 前导码（Preamble）</h6>
-<p>前导码是为了锁定接收端，预示发送端将要有数据到达，前导码由交替的’0’和’1’组成，以’0’开始，以’1’结束</p>
+</tbody></table>
+<p>在DFP（如笔记本电脑、充电器）中，CC引脚通过上拉电阻（RP）连接至VCONN或VBUS；而在UFP（上行端口，如手机）中，则通过5.1kΩ下拉电阻接地。</p>
+<p><img data-src="/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123163101575.png" alt="image-20260123163101575"></p>
+<h5 id="USB-PD协议的数据格式："><a href="#USB-PD协议的数据格式：" class="headerlink" title="USB PD协议的数据格式："></a>USB PD协议的数据格式：</h5><p><img data-src="C:\Users\86155\AppData\Roaming\Typora\typora-user-images\image-20260122181801106.png" alt="image-20260122181801106"></p>
+<p>一个完整的USB PD数据包由前导码(Preamble)，使用场景码(SOP*)，消息头(MessageHeader)，数据码(Byte0-n)、校验码(CRC)</p>
+<p>以及结束码(EOP)组成，如果数据部分为空，说明数据包仅作为控制指令使用，称为控制消息。有数据内容的称为数据消息，</p>
+<p>通常数据消息里包含了要变化的电压值和电流值等信息。整个USB PD数据包中，除了前导码不需要进行4b5b编码外，数据包</p>
+<p>的其他部分均需要进行4b5b编码，指定数据经过4b5b编码后，数据包中所有数据都需要使用BMC编码之后才能通过CC发送。</p>
+<h6 id="前导码（Preamble）"><a href="#前导码（Preamble）" class="headerlink" title="前导码（Preamble）"></a>前导码（Preamble）</h6><p>前导码是为了锁定接收端，预示发送端将要有数据到达，前导码由交替的’0’和’1’组成，以’0’开始，以’1’结束</p>
 <p>0101010101…</p>
 <p><strong>消息头（Message Header）</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123141229552.png" alt="image-20260123141229552"></p>
-<p>消息头长度为 16Bits，其包含数据包的类型，端口角色（UFP，DFP）等信息</p>
+<p><img data-src="/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123141229552.png" alt="image-20260123141229552"></p>
+<p>消息头长度为16Bits，其包含数据包的类型，端口角色（UFP，DFP）等信息</p>
 <ul>
-<li>
-<p>Extended（15）：控制或数据消息时为 0</p>
+<li><p>Extended（15）：控制或数据消息时为0</p>
 </li>
-<li>
-<p>Number of Data Objects（12-14）：表示消息头后面的 32 位数据对象的数量</p>
+<li><p>Number of Data Objects（12-14）：表示消息头后面的32位数据对象的数量</p>
 </li>
-<li>
-<p>MessageID（9-11）：其作用其实就是计数，开机时应该初始化为 0，当收到 Source 端收到 GoodCRC 消息时，消息计数器应该增加 1</p>
+<li><p>MessageID（9-11）：其作用其实就是计数，开机时应该初始化为0，当收到Source端收到GoodCRC消息时，消息计数器应该增加1</p>
 </li>
-<li>
-<p>端口电源角色（8）：0 表示 Sink，电源消耗端，1 表示 Source，即供电端</p>
+<li><p>端口电源角色（8）：0表示Sink，电源消耗端，1表示Source，即供电端</p>
 </li>
-<li>
-<p>Specification Revision（6-7）：规范修订 00-Revision 1.0；01-Revision 2.0；10-Revision 3.0；11 - 保留，不得使用</p>
+<li><p>Specification Revision（6-7）：规范修订 00-Revision 1.0；01-Revision 2.0；10-Revision 3.0；11-保留，不得使用</p>
 </li>
-<li>
-<p>Port Data Role (5)：端口数据角色，0 表示 UFP ，1 表示 DFP</p>
+<li><p>Port Data Role(5)：端口数据角色，0表示UFP ，1表示DFP</p>
 </li>
-<li>
-<p>Message Type (0-4)：消息类型，需要看 Number of Data Objects 的数值，Number of Data Objects 如果为 0，那么 Message type 表示控制指令；Number of Data Objects 如果为 1，表示传输数据</p>
+<li><p>Message Type(0-4)：消息类型，需要看Number of Data Objects的数值，Number of Data Objects如果为0，那么Message type表示控制指令；Number of Data Objects如果为1，表示传输数据</p>
 <p>​                                                                                                  <strong>控制消息</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144345852.png" alt="image-20260123144345852"></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123151032539.png" alt="image-20260123151032539"></p>
+<p><img data-src="/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144345852.png" alt="image-20260123144345852"></p>
+<p><img data-src="/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123151032539.png" alt="image-20260123151032539"></p>
 <p>​                                                                                                    <strong>数据消息</strong></p>
-<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144354444.png" alt="image-20260123144354444"></p>
-<p>下面解释一下 Data Message Types 这几个类型的具体含义：<br>
-**Source _Capabilities：**0x01，源广播能力，充电器告诉设备我能提供这些挡位</p>
-<p><strong>Requeset</strong>：0x02 设备告诉充电器，选择第几挡，需要多少电压，需要多少电流</p>
+<p><img data-src="/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144354444.png" alt="image-20260123144354444"></p>
+<p>下面解释一下Data Message Types这几个类型的具体含义：<br><strong>Source _Capabilities：</strong>0x01，源广播能力，充电器告诉设备我能提供这些挡位</p>
+<p><strong>Requeset</strong>：0x02设备告诉充电器，选择第几挡，需要多少电压，需要多少电流</p>
 <p><strong>BIST</strong> ：0x03，自置内测试，用于链路测试</p>
-<p><strong>Sink_Capabilities</strong>：0x04，设备能力，设备主动告知充电器自己的充电需求，在 DRP 角色切换的时候使用</p>
+<p><strong>Sink_Capabilities</strong>：0x04，设备能力，设备主动告知充电器自己的充电需求，在DRP角色切换的时候使用</p>
 <p><strong>Battery_status</strong>：0x05，报告设备内部电池的详细信息（电量，健康度等）</p>
 <p><strong>Alert</strong>：0x06，报警时间，随时通知警告时间，比如说过热等</p>
 </li>
 </ul>
-<h3 id="实例"><a class="markdownIt-Anchor" href="#实例">#</a> 实例</h3>
-<p><strong>1. 首先充电器进行广播 ——Source_Capabilities</strong></p>
-<p>比如充电器告知手机有三个档位，5V/3A。9V/2.22A，12V/1.67A</p>
-<p>那么由于其是进行广播，所以 Message_type 等于 00001</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><strong>1.首先充电器进行广播——Source_Capabilities</strong></p>
+<p>比如充电器告知手机有三个档位，5V&#x2F;3A。9V&#x2F;2.22A，12V&#x2F;1.67A</p>
+<p>那么由于其是进行广播，所以Message_type等于00001</p>
 <ul>
-<li><code>Message Type</code>  (0-4):  <code>0x01</code>  ( <code>00001</code> )</li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>3</code>  ( <code>011</code> )</li>
-<li><code>MessageID</code>  (9-11):  <code>1</code>  ( <code>001</code> ) <em>（会话开始）</em></li>
-<li>第 8 位，由于是电源，所以为 1</li>
+<li><code>Message Type</code> (0-4): <code>0x01</code> (<code>00001</code>)</li>
+<li><code>Number of Data Objects</code> (12-14): <code>3</code> (<code>011</code>)</li>
+<li><code>MessageID</code> (9-11): <code>1</code> (<code>001</code>) <em>（会话开始）</em></li>
+<li>第8位，由于是电源，所以为1</li>
 </ul>
 <p>那么消息头就可以生成为：</p>
 <table>
@@ -292,8 +278,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th>0</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>1</td>
@@ -329,16 +314,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>完整的数据包</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x67</span> <span class="token number">0x41</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO1</span><span class="token punctuation">(</span><span class="token number">5</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO2</span><span class="token punctuation">(</span><span class="token number">9</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO3</span><span class="token punctuation">(</span><span class="token number">12</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>2. 手机端请求供电 ——requset 请求</strong></p>
-<p>比如请求 9V，2A 的电流</p>
+<pre><code class="c">[PREAMBLE][SOP][HEADER:0x67 0x41][DATA:PDO1(5V)][DATA:PDO2(9V)][DATA:PDO3(12V)][CRC32][EOP]
+</code></pre>
+<p><strong>2.手机端请求供电——requset请求</strong></p>
+<p>比如请求9V，2A的电流</p>
 <ul>
-<li><code>Message Type</code>  (0-4):  <code>0x02</code>  ( <code>00010</code> )</li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> )</li>
-<li><code>MessageID</code>  (9-11):  <code>2</code>  ( <code>010</code> ) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
+<li><code>Message Type</code> (0-4): <code>0x02</code> (<code>00010</code>)</li>
+<li><code>Number of Data Objects</code> (12-14): <code>1</code> (<code>001</code>)</li>
+<li><code>MessageID</code> (9-11): <code>2</code> (<code>010</code>) <em>（递增1）</em></li>
+<li><code>端口电源角色</code> (8): <code>0</code> (Sink)</li>
 </ul>
 <table>
 <thead>
@@ -361,8 +347,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th>0</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -398,17 +383,18 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>完整的数据包</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x14</span> <span class="token number">0x82</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">RDO</span><span class="token punctuation">(</span>请求<span class="token number">9</span>V<span class="token operator">/</span><span class="token number">2</span>A<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>3. 充电器接收请求 ——Accept</strong></p>
+<pre><code class="c">[PREAMBLE][SOP][HEADER:0x14 0x82][DATA:RDO(请求9V/2A)][CRC32][EOP]
+</code></pre>
+<p><strong>3.充电器接收请求——Accept</strong></p>
 <p>充电器确认收到并同意手机的请求。这是关键的协议控制步骤。</p>
 <ul>
-<li><code>Message Type</code> :  <code>0x03</code>  ( <code>00011</code> )，<em>沿用之前假设的控制消息编码</em></li>
-<li><code>Number of Data Objects</code> :  <code>0</code>  ( <code>000</code> ) <strong>控制消息无数据</strong></li>
-<li><code>MessageID</code> :  <code>3</code>  ( <code>011</code> ) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code> :  <code>1</code>  (Source)</li>
-<li><code>Port Data Role</code> :  <code>1</code>  (DFP)</li>
+<li><code>Message Type</code>: <code>0x03</code> (<code>00011</code>)，<em>沿用之前假设的控制消息编码</em></li>
+<li><code>Number of Data Objects</code>: <code>0</code> (<code>000</code>) <strong>控制消息无数据</strong></li>
+<li><code>MessageID</code>: <code>3</code> (<code>011</code>) <em>（递增1）</em></li>
+<li><code>端口电源角色</code>: <code>1</code> (Source)</li>
+<li><code>Port Data Role</code>: <code>1</code> (DFP)</li>
 </ul>
 <table>
 <thead>
@@ -431,8 +417,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th>0</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -468,15 +453,14 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
-<p><strong>4. 设备主动报告状态 -  <code>Battery_Status</code> </strong></p>
-<p>手机主动向充电段报告当前电池电量为 85%</p>
+</tbody></table>
+<p><strong>4.设备主动报告状态 - <code>Battery_Status</code></strong></p>
+<p>手机主动向充电段报告当前电池电量为85%</p>
 <ul>
-<li><code>Message Type</code>  (0-4): <strong> <code>0x05</code> </strong> ( <code>00101</code> ) <em>（你指定的编码）</em></li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个电池数据对象 BDO）</em></li>
-<li><code>MessageID</code>  (9-11):  <code>4 (</code> 100) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
+<li><code>Message Type</code> (0-4): <strong><code>0x05</code></strong> (<code>00101</code>) <em>（你指定的编码）</em></li>
+<li><code>Number of Data Objects</code> (12-14): <code>1</code> (<code>001</code>) <em>（1个电池数据对象BDO）</em></li>
+<li><code>MessageID</code> (9-11): <code>4 (</code>100) <em>（递增1）</em></li>
+<li><code>端口电源角色</code> (8): <code>0</code> (Sink)</li>
 </ul>
 <table>
 <thead>
@@ -499,8 +483,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th>0</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -536,16 +519,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>完整的数据包：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x16</span> <span class="token number">0x85</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">BDO</span><span class="token punctuation">(</span>电量<span class="token number">85</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>5. 充电器事件告警 -  <code>Alert</code> </strong></p>
+<pre><code class="c">[PREAMBLE][SOP][HEADER:0x16 0x85][DATA:BDO(电量85%)][CRC32][EOP]
+</code></pre>
+<p><strong>5.充电器事件告警 - <code>Alert</code></strong></p>
 <p>充电器检测到内部温度过高，向手机发送警报。</p>
 <ul>
-<li><code>Message Type</code>  (0-4): <strong> <code>0x06</code> </strong> ( <code>00110</code> ) <em>（你指定的编码）</em></li>
-<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个警报数据对象 ADO）</em></li>
-<li><code>MessageID</code>  (9-11):  <code>5 (</code> 101`) <em>（递增 1）</em></li>
-<li><code>端口电源角色</code>  (8):  <code>1</code>  (Source)</li>
+<li><code>Message Type</code> (0-4): <strong><code>0x06</code></strong> (<code>00110</code>) <em>（你指定的编码）</em></li>
+<li><code>Number of Data Objects</code> (12-14): <code>1</code> (<code>001</code>) <em>（1个警报数据对象ADO）</em></li>
+<li><code>MessageID</code> (9-11): <code>5 (</code>101&#96;) <em>（递增1）</em></li>
+<li><code>端口电源角色</code> (8): <code>1</code> (Source)</li>
 </ul>
 <table>
 <thead>
@@ -568,8 +552,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <th>0</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -605,9 +588,8 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
-<p>6.<strong> 手机请求停止充电 ( <code>Request</code> )</strong></p>
+</tbody></table>
+<p>6.<strong>手机请求停止充电 (<code>Request</code>)</strong></p>
 <p>电池管理系统确认完全充满，请求零电流，实质停止充电。</p>
 
   </div>
@@ -693,7 +675,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="未命名">
+  <a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f21603661c6c8e5489fc6d.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -717,7 +699,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1cc%E5%BC%95%E8%84%9A"><span class="toc-number">1.</span> <span class="toc-text"> 1.CC 引脚：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#usb-pd%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text"> USB PD 协议的数据格式：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%89%8D%E5%AF%BC%E7%A0%81preamble"><span class="toc-number">2.1.</span> <span class="toc-text"> 前导码（Preamble）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number"></span> <span class="toc-text"> 实例</span></a>
+          <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-CC%E5%BC%95%E8%84%9A%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1.CC引脚：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#USB-PD%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">USB PD协议的数据格式：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%89%8D%E5%AF%BC%E7%A0%81%EF%BC%88Preamble%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">前导码（Preamble）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number"></span> <span class="toc-text">实例</span></a>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -826,19 +808,40 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
   </li>
 
       
@@ -848,7 +851,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="2026-1-14 C++语言学习">2026-1-14 C++语言学习</a></span>
+    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
@@ -857,7 +870,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
       
@@ -866,7 +889,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
+    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -877,45 +900,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
   </li>
 
   </ul>

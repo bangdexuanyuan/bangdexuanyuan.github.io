@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="C++" />
+  <meta name="keywords" content="ROS2" />
 
 
 <link rel="canonical" href="https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
@@ -32,7 +32,7 @@
 
 
   <title>
-2026-1-14 C++语言学习 - 学习 |
+ROS2 常用话题命名与基本使用方法 - 学习 |
 bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">2026-1-14 C++语言学习
+  <h1 itemprop="name headline">ROS2 常用话题命名与基本使用方法
   </h1>
   
 <div class="meta">
@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>105</span>
+    <span>712</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b5039f345e8d03991b3f.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc7c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
         </ul>
       </div>
     </header>
@@ -169,11 +169,31 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     
 
     <p>英语论文写作的时候，一般由以下的结构组成：</p>
-<p>ROS 社区需要遵循一些惯例，比如说 cmd_vel 用来表示控制命令，里程计用 odom 表示，激光雷达用 scan 表示，image_raw 用来表示图像</p>
-<p>怎么在 ros2 里面修改文件</p>
+<p>ROS社区需要遵循一些惯例，比如说cmd_vel用来表示控制命令，里程计用odom表示，激光雷达用scan表示，image_raw用来表示图像</p>
+<p>这些命名不是 ROS 2 强制规定，而是社区长期形成的<strong>通用惯例</strong>，好处是不同厂家、不同包之间可以互通：</p>
+<ul>
+<li><code>/cmd_vel</code>：速度控制指令，消息类型通常是 <code>geometry_msgs/msg/Twist</code></li>
+<li><code>/odom</code>：里程计数据，消息类型是 <code>nav_msgs/msg/Odometry</code></li>
+<li><code>/scan</code>：激光雷达扫描数据，消息类型是 <code>sensor_msgs/msg/LaserScan</code></li>
+<li><code>/image_raw</code>：相机原始图像，消息类型是 <code>sensor_msgs/msg/Image</code></li>
+</ul>
+<p>实际排查时不用猜名字，直接看系统里到底有哪些话题：</p>
+<pre><code class="bash">ros2 topic list          # 列出所有话题
+ros2 topic info /cmd_vel # 查看某个话题的消息类型和收发节点
+ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
+</code></pre>
+<p>怎么在ros2里面修改文件</p>
+<p>“修改文件”分两种情况：</p>
+<ol>
+<li>修改功能包源码：直接编辑 <code>src/</code> 下的源码，然后回到工作空间根目录重新构建，例如 <code>colcon build --packages-select &lt;包名&gt;</code>，再 <code>source install/setup.bash</code> 让改动生效。</li>
+<li>修改参数：不需要重新编译，可以用命令行参数（<code>--ros-args -p 参数名:=值</code>）、YAML 参数文件（<code>ros2 run &lt;包名&gt; &lt;节点&gt; --ros-args --params-file xxx.yaml</code>）等方式动态传入。</li>
+</ol>
+<blockquote>
+<p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL1R1dG9yaWFscy9CZWdpbm5lci1DTEktVG9vbHMuaHRtbA==">ROS 2 CLI 工具官方文档</span></p>
+</blockquote>
 
       <div class="tags">
-          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/tags/ROS2/" rel="tag"><i class="ic i-tag"></i> ROS2</a>
       </div>
   </div>
 
@@ -185,7 +205,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2026-01-14 11:33:21" itemprop="dateModified" datetime="2026-01-14T11:33:21+08:00">2026-01-14</time>
+    <time title="修改时间：2026-08-01 21:25:00" itemprop="dateModified" datetime="2026-08-01T21:25:00+08:00">2026-08-01</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -239,7 +259,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="2026-1-14 C++语言学习">https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-基本使用方法/</a>
+    <a href="https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-基本使用方法/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -258,7 +278,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861835.jpg" title="未命名">
+  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -268,7 +288,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="未命名">
+  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b46f9f345e8d039570f2.webp" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -293,7 +313,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/study/hello-world/" rel="bookmark" title="英语论文学习">英语论文学习</a></li><li><a href="/study/%E6%88%AA%E5%9B%BE/" rel="bookmark" title="截图">截图</a></li><li class="active"><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="bookmark" title="2026-1-14 C++语言学习">2026-1-14 C++语言学习</a></li>
+          <li><a href="/study/hello-world/" rel="bookmark" title="英语论文学习">英语论文学习</a></li><li><a href="/study/%E6%88%AA%E5%9B%BE/" rel="bookmark" title="截图">截图</a></li><li class="active"><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="bookmark" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -403,20 +423,9 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 life">life</a>
 </div>
 
-    <span><a href="/diary/2024.5.27/" title="2024.5.27随记">2024.5.27随记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -425,7 +434,45 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+</div>
+
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -442,19 +489,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
   </li>
 
       
@@ -464,35 +511,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
   </li>
 
   </ul>
