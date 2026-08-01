@@ -2191,7 +2191,7 @@ const algoliaSearch = function(pjax) {
 }
 // Strip PJAX marker headers: some networks drop requests that carry them,
 // which made article navigation hang after the request left the browser.
-(function() {
+;(function() {
   const originalSetHeader = XMLHttpRequest.prototype.setRequestHeader;
   XMLHttpRequest.prototype.setRequestHeader = function(name, value) {
     const lower = String(name).toLowerCase();
