@@ -2238,15 +2238,6 @@ const pjaxReload = function () {
   pageScroll(0);
 }
 
-const loadAllMedia = function () {
-  Array.prototype.forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-    img.src = img.dataset.src;
-  });
-  Array.prototype.forEach.call(document.querySelectorAll('[data-background-image]'), function(el) {
-    el.style.backgroundImage = 'url(' + el.dataset.backgroundImage + ')';
-  });
-}
-
 const siteRefresh = function (reload) {
   LOCAL_HASH = 0
   LOCAL_URL = window.location.href
@@ -2297,8 +2288,6 @@ const siteRefresh = function (reload) {
   }, 500);
 
   cardActive()
-
-  loadAllMedia()
 }
 
 const siteInit = function () {
