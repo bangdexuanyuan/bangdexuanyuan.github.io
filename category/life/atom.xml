@@ -4,23 +4,23 @@
     <title> • Posts by &#34;life&#34; category</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-05-27T13:54:00.000Z</updated>
-    <category term="读博" />
-    <category term="南京" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="mistake" />
-    <category term="mind" />
-    <category term="青岛生活" />
+    <category term="pcb" />
     <category term="stm32" />
     <category term="单片机" />
+    <category term="读博" />
     <category term="水下机器人" />
-    <category term="pcb" />
+    <category term="mistake" />
+    <category term="哈尔滨生活" />
+    <category term="南京" />
+    <category term="青岛生活" />
+    <category term="音乐" />
     <category term="ROS指令" />
     <category term="ROS2" />
     <category term="DDS通信" />
-    <category term="英语" />
     <category term="ROS" />
+    <category term="英语" />
     <category term="测试" />
+    <category term="mind" />
     <entry>
         <id>https://bangdexuanyuan.github.io/diary/2024.5.27/</id>
         <title>2024.5.27随记</title>
@@ -29,12 +29,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;4af56455b2864fe9962d01610b43dab63611890f6c6c618605294e1620bc4463&#34;
-     data-nonce=&#34;b40104dac042a64b042e8d24&#34;
+     data-salt=&#34;34772b9e1636c7369e2958297a75f17e5689aa6e9f10fd4c702cf7e9b47297f5&#34;
+     data-nonce=&#34;0cd963314eb08c578a9950aa&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    1b04a84b5618c9d4199c96f8a753486917ccd5af46db187d5b4f75e91b11a547dc88f86de1f5facc1359bd4a080b62d5fd9413e230d34927f5e1c870af457cfc0899459bd82f9a27f5d2881c1c684354bbe76fe5e11ac6d53a1e664f9d532c7b7398803ac2b0b225b3228826bec7d5c0c368
+    9ec929045894d57a661a3271c5252d14340502467ffa0dae1349591930f97a94d1d5f2b0de6d814a70b71ad44f921a96b94103df414419203aba3468c6f4a9a5a5cd7a8eb72db37452087309b7af30c484dc2f23c5483a841bcb74570655caa5bfc67c507010aed3c3d945a5882a0c2e5c4a
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;

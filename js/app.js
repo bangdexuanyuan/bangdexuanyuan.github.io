@@ -2314,12 +2314,10 @@ const siteInit = function () {
 
   domInit()
 
-  // PJAX's in-page requests hang on some networks; navigate normally instead.
+  // Do not intercept clicks: the site's in-page navigation hangs on some networks.
   if (window.Pjax) {
-    window.Pjax.prototype.doRequest = function(location) {
-      window.location.assign(location);
-      return null;
-    };
+    window.Pjax.prototype.attachLink = function() {};
+    window.Pjax.prototype.attachForm = function() {};
   }
 
   pjax = new Pjax({

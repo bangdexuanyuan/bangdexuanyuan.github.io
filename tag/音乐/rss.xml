@@ -7,23 +7,23 @@
         <language>zh-CN</language>
         <pubDate>Wed, 13 Sep 2023 10:39:00 +0800</pubDate>
         <lastBuildDate>Wed, 13 Sep 2023 10:39:00 +0800</lastBuildDate>
-        <category>读博</category>
-        <category>南京</category>
-        <category>哈尔滨生活</category>
-        <category>音乐</category>
-        <category>mistake</category>
-        <category>mind</category>
-        <category>青岛生活</category>
+        <category>pcb</category>
         <category>stm32</category>
         <category>单片机</category>
+        <category>读博</category>
         <category>水下机器人</category>
-        <category>pcb</category>
+        <category>mistake</category>
+        <category>哈尔滨生活</category>
+        <category>南京</category>
+        <category>青岛生活</category>
+        <category>音乐</category>
         <category>ROS指令</category>
         <category>ROS2</category>
         <category>DDS通信</category>
-        <category>英语</category>
         <category>ROS</category>
+        <category>英语</category>
         <category>测试</category>
+        <category>mind</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/</guid>
             <title>火车驶向云外 梦安魂于九霄</title>
@@ -34,12 +34,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;d8e6b2bc8c37ad1e189738883c2fb5822fd7270bf418b2c66b09237727cdeae0&#34;
-     data-nonce=&#34;b64d10d3e474b7a2a8a4bd13&#34;
+     data-salt=&#34;49dab9af05d144921250867c54396fe51283ea000112644afa21ab74d7d4bcbe&#34;
+     data-nonce=&#34;eeb323767a470be60fc2330c&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    b2118147ec390f62cc79c70042d1114f3064bd9b1dd3252674ee4c52df16b8fd48efc138cf3e69ee8e8c671d4270bbca829268caa40de4fd5c49a7d7596f42d3403a0a261fdba80939186c240dd59fb773fd1eaa028589d73c07a68b8917b2067c6d252b73b650d699e7ba870ffb4395d18842d9ef1d7c74c34984eb232a33e90c35394ed5bdea57c344a065362cf136ab1009176d44255bb6ca5d42fdf8eed58b74126047f9e6446435bb003e431f1df8a103986ae86cfab17da41493b945ce99941c0bad39a4d809a4ead8a59ead36f97da67eeb20d97e6c3cf460e58f2f77bc4961cfeb1acfe039f2b8ec53094509cc47b910b9c35e5b4246906038a60b00e80e17a43f2833ee2c7ba51a90e4b57be71bfe001ed2d2b2e7e84e151ccad5cc97fe632f415b378720eb4992eacaaf735849c6a6024a7d7939e9bc42d84319095a92cc628e4c06c158b506e139715b27016c8e12bba66bcf7b89c1a4589c440ef2852e02e1bca24abf54b50f698722bfb6f3da02e7e0ef725dcf83230fd71f40ed67e1a9b170c4523a20c1c6de7529fa5a388563c3cc01bf9591d63c0bc230ebb555044e4fd08ea610fe7d73e8cba844e84e1872a3cf55198bd94106d5fc26aa91b6e15118a1d3f4d563838fe6a6d045e38a1326b0f458cfe7ef39683e59039054f600c2cf4bc61da23aa5aa1ffe7ffd9fef5e501dbfaf40421c11207e7cccea0355290eeee53b5732bac88acc4ac1eadf0ecc9760b77cacae872dd71748a4b2c2d7cd4f5a517b9c9ca444f86e09378f55d8fa477bd0a26757209866e1c55fef3c3e5daf38a3b72173cf062560302c703b5c3459660aaca1d479683c1603793c8820ce2f98284a48301d7fa9c3935ecde4908825a12cd20ac7f81d7f859836a5072c4204e4d690cdff1edeb8eed3a213692777447552906af561b3e54382c9e5ab8126cc27fdeaee4e388acab03171e97ef67bb118486c39a42817a8f2ac1bd99e06ac7cdf714b5bf8
+    4a976cebddbe46f4d3e18c5f9bcf860191076f56a55e89ad186848542d530fc8a15790b08482398987568a584311e01e5467cc4c3c2407fa536a52c23a2b907893dcc100dd719f470d400608113a46d39e43bf5da6b60267f50d55c0a5d0d95c538849d049f34f95598d32a7ab48e9a604588ccfad1915e94d8e40499591322584ad91776b490552848e2ba73c446257b9c8962a8e506b06d7c6bfa850ecb830d06d60888aa9f0f19efda8a7729cb3a1744c1c17e84e7e5efc65b13129a1e026d756357087a575e562711cb41c8ea9d78a2ee730dc46ba785ee047e105aded82266ec131cf3dd4db03805f0694fd0b0b88948805512503057744290eb655dcfaed541be6222fce01a2e57277b5b97a19a2f35a75e5a2fc9e079d2feccd6fb9677f5dcfee8f923693b5c76c9f6cde26bdc9fe26970728caea59da1c0d472abc27d2144306f34aecc0de9e0852905af24027989403d262cdac42894c2132ea2ef66aa71c8c416af92ab588ed99f8847be1fb42021c73ac53315ec1084a30fee434d5d110afe59ed557c5a23b577daf2994fff25580f279202d6da66c7f57254c6148763209f49b2b2e0860514346a4f38c96bd421cdd11da5803319fd35e321ace31e971dd1e1be685d84bbb808934efff019de658a3434991395f4200bbe32898d45cd67f6dbf6b81c01e41404d67921911d4c5ce53b0cabb8857844c7f28a9cd59e8a123d9a84444dc1546b9a521cd131c79b5087dcacec5f50fa2987ee0c67cb43096bc4c02ff50452e4981f045c514aa4e483d6a6dca5f9e4740560ddaab3e04726d359a390cf7617c1b257aca0cfd94667af5c104eac457e4ecc795d27d44d8be28f9ed59df98c3eb92043cf2504a288cf4e5924676ec0d03d84203b582be19a6e84c0520ae4406d9c248a39997a66795423d94f6e0a9ce019db215fdb53f0fb400164326f781528cf21866b4d0277f17991037f1a2eb65909ddcc3e2f28fdedc94e56c2e248c54
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
