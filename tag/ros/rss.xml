@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title> • Posts by &#34;ros&#34; tag</title>
+        <link>https://bangdexuanyuan.github.io</link>
+        <description>欢迎大家来到邦的轩辕的小屋，这里会分享everything</description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 05 Jan 2026 20:00:00 +0800</pubDate>
+        <lastBuildDate>Mon, 05 Jan 2026 20:00:00 +0800</lastBuildDate>
+        <category>股票交易</category>
+        <category>读博</category>
+        <category>南京</category>
+        <category>哈尔滨生活</category>
+        <category>音乐</category>
+        <category>青岛生活</category>
+        <category>mistake</category>
+        <category>pcb</category>
+        <category>mind</category>
+        <category>stm32</category>
+        <category>单片机</category>
+        <category>水下机器人</category>
+        <category>ROS2</category>
+        <category>ROS</category>
+        <category>DDS通信</category>
+        <category>英语</category>
+        <category>测试</category>
+        <category>ROS指令</category>
+        <category>C++</category>
+        <item>
+            <guid isPermalink="true">https://bangdexuanyuan.github.io/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
+            <title>V-REP学习笔记（一）</title>
+            <link>https://bangdexuanyuan.github.io/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</link>
+            <category>ROS</category>
+            <pubDate>Mon, 05 Jan 2026 20:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;英语论文写作的时候，一般由以下的结构组成：&lt;/p&gt;
+&lt;p&gt;有大佬写的文章，非常好&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9BSS5yb2JvdC9wb3N0cw==&#34;&gt;(99+ 封私信 / 45 条消息) 沙漏 - 知乎&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;开源，是 ROS 的默认&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aGlkYS56aGlodS5jb20vc2VhcmNoP3E9JUU0JUJCJUJGJUU3JTlDJTlGJUU1JTk5JUE4JmFtcDt6aGlkYV9zb3VyY2U9ZW50aXR5JmFtcDtpc19wcmV2aWV3PTE=&#34;&gt;仿真器&lt;/span&gt;，支持 Bullet 和 ODE 引擎，由 OSRF (Open Source Robotics Foundation) 维护（也是现在 ROS 的维护者），因此对于 ROS 的兼容性好。Gazebo 中的模型格式是基于 XML 的 SDF (Simulation Description Format)，这有点像命令行，学习曲线较陡，但是学会后可以创造出很复杂的模型。&lt;/p&gt;
+&lt;p&gt;教育版本可免费使用，支持 Bullet、ODE 和 Vortex（用于流体仿真）引擎，由 Coppelia Robotics 开发。相比于 Gazebo，V-REP 内集成了大量的常见模型，建模更加简单，同时 V-REP 也兼容 ROS。&lt;/p&gt;
+&lt;p&gt;OS：Windows, Linux, Mac&lt;/p&gt;
+&lt;p&gt;编程语言：Lua&lt;/p&gt;
+&lt;p&gt;基于文章研究得出的结论，Gazebo 的优势在于与 ROS 完全兼容性、开源，而 V-REP 更为直观、方便使用，集成了更多的特性&lt;/p&gt;
+&lt;p&gt;如何选择还需要考虑与 Matlab 联合仿真的配置方式&lt;/p&gt;
+&lt;p&gt;现阶段可能还是先选择 gazebo+Matlab 的方式&lt;/p&gt;
+&lt;p&gt;目前遇到了一个问题，就是：&lt;/p&gt;
+&lt;p&gt;我对无人机进行代码的添加和调试，加入了一个 script 文件，但是，编写程序文件后，其仍然无法运行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;stack traceback:
+    [C]: in function &#39;simGetObjectHandle&#39;
+    ...gram Files/CoppeliaRobotics/CoppeliaSimEdu/lua/sim-1.lua:1272: in function &#39;sim-1.getObjectHandle&#39;
+    [string &amp;quot;/Quadcopter/script&amp;quot;]:3: in function &#39;sysCall_init&#39;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

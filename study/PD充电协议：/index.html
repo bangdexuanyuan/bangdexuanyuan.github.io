@@ -1,0 +1,993 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://bangdexuanyuan.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://bangdexuanyuan.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://bangdexuanyuan.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="java,git,springcloud" />
+
+
+<link rel="canonical" href="https://bangdexuanyuan.github.io/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/">
+
+
+
+  <title>
+ |
+bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2026-01-22 18:34:08">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2026-01-22T18:34:08+08:00">2026-01-22</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">bangdexuanyuan</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://bangdexuanyuan.github.io/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="bangdexuanyuan">
+    <meta itemprop="description" content="真正的大师，永远怀着一颗学徒的心, 欢迎大家来到邦的轩辕的小屋，这里会分享everything">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>PD 充电协议：</p>
+<p>前置名词：</p>
+<p>DFP：Downstream Facing Port 也就是 host 主机，下行通信</p>
+<p>UFP：Upstream Facing Port 也就是 Device 从机，上行通信</p>
+<p>DRP：既可以做主机，也可以做从机</p>
+<p>Source：通常指电源提供端，如电源适配器</p>
+<p>Sink：通常指电源消耗端，如手机、平板</p>
+<p>CC (Configuration Channel) ：配置通道，用于识别、控制</p>
+<p>BMC (Biphase Mark Coding)：双相位标识编码，通过 CC 通信</p>
+<p>SOP（Start of Packet Sequences）：所有的 PD 传输流程，都是以 SOP 开始，SOP * 代表 SOP，SOP’，SOP’’</p>
+<p>EOP（End of Packet）：数据包结束的标志</p>
+<h5 id="1cc引脚"><a class="markdownIt-Anchor" href="#1cc引脚">#</a> <strong>1.CC 引脚：</strong></h5>
+<p>CC 引脚（configuration channel）：通过引脚实现设备角色识别与电源协商</p>
+<p>CC1 和 CC2 负责配置通道，检测线缆插入方向，确定供电角色，建立 PD 通信链路</p>
+<p>其具体的原理为物理层的电压检测</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">设备类型</th>
+<th style="text-align:left">CC 端接方式</th>
+<th style="text-align:left">典型阻值</th>
+<th style="text-align:left">功能作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DFP（源端）</td>
+<td style="text-align:left">上拉至 VBUS</td>
+<td style="text-align:left">RP = 56kΩ / 22kΩ / 默认</td>
+<td style="text-align:left">表明可供电</td>
+</tr>
+<tr>
+<td style="text-align:left">UFP（受电端）</td>
+<td style="text-align:left">下拉至 GND</td>
+<td style="text-align:left">RD = 5.1kΩ</td>
+<td style="text-align:left">表明需取电</td>
+</tr>
+<tr>
+<td style="text-align:left">Cable</td>
+<td style="text-align:left">Ra（有 e-Marker 线缆）或开路</td>
+<td style="text-align:left">约 800Ω</td>
+<td style="text-align:left">标识线缆能力</td>
+</tr>
+</tbody>
+</table>
+<p>在 DFP（如笔记本电脑、充电器）中，CC 引脚通过上拉电阻（RP）连接至 VCONN 或 VBUS；而在 UFP（上行端口，如手机）中，则通过 5.1kΩ 下拉电阻接地。</p>
+<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123163101575.png" alt="image-20260123163101575"></p>
+<h5 id="usb-pd协议的数据格式"><a class="markdownIt-Anchor" href="#usb-pd协议的数据格式">#</a> USB PD 协议的数据格式：</h5>
+<p><img data-src="C:%5CUsers%5C86155%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260122181801106.png" alt="image-20260122181801106"></p>
+<p>一个完整的 USB PD 数据包由前导码 (Preamble)，使用场景码 (SOP*)，消息头 (MessageHeader)，数据码 (Byte0-n)、校验码 (CRC)</p>
+<p>以及结束码 (EOP) 组成，如果数据部分为空，说明数据包仅作为控制指令使用，称为控制消息。有数据内容的称为数据消息，</p>
+<p>通常数据消息里包含了要变化的电压值和电流值等信息。整个 USB PD 数据包中，除了前导码不需要进行 4b5b 编码外，数据包</p>
+<p>的其他部分均需要进行 4b5b 编码，指定数据经过 4b5b 编码后，数据包中所有数据都需要使用 BMC 编码之后才能通过 CC 发送。</p>
+<h6 id="前导码preamble"><a class="markdownIt-Anchor" href="#前导码preamble">#</a> 前导码（Preamble）</h6>
+<p>前导码是为了锁定接收端，预示发送端将要有数据到达，前导码由交替的’0’和’1’组成，以’0’开始，以’1’结束</p>
+<p>0101010101…</p>
+<p><strong>消息头（Message Header）</strong></p>
+<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123141229552.png" alt="image-20260123141229552"></p>
+<p>消息头长度为 16Bits，其包含数据包的类型，端口角色（UFP，DFP）等信息</p>
+<ul>
+<li>
+<p>Extended（15）：控制或数据消息时为 0</p>
+</li>
+<li>
+<p>Number of Data Objects（12-14）：表示消息头后面的 32 位数据对象的数量</p>
+</li>
+<li>
+<p>MessageID（9-11）：其作用其实就是计数，开机时应该初始化为 0，当收到 Source 端收到 GoodCRC 消息时，消息计数器应该增加 1</p>
+</li>
+<li>
+<p>端口电源角色（8）：0 表示 Sink，电源消耗端，1 表示 Source，即供电端</p>
+</li>
+<li>
+<p>Specification Revision（6-7）：规范修订 00-Revision 1.0；01-Revision 2.0；10-Revision 3.0；11 - 保留，不得使用</p>
+</li>
+<li>
+<p>Port Data Role (5)：端口数据角色，0 表示 UFP ，1 表示 DFP</p>
+</li>
+<li>
+<p>Message Type (0-4)：消息类型，需要看 Number of Data Objects 的数值，Number of Data Objects 如果为 0，那么 Message type 表示控制指令；Number of Data Objects 如果为 1，表示传输数据</p>
+<p>​                                                                                                  <strong>控制消息</strong></p>
+<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144345852.png" alt="image-20260123144345852"></p>
+<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123151032539.png" alt="image-20260123151032539"></p>
+<p>​                                                                                                    <strong>数据消息</strong></p>
+<p><img data-src="PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A.assets/image-20260123144354444.png" alt="image-20260123144354444"></p>
+<p>下面解释一下 Data Message Types 这几个类型的具体含义：<br>
+**Source _Capabilities：**0x01，源广播能力，充电器告诉设备我能提供这些挡位</p>
+<p><strong>Requeset</strong>：0x02 设备告诉充电器，选择第几挡，需要多少电压，需要多少电流</p>
+<p><strong>BIST</strong> ：0x03，自置内测试，用于链路测试</p>
+<p><strong>Sink_Capabilities</strong>：0x04，设备能力，设备主动告知充电器自己的充电需求，在 DRP 角色切换的时候使用</p>
+<p><strong>Battery_status</strong>：0x05，报告设备内部电池的详细信息（电量，健康度等）</p>
+<p><strong>Alert</strong>：0x06，报警时间，随时通知警告时间，比如说过热等</p>
+</li>
+</ul>
+<h3 id="实例"><a class="markdownIt-Anchor" href="#实例">#</a> 实例</h3>
+<p><strong>1. 首先充电器进行广播 ——Source_Capabilities</strong></p>
+<p>比如充电器告知手机有三个档位，5V/3A。9V/2.22A，12V/1.67A</p>
+<p>那么由于其是进行广播，所以 Message_type 等于 00001</p>
+<ul>
+<li><code>Message Type</code>  (0-4):  <code>0x01</code>  ( <code>00001</code> )</li>
+<li><code>Number of Data Objects</code>  (12-14):  <code>3</code>  ( <code>011</code> )</li>
+<li><code>MessageID</code>  (9-11):  <code>1</code>  ( <code>001</code> ) <em>（会话开始）</em></li>
+<li>第 8 位，由于是电源，所以为 1</li>
+</ul>
+<p>那么消息头就可以生成为：</p>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>完整的数据包</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x67</span> <span class="token number">0x41</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO1</span><span class="token punctuation">(</span><span class="token number">5</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO2</span><span class="token punctuation">(</span><span class="token number">9</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">PDO3</span><span class="token punctuation">(</span><span class="token number">12</span>V<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>2. 手机端请求供电 ——requset 请求</strong></p>
+<p>比如请求 9V，2A 的电流</p>
+<ul>
+<li><code>Message Type</code>  (0-4):  <code>0x02</code>  ( <code>00010</code> )</li>
+<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> )</li>
+<li><code>MessageID</code>  (9-11):  <code>2</code>  ( <code>010</code> ) <em>（递增 1）</em></li>
+<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>完整的数据包</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x14</span> <span class="token number">0x82</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">RDO</span><span class="token punctuation">(</span>请求<span class="token number">9</span>V<span class="token operator">/</span><span class="token number">2</span>A<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>3. 充电器接收请求 ——Accept</strong></p>
+<p>充电器确认收到并同意手机的请求。这是关键的协议控制步骤。</p>
+<ul>
+<li><code>Message Type</code> :  <code>0x03</code>  ( <code>00011</code> )，<em>沿用之前假设的控制消息编码</em></li>
+<li><code>Number of Data Objects</code> :  <code>0</code>  ( <code>000</code> ) <strong>控制消息无数据</strong></li>
+<li><code>MessageID</code> :  <code>3</code>  ( <code>011</code> ) <em>（递增 1）</em></li>
+<li><code>端口电源角色</code> :  <code>1</code>  (Source)</li>
+<li><code>Port Data Role</code> :  <code>1</code>  (DFP)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. 设备主动报告状态 -  <code>Battery_Status</code> </strong></p>
+<p>手机主动向充电段报告当前电池电量为 85%</p>
+<ul>
+<li><code>Message Type</code>  (0-4): <strong> <code>0x05</code> </strong> ( <code>00101</code> ) <em>（你指定的编码）</em></li>
+<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个电池数据对象 BDO）</em></li>
+<li><code>MessageID</code>  (9-11):  <code>4 (</code> 100) <em>（递增 1）</em></li>
+<li><code>端口电源角色</code>  (8):  <code>0</code>  (Sink)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>完整的数据包：</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>PREAMBLE<span class="token punctuation">]</span><span class="token punctuation">[</span>SOP<span class="token punctuation">]</span><span class="token punctuation">[</span>HEADER<span class="token operator">:</span><span class="token number">0x16</span> <span class="token number">0x85</span><span class="token punctuation">]</span><span class="token punctuation">[</span>DATA<span class="token operator">:</span><span class="token function">BDO</span><span class="token punctuation">(</span>电量<span class="token number">85</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>CRC32<span class="token punctuation">]</span><span class="token punctuation">[</span>EOP<span class="token punctuation">]</span></pre></td></tr></table></figure><p><strong>5. 充电器事件告警 -  <code>Alert</code> </strong></p>
+<p>充电器检测到内部温度过高，向手机发送警报。</p>
+<ul>
+<li><code>Message Type</code>  (0-4): <strong> <code>0x06</code> </strong> ( <code>00110</code> ) <em>（你指定的编码）</em></li>
+<li><code>Number of Data Objects</code>  (12-14):  <code>1</code>  ( <code>001</code> ) <em>（1 个警报数据对象 ADO）</em></li>
+<li><code>MessageID</code>  (9-11):  <code>5 (</code> 101`) <em>（递增 1）</em></li>
+<li><code>端口电源角色</code>  (8):  <code>1</code>  (Source)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>6.<strong> 手机请求停止充电 ( <code>Request</code> )</strong></p>
+<p>电池管理系统确认完全充满，请求零电流，实质停止充电。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2026-01-23 18:29:22" itemprop="dateModified" datetime="2026-01-23T18:29:22+08:00">2026-01-23</time>
+  </span>
+  <span class="item goatcounter-visitors" title="阅读次数">
+    <span class="icon">
+      <i class="ic i-eye"></i>
+    </span>
+    <span class="text">阅读次数</span>
+    <span class="goatcounter-visitors-count">0</span>
+    <span class="text">次</span>
+  </span>
+  <script data-pjax>
+    (function() {
+      var root = document.querySelector('.goatcounter-visitors');
+      if (!root) return;
+      var target = root.querySelector('.goatcounter-visitors-count');
+      if (!target) return;
+      var path = location.pathname;
+      fetch('https://bangdexuanyuan.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+        .then(function(response) {
+          if (!response.ok) throw new Error('goatcounter');
+          return response.json();
+        })
+        .then(function(data) {
+          target.textContent = data.count;
+        })
+        .catch(function() {
+          target.textContent = '0';
+        });
+    })();
+  </script>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="bangdexuanyuan 微信支付">
+        <p>微信支付</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>bangdexuanyuan <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://bangdexuanyuan.github.io/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="">https://bangdexuanyuan.github.io/study/PD充电协议：/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="未命名">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1cc%E5%BC%95%E8%84%9A"><span class="toc-number">1.</span> <span class="toc-text"> 1.CC 引脚：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#usb-pd%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text"> USB PD 协议的数据格式：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%89%8D%E5%AF%BC%E7%A0%81preamble"><span class="toc-number">2.1.</span> <span class="toc-text"> 前导码（Preamble）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number"></span> <span class="toc-text"> 实例</span></a>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="bangdexuanyuan"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">bangdexuanyuan</p>
+  <div class="description" itemprop="description">欢迎大家来到邦的轩辕的小屋，这里会分享everything</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">10</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">19</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhYmluZzg1" title="https:&#x2F;&#x2F;github.com&#x2F;dabing85"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="2026-1-14 C++语言学习">2026-1-14 C++语言学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">bangdexuanyuan @ bangdexuanyuan</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'study/PD充电协议：/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+
+  <script data-goatcounter="https://bangdexuanyuan.goatcounter.com/count"
+          data-goatcounter-settings='{"allow_local": true}'
+          async src="https://gc.zgo.at/count.js"></script>
+  <script data-pjax>
+    if (window.goatcounter && window.goatcounter.count) {
+      goatcounter.count({path: location.pathname});
+    }
+  </script>
+
+
+</body>
+</html>

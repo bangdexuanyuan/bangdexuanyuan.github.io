@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"c++\" tag",
+    "description": "欢迎大家来到邦的轩辕的小屋，这里会分享everything",
+    "home_page_url": "https://bangdexuanyuan.github.io",
+    "items": [
+        {
+            "id": "https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/",
+            "url": "https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/",
+            "title": "2026-1-14 C++语言学习",
+            "date_published": "2026-01-14T02:30:00.000Z",
+            "content_html": "<p>英语论文写作的时候，一般由以下的结构组成：</p>\n<p>ROS 社区需要遵循一些惯例，比如说 cmd_vel 用来表示控制命令，里程计用 odom 表示，激光雷达用 scan 表示，image_raw 用来表示图像</p>\n<p>怎么在 ros2 里面修改文件</p>\n",
+            "tags": [
+                "C++"
+            ]
+        }
+    ]
+}

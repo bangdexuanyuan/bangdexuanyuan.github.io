@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://bangdexuanyuan.github.io</id>
+    <title> • Posts by &#34;c++&#34; tag</title>
+    <link href="https://bangdexuanyuan.github.io" />
+    <updated>2026-01-14T02:30:00.000Z</updated>
+    <category term="股票交易" />
+    <category term="读博" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="mistake" />
+    <category term="pcb" />
+    <category term="mind" />
+    <category term="stm32" />
+    <category term="单片机" />
+    <category term="水下机器人" />
+    <category term="ROS2" />
+    <category term="ROS" />
+    <category term="DDS通信" />
+    <category term="英语" />
+    <category term="测试" />
+    <category term="ROS指令" />
+    <category term="C++" />
+    <entry>
+        <id>https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+        <title>2026-1-14 C++语言学习</title>
+        <link rel="alternate" href="https://bangdexuanyuan.github.io/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;英语论文写作的时候，一般由以下的结构组成：&lt;/p&gt;
+&lt;p&gt;ROS 社区需要遵循一些惯例，比如说 cmd_vel 用来表示控制命令，里程计用 odom 表示，激光雷达用 scan 表示，image_raw 用来表示图像&lt;/p&gt;
+&lt;p&gt;怎么在 ros2 里面修改文件&lt;/p&gt;
+</content>
+        <category term="C++" />
+        <updated>2026-01-14T02:30:00.000Z</updated>
+    </entry>
+</feed>

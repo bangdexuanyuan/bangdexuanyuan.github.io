@@ -161,11 +161,11 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>最近在调pwm舵机机械臂，发现我在keil Debug对下位机调试的时候，上位机传下来的数据，没有乱，但是反映到机械臂上，就是它会来回抽搐，然后我查询网上资料，有得人说，是因为模拟地和数字地共地得原因，但是之前也是数字地和模拟地共在了一起，当时也是好用得，而且，专家们的意见也不统一，所以这个由这个原因引起的概率十分小，那么问题在哪？</p>
+    <p>最近在调 pwm 舵机机械臂，发现我在 keil Debug 对下位机调试的时候，上位机传下来的数据，没有乱，但是反映到机械臂上，就是它会来回抽搐，然后我查询网上资料，有得人说，是因为模拟地和数字地共地得原因，但是之前也是数字地和模拟地共在了一起，当时也是好用得，而且，专家们的意见也不统一，所以这个由这个原因引起的概率十分小，那么问题在哪？</p>
 <p>频率也对，电压也在额定电压中的，信号线也没有短接。</p>
 <p>抱着试一试的心态，我换了一个机械臂测试，发现，它最终好用了。</p>
-<p>一开始，我只接上了一个舵机，好用，当接上第二个舵机的时候，本来应该一上电就自启动的stm32,它没有自启动，我看到稳压电源的电流值变成了1.3A，正常的时候，电流应该是300ma，所以我猜是舵机赌转了，然后我用万用表去测量，果然是第二次的舵机的正负短接了。但是第二次进入的舵机，我也没有对它操作，所以唯一的可能性就是这个舵机本来就是坏的，事实也是如此。</p>
-<p>综上，如果，你的硬件，软件感觉都没有问题，但是这个机器就是不按照你想的来，那么最好的办法就是换一个舵机，换一块32，有的东西是你改变不了。</p>
+<p>一开始，我只接上了一个舵机，好用，当接上第二个舵机的时候，本来应该一上电就自启动的 stm32, 它没有自启动，我看到稳压电源的电流值变成了 1.3A，正常的时候，电流应该是 300ma，所以我猜是舵机赌转了，然后我用万用表去测量，果然是第二次的舵机的正负短接了。但是第二次进入的舵机，我也没有对它操作，所以唯一的可能性就是这个舵机本来就是坏的，事实也是如此。</p>
+<p>综上，如果，你的硬件，软件感觉都没有问题，但是这个机器就是不按照你想的来，那么最好的办法就是换一个舵机，换一块 32，有的东西是你改变不了。</p>
 
       <div class="tags">
           <a href="/tags/mistake/" rel="tag"><i class="ic i-tag"></i> mistake</a>
@@ -182,6 +182,34 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <span class="text">更新于</span>
     <time title="修改时间：2024-06-08 14:07:47" itemprop="dateModified" datetime="2024-06-08T14:07:47+08:00">2024-06-08</time>
   </span>
+  <span class="item goatcounter-visitors" title="阅读次数">
+    <span class="icon">
+      <i class="ic i-eye"></i>
+    </span>
+    <span class="text">阅读次数</span>
+    <span class="goatcounter-visitors-count">0</span>
+    <span class="text">次</span>
+  </span>
+  <script data-pjax>
+    (function() {
+      var root = document.querySelector('.goatcounter-visitors');
+      if (!root) return;
+      var target = root.querySelector('.goatcounter-visitors-count');
+      if (!target) return;
+      var path = location.pathname;
+      fetch('https://bangdexuanyuan.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+        .then(function(response) {
+          if (!response.ok) throw new Error('goatcounter');
+          return response.json();
+        })
+        .then(function(data) {
+          target.textContent = data.count;
+        })
+        .catch(function() {
+          target.textContent = '0';
+        });
+    })();
+  </script>
 </div>
 
       
@@ -225,7 +253,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030b661c6c8e546e24bd.jpg" title="未命名">
+  <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b4d49f345e8d0397e1c4.webp" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -235,7 +263,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item right">
       
 
-  <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba18661c6c8e54e82041.jpg" title="未命名">
+  <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24c9.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -274,19 +302,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">30</span>
+        <span class="count">43</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">8</span>
+        <span class="count">10</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">12</span>
+        <span class="count">19</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -370,27 +398,10 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
   </li>
 
       
@@ -407,20 +418,59 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
+    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+<a href="/categories/%E8%82%A1%E7%A5%A8/" title="分类于 股票">股票</a>
 </div>
 
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" title="2026.1.5日复盘总结">2026.1.5日复盘总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
@@ -429,7 +479,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -440,25 +490,6 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 </div>
 
     <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
-</div>
-
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
@@ -519,6 +550,17 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <script src="/js/app.js?v=0.2.5"></script>
 
 
+
+
+
+  <script data-goatcounter="https://bangdexuanyuan.goatcounter.com/count"
+          data-goatcounter-settings='{"allow_local": true}'
+          async src="https://gc.zgo.at/count.js"></script>
+  <script data-pjax>
+    if (window.goatcounter && window.goatcounter.count) {
+      goatcounter.count({path: location.pathname});
+    }
+  </script>
 
 
 </body>

@@ -7,18 +7,25 @@
         <language>zh-CN</language>
         <pubDate>Mon, 27 May 2024 21:54:00 +0800</pubDate>
         <lastBuildDate>Mon, 27 May 2024 21:54:00 +0800</lastBuildDate>
+        <category>股票交易</category>
+        <category>读博</category>
+        <category>南京</category>
         <category>哈尔滨生活</category>
         <category>音乐</category>
         <category>青岛生活</category>
-        <category>mind</category>
-        <category>南京</category>
         <category>mistake</category>
-        <category>ROS2</category>
-        <category>英语</category>
+        <category>pcb</category>
+        <category>mind</category>
         <category>stm32</category>
         <category>单片机</category>
         <category>水下机器人</category>
-        <category>pcb</category>
+        <category>ROS2</category>
+        <category>ROS</category>
+        <category>DDS通信</category>
+        <category>英语</category>
+        <category>测试</category>
+        <category>ROS指令</category>
+        <category>C++</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/diary/2024.5.27/</guid>
             <title>2024.5.27随记</title>
