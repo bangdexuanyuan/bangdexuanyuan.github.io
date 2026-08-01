@@ -7,24 +7,23 @@
         <language>zh-CN</language>
         <pubDate>Wed, 13 Sep 2023 10:39:00 +0800</pubDate>
         <lastBuildDate>Wed, 13 Sep 2023 10:39:00 +0800</lastBuildDate>
+        <category>哈尔滨生活</category>
         <category>股票交易</category>
         <category>读博</category>
         <category>南京</category>
-        <category>哈尔滨生活</category>
-        <category>音乐</category>
         <category>青岛生活</category>
-        <category>mistake</category>
-        <category>mind</category>
-        <category>stm32</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
-        <category>ROS指令</category>
+        <category>音乐</category>
         <category>ROS2</category>
+        <category>ROS指令</category>
         <category>DDS通信</category>
-        <category>ROS2, Movax</category>
         <category>ROS</category>
-        <category>英语</category>
         <category>测试</category>
+        <category>英语</category>
+        <category>mind</category>
+        <category>mistake</category>
+        <category>stm32</category>
+        <category>水下机器人</category>
+        <category>单片机</category>
         <category>pcb</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/</guid>
@@ -36,12 +35,12 @@
      data-hbe-format=&#34;4&#34;
      data-wpm=&#34;密码不正确，请重新输入。&#34;
      data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;eddb2a0c5fd435b606019b239e1c14130299cf93fd1e71644ab16795ed46b962&#34;
-     data-nonce=&#34;e542b1c87ef6c45d153c05fa&#34;
+     data-salt=&#34;143ba54d22afa2cf2f29c2b4b8194381a4d161c63b2e8f49a936f2fe7097e1cc&#34;
+     data-nonce=&#34;9736a0ab9546701411bc52cd&#34;
      data-kdf-iterations=&#34;600000&#34;
      data-auto-save=&#34;false&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    5e05ab635bc3d616dfb4cb640140405cee050f270e322f715251aff29f2577a777d533cfe57fd9e42ae533091b0c14f22a4bcb1bacb39521e23aac7f1d7efe43bf5e07c6cdf289aae1ba0bd71fc36823bed44e752b95166485d4996d9e020e0adfebb77570b349d3f56a0ad4ff9cd6d439a9fafcf22a3e39156f991501840289269162c9125cf195a99409c902a59e3c5365e9c5489cd3ae63ce0e0fe877f1a3bb53777d3340ce94b63c216c3db5dc309a6961022fb80c69fa91d5f0a0a626406e1374fe996f9118e091526b72baa8f8a4bc7c048a06fc887370835912595ae6fd380de0037051382265d0d564d3f42c5ef0f5c96e66b1af3ef9c61ea5043b311bbcdb196c9894615b1840883487c0bdf654834fa10fccb20bf42e0365035ea8a69291aaf4b8891753ec019f1fb7467402371c73a07488a1cc6bc15759045e56130da2d5d574e6d59602ea7ef05fbc0eb3e56217b0d2c4a9da82a5b1d2c16882ccc36f5c0ac805f2f20c52a4b5cd675adbbd3f89cb67db09ea1961fa264b1de7ab317bf1f00111c21428036ecaf386a629f87e4ccb62218304dc0b839c6aea020379d02b1a57168fb7bc7e70055ae540dc8c4f60a6321523040d3775db03d75675c18b04d9e63ee226c85831695bd18103f079c16cdf0da6387180d11ef4d8abc7d36ef69a5e9011c0fec7ada6af7abc55131ac60893d505bdba49e7900dca9d3d670b9483f20f1dc99d05b561b13d444bfd92bba218c80df36532d93ac1d97d03cd1f152c3e0312368497e732b4dbf6834de996e97c0a109fada42deeda8a58bd64b5548610d245c94e363858b85a2773f681c1a771289e4ce8ed53546b792af6ee57120a53b489880c64abda45958c72c7ab376e1d4e1a2e6893cc2d7a6c74725df435ce8059e5b92529e273ce3edf07b4d07eb6f37745382e2fda2d36df090c369fd2f8883a2542a27a9d32b5ae916a97a9ad1141c4a83aac16521a2235e21b43b10463dede73a0
+    5e888b1fedcc67c809755a299a9367c56cc75e256962cfb8834c0eab67807a9486b4fb200d41d30c1123bf141bc60f545cb29a4248c73840c3579a839d3ae7e4f6b1ac5df66c925af454854f5d9787756198dfa352c74860edd9a092181423fd5f77967c3994f90aba0e6b390c90a8fd6e8dd82c7c3a20debc968aba76e319cf750e1d21241a169d2f390d3d40b1a5e62cf822e4ef3721b81cf75c2f599c94e3a2d58624a094ce0ea75b9d8df4a9de3e6506cd091c7f01d1100d922b2062319715590bfba833dbb6c4cd89bfeeda5454527631b408faa5669345831bed3b69308ad6459334319450ac7a985e554cf7f71224f10617ea4bec0108b1fac77d6259011f92ce8fd27e882fbbd1f16b6d82bc69e173e5f2e3d6a5007f0053214dc8cb0af8a431542ee5e30b782e3b1150e98d7b13df704dc2edb2d2e4485c4d56204fba28f21a6676122f881b0f6d3ac4f4ea32711877d3ee9ed78df0a0069616ccf2cf7972a584467e775df5e5433843ae3a6b4bda1a4c83f2b5243b0c2d5d4c90df28ebf3133cae736279dbf6acbe4465389d23df4e80c9852ff546f2a6844e2a575714ac72ced3676be1af14ea4d61c77e68afdf29efbbc09c29a7e6ae25d8559cfafef04bd58634a7d9b3736ce30f7bb6274f2c73fe8c6e67a1b1e6d83e0dfb1f9e6a688259ea4c65049b63d7b095b0537edfb9809b62f63502c6337f0046ed7f720462bc39af7505eef4ab7fb7438acc38fc5592639d5babbb2d1b0396467aeee73c16a46614e613370390de98a26271914b90db7c78e8968a7f4274efba76e6d2b3d8d574790971846a7308c04bb72e224f11dc61114cdafa497ebdf7f17f4cc2ebdc6c43daad93475ee8f08a8903dae6c0d27babd2c3550093b03cffadda027f6678a18bb4ed769f93d80ed2b133bd3aa3c653bd12b1b0c19fd1f262b01e0df919784b1f7db6ef69fd5b31666da35c1617d40fc5f3b0362641a7c28149ef136b6642640da44c308c
   &lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
