@@ -2314,6 +2314,14 @@ const siteInit = function () {
 
   domInit()
 
+  // PJAX's in-page requests hang on some networks; navigate normally instead.
+  if (window.Pjax) {
+    window.Pjax.prototype.doRequest = function(location) {
+      window.location.assign(location);
+      return null;
+    };
+  }
+
   pjax = new Pjax({
             selectors: [
               'head title',
