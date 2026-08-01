@@ -7,25 +7,25 @@
         <language>zh-CN</language>
         <pubDate>Mon, 12 Jan 2026 17:40:00 +0800</pubDate>
         <lastBuildDate>Mon, 12 Jan 2026 17:40:00 +0800</lastBuildDate>
-        <category>股票交易</category>
-        <category>读博</category>
-        <category>哈尔滨生活</category>
-        <category>南京</category>
-        <category>pcb</category>
-        <category>音乐</category>
         <category>mistake</category>
         <category>mind</category>
+        <category>南京</category>
+        <category>哈尔滨生活</category>
+        <category>音乐</category>
+        <category>读博</category>
         <category>青岛生活</category>
+        <category>股票交易</category>
+        <category>pcb</category>
         <category>stm32</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
         <category>ROS指令</category>
         <category>ROS2</category>
-        <category>ROS2, Movax</category>
         <category>DDS通信</category>
+        <category>ROS2, Movax</category>
+        <category>测试</category>
         <category>ROS</category>
         <category>英语</category>
-        <category>测试</category>
+        <category>单片机</category>
+        <category>水下机器人</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
             <title>ROS2命令学习</title>
@@ -37,13 +37,21 @@
 &lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL2luZGV4Lmh0bWw=&#34;&gt;ROS 2 Documentation（官方）&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vcm9sbGluZy9Db25jZXB0cy9BYm91dC1ST1MtMi5odG1s&#34;&gt;About ROS 2&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;几个理解：&lt;/p&gt;
-&lt;p&gt;**工作空间 (Workspace)**：存放你所有 ROS2 项目代码的文件夹，常用结构为 &lt;code&gt;src/&lt;/code&gt;（源码）+ &lt;code&gt;build/&lt;/code&gt;、&lt;code&gt;install/&lt;/code&gt;、&lt;code&gt;log/&lt;/code&gt;（构建产物）。&lt;code&gt;ros2_ws&lt;/code&gt; 只是社区常用命名，不是强制约定；构建工具是 &lt;code&gt;colcon&lt;/code&gt;&lt;br&gt;**功能包 (Package)**：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和 &lt;code&gt;package.xml&lt;/code&gt;、&lt;code&gt;CMakeLists.txt&lt;/code&gt;（或 &lt;code&gt;setup.py&lt;/code&gt;）等规范&lt;br&gt;**节点 (Node)**：ROS2 中最小的可执行单元。代码本身只是程序，&lt;code&gt;ros2 run&lt;/code&gt; 运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职&lt;br&gt;**话题 (Topic)**：ROS2 最常用的异步通信方式（发布 &amp;#x2F; 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到 &lt;code&gt;/image&lt;/code&gt; 话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心&lt;br&gt;**服务 (Service)**：ROS2 的同步请求 &amp;#x2F; 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景&lt;br&gt;**参数 (Parameter)**：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效&lt;br&gt;**接口 (Interface)**：通信的数据格式约定，话题 &amp;#x2F; 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（&lt;code&gt;std_msgs&lt;/code&gt;、&lt;code&gt;geometry_msgs&lt;/code&gt;、&lt;code&gt;sensor_msgs&lt;/code&gt; 等），也可以自定义接口&lt;br&gt;&lt;strong&gt;RMW（ROS Middleware）&lt;/strong&gt;：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 &lt;strong&gt;Fast DDS&lt;/strong&gt;，也可以用 &lt;strong&gt;Cyclone DDS&lt;/strong&gt;；&lt;code&gt;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&lt;/code&gt; 可切换&lt;/p&gt;
-&lt;p&gt;geometry_msgs&amp;#x2F;Twist&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作空间 (Workspace)&lt;/strong&gt;：存放你所有 ROS2 项目代码的文件夹，常用结构为  &lt;code&gt;src/&lt;/code&gt; （源码）+  &lt;code&gt;build/&lt;/code&gt; 、 &lt;code&gt;install/&lt;/code&gt; 、 &lt;code&gt;log/&lt;/code&gt; （构建产物）。 &lt;code&gt;ros2_ws&lt;/code&gt;  只是社区常用命名，不是强制约定；构建工具是  &lt;code&gt;colcon&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 功能包 (Package)&lt;/strong&gt;：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和  &lt;code&gt;package.xml&lt;/code&gt; 、 &lt;code&gt;CMakeLists.txt&lt;/code&gt; （或  &lt;code&gt;setup.py&lt;/code&gt; ）等规范&lt;br&gt;
+&lt;strong&gt;节点 (Node)&lt;/strong&gt;：ROS2 中最小的可执行单元。代码本身只是程序， &lt;code&gt;ros2 run&lt;/code&gt;  运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职&lt;br&gt;
+&lt;strong&gt;话题 (Topic)&lt;/strong&gt;：ROS2 最常用的异步通信方式（发布 / 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到  &lt;code&gt;/image&lt;/code&gt;  话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心&lt;br&gt;
+&lt;strong&gt;服务 (Service)&lt;/strong&gt;：ROS2 的同步请求 / 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景&lt;br&gt;
+&lt;strong&gt;参数 (Parameter)&lt;/strong&gt;：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效&lt;br&gt;
+&lt;strong&gt;接口 (Interface)&lt;/strong&gt;：通信的数据格式约定，话题 / 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（ &lt;code&gt;std_msgs&lt;/code&gt; 、 &lt;code&gt;geometry_msgs&lt;/code&gt; 、 &lt;code&gt;sensor_msgs&lt;/code&gt;  等），也可以自定义接口&lt;br&gt;
+&lt;strong&gt; RMW（ROS Middleware）&lt;/strong&gt;：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 &lt;strong&gt;Fast DDS&lt;/strong&gt;，也可以用 &lt;strong&gt;Cyclone DDS&lt;/strong&gt;； &lt;code&gt;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&lt;/code&gt;  可切换&lt;/p&gt;
+&lt;p&gt;geometry_msgs/Twist&lt;/p&gt;
 &lt;p&gt;geometry_msgs::msg::Vector3&lt;/p&gt;
-&lt;p&gt;下面分析一下ROS2中的几种消息类型：&lt;/p&gt;
+&lt;p&gt;下面分析一下 ROS2 中的几种消息类型：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Point&lt;/p&gt;
-&lt;p&gt;Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为 &lt;code&gt;geometry_msgs/msg/Point&lt;/code&gt;，C++ 写法如下：&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Point&lt;/p&gt;
+&lt;p&gt;Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为  &lt;code&gt;geometry_msgs/msg/Point&lt;/code&gt; ，C++ 写法如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/point.hpp&amp;gt;
 
 geometry_msgs::msg::Point point;
@@ -52,7 +60,8 @@ point.y = 2.0;
 point.z = 3.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Vector3&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Vector3&lt;/p&gt;
 &lt;p&gt;Vector3 用于表示三维空间中的一个向量，同样有三个浮点类型的成员变量：x, y, z。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/vector3.hpp&amp;gt;
 
@@ -62,8 +71,9 @@ vector.y = 2.0;
 vector.z = 3.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Quaternion&lt;/p&gt;
-&lt;p&gt;Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示“不旋转”。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Quaternion&lt;/p&gt;
+&lt;p&gt;Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示 “不旋转”。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/quaternion.hpp&amp;gt;
 
 geometry_msgs::msg::Quaternion quaternion;
@@ -73,7 +83,8 @@ quaternion.z = 0.0;
 quaternion.w = 1.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pose&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Pose&lt;/p&gt;
 &lt;p&gt;Pose 用于表示机器人在三维空间中的位置和方向，包含一个 Point 类型的成员变量 position 和一个 Quaternion 类型的成员变量 orientation。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/pose.hpp&amp;gt;
 
@@ -87,7 +98,8 @@ pose.orientation.z = 0.0;
 pose.orientation.w = 1.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/twist.hpp&amp;gt;
 
 geometry_msgs::msg::Twist twist;
@@ -108,24 +120,19 @@ twist.angular.z = 1.0;
             <link>https://bangdexuanyuan.github.io/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/</link>
             <category>ROS2, Movax</category>
             <pubDate>Wed, 07 Jan 2026 10:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;mkdir -p ~&amp;#x2F;catkin_ws&amp;#x2F;src&lt;/p&gt;
-&lt;p&gt;其中-p的含义是，当我们的父结构catkin_ws没有的时候，会自动创建这个文件夹，如果有，直接在catkin_ws里面创建src这个文件&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;mkdir -p ~/catkin_ws/src&lt;/p&gt;
+&lt;p&gt;其中 - p 的含义是，当我们的父结构 catkin_ws 没有的时候，会自动创建这个文件夹，如果有，直接在 catkin_ws 里面创建 src 这个文件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;更正：&lt;code&gt;catkin_ws&lt;/code&gt; 是 ROS 1 的工作空间习惯命名，ROS 2 用 &lt;code&gt;colcon&lt;/code&gt; 构建，常见命名是 &lt;code&gt;ros2_ws&lt;/code&gt;，但工作空间名字本身不强制。ROS 2 的标准目录结构是 &lt;code&gt;src/&lt;/code&gt;（源码）、&lt;code&gt;build/&lt;/code&gt;（中间文件）、&lt;code&gt;install/&lt;/code&gt;（可安装产物）、&lt;code&gt;log/&lt;/code&gt;（日志）。&lt;/p&gt;
+&lt;p&gt;更正： &lt;code&gt;catkin_ws&lt;/code&gt;  是 ROS 1 的工作空间习惯命名，ROS 2 用  &lt;code&gt;colcon&lt;/code&gt;  构建，常见命名是  &lt;code&gt;ros2_ws&lt;/code&gt; ，但工作空间名字本身不强制。ROS 2 的标准目录结构是  &lt;code&gt;src/&lt;/code&gt; （源码）、 &lt;code&gt;build/&lt;/code&gt; （中间文件）、 &lt;code&gt;install/&lt;/code&gt; （可安装产物）、 &lt;code&gt;log/&lt;/code&gt; （日志）。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;为什么要对机械臂进行FFT分析&lt;/p&gt;
-&lt;p&gt;Movax底盘指令：&lt;/p&gt;
-&lt;p&gt;谁传给了底盘，底盘是由工控机还是thor控制的？&lt;/p&gt;
-&lt;p&gt;据我目前所知，应该是工控机控制底盘的运动，同时控制can夹爪的运动&lt;/p&gt;
-&lt;p&gt;Movax控制器对外直接提供基于ROS2  Topic的速度指令，控制接口以及速度状态反馈&lt;/p&gt;
+&lt;p&gt;为什么要对机械臂进行 FFT 分析&lt;/p&gt;
+&lt;p&gt;Movax 底盘指令：&lt;/p&gt;
+&lt;p&gt;谁传给了底盘，底盘是由工控机还是 thor 控制的？&lt;/p&gt;
+&lt;p&gt;据我目前所知，应该是工控机控制底盘的运动，同时控制 can 夹爪的运动&lt;/p&gt;
+&lt;p&gt;Movax 控制器对外直接提供基于 ROS2  Topic 的速度指令，控制接口以及速度状态反馈&lt;/p&gt;
 &lt;p&gt;使用&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;geometry_msgs::msg::Vector3进行消息的传递和发送
-x           x方向的移动速度          m/s
-y           y方向的移动速度          m/s
-z           z方向的移动速度          m/s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;补充：控制机器人底盘更标准的 ROS 2 消息是 &lt;code&gt;geometry_msgs/msg/Twist&lt;/code&gt;，它由 &lt;code&gt;linear&lt;/code&gt;（线速度）和 &lt;code&gt;angular&lt;/code&gt;（角速度）两个 &lt;code&gt;Vector3&lt;/code&gt; 组成，单位为 m&amp;#x2F;s 和 rad&amp;#x2F;s。底盘控制话题的社区通用命名是 &lt;code&gt;/cmd_vel&lt;/code&gt;。如果公司资料里 Movax 控制器直接暴露 Vector3 速度接口，说明这是厂家自定义接口，实际对接时以厂家 SDK &amp;#x2F; 接口文档为准。&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;geometry_msgs&lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;Vector3进行消息的传递和发送&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;x           x方向的移动速度          m&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;y           y方向的移动速度          m&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;z           z方向的移动速度          m&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;补充：控制机器人底盘更标准的 ROS 2 消息是  &lt;code&gt;geometry_msgs/msg/Twist&lt;/code&gt; ，它由  &lt;code&gt;linear&lt;/code&gt; （线速度）和  &lt;code&gt;angular&lt;/code&gt; （角速度）两个  &lt;code&gt;Vector3&lt;/code&gt;  组成，单位为 m/s 和 rad/s。底盘控制话题的社区通用命名是  &lt;code&gt;/cmd_vel&lt;/code&gt; 。如果公司资料里 Movax 控制器直接暴露 Vector3 速度接口，说明这是厂家自定义接口，实际对接时以厂家 SDK / 接口文档为准。&lt;/p&gt;
 &lt;/blockquote&gt;
  ]]></description>
         </item>
@@ -135,204 +142,131 @@ z           z方向的移动速度          m/s
             <link>https://bangdexuanyuan.github.io/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/</link>
             <category>DDS通信</category>
             <pubDate>Tue, 06 Jan 2026 15:30:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h4 id=&#34;1-概述：&#34;&gt;&lt;a href=&#34;#1-概述：&#34; class=&#34;headerlink&#34; title=&#34;1.概述：&#34;&gt;&lt;/a&gt;&lt;strong&gt;1.概述：&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;常见的一些通信模式&lt;/p&gt;
+            <description><![CDATA[ &lt;h4 id=&#34;1概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1概述&#34;&gt;#&lt;/a&gt; &lt;strong&gt;1. 概述：&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;常见的一些通信模式&lt;/p&gt;
 &lt;p&gt;（1）广播模型&lt;/p&gt;
 &lt;p&gt;所有节点都可以在通道上广播消息，并且节点都可以收到消息。这个模型解决了服务器地址的问题，而且通信双方也不用单&lt;/p&gt;
 &lt;p&gt;独建立连接，但是广播通道上的消息太多了，所有节点都必须关心每条消息，其实很多是和自己没有关系的。&lt;/p&gt;
-&lt;p&gt;（2）DDS通信（以数据为中心模式）&lt;/p&gt;
+&lt;p&gt;（2）DDS 通信（以数据为中心模式）&lt;/p&gt;
 &lt;p&gt;以数据为中心的 DDS 模型与广播模型有些类似：所有节点都可以在数据总线上发布和订阅消息，但每个节点只关心自己感兴趣的消息，忽略与自己无关的消息。可以理解成一个有很多独立通道的传送带，我们只取自己需要的那些。&lt;/p&gt;
 &lt;p&gt;DDS（Data Distribution Service）本身是 OMG 制定的&lt;strong&gt;实时数据分发标准&lt;/strong&gt;，不是 ROS 专属概念；ROS 2 只是选择 DDS 作为默认通信实现，并在其上封装了话题、服务、动作等 ROS 层接口。QoS（服务质量）是 DDS 的核心能力，用来描述消息在可靠性、时效性、持久性等方面的传递要求。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL0NvbmNlcHRzL0Fib3V0LUREUy5odG1s&#34;&gt;ROS 2 关于 DDS 的官方说明&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL0NvbmNlcHRzL0Fib3V0LVF1YWxpdHktb2YtU2VydmljZS1TZXR0aW5ncy5odG1s&#34;&gt;About QoS&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://static.getiot.tech/ROS2-Architecture-Overview.png#center&#34; alt=&#34;ROS2 软件架构&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;2-DDS实际应用场景：&#34;&gt;&lt;a href=&#34;#2-DDS实际应用场景：&#34; class=&#34;headerlink&#34; title=&#34;2.DDS实际应用场景：&#34;&gt;&lt;/a&gt;2.DDS实际应用场景：&lt;/h4&gt;&lt;p&gt;比如说我们对外循环发送42这个数据&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 topic pub /chatter std_msgs/msg/Int32 &amp;quot;data: 42&amp;quot; --qos-reliability best_effort
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;（1） &lt;em&gt;&lt;strong&gt;ros2 topic pub&lt;/strong&gt;&lt;/em&gt;   这里的pub其实是publish的省略，是出版发送的意思&lt;/p&gt;
+&lt;h4 id=&#34;2dds实际应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2dds实际应用场景&#34;&gt;#&lt;/a&gt; 2.DDS 实际应用场景：&lt;/h4&gt;
+&lt;p&gt;比如说我们对外循环发送 42 这个数据&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chatter std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32 &lt;span class=&#34;token string&#34;&gt;&#34;data: 42&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;（1） &lt;em&gt;&lt;strong&gt;ros2 topic pub&lt;/strong&gt;&lt;/em&gt;   这里的 pub 其实是 publish 的省略，是出版发送的意思&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;作用&lt;/strong&gt;：ROS 2的命令行工具，用于向指定话题发布消息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作用&lt;/strong&gt;：ROS 2 的命令行工具，用于向指定话题发布消息&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：就像你在微信群里发送一条消息&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;替代工具&lt;/strong&gt;：也可以使用编程方式（Python&amp;#x2F;C++节点）发布消息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;替代工具&lt;/strong&gt;：也可以使用编程方式（Python/C++ 节点）发布消息&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;（2） &lt;em&gt;&lt;strong&gt;&lt;code&gt;/chatter&lt;/code&gt;&lt;/strong&gt;&lt;/em&gt;        这个通道的名称可以是任意的，是自己起的名字&lt;/p&gt;
+&lt;p&gt;（2） &lt;em&gt;&lt;strong&gt; &lt;code&gt;/chatter&lt;/code&gt; &lt;/strong&gt;&lt;/em&gt;        这个通道的名称可以是任意的，是自己起的名字&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;作用&lt;/strong&gt;：话题名称，消息将被发布到这个”通道”&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;命名约定&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;以斜杠&lt;code&gt;/&lt;/code&gt;开头，形成命名空间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作用&lt;/strong&gt;：话题名称，消息将被发布到这个 &amp;quot;通道&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命名约定&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;以斜杠 &lt;code&gt;/&lt;/code&gt;  开头，形成命名空间&lt;/li&gt;
 &lt;li&gt;通常使用小写字母和下划线&lt;/li&gt;
-&lt;li&gt;示例：&lt;code&gt;/robot/speed&lt;/code&gt;、&lt;code&gt;/sensor/temperature&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;示例： &lt;code&gt;/robot/speed&lt;/code&gt; 、 &lt;code&gt;/sensor/temperature&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;实际场景&lt;/strong&gt;：可以是任何节点订阅的话题名&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;（3）***&lt;code&gt;std_msgs/msg/Int32&lt;/code&gt;***&lt;/p&gt;
+&lt;p&gt;（3）&lt;em&gt;&lt;strong&gt; &lt;code&gt;std_msgs/msg/Int32&lt;/code&gt; &lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：消息类型，定义了数据的结构&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：消息类型，定义了数据的结构&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;官方格式&lt;/strong&gt;：&lt;code&gt;&amp;lt;package&amp;gt;/&amp;lt;interface type&amp;gt;/&amp;lt;interface name&amp;gt;&lt;/code&gt;，例如 &lt;code&gt;std_msgs/msg/Int32&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;官方格式&lt;/strong&gt;： &lt;code&gt;&amp;lt;package&amp;gt;/&amp;lt;interface type&amp;gt;/&amp;lt;interface name&amp;gt;&lt;/code&gt; ，例如  &lt;code&gt;std_msgs/msg/Int32&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;分解&lt;/strong&gt;：&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;分解&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;std_msgs&lt;/code&gt;：标准消息包（ROS 2内置）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;msg&lt;/code&gt;：包内的消息目录&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Int32&lt;/code&gt;：具体的消息类型（32位整数）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;std_msgs&lt;/code&gt; ：标准消息包（ROS 2 内置）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;msg&lt;/code&gt; ：包内的消息目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Int32&lt;/code&gt; ：具体的消息类型（32 位整数）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;查看消息结构&lt;/strong&gt;：&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;查看消息结构&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;bash&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 查看Int32消息的定义
-ros2 interface show std_msgs/msg/Int32
-
-# 输出：
-# int32 data
-#  ↓      ↓
-# 类型   字段名
-&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 查看Int32消息的定义&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 interface show std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 输出：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt; &lt;span class=&#34;token directive keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token number&#34;&gt;32&lt;/span&gt; data&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;#  ↓      ↓&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 类型   字段名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;常用消息类型&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;String     # 字符串&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Float32    # &lt;span class=&#34;token number&#34;&gt;32&lt;/span&gt;位浮点数&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;geometry_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Twist # 速度指令（线速度和角速度）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sensor_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;LaserScan # 激光雷达数据&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# ✅ 标准消息&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;String&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;geometry_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Twist&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sensor_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;LaserScan&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;（4） &lt;strong&gt; &lt;code&gt;&amp;quot;data: 42&amp;quot;&lt;/code&gt; &lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;常用消息类型&lt;/strong&gt;：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;std_msgs/msg/String     # 字符串
-std_msgs/msg/Float32    # 32位浮点数
-geometry_msgs/msg/Twist # 速度指令（线速度和角速度）
-sensor_msgs/msg/LaserScan # 激光雷达数据
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# ✅ 标准消息
-std_msgs/msg/String
-geometry_msgs/msg/Twist
-sensor_msgs/msg/LaserScan
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;（4） &lt;strong&gt;&lt;code&gt;&amp;quot;data: 42&amp;quot;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：消息的具体内容，采用 YAML 格式&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：消息的具体内容，采用YAML格式&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;： &lt;code&gt;字段名: 值&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;：&lt;code&gt;字段名: 值&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;： &lt;code&gt;ros2 topic pub&lt;/code&gt;  默认只发布一次，想要持续发送需要加  &lt;code&gt;--rate 1&lt;/code&gt; （每秒 1 次），否则另一个终端的  &lt;code&gt;echo&lt;/code&gt;  可能只看到一条消息就结束&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：&lt;code&gt;ros2 topic pub&lt;/code&gt; 默认只发布一次，想要持续发送需要加 &lt;code&gt;--rate 1&lt;/code&gt;（每秒 1 次），否则另一个终端的 &lt;code&gt;echo&lt;/code&gt; 可能只看到一条消息就结束&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;对应关系&lt;/strong&gt;：&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;对应关系&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;yaml&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# Int32消息只有一个字段&amp;quot;data&amp;quot;
-data: 42
-
-# 复杂消息示例（Twist消息）
-linear:
-  x: 0.5
-  y: 0.0
-  z: 0.0
-angular:
-  x: 0.0
-  y: 0.0
-  z: 0.2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;特殊值&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;Int32消息只有一个字段&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;data&#34;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;data&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;42&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 复杂消息示例（Twist消息）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;linear&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  x&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  y&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  z&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;angular&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  x&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  y&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  z&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;特殊值&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;bash&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 发布空消息
-ros2 topic pub /topic std_msgs/msg/Empty &amp;quot;&amp;quot;
-
-# 布尔值
-ros2 topic pub /topic std_msgs/msg/Bool &amp;quot;data: true&amp;quot;
-
-# 字符串（注意引号）
-ros2 topic pub /topic std_msgs/msg/String &amp;quot;data: &amp;#39;Hello ROS 2&amp;#39;&amp;quot;
-
-# 数组
-ros2 topic pub /topic std_msgs/msg/Int32MultiArray &amp;quot;data: [1, 2, 3, 4]&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 发布空消息&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;topic std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Empty &lt;span class=&#34;token string&#34;&gt;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 布尔值&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;topic std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Bool &lt;span class=&#34;token string&#34;&gt;&#34;data: true&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 字符串（注意引号）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;topic std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;String &lt;span class=&#34;token string&#34;&gt;&#34;data: &#39;Hello ROS 2&#39;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 数组&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;topic std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32MultiArray &lt;span class=&#34;token string&#34;&gt;&#34;data: [1, 2, 3, 4]&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
 &lt;li&gt;需要注意的地方&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在发送语句里面&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 topic pub /character std_msgs/msg/Int32 &amp;quot;data: 56&amp;quot; --qos-reliability best_effort
-    如果不加空格的话，那么虚拟机终端就会返回
-u@u-virtual-machine:~$ ros2 topic pub /fasong std_msgs/msg/Int32 &amp;quot;data:42&amp;quot; --qos-reliability best_effort
-The passed value needs to be a dictionary in YAML format
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;data:42&lt;/code&gt; 报错的原因不是单纯“缺一个空格”：YAML 里 &lt;code&gt;data: 42&lt;/code&gt; 会被解析成字典 &lt;code&gt;&amp;#123;&amp;quot;data&amp;quot;: 42&amp;#125;&lt;/code&gt;，而 &lt;code&gt;data:42&lt;/code&gt; 会被当作普通字符串，命令行工具要求传入的是字典格式，所以提示 &lt;code&gt;The passed value needs to be a dictionary in YAML format&lt;/code&gt;。因此冒号后必须留一个空格，这是 YAML 语法要求&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# ✅ 正确语法（冒号后必须有空格）
-key: value
-data: 42
-name: &amp;quot;John&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(5) &lt;strong&gt;&lt;code&gt;--qos-reliability best_effort&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;character std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32 &lt;span class=&#34;token string&#34;&gt;&#34;data: 56&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    如果不加空格的话，那么虚拟机终端就会返回&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;u@u&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;virtual&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;machine&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;~&lt;/span&gt;$ ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;fasong std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32 &lt;span class=&#34;token string&#34;&gt;&#34;data:42&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;The passed value needs to be a dictionary in YAML format&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;data:42&lt;/code&gt;  报错的原因不是单纯 “缺一个空格”：YAML 里  &lt;code&gt;data: 42&lt;/code&gt;  会被解析成字典  &lt;code&gt;&amp;#123;&amp;quot;data&amp;quot;: 42&amp;#125;&lt;/code&gt; ，而  &lt;code&gt;data:42&lt;/code&gt;  会被当作普通字符串，命令行工具要求传入的是字典格式，所以提示  &lt;code&gt;The passed value needs to be a dictionary in YAML format&lt;/code&gt; 。因此冒号后必须留一个空格，这是 YAML 语法要求&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# ✅ 正确语法（冒号后必须有空格）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;key&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; value&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;data&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;42&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;name&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;John&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;(5) &lt;strong&gt; &lt;code&gt;--qos-reliability best_effort&lt;/code&gt; &lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：指定服务质量策略中的可靠性设置&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：指定服务质量策略中的可靠性设置&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;QoS（Quality of Service）&lt;/strong&gt;：ROS 2的核心特性，控制消息传递的行为&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;QoS（Quality of Service）&lt;/strong&gt;：ROS 2 的核心特性，控制消息传递的行为&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;重要规则&lt;/strong&gt;：发布方与订阅方的 QoS 必须“兼容”，&lt;code&gt;reliable&lt;/code&gt; 和 &lt;code&gt;best_effort&lt;/code&gt; 不能互通，这是 ROS 2 里很常见的调试问题&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;重要规则&lt;/strong&gt;：发布方与订阅方的 QoS 必须 “兼容”， &lt;code&gt;reliable&lt;/code&gt;  和  &lt;code&gt;best_effort&lt;/code&gt;  不能互通，这是 ROS 2 里很常见的调试问题&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h6 id=&#34;可靠性策略选项：&#34;&gt;&lt;a href=&#34;#可靠性策略选项：&#34; class=&#34;headerlink&#34; title=&#34;可靠性策略选项：&#34;&gt;&lt;/a&gt;&lt;strong&gt;可靠性策略选项&lt;/strong&gt;：&lt;/h6&gt;&lt;table&gt;
+&lt;h6 id=&#34;可靠性策略选项&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可靠性策略选项&#34;&gt;#&lt;/a&gt; &lt;strong&gt;可靠性策略选项&lt;/strong&gt;：&lt;/h6&gt;
+&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;策略&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;含义&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;适用场景&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;性能影响&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;策略&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;含义&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;适用场景&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;性能影响&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;best_effort&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;尽力而为&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;高频传感器数据（摄像头、激光雷达）&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;低延迟，可能丢失消息&lt;/td&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;best_effort&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;尽力而为&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;高频传感器数据（摄像头、激光雷达）&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;低延迟，可能丢失消息&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;reliable&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;可靠传输&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;控制指令、配置信息&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;保证送达，可能有延迟&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;reliable&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;可靠传输&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;控制指令、配置信息&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;保证送达，可能有延迟&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;h6 id=&#34;实际对比：&#34;&gt;&lt;a href=&#34;#实际对比：&#34; class=&#34;headerlink&#34; title=&#34;实际对比：&#34;&gt;&lt;/a&gt;&lt;strong&gt;实际对比&lt;/strong&gt;：&lt;/h6&gt;&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 场景1：发布激光雷达数据（允许偶尔丢失）
-ros2 topic pub /lidar sensor_msgs/msg/LaserScan &amp;quot;...&amp;quot; --qos-reliability best_effort
-
-# 场景2：发布紧急停止指令（必须送达）
-ros2 topic pub /emergency_stop std_msgs/msg/Bool &amp;quot;data: true&amp;quot; --qos-reliability reliable
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;其他常用QoS参数&lt;/strong&gt;：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 设置持久性（新订阅者能否收到历史消息）
---qos-durability volatile          # 不保存（默认，新订阅者只能收到订阅之后的消息）
---qos-durability transient_local   # 保存最后一条，晚到的订阅者也能收到
-
-# 设置历史深度（保存多少条消息）
---qos-depth 10                     # 保存10条历史消息
-
-# 设置存活策略（检测发布者是否存活）
---qos-liveliness automatic         # 自动检测
---qos-liveliness manual_by_topic   # 手动声明
-
-# 设置截止时间（消息必须在指定时间内送达）
---qos-deadline 1000                # 1000毫秒（1秒）
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;3-ROS-2-接口规范&#34;&gt;&lt;a href=&#34;#3-ROS-2-接口规范&#34; class=&#34;headerlink&#34; title=&#34;3.ROS 2 接口规范&#34;&gt;&lt;/a&gt;3.&lt;strong&gt;ROS 2 接口规范&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;完整的消息类型格式为：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;[包名]/[接口类型]/[具体类型名]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;ROS 2 有三种类型的接口，必须明确指定：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 消息（Message） → 必须有 /msg/
-std_msgs/msg/Int32          # 数据消息
-
-# 服务（Service） → 必须有 /srv/
-example_interfaces/srv/AddTwoInts
-
-# 动作（Action） → 必须有 /action/
-example_interfaces/action/Fibonacci
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;4-实际通讯&#34;&gt;&lt;a href=&#34;#4-实际通讯&#34; class=&#34;headerlink&#34; title=&#34;4.实际通讯&#34;&gt;&lt;/a&gt;4.实际通讯&lt;/h4&gt;&lt;p&gt;其中一个终端，运行&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 topic pub /chatter std_msgs/msg/Int32 &amp;quot;data: 42&amp;quot; --qos-reliability best_effort
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;另一个终端负责接收&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 topic echo /chatter --qos-reliability best_effort
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;echo是一个完整的英文单词，就是回显的意思，其实就是发送者发什么，你显示什么&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 topic echo    # 回显话题内容（一看就懂）
-ros2 topic list    # 列出当前所有话题
-ros2 topic info /chatter   # 查看话题的类型、发布者、订阅者数量
-ros2 topic hz /chatter     # 统计消息发布频率
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;更正：之前写的 &lt;code&gt;ros2 topic print&lt;/code&gt; 不是 ROS 2 的命令，正确命令是 &lt;code&gt;ros2 topic echo&lt;/code&gt;。需要排查话题时，用 &lt;code&gt;ros2 topic list&lt;/code&gt;、&lt;code&gt;ros2 topic info&lt;/code&gt;、&lt;code&gt;ros2 topic hz&lt;/code&gt; 这几个官方 CLI 工具即可。&lt;/p&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h6 id=&#34;实际对比&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实际对比&#34;&gt;#&lt;/a&gt; &lt;strong&gt;实际对比&lt;/strong&gt;：&lt;/h6&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 场景&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;：发布激光雷达数据（允许偶尔丢失）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;lidar sensor_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;LaserScan &lt;span class=&#34;token string&#34;&gt;&#34;...&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 场景&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;：发布紧急停止指令（必须送达）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;emergency_stop std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Bool &lt;span class=&#34;token string&#34;&gt;&#34;data: true&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability reliable&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;其他常用 QoS 参数&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 设置持久性（新订阅者能否收到历史消息）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;durability &lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt;          # 不保存（默认，新订阅者只能收到订阅之后的消息）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;durability transient_local   # 保存最后一条，晚到的订阅者也能收到&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 设置历史深度（保存多少条消息）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;depth &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;                     # 保存&lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;条历史消息&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 设置存活策略（检测发布者是否存活）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;liveliness automatic         # 自动检测&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;liveliness manual_by_topic   # 手动声明&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 设置截止时间（消息必须在指定时间内送达）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;deadline &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;                # &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;毫秒（&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;秒）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;3ros-2-接口规范&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3ros-2-接口规范&#34;&gt;#&lt;/a&gt; 3.&lt;strong&gt;ROS 2 接口规范&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;完整的消息类型格式为：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;包名&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;接口类型&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;具体类型名&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;ROS 2 有三种类型的接口，必须明确指定：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 消息（Message） → 必须有 &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32          # 数据消息&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 服务（Service） → 必须有 &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;srv&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;example_interfaces&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;srv&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;AddTwoInts&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 动作（Action） → 必须有 &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;action&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;example_interfaces&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;action&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Fibonacci&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;4实际通讯&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4实际通讯&#34;&gt;#&lt;/a&gt; 4. 实际通讯&lt;/h4&gt;
+&lt;p&gt;其中一个终端，运行&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic pub &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chatter std_msgs&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;msg&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;Int32 &lt;span class=&#34;token string&#34;&gt;&#34;data: 42&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;另一个终端负责接收&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic echo &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chatter &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;qos&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;reliability best_effort&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;echo 是一个完整的英文单词，就是回显的意思，其实就是发送者发什么，你显示什么&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic echo    # 回显话题内容（一看就懂）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic list    # 列出当前所有话题&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic info &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chatter   # 查看话题的类型、发布者、订阅者数量&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 topic hz &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;chatter     # 统计消息发布频率&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;更正：之前写的  &lt;code&gt;ros2 topic print&lt;/code&gt;  不是 ROS 2 的命令，正确命令是  &lt;code&gt;ros2 topic echo&lt;/code&gt; 。需要排查话题时，用  &lt;code&gt;ros2 topic list&lt;/code&gt; 、 &lt;code&gt;ros2 topic info&lt;/code&gt; 、 &lt;code&gt;ros2 topic hz&lt;/code&gt;  这几个官方 CLI 工具即可。&lt;/p&gt;
 &lt;/blockquote&gt;
  ]]></description>
         </item>
@@ -342,73 +276,37 @@ ros2 topic hz /chatter     # 统计消息发布频率
             <link>https://bangdexuanyuan.github.io/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/</link>
             <category>ROS2</category>
             <pubDate>Mon, 05 Jan 2026 10:23:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;今天刚开始，Linux网络无法连接，今天总结一下与Linux网络连接相关的东西：&lt;/p&gt;
-&lt;h4 id=&#34;1-网卡&#34;&gt;&lt;a href=&#34;#1-网卡&#34; class=&#34;headerlink&#34; title=&#34;1.网卡&#34;&gt;&lt;/a&gt;1.网卡&lt;/h4&gt;&lt;p&gt;我们首先可以通过命令&lt;/p&gt;
-&lt;p&gt;tips:命令学习1&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ip a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;进行IP地址的查询，然后我们会得到如下的命令返回，可以看到ens33这一行，其对应的状态是DOWN，关闭的状态&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;u@u-virtual-machine:~$ ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: ens33: &amp;lt;BROADCAST,MULTICAST&amp;gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 00:0c:29:97:62:9c brd ff:ff:ff:ff:ff:ff
-    altname enp2s1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;如果ens33工作正常，其&lt;strong&gt;ens33的正常状态&lt;/strong&gt;应该如下所示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;u@u-virtual-machine:~$ ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: ens33: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether 00:0c:29:97:62:9c brd ff:ff:ff:ff:ff:ff
-    altname enp2s1
-    inet 192.168.159.128/24 brd 192.168.159.255 scope global dynamic ens33
-       valid_lft 1261sec preferred_lft 1261sec
-    inet6 fe80::20c:29ff:fe97:629c/64 scope link 
-       valid_lft forever preferred_lft forever
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;解释一下这里面的语句，ens33是网卡端口，是 Linux 系统对以太网卡的命名：&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;今天刚开始，Linux 网络无法连接，今天总结一下与 Linux 网络连接相关的东西：&lt;/p&gt;
+&lt;h4 id=&#34;1网卡&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1网卡&#34;&gt;#&lt;/a&gt; 1. 网卡&lt;/h4&gt;
+&lt;p&gt;我们首先可以通过命令&lt;/p&gt;
+&lt;p&gt;tips: 命令学习 1&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ip a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;进行 IP 地址的查询，然后我们会得到如下的命令返回，可以看到 ens33 这一行，其对应的状态是 DOWN，关闭的状态&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;u@u&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;virtual&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;machine&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;~&lt;/span&gt;$ ip a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; lo&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;LOOPBACK&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;UP&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;LOWER_UP&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; mtu &lt;span class=&#34;token number&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN group &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt; qlen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    link&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;loopback &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt; brd &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet &lt;span class=&#34;token number&#34;&gt;127.0&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt; scope host lo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft forever preferred_lft forever&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet6 &lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; scope host &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft forever preferred_lft forever&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; ens33&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;BROADCAST&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;MULTICAST&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; mtu &lt;span class=&#34;token number&#34;&gt;1500&lt;/span&gt; qdisc noop state DOWN group &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt; qlen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    link&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ether &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;c&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;97&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;62&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;9&lt;/span&gt;c brd ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    altname enp2s1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果 ens33 工作正常，其&lt;strong&gt; ens33 的正常状态&lt;/strong&gt;应该如下所示&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;u@u&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;virtual&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;machine&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;~&lt;/span&gt;$ ip a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; lo&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;LOOPBACK&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;UP&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;LOWER_UP&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; mtu &lt;span class=&#34;token number&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN group &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt; qlen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    link&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;loopback &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt; brd &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet &lt;span class=&#34;token number&#34;&gt;127.0&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt; scope host lo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft forever preferred_lft forever&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet6 &lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; scope host &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft forever preferred_lft forever&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; ens33&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;BROADCAST&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;MULTICAST&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;UP&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;LOWER_UP&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; mtu &lt;span class=&#34;token number&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state UP group &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt; qlen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    link&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ether &lt;span class=&#34;token number&#34;&gt;00&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;c&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;97&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;62&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;9&lt;/span&gt;c brd ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;ff&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    altname enp2s1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.159&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.128&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;24&lt;/span&gt; brd &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.159&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.255&lt;/span&gt; scope global dynamic ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft &lt;span class=&#34;token number&#34;&gt;1261&lt;/span&gt;sec preferred_lft &lt;span class=&#34;token number&#34;&gt;1261&lt;/span&gt;sec&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inet6 fe80&lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;c&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;29ff&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;fe97&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;629&lt;/span&gt;c&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; scope link &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       valid_lft forever preferred_lft forever&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;解释一下这里面的语句，ens33 是网卡端口，是 Linux 系统对以太网卡的命名：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;en&lt;/code&gt; 表示以太网（Ethernet）&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;en&lt;/code&gt;  表示以太网（Ethernet）&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;s33&lt;/code&gt; 中的 &lt;code&gt;s&lt;/code&gt; 代表热插拔插槽（hot-plug Slot），&lt;code&gt;33&lt;/code&gt; 为插槽编号&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;s33&lt;/code&gt;  中的  &lt;code&gt;s&lt;/code&gt;  代表热插拔插槽（hot-plug Slot）， &lt;code&gt;33&lt;/code&gt;  为插槽编号&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;同类接口：&lt;code&gt;eth0&lt;/code&gt;（旧版命名）、&lt;code&gt;enp0s3&lt;/code&gt;（PCI 总线位置命名）&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;同类接口： &lt;code&gt;eth0&lt;/code&gt; （旧版命名）、 &lt;code&gt;enp0s3&lt;/code&gt; （PCI 总线位置命名）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;更准确地说：&lt;code&gt;ens33&lt;/code&gt;、&lt;code&gt;enp0s3&lt;/code&gt; 这类名字属于 systemd 的&lt;strong&gt;可预测网络接口命名&lt;/strong&gt;，按硬件位置、PCI 总线编号等规则生成，不同虚拟机&amp;#x2F;主板环境名称会不同（常见还有 &lt;code&gt;ens33&lt;/code&gt;、&lt;code&gt;enp2s1&lt;/code&gt;、&lt;code&gt;eth0&lt;/code&gt;），所以排查网络时不要死记接口名，直接看 &lt;code&gt;ip a&lt;/code&gt; 里哪块网卡是 &lt;code&gt;UP&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;那么如果ens33显示关闭的状态，我们该怎么办呢，可以通过&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;sudo ip link set ens33 up
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;设置完成之后，ens33显示为开的状态，此时，再次进行ping网络尝试，仍然不可连接&lt;/p&gt;
-&lt;h4 id=&#34;2-DHCP检查&#34;&gt;&lt;a href=&#34;#2-DHCP检查&#34; class=&#34;headerlink&#34; title=&#34;2.DHCP检查&#34;&gt;&lt;/a&gt;2.DHCP检查&lt;/h4&gt;&lt;p&gt;DHCP可以做到动态获取IP地址，从而进行联网操作&lt;/p&gt;
-&lt;p&gt;对于DHCP的设置，我们需要先进行DHCP的释放，使用语句&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;sudo dhclient -r ens33
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;之后进行再次重启&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;sudo dhclient -v ens33
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;重启之后，就可以进行网址的通信，可以通过ping代码进行验证&lt;/p&gt;
+&lt;p&gt;更准确地说： &lt;code&gt;ens33&lt;/code&gt; 、 &lt;code&gt;enp0s3&lt;/code&gt;  这类名字属于 systemd 的&lt;strong&gt;可预测网络接口命名&lt;/strong&gt;，按硬件位置、PCI 总线编号等规则生成，不同虚拟机 / 主板环境名称会不同（常见还有  &lt;code&gt;ens33&lt;/code&gt; 、 &lt;code&gt;enp2s1&lt;/code&gt; 、 &lt;code&gt;eth0&lt;/code&gt; ），所以排查网络时不要死记接口名，直接看  &lt;code&gt;ip a&lt;/code&gt;  里哪块网卡是  &lt;code&gt;UP&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;那么如果 ens33 显示关闭的状态，我们该怎么办呢，可以通过&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo ip link set ens33 up&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;设置完成之后，ens33 显示为开的状态，此时，再次进行 ping 网络尝试，仍然不可连接&lt;/p&gt;
+&lt;h4 id=&#34;2dhcp检查&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2dhcp检查&#34;&gt;#&lt;/a&gt; 2.DHCP 检查&lt;/h4&gt;
+&lt;p&gt;DHCP 可以做到动态获取 IP 地址，从而进行联网操作&lt;/p&gt;
+&lt;p&gt;对于 DHCP 的设置，我们需要先进行 DHCP 的释放，使用语句&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo dhclient &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;r ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;之后进行再次重启&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo dhclient &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;v ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;重启之后，就可以进行网址的通信，可以通过 ping 代码进行验证&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;说明：&lt;code&gt;dhclient&lt;/code&gt; 是 DHCP 客户端工具，&lt;code&gt;-r&lt;/code&gt; 表示 release（释放），&lt;code&gt;-v&lt;/code&gt; 表示 verbose（显示详细过程）。如果 &lt;code&gt;dhclient&lt;/code&gt; 不可用，Ubuntu 桌面版常用 NetworkManager，也可以 &lt;code&gt;sudo nmcli device reapply ens33&lt;/code&gt; 重新获取地址。&lt;/p&gt;
+&lt;p&gt;说明： &lt;code&gt;dhclient&lt;/code&gt;  是 DHCP 客户端工具， &lt;code&gt;-r&lt;/code&gt;  表示 release（释放）， &lt;code&gt;-v&lt;/code&gt;  表示 verbose（显示详细过程）。如果  &lt;code&gt;dhclient&lt;/code&gt;  不可用，Ubuntu 桌面版常用 NetworkManager，也可以  &lt;code&gt;sudo nmcli device reapply ens33&lt;/code&gt;  重新获取地址。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;比如说我和百度的网址进行沟通，那么就是&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ping baidu.com
-其网站会返回
-PING baidu.com (124.237.177.164) 56(84) bytes of data.
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=128 time=27.0 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=128 time=13.6 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=128 time=11.2 ms
-&lt;/code&gt;&lt;/pre&gt;
- ]]></description>
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ping baidu&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;com&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;其网站会返回&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PING baidu&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;com&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;84&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; bytes of data&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;27.0&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;13.6&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;124.237&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.177&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.164&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;11.2&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/</guid>
@@ -416,98 +314,37 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
             <link>https://bangdexuanyuan.github.io/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/</link>
             <category>ROS2</category>
             <pubDate>Sun, 04 Jan 2026 11:02:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;ubuntu怎么查看版本编号：&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;ubuntu 怎么查看版本编号：&lt;/p&gt;
 &lt;p&gt;需要用到语句：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;lsb_release -a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 &lt;strong&gt;ROS 2 Humble&lt;/strong&gt;，可以用 &lt;code&gt;printenv ROS_DISTRO&lt;/code&gt; 或 &lt;code&gt;ros2 --version&lt;/code&gt; 检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;lsb_release &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 &lt;strong&gt;ROS 2 Humble&lt;/strong&gt;，可以用  &lt;code&gt;printenv ROS_DISTRO&lt;/code&gt;  或  &lt;code&gt;ros2 --version&lt;/code&gt;  检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL0luc3RhbGxhdGlvbi9VYnVudHUtSW5zdGFsbC1EZWJzLmh0bWw=&#34;&gt;ROS 2 Humble 官方安装文档&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbWFudWFsLnJvYm90aXMuY29tL2RvY3MvZW4vcGxhdGZvcm0vdHVydGxlYm90My9zaW11bGF0aW9uLw==&#34;&gt;TurtleBot3 官方仿真教程&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://pic1.imgdb.cn/item/6959dead355893cb826db877.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;目前遇到了ROS2无法安装的问题&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic1.imgdb.cn/item/6959dead355893cb826db877.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;目前遇到了 ROS2 无法安装的问题&lt;/p&gt;
 &lt;p&gt;经过排查，发现是虚拟机没有连接网络的问题&lt;/p&gt;
 &lt;p&gt;检查过程：&lt;/p&gt;
-&lt;p&gt;1.先通过ping语句，检查一下网络&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;比如说ping 8.8.8.8
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;linux终端会返回&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=187 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=128 time=186 ms
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;初步说明网络出口没问题，接下来我们进行双边通信的验证&lt;/p&gt;
-&lt;p&gt;2.之后ping一个网站，例如百度网站，看看会不会有信号的回传&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;u@u-virtual-machine:~$ ping baidu.com
-PING baidu.com (111.63.65.247) 56(84) bytes of data.
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=1 ttl=128 time=64.5 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=2 ttl=128 time=98.6 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=3 ttl=128 time=87.9 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=4 ttl=128 time=90.4 ms
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;也没有问题，说明网络方面的问题已经被排查完毕&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;安装ROS2 Gazebo集成包&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 安装完整的Gazebo ROS集成包
-sudo apt update
-sudo apt install ros-humble-gazebo-ros-pkgs
-sudo apt install ros-humble-gazebo-plugins
-
-# 重新安装turtlebot3仿真包
-sudo apt install --reinstall ros-humble-turtlebot3-gazebo
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;说明：这里的 &lt;code&gt;gazebo_ros_pkgs&lt;/code&gt; 对应的是 &lt;strong&gt;Gazebo Classic（Gazebo 11）&lt;/strong&gt;，也就是 ROS 2 Humble 时期 TurtleBot3 教程使用的仿真环境。当前官方推荐的现代仿真工具是 &lt;strong&gt;Gazebo Sim（原 Ignition Gazebo）&lt;/strong&gt;，在 ROS 2 中通过 &lt;code&gt;ros_gz&lt;/code&gt; 集成，两者不要混用。&lt;/p&gt;
+&lt;p&gt;1. 先通过 ping 语句，检查一下网络&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;比如说ping &lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;linux 终端会返回&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PING &lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;84&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; bytes of data&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;187&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.8&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;186&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;初步说明网络出口没问题，接下来我们进行双边通信的验证&lt;/p&gt;
+&lt;p&gt;2. 之后 ping 一个网站，例如百度网站，看看会不会有信号的回传&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;u@u&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;virtual&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;machine&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;~&lt;/span&gt;$ ping baidu&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;com&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PING baidu&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;com&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;84&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; bytes of data&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;64.5&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;98.6&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;87.9&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt; bytes from &lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;111.63&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.65&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.247&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; icmp_seq&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt; ttl&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt; time&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;90.4&lt;/span&gt; ms&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;也没有问题，说明网络方面的问题已经被排查完毕&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export TURTLEBOT3_MODEL&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;waffle&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;$GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;share&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;turtlebot3_gazebo&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;models&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;安装 ROS2 Gazebo 集成包&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 安装完整的Gazebo ROS集成包&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt install ros&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;gazebo&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;pkgs&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt install ros&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;gazebo&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;plugins&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 重新安装turtlebot3仿真包&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt install &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;reinstall ros&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;turtlebot3&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;gazebo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;说明：这里的  &lt;code&gt;gazebo_ros_pkgs&lt;/code&gt;  对应的是 &lt;strong&gt;Gazebo Classic（Gazebo 11）&lt;/strong&gt;，也就是 ROS 2 Humble 时期 TurtleBot3 教程使用的仿真环境。当前官方推荐的现代仿真工具是 &lt;strong&gt;Gazebo Sim（原 Ignition Gazebo）&lt;/strong&gt;，在 ROS 2 中通过  &lt;code&gt;ros_gz&lt;/code&gt;  集成，两者不要混用。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jbGFzc2ljLmdhemVib3NpbS5vcmcvdHV0b3JpYWxzP3R1dD1yb3MyX292ZXJ2aWV3&#34;&gt;gazebo_ros_pkgs 官方文档&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9nYXplYm9zaW0ub3JnL2RvY3MvbGF0ZXN0L3Jvc19pbnN0YWxsYXRpb24=&#34;&gt;ros_gz 官方文档&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p&gt;启动Gazebo仿真（服务端）&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 每个终端都需要先设置环境
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-
-# 启动Gazebo服务器（等待它完全启动）
-gzserver --verbose
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;linux终端返回&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;[Msg] Waiting for master.
-[Msg] Connected to gazebo master @ http://127.0.0.1:11345
-[Msg] Publicized address: 192.168.159.128
-[Msg] Loading world file [/usr/share/gazebo-11/worlds/empty.world]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;启用Gazebo仿真（客户端）&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;gzclient
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;生成TurtleBot3机器人&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 生成TurtleBot3机器人
-ros2 run gazebo_ros spawn_entity.py \
-  -entity turtlebot3_waffle \
-  -file /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf \
-  -x -2.0 -y -0.5 -z 0.01
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;以上的步骤，还未实现，总是卡在Gazebo服务端开始之后，调用TurtleBot3机器人，无法生成&lt;/p&gt;
-&lt;p&gt;后来排查发现，手工 &lt;code&gt;gzserver + gzclient&lt;/code&gt; 的方式容易因为模型路径、环境变量不一致而卡住，官方教程更推荐直接用 &lt;code&gt;ros2 launch&lt;/code&gt; 一条命令启动，可以自行对比&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 新开一个终端
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-
-# 启动Gazebo（包含图形界面）
-ros2 launch turtlebot3_gazebo empty_world.launch.py
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这个可以加载空的地图，就是只有一个机器人的地图，如果你想要加载带地图边缘的，可以使用语句&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;键盘控制&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;# 键盘控制
-ros2 run turtlebot3_teleop teleop_keyboard
-&lt;/code&gt;&lt;/pre&gt;
- ]]></description>
+&lt;p&gt;启动 Gazebo 仿真（服务端）&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 每个终端都需要先设置环境&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;source &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;setup&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;bash&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export TURTLEBOT3_MODEL&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;waffle&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;$GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;share&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;turtlebot3_gazebo&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;models&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 启动Gazebo服务器（等待它完全启动）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gzserver &lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;verbose&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;linux 终端返回&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Msg&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; Waiting &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; master&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Msg&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; Connected to gazebo master @ http&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;//127.0.0.1:11345&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Msg&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; Publicized address&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.159&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;.128&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Msg&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; Loading world file &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;usr&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;share&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;gazebo&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;worlds&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;empty&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;world&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;启用 Gazebo 仿真（客户端）&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gzclient&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;生成 TurtleBot3 机器人&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 生成TurtleBot3机器人&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 run gazebo_ros spawn_entity&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;py \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;entity turtlebot3_waffle \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;file &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;share&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;turtlebot3_gazebo&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;models&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;turtlebot3_waffle&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;model&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;sdf \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;x &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2.0&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;y &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;z &lt;span class=&#34;token number&#34;&gt;0.01&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
+&lt;p&gt;以上的步骤，还未实现，总是卡在 Gazebo 服务端开始之后，调用 TurtleBot3 机器人，无法生成&lt;/p&gt;
+&lt;p&gt;后来排查发现，手工  &lt;code&gt;gzserver + gzclient&lt;/code&gt;  的方式容易因为模型路径、环境变量不一致而卡住，官方教程更推荐直接用  &lt;code&gt;ros2 launch&lt;/code&gt;  一条命令启动，可以自行对比&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 新开一个终端&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;source &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;setup&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;bash&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export TURTLEBOT3_MODEL&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;waffle&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;$GAZEBO_MODEL_PATH&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;opt&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;ros&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;humble&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;share&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;turtlebot3_gazebo&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;models&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 启动Gazebo（包含图形界面）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 launch turtlebot3_gazebo empty_world&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;launch&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;py&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个可以加载空的地图，就是只有一个机器人的地图，如果你想要加载带地图边缘的，可以使用语句&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 launch turtlebot3_gazebo turtlebot3_world&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;launch&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;py&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;键盘控制&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# 键盘控制&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ros2 run turtlebot3_teleop teleop_keyboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
     </channel>
 </rss>

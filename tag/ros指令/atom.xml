@@ -4,25 +4,25 @@
     <title> • Posts by &#34;ros指令&#34; tag</title>
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2026-01-12T09:40:00.000Z</updated>
-    <category term="股票交易" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="南京" />
-    <category term="pcb" />
-    <category term="音乐" />
     <category term="mistake" />
     <category term="mind" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="音乐" />
+    <category term="读博" />
     <category term="青岛生活" />
+    <category term="股票交易" />
+    <category term="pcb" />
     <category term="stm32" />
-    <category term="单片机" />
-    <category term="水下机器人" />
     <category term="ROS指令" />
     <category term="ROS2" />
-    <category term="ROS2, Movax" />
     <category term="DDS通信" />
+    <category term="ROS2, Movax" />
+    <category term="测试" />
     <category term="ROS" />
     <category term="英语" />
-    <category term="测试" />
+    <category term="单片机" />
+    <category term="水下机器人" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</id>
         <title>ROS2命令学习</title>
@@ -32,13 +32,21 @@
 &lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL2luZGV4Lmh0bWw=&#34;&gt;ROS 2 Documentation（官方）&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vcm9sbGluZy9Db25jZXB0cy9BYm91dC1ST1MtMi5odG1s&#34;&gt;About ROS 2&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;几个理解：&lt;/p&gt;
-&lt;p&gt;**工作空间 (Workspace)**：存放你所有 ROS2 项目代码的文件夹，常用结构为 &lt;code&gt;src/&lt;/code&gt;（源码）+ &lt;code&gt;build/&lt;/code&gt;、&lt;code&gt;install/&lt;/code&gt;、&lt;code&gt;log/&lt;/code&gt;（构建产物）。&lt;code&gt;ros2_ws&lt;/code&gt; 只是社区常用命名，不是强制约定；构建工具是 &lt;code&gt;colcon&lt;/code&gt;&lt;br&gt;**功能包 (Package)**：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和 &lt;code&gt;package.xml&lt;/code&gt;、&lt;code&gt;CMakeLists.txt&lt;/code&gt;（或 &lt;code&gt;setup.py&lt;/code&gt;）等规范&lt;br&gt;**节点 (Node)**：ROS2 中最小的可执行单元。代码本身只是程序，&lt;code&gt;ros2 run&lt;/code&gt; 运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职&lt;br&gt;**话题 (Topic)**：ROS2 最常用的异步通信方式（发布 &amp;#x2F; 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到 &lt;code&gt;/image&lt;/code&gt; 话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心&lt;br&gt;**服务 (Service)**：ROS2 的同步请求 &amp;#x2F; 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景&lt;br&gt;**参数 (Parameter)**：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效&lt;br&gt;**接口 (Interface)**：通信的数据格式约定，话题 &amp;#x2F; 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（&lt;code&gt;std_msgs&lt;/code&gt;、&lt;code&gt;geometry_msgs&lt;/code&gt;、&lt;code&gt;sensor_msgs&lt;/code&gt; 等），也可以自定义接口&lt;br&gt;&lt;strong&gt;RMW（ROS Middleware）&lt;/strong&gt;：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 &lt;strong&gt;Fast DDS&lt;/strong&gt;，也可以用 &lt;strong&gt;Cyclone DDS&lt;/strong&gt;；&lt;code&gt;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&lt;/code&gt; 可切换&lt;/p&gt;
-&lt;p&gt;geometry_msgs&amp;#x2F;Twist&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作空间 (Workspace)&lt;/strong&gt;：存放你所有 ROS2 项目代码的文件夹，常用结构为  &lt;code&gt;src/&lt;/code&gt; （源码）+  &lt;code&gt;build/&lt;/code&gt; 、 &lt;code&gt;install/&lt;/code&gt; 、 &lt;code&gt;log/&lt;/code&gt; （构建产物）。 &lt;code&gt;ros2_ws&lt;/code&gt;  只是社区常用命名，不是强制约定；构建工具是  &lt;code&gt;colcon&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 功能包 (Package)&lt;/strong&gt;：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和  &lt;code&gt;package.xml&lt;/code&gt; 、 &lt;code&gt;CMakeLists.txt&lt;/code&gt; （或  &lt;code&gt;setup.py&lt;/code&gt; ）等规范&lt;br&gt;
+&lt;strong&gt;节点 (Node)&lt;/strong&gt;：ROS2 中最小的可执行单元。代码本身只是程序， &lt;code&gt;ros2 run&lt;/code&gt;  运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职&lt;br&gt;
+&lt;strong&gt;话题 (Topic)&lt;/strong&gt;：ROS2 最常用的异步通信方式（发布 / 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到  &lt;code&gt;/image&lt;/code&gt;  话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心&lt;br&gt;
+&lt;strong&gt;服务 (Service)&lt;/strong&gt;：ROS2 的同步请求 / 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景&lt;br&gt;
+&lt;strong&gt;参数 (Parameter)&lt;/strong&gt;：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效&lt;br&gt;
+&lt;strong&gt;接口 (Interface)&lt;/strong&gt;：通信的数据格式约定，话题 / 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（ &lt;code&gt;std_msgs&lt;/code&gt; 、 &lt;code&gt;geometry_msgs&lt;/code&gt; 、 &lt;code&gt;sensor_msgs&lt;/code&gt;  等），也可以自定义接口&lt;br&gt;
+&lt;strong&gt; RMW（ROS Middleware）&lt;/strong&gt;：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 &lt;strong&gt;Fast DDS&lt;/strong&gt;，也可以用 &lt;strong&gt;Cyclone DDS&lt;/strong&gt;； &lt;code&gt;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&lt;/code&gt;  可切换&lt;/p&gt;
+&lt;p&gt;geometry_msgs/Twist&lt;/p&gt;
 &lt;p&gt;geometry_msgs::msg::Vector3&lt;/p&gt;
-&lt;p&gt;下面分析一下ROS2中的几种消息类型：&lt;/p&gt;
+&lt;p&gt;下面分析一下 ROS2 中的几种消息类型：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Point&lt;/p&gt;
-&lt;p&gt;Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为 &lt;code&gt;geometry_msgs/msg/Point&lt;/code&gt;，C++ 写法如下：&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Point&lt;/p&gt;
+&lt;p&gt;Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为  &lt;code&gt;geometry_msgs/msg/Point&lt;/code&gt; ，C++ 写法如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/point.hpp&amp;gt;
 
 geometry_msgs::msg::Point point;
@@ -47,7 +55,8 @@ point.y = 2.0;
 point.z = 3.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Vector3&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Vector3&lt;/p&gt;
 &lt;p&gt;Vector3 用于表示三维空间中的一个向量，同样有三个浮点类型的成员变量：x, y, z。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/vector3.hpp&amp;gt;
 
@@ -57,8 +66,9 @@ vector.y = 2.0;
 vector.z = 3.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Quaternion&lt;/p&gt;
-&lt;p&gt;Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示“不旋转”。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Quaternion&lt;/p&gt;
+&lt;p&gt;Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示 “不旋转”。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/quaternion.hpp&amp;gt;
 
 geometry_msgs::msg::Quaternion quaternion;
@@ -68,7 +78,8 @@ quaternion.z = 0.0;
 quaternion.w = 1.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pose&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Pose&lt;/p&gt;
 &lt;p&gt;Pose 用于表示机器人在三维空间中的位置和方向，包含一个 Point 类型的成员变量 position 和一个 Quaternion 类型的成员变量 orientation。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/pose.hpp&amp;gt;
 
@@ -82,7 +93,8 @@ pose.orientation.z = 0.0;
 pose.orientation.w = 1.0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/twist.hpp&amp;gt;
 
 geometry_msgs::msg::Twist twist;

@@ -91,12 +91,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24d8.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
         </ul>
       </div>
     </header>
@@ -150,15 +150,12 @@
 
     <h3><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" itemprop="url" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></h3>
     <div class="excerpt">
-        今天刚开始，Linux网络无法连接，今天总结一下与Linux网络连接相关的东西：
-1.网卡我们首先可以通过命令
-tips:命令学习1
-ip a
-
-进行IP地址的查询，然后我们会得到如下的命令返回，可以看到ens33这一行，其对应的状态是DOWN，关闭的状态
-u@u-virtual-machine:~$ ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-link/loopback 00:00:00:00:00:00 brd...
+        今天刚开始，Linux 网络无法连接，今天总结一下与 Linux 网络连接相关的东西：
+# 1. 网卡
+我们首先可以通过命令
+tips: 命令学习 1
+ip a进行 IP 地址的查询，然后我们会得到如下的命令返回，可以看到 ens33 这一行，其对应的状态是 DOWN，关闭的状态
+u@u-virtual-machine:~$ ip a1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000 link/loopback...
     </div>
     <div class="meta footer">
       <span>
@@ -187,7 +184,7 @@ link/loopback 00:00:00:00:00:00 brd...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>83</span>
+    <span>77</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -200,8 +197,7 @@ link/loopback 00:00:00:00:00:00 brd...
 
     <h3><a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" title="截图">截图</a></h3>
     <div class="excerpt">
-        -
-![image-20260104202913225](hello-world - 副本.assets&amp;#x2F;image-20260104202913225.png)
+        ![image-20260104202913225](hello-world - 副本.assets/image-20260104202913225.png)
     </div>
     <div class="meta footer">
       <span>
@@ -243,18 +239,16 @@ link/loopback 00:00:00:00:00:00 brd...
 
     <h3><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" itemprop="url" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></h3>
     <div class="excerpt">
-        ubuntu怎么查看版本编号：
+        ubuntu 怎么查看版本编号：
 需要用到语句：
-lsb_release -a
-
-对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 ROS 2 Humble，可以用 printenv ROS_DISTRO 或 ros2 --version 检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。
+lsb_release -a对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 ROS 2 Humble，可以用 printenv ROS_DISTRO 或 ros2 --version 检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。
 
 参考资料：ROS 2 Humble 官方安装文档、TurtleBot3 官方仿真教程
 
-目前遇到了ROS2无法安装的问题
+目前遇到了 ROS2 无法安装的问题
 经过排查，发现是虚拟机没有连接网络的问题
 检查过程：
-1.先通过ping语句，检查一下网络
+1. 先通过 ping 语句，检查一下网络
 比如说ping...
     </div>
     <div class="meta footer">
@@ -284,7 +278,7 @@ lsb_release -a
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>349</span>
+    <span>348</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -297,11 +291,8 @@ lsb_release -a
 
     <h3><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" itemprop="url" title="2026.1.4日读博思考">2026.1.4日读博思考</a></h3>
     <div class="excerpt">
-        -
-记录于2026.1.4，不知道自己想要继续读博的想法对不对，一个是自己的年龄，25岁硕士毕业，30岁才能博士毕业，不知道自己能不能接收自己那个时候仍然是一个穷小子的事实。
-第二个就是，读博会不会丧失自己爱人的能力，对吧，没必要非为了学习，为了TOP3往上读吧，如果自己能够从事一个自己很喜欢很喜欢的事情，那么自己应该也会很快乐的。
-目前自己读博的想法不太大，想要硕士毕业出来直接工作，可能硕士这几年又少了很多开拓眼界的机会，可惜自己没有选择上海交通大学，可惜可惜。
-反思一下，自己为什么总是在关键抉择的时候，犹豫不决，上天明明给了我最好的机会，但是我却没有把握住。自己有一个毛病，就是喜欢装逼，喜...
+        记录于 2026.1.4，不知道自己想要继续读博的想法对不对，一个是自己的年龄，25 岁硕士毕业，30 岁才能博士毕业，不知道自己能不能接收自己那个时候仍然是一个穷小子的事实。
+第二个就是，读博会不会丧失自己爱人的能力，对吧，没必要非为了学习，为了 TOP3...
     </div>
     <div class="meta footer">
       <span>
@@ -344,7 +335,7 @@ lsb_release -a
     <h3><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" itemprop="url" title="海航游记">海航游记</a></h3>
     <div class="excerpt">
         如今我更愿意相信人生是守恒的，今天的努力未必会在你规定的时间回报你，但一定会在未来落到你的身上。
-最有希望的e2寄掉了，没绷住，最没有希望的b2有了，世事真是无常。
+最有希望的 e2 寄掉了，没绷住，最没有希望的 b2 有了，世事真是无常。
 明年再来吧，也算是圆了自己一个国赛的梦。
     </div>
     <div class="meta footer">
@@ -465,7 +456,7 @@ I am the one that you’ve been looking for
         
 <article class="item">
   <div class="cover">
-    <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></a>
+    <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></a>
   </div>
   <div class="info">
     
@@ -480,7 +471,7 @@ I am the one that you’ve been looking for
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>472</span>
+    <span>477</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -494,8 +485,10 @@ I am the one that you’ve been looking for
     <h3><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" title="未命名">未命名</a></h3>
     <div class="excerpt">
         材料力学复习：
-影响零件疲劳强度的因素影响工件疲劳寿命的因素很多，有应力集中、零件尺寸、表面状态
-1.应力集中的影响：零件受载时，在几何形状突然变化处，如圆角、孔、凹槽等，要产生应力集中，对应力集中敏感还与材料有关，常用有效应力集中系数（可查有关手册）来考虑应力集中对疲劳强度的影响。材料的强渡极限越高，对应力集中越敏感。如果在同一个截面上同时有几个应立集中源时，应该采用其中最大有效应力集中系数进行计算。2.尺寸的影响：零件尺寸的大小对疲劳强度的影响可以用尺寸系数（可以查有关手册）来表示。当其他条件相同时，尺寸越大，对零件疲劳强度的影响越显著。原因是由于材料的晶粒较粗大，出现缺陷的概率大，同时机...
+# 影响零件疲劳强度的因素
+影响工件疲劳寿命的因素很多，有应力集中、零件尺寸、表面状态
+1. 应力集中的影响：零件受载时，在几何形状突然变化处，如圆角、孔、凹槽等，要产生应力集中，对应力集中敏感还与材料有关，常用有效应力集中系数（可查有关手册）来考虑应力集中对疲劳强度的影响。材料的强渡极限越高，对应力集中越敏感。如果在同一个截面上同时有几个应立集中源时，应该采用其中最大有效应力集中系数进行计算。
+2.** 尺寸的影响：**...
     </div>
     <a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" itemprop="url" title="未命名" class="btn">more...</a>
   </div>
@@ -532,7 +525,10 @@ I am the one that you’ve been looking for
 
     <h3><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" itemprop="url" title="pwm为什么还会出错">pwm为什么还会出错</a></h3>
     <div class="excerpt">
-        最近在调pwm舵机机械臂，发现我在keil...
+        最近在调 pwm 舵机机械臂，发现我在 keil Debug 对下位机调试的时候，上位机传下来的数据，没有乱，但是反映到机械臂上，就是它会来回抽搐，然后我查询网上资料，有得人说，是因为模拟地和数字地共地得原因，但是之前也是数字地和模拟地共在了一起，当时也是好用得，而且，专家们的意见也不统一，所以这个由这个原因引起的概率十分小，那么问题在哪？
+频率也对，电压也在额定电压中的，信号线也没有短接。
+抱着试一试的心态，我换了一个机械臂测试，发现，它最终好用了。
+一开始，我只接上了一个舵机，好用，当接上第二个舵机的时候，本来应该一上电就自启动的 stm32, 它没有自启动，我看到稳压电源的电流值变成了...
     </div>
     <div class="meta footer">
       <span>
@@ -546,7 +542,7 @@ I am the one that you’ve been looking for
         
 <article class="item">
   <div class="cover">
-    <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></a>
+    <a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" itemprop="url" title="未命名"><img data-src="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></a>
   </div>
   <div class="info">
     
@@ -578,7 +574,7 @@ I am the one that you’ve been looking for
 SystemClock_Config();
 
 /* USER CODE BEGIN SysInit */
-delay_ms(1000);
+	delay_ms(1000);
 
 /* Initialize all configured peripherals */
 MX_GPIO_Init();
@@ -724,29 +720,20 @@ MX_USART3_UART_Init();
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%82%A1%E7%A5%A8/" title="分类于 股票">股票</a>
-</div>
-
-    <span><a href="/Stock/2026%E5%B9%B41%E6%9C%885%E6%97%A5%E4%BA%A4%E6%98%93%E5%BF%83%E5%BE%97/" title="2026.1.5日复盘总结">2026.1.5日复盘总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
   </li>
 
       
@@ -756,16 +743,7 @@ MX_USART3_UART_Init();
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
   </li>
 
       
@@ -781,10 +759,10 @@ MX_USART3_UART_Init();
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
   </li>
 
       
@@ -801,20 +779,37 @@ MX_USART3_UART_Init();
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+</div>
+
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
   </li>
 
   </ul>

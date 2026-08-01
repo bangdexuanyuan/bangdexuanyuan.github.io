@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>623</span>
+    <span>598</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,24 +168,19 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>mkdir -p ~&#x2F;catkin_ws&#x2F;src</p>
-<p>其中-p的含义是，当我们的父结构catkin_ws没有的时候，会自动创建这个文件夹，如果有，直接在catkin_ws里面创建src这个文件</p>
+    <p>mkdir -p ~/catkin_ws/src</p>
+<p>其中 - p 的含义是，当我们的父结构 catkin_ws 没有的时候，会自动创建这个文件夹，如果有，直接在 catkin_ws 里面创建 src 这个文件</p>
 <blockquote>
-<p>更正：<code>catkin_ws</code> 是 ROS 1 的工作空间习惯命名，ROS 2 用 <code>colcon</code> 构建，常见命名是 <code>ros2_ws</code>，但工作空间名字本身不强制。ROS 2 的标准目录结构是 <code>src/</code>（源码）、<code>build/</code>（中间文件）、<code>install/</code>（可安装产物）、<code>log/</code>（日志）。</p>
+<p>更正： <code>catkin_ws</code>  是 ROS 1 的工作空间习惯命名，ROS 2 用  <code>colcon</code>  构建，常见命名是  <code>ros2_ws</code> ，但工作空间名字本身不强制。ROS 2 的标准目录结构是  <code>src/</code> （源码）、 <code>build/</code> （中间文件）、 <code>install/</code> （可安装产物）、 <code>log/</code> （日志）。</p>
 </blockquote>
-<p>为什么要对机械臂进行FFT分析</p>
-<p>Movax底盘指令：</p>
-<p>谁传给了底盘，底盘是由工控机还是thor控制的？</p>
-<p>据我目前所知，应该是工控机控制底盘的运动，同时控制can夹爪的运动</p>
-<p>Movax控制器对外直接提供基于ROS2  Topic的速度指令，控制接口以及速度状态反馈</p>
+<p>为什么要对机械臂进行 FFT 分析</p>
+<p>Movax 底盘指令：</p>
+<p>谁传给了底盘，底盘是由工控机还是 thor 控制的？</p>
+<p>据我目前所知，应该是工控机控制底盘的运动，同时控制 can 夹爪的运动</p>
+<p>Movax 控制器对外直接提供基于 ROS2  Topic 的速度指令，控制接口以及速度状态反馈</p>
 <p>使用</p>
-<pre><code class="c">geometry_msgs::msg::Vector3进行消息的传递和发送
-x           x方向的移动速度          m/s
-y           y方向的移动速度          m/s
-z           z方向的移动速度          m/s
-</code></pre>
-<blockquote>
-<p>补充：控制机器人底盘更标准的 ROS 2 消息是 <code>geometry_msgs/msg/Twist</code>，它由 <code>linear</code>（线速度）和 <code>angular</code>（角速度）两个 <code>Vector3</code> 组成，单位为 m&#x2F;s 和 rad&#x2F;s。底盘控制话题的社区通用命名是 <code>/cmd_vel</code>。如果公司资料里 Movax 控制器直接暴露 Vector3 速度接口，说明这是厂家自定义接口，实际对接时以厂家 SDK &#x2F; 接口文档为准。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>geometry_msgs<span class="token operator">::</span>msg<span class="token operator">::</span>Vector3进行消息的传递和发送</pre></td></tr><tr><td data-num="2"></td><td><pre>x           x方向的移动速度          m<span class="token operator">/</span>s</pre></td></tr><tr><td data-num="3"></td><td><pre>y           y方向的移动速度          m<span class="token operator">/</span>s</pre></td></tr><tr><td data-num="4"></td><td><pre>z           z方向的移动速度          m<span class="token operator">/</span>s</pre></td></tr></table></figure><blockquote>
+<p>补充：控制机器人底盘更标准的 ROS 2 消息是  <code>geometry_msgs/msg/Twist</code> ，它由  <code>linear</code> （线速度）和  <code>angular</code> （角速度）两个  <code>Vector3</code>  组成，单位为 m/s 和 rad/s。底盘控制话题的社区通用命名是  <code>/cmd_vel</code> 。如果公司资料里 Movax 控制器直接暴露 Vector3 速度接口，说明这是厂家自定义接口，实际对接时以厂家 SDK / 接口文档为准。</p>
 </blockquote>
 
       <div class="tags">
@@ -274,7 +269,7 @@ z           z方向的移动速度          m/s
     <div class="item left">
       
 
-  <a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862059.jpg" title="ROS2的DDS通信学习">
+  <a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="ROS2的DDS通信学习">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> ROS2</span>
   <h3>ROS2的DDS通信学习</h3>
@@ -284,7 +279,7 @@ z           z方向的移动速度          m/s
     <div class="item right">
       
 
-  <a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b8dd9f345e8d03b13f5e.jpg" title="ROS2命令学习">
+  <a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862065.jpg" title="ROS2命令学习">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> ROS2</span>
   <h3>ROS2命令学习</h3>
@@ -422,7 +417,7 @@ z           z方向的移动速度          m/s
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -441,27 +436,17 @@ z           z方向的移动速度          m/s
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
   </li>
 
       
@@ -470,25 +455,7 @@ z           z方向的移动速度          m/s
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -498,17 +465,46 @@ z           z方向的移动速度          m/s
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
 </div>
 
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

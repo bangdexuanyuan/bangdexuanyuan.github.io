@@ -161,98 +161,37 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>ubuntu怎么查看版本编号：</p>
+    <p>ubuntu 怎么查看版本编号：</p>
 <p>需要用到语句：</p>
-<pre><code class="c">lsb_release -a
-</code></pre>
-<p>对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 <strong>ROS 2 Humble</strong>，可以用 <code>printenv ROS_DISTRO</code> 或 <code>ros2 --version</code> 检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>lsb_release <span class="token operator">-</span>a</pre></td></tr></table></figure><p>对应的 ROS2 版本也要确认：Ubuntu 22.04 对应 <strong>ROS 2 Humble</strong>，可以用  <code>printenv ROS_DISTRO</code>  或  <code>ros2 --version</code>  检查。ROS2 每个发行版只支持特定 Ubuntu 版本，装错版本是新手最常见的安装失败原因。</p>
 <blockquote>
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL0luc3RhbGxhdGlvbi9VYnVudHUtSW5zdGFsbC1EZWJzLmh0bWw=">ROS 2 Humble 官方安装文档</span>、<span class="exturl" data-url="aHR0cHM6Ly9lbWFudWFsLnJvYm90aXMuY29tL2RvY3MvZW4vcGxhdGZvcm0vdHVydGxlYm90My9zaW11bGF0aW9uLw==">TurtleBot3 官方仿真教程</span></p>
 </blockquote>
-<p><img data-src="https://pic1.imgdb.cn/item/6959dead355893cb826db877.jpg"></p>
-<p>目前遇到了ROS2无法安装的问题</p>
+<p><img data-src="https://pic1.imgdb.cn/item/6959dead355893cb826db877.jpg" alt=""></p>
+<p>目前遇到了 ROS2 无法安装的问题</p>
 <p>经过排查，发现是虚拟机没有连接网络的问题</p>
 <p>检查过程：</p>
-<p>1.先通过ping语句，检查一下网络</p>
-<pre><code class="c">比如说ping 8.8.8.8
-</code></pre>
-<p>linux终端会返回</p>
-<pre><code class="c">PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=187 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=128 time=186 ms
-</code></pre>
-<p>初步说明网络出口没问题，接下来我们进行双边通信的验证</p>
-<p>2.之后ping一个网站，例如百度网站，看看会不会有信号的回传</p>
-<pre><code class="c">u@u-virtual-machine:~$ ping baidu.com
-PING baidu.com (111.63.65.247) 56(84) bytes of data.
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=1 ttl=128 time=64.5 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=2 ttl=128 time=98.6 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=3 ttl=128 time=87.9 ms
-64 bytes from 111.63.65.247 (111.63.65.247): icmp_seq=4 ttl=128 time=90.4 ms
-</code></pre>
-<p>也没有问题，说明网络方面的问题已经被排查完毕</p>
-<pre><code class="c">export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-</code></pre>
-<p>安装ROS2 Gazebo集成包</p>
-<pre><code class="c"># 安装完整的Gazebo ROS集成包
-sudo apt update
-sudo apt install ros-humble-gazebo-ros-pkgs
-sudo apt install ros-humble-gazebo-plugins
-
-# 重新安装turtlebot3仿真包
-sudo apt install --reinstall ros-humble-turtlebot3-gazebo
-
-</code></pre>
-<p>说明：这里的 <code>gazebo_ros_pkgs</code> 对应的是 <strong>Gazebo Classic（Gazebo 11）</strong>，也就是 ROS 2 Humble 时期 TurtleBot3 教程使用的仿真环境。当前官方推荐的现代仿真工具是 <strong>Gazebo Sim（原 Ignition Gazebo）</strong>，在 ROS 2 中通过 <code>ros_gz</code> 集成，两者不要混用。</p>
+<p>1. 先通过 ping 语句，检查一下网络</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>比如说ping <span class="token number">8.8</span><span class="token number">.8</span><span class="token number">.8</span></pre></td></tr></table></figure><p>linux 终端会返回</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>PING <span class="token number">8.8</span><span class="token number">.8</span><span class="token number">.8</span> <span class="token punctuation">(</span><span class="token number">8.8</span><span class="token number">.8</span><span class="token number">.8</span><span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data<span class="token punctuation">.</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">8.8</span><span class="token number">.8</span><span class="token number">.8</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">1</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">187</span> ms</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">8.8</span><span class="token number">.8</span><span class="token number">.8</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">2</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">186</span> ms</pre></td></tr></table></figure><p>初步说明网络出口没问题，接下来我们进行双边通信的验证</p>
+<p>2. 之后 ping 一个网站，例如百度网站，看看会不会有信号的回传</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>u@u<span class="token operator">-</span>virtual<span class="token operator">-</span>machine<span class="token operator">:</span><span class="token operator">~</span>$ ping baidu<span class="token punctuation">.</span>com</pre></td></tr><tr><td data-num="2"></td><td><pre>PING baidu<span class="token punctuation">.</span><span class="token function">com</span> <span class="token punctuation">(</span><span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span><span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data<span class="token punctuation">.</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span> <span class="token punctuation">(</span><span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">1</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">64.5</span> ms</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span> <span class="token punctuation">(</span><span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">2</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">98.6</span> ms</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span> <span class="token punctuation">(</span><span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">3</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">87.9</span> ms</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span> <span class="token punctuation">(</span><span class="token number">111.63</span><span class="token number">.65</span><span class="token number">.247</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">4</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">90.4</span> ms</pre></td></tr></table></figure><p>也没有问题，说明网络方面的问题已经被排查完毕</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>export TURTLEBOT3_MODEL<span class="token operator">=</span>waffle</pre></td></tr><tr><td data-num="2"></td><td><pre>export GAZEBO_MODEL_PATH<span class="token operator">=</span>$GAZEBO_MODEL_PATH<span class="token operator">:</span><span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>share<span class="token operator">/</span>turtlebot3_gazebo<span class="token operator">/</span>models</pre></td></tr></table></figure><p>安装 ROS2 Gazebo 集成包</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre># 安装完整的Gazebo ROS集成包</pre></td></tr><tr><td data-num="2"></td><td><pre>sudo apt update</pre></td></tr><tr><td data-num="3"></td><td><pre>sudo apt install ros<span class="token operator">-</span>humble<span class="token operator">-</span>gazebo<span class="token operator">-</span>ros<span class="token operator">-</span>pkgs</pre></td></tr><tr><td data-num="4"></td><td><pre>sudo apt install ros<span class="token operator">-</span>humble<span class="token operator">-</span>gazebo<span class="token operator">-</span>plugins</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># 重新安装turtlebot3仿真包</pre></td></tr><tr><td data-num="7"></td><td><pre>sudo apt install <span class="token operator">--</span>reinstall ros<span class="token operator">-</span>humble<span class="token operator">-</span>turtlebot3<span class="token operator">-</span>gazebo</pre></td></tr></table></figure><p>说明：这里的  <code>gazebo_ros_pkgs</code>  对应的是 <strong>Gazebo Classic（Gazebo 11）</strong>，也就是 ROS 2 Humble 时期 TurtleBot3 教程使用的仿真环境。当前官方推荐的现代仿真工具是 <strong>Gazebo Sim（原 Ignition Gazebo）</strong>，在 ROS 2 中通过  <code>ros_gz</code>  集成，两者不要混用。</p>
 <blockquote>
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9jbGFzc2ljLmdhemVib3NpbS5vcmcvdHV0b3JpYWxzP3R1dD1yb3MyX292ZXJ2aWV3">gazebo_ros_pkgs 官方文档</span>、<span class="exturl" data-url="aHR0cHM6Ly9nYXplYm9zaW0ub3JnL2RvY3MvbGF0ZXN0L3Jvc19pbnN0YWxsYXRpb24=">ros_gz 官方文档</span></p>
 </blockquote>
 <hr>
-<p>启动Gazebo仿真（服务端）</p>
-<pre><code class="c"># 每个终端都需要先设置环境
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-
-# 启动Gazebo服务器（等待它完全启动）
-gzserver --verbose
-</code></pre>
-<p>linux终端返回</p>
-<pre><code class="c">[Msg] Waiting for master.
-[Msg] Connected to gazebo master @ http://127.0.0.1:11345
-[Msg] Publicized address: 192.168.159.128
-[Msg] Loading world file [/usr/share/gazebo-11/worlds/empty.world]
-</code></pre>
-<p>启用Gazebo仿真（客户端）</p>
-<pre><code class="c">gzclient
-</code></pre>
-<p>生成TurtleBot3机器人</p>
-<pre><code class="c"># 生成TurtleBot3机器人
-ros2 run gazebo_ros spawn_entity.py \
-  -entity turtlebot3_waffle \
-  -file /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf \
-  -x -2.0 -y -0.5 -z 0.01
-</code></pre>
-<hr>
-<p>以上的步骤，还未实现，总是卡在Gazebo服务端开始之后，调用TurtleBot3机器人，无法生成</p>
-<p>后来排查发现，手工 <code>gzserver + gzclient</code> 的方式容易因为模型路径、环境变量不一致而卡住，官方教程更推荐直接用 <code>ros2 launch</code> 一条命令启动，可以自行对比</p>
-<pre><code class="c"># 新开一个终端
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-
-# 启动Gazebo（包含图形界面）
-ros2 launch turtlebot3_gazebo empty_world.launch.py
-</code></pre>
-<p>这个可以加载空的地图，就是只有一个机器人的地图，如果你想要加载带地图边缘的，可以使用语句</p>
-<pre><code class="c">ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
-</code></pre>
-<p>键盘控制</p>
-<pre><code class="c"># 键盘控制
-ros2 run turtlebot3_teleop teleop_keyboard
-</code></pre>
-
+<p>启动 Gazebo 仿真（服务端）</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre># 每个终端都需要先设置环境</pre></td></tr><tr><td data-num="2"></td><td><pre>source <span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>setup<span class="token punctuation">.</span>bash</pre></td></tr><tr><td data-num="3"></td><td><pre>export TURTLEBOT3_MODEL<span class="token operator">=</span>waffle</pre></td></tr><tr><td data-num="4"></td><td><pre>export GAZEBO_MODEL_PATH<span class="token operator">=</span>$GAZEBO_MODEL_PATH<span class="token operator">:</span><span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>share<span class="token operator">/</span>turtlebot3_gazebo<span class="token operator">/</span>models</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># 启动Gazebo服务器（等待它完全启动）</pre></td></tr><tr><td data-num="7"></td><td><pre>gzserver <span class="token operator">--</span>verbose</pre></td></tr></table></figure><p>linux 终端返回</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>Msg<span class="token punctuation">]</span> Waiting <span class="token keyword">for</span> master<span class="token punctuation">.</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>Msg<span class="token punctuation">]</span> Connected to gazebo master @ http<span class="token operator">:</span><span class="token comment">//127.0.0.1:11345</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>Msg<span class="token punctuation">]</span> Publicized address<span class="token operator">:</span> <span class="token number">192.168</span><span class="token number">.159</span><span class="token number">.128</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">[</span>Msg<span class="token punctuation">]</span> Loading world file <span class="token punctuation">[</span><span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>gazebo<span class="token operator">-</span><span class="token number">11</span><span class="token operator">/</span>worlds<span class="token operator">/</span>empty<span class="token punctuation">.</span>world<span class="token punctuation">]</span></pre></td></tr></table></figure><p>启用 Gazebo 仿真（客户端）</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>gzclient</pre></td></tr></table></figure><p>生成 TurtleBot3 机器人</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre># 生成TurtleBot3机器人</pre></td></tr><tr><td data-num="2"></td><td><pre>ros2 run gazebo_ros spawn_entity<span class="token punctuation">.</span>py \</pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token operator">-</span>entity turtlebot3_waffle \</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token operator">-</span>file <span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>share<span class="token operator">/</span>turtlebot3_gazebo<span class="token operator">/</span>models<span class="token operator">/</span>turtlebot3_waffle<span class="token operator">/</span>model<span class="token punctuation">.</span>sdf \</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token operator">-</span>x <span class="token operator">-</span><span class="token number">2.0</span> <span class="token operator">-</span>y <span class="token operator">-</span><span class="token number">0.5</span> <span class="token operator">-</span>z <span class="token number">0.01</span></pre></td></tr></table></figure><hr>
+<p>以上的步骤，还未实现，总是卡在 Gazebo 服务端开始之后，调用 TurtleBot3 机器人，无法生成</p>
+<p>后来排查发现，手工  <code>gzserver + gzclient</code>  的方式容易因为模型路径、环境变量不一致而卡住，官方教程更推荐直接用  <code>ros2 launch</code>  一条命令启动，可以自行对比</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre># 新开一个终端</pre></td></tr><tr><td data-num="2"></td><td><pre>source <span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>setup<span class="token punctuation">.</span>bash</pre></td></tr><tr><td data-num="3"></td><td><pre>export TURTLEBOT3_MODEL<span class="token operator">=</span>waffle</pre></td></tr><tr><td data-num="4"></td><td><pre>export GAZEBO_MODEL_PATH<span class="token operator">=</span>$GAZEBO_MODEL_PATH<span class="token operator">:</span><span class="token operator">/</span>opt<span class="token operator">/</span>ros<span class="token operator">/</span>humble<span class="token operator">/</span>share<span class="token operator">/</span>turtlebot3_gazebo<span class="token operator">/</span>models</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># 启动Gazebo（包含图形界面）</pre></td></tr><tr><td data-num="7"></td><td><pre>ros2 launch turtlebot3_gazebo empty_world<span class="token punctuation">.</span>launch<span class="token punctuation">.</span>py</pre></td></tr></table></figure><p>这个可以加载空的地图，就是只有一个机器人的地图，如果你想要加载带地图边缘的，可以使用语句</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>ros2 launch turtlebot3_gazebo turtlebot3_world<span class="token punctuation">.</span>launch<span class="token punctuation">.</span>py</pre></td></tr></table></figure><p>键盘控制</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre># 键盘控制</pre></td></tr><tr><td data-num="2"></td><td><pre>ros2 run turtlebot3_teleop teleop_keyboard</pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/ROS2/" rel="tag"><i class="ic i-tag"></i> ROS2</a>
       </div>
@@ -349,7 +288,7 @@ ros2 run turtlebot3_teleop teleop_keyboard
     <div class="item right">
       
 
-  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24ef.jpg" title="截图">
+  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81f00.jpg" title="截图">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 学习</span>
   <h3>截图</h3>
@@ -484,6 +423,54 @@ ros2 run turtlebot3_teleop teleop_keyboard
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
+</div>
+
+    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
     <span><a href="/study/1.22%E6%97%A5%E5%88%86%E6%9E%90%EF%BC%88gp%EF%BC%89/" title="未命名">未命名</a></span>
@@ -496,27 +483,7 @@ ros2 run turtlebot3_teleop teleop_keyboard
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
   </li>
 
       
@@ -525,37 +492,7 @@ ros2 run turtlebot3_teleop teleop_keyboard
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
-</div>
-
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-7-%E5%85%AC%E5%8F%B8%E8%B5%84%E6%96%99%E5%AD%A6%E4%B9%A0/" title="公司资料学习（Movax底盘 ROS2 接口）">公司资料学习（Movax底盘 ROS2 接口）</a></span>
+    <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -564,16 +501,17 @@ ros2 run turtlebot3_teleop teleop_keyboard
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
   </li>
 
   </ul>
