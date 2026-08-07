@@ -161,73 +161,37 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>今天刚开始，Linux网络无法连接，今天总结一下与Linux网络连接相关的东西：</p>
-<h4 id="1-网卡"><a href="#1-网卡" class="headerlink" title="1.网卡"></a>1.网卡</h4><p>我们首先可以通过命令</p>
-<p>tips:命令学习1</p>
-<pre><code class="c">ip a
-</code></pre>
-<p>进行IP地址的查询，然后我们会得到如下的命令返回，可以看到ens33这一行，其对应的状态是DOWN，关闭的状态</p>
-<pre><code class="c">u@u-virtual-machine:~$ ip a
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: ens33: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 00:0c:29:97:62:9c brd ff:ff:ff:ff:ff:ff
-    altname enp2s1
-</code></pre>
-<p>如果ens33工作正常，其<strong>ens33的正常状态</strong>应该如下所示</p>
-<pre><code class="c">u@u-virtual-machine:~$ ip a
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether 00:0c:29:97:62:9c brd ff:ff:ff:ff:ff:ff
-    altname enp2s1
-    inet 192.168.159.128/24 brd 192.168.159.255 scope global dynamic ens33
-       valid_lft 1261sec preferred_lft 1261sec
-    inet6 fe80::20c:29ff:fe97:629c/64 scope link 
-       valid_lft forever preferred_lft forever
-</code></pre>
-<p>解释一下这里面的语句，ens33是网卡端口，是 Linux 系统对以太网卡的命名：</p>
+    <p>今天刚开始，Linux 网络无法连接，今天总结一下与 Linux 网络连接相关的东西：</p>
+<h4 id="1网卡"><a class="markdownIt-Anchor" href="#1网卡">#</a> 1. 网卡</h4>
+<p>我们首先可以通过命令</p>
+<p>tips: 命令学习 1</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>ip a</pre></td></tr></table></figure><p>进行 IP 地址的查询，然后我们会得到如下的命令返回，可以看到 ens33 这一行，其对应的状态是 DOWN，关闭的状态</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>u@u<span class="token operator">-</span>virtual<span class="token operator">-</span>machine<span class="token operator">:</span><span class="token operator">~</span>$ ip a</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">1</span><span class="token operator">:</span> lo<span class="token operator">:</span> <span class="token operator">&lt;</span>LOOPBACK<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    link<span class="token operator">/</span>loopback <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span> brd <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    inet <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">/</span><span class="token number">8</span> scope host lo</pre></td></tr><tr><td data-num="5"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="6"></td><td><pre>    inet6 <span class="token operator">::</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">128</span> scope host </pre></td></tr><tr><td data-num="7"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token number">2</span><span class="token operator">:</span> ens33<span class="token operator">:</span> <span class="token operator">&lt;</span>BROADCAST<span class="token punctuation">,</span>MULTICAST<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc noop state DOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    link<span class="token operator">/</span>ether <span class="token number">00</span><span class="token operator">:</span><span class="token number">0</span>c<span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span><span class="token number">62</span><span class="token operator">:</span><span class="token number">9</span>c brd ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff</pre></td></tr><tr><td data-num="10"></td><td><pre>    altname enp2s1</pre></td></tr></table></figure><p>如果 ens33 工作正常，其<strong> ens33 的正常状态</strong>应该如下所示</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>u@u<span class="token operator">-</span>virtual<span class="token operator">-</span>machine<span class="token operator">:</span><span class="token operator">~</span>$ ip a</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">1</span><span class="token operator">:</span> lo<span class="token operator">:</span> <span class="token operator">&lt;</span>LOOPBACK<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    link<span class="token operator">/</span>loopback <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span> brd <span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span><span class="token operator">:</span><span class="token number">00</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    inet <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">/</span><span class="token number">8</span> scope host lo</pre></td></tr><tr><td data-num="5"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="6"></td><td><pre>    inet6 <span class="token operator">::</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">128</span> scope host </pre></td></tr><tr><td data-num="7"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token number">2</span><span class="token operator">:</span> ens33<span class="token operator">:</span> <span class="token operator">&lt;</span>BROADCAST<span class="token punctuation">,</span>MULTICAST<span class="token punctuation">,</span>UP<span class="token punctuation">,</span>LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc fq_codel state UP group <span class="token keyword">default</span> qlen <span class="token number">1000</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    link<span class="token operator">/</span>ether <span class="token number">00</span><span class="token operator">:</span><span class="token number">0</span>c<span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span><span class="token number">62</span><span class="token operator">:</span><span class="token number">9</span>c brd ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff<span class="token operator">:</span>ff</pre></td></tr><tr><td data-num="10"></td><td><pre>    altname enp2s1</pre></td></tr><tr><td data-num="11"></td><td><pre>    inet <span class="token number">192.168</span><span class="token number">.159</span><span class="token number">.128</span><span class="token operator">/</span><span class="token number">24</span> brd <span class="token number">192.168</span><span class="token number">.159</span><span class="token number">.255</span> scope global dynamic ens33</pre></td></tr><tr><td data-num="12"></td><td><pre>       valid_lft <span class="token number">1261</span>sec preferred_lft <span class="token number">1261</span>sec</pre></td></tr><tr><td data-num="13"></td><td><pre>    inet6 fe80<span class="token operator">::</span><span class="token number">20</span>c<span class="token operator">:</span><span class="token number">29ff</span><span class="token operator">:</span>fe97<span class="token operator">:</span><span class="token number">629</span>c<span class="token operator">/</span><span class="token number">64</span> scope link </pre></td></tr><tr><td data-num="14"></td><td><pre>       valid_lft forever preferred_lft forever</pre></td></tr></table></figure><p>解释一下这里面的语句，ens33 是网卡端口，是 Linux 系统对以太网卡的命名：</p>
 <ul>
-<li><p><code>en</code> 表示以太网（Ethernet）</p>
+<li>
+<p><code>en</code>  表示以太网（Ethernet）</p>
 </li>
-<li><p><code>s33</code> 中的 <code>s</code> 代表热插拔插槽（hot-plug Slot），<code>33</code> 为插槽编号</p>
+<li>
+<p><code>s33</code>  中的  <code>s</code>  代表热插拔插槽（hot-plug Slot）， <code>33</code>  为插槽编号</p>
 </li>
-<li><p>同类接口：<code>eth0</code>（旧版命名）、<code>enp0s3</code>（PCI 总线位置命名）</p>
+<li>
+<p>同类接口： <code>eth0</code> （旧版命名）、 <code>enp0s3</code> （PCI 总线位置命名）</p>
 </li>
 </ul>
-<p>更准确地说：<code>ens33</code>、<code>enp0s3</code> 这类名字属于 systemd 的<strong>可预测网络接口命名</strong>，按硬件位置、PCI 总线编号等规则生成，不同虚拟机&#x2F;主板环境名称会不同（常见还有 <code>ens33</code>、<code>enp2s1</code>、<code>eth0</code>），所以排查网络时不要死记接口名，直接看 <code>ip a</code> 里哪块网卡是 <code>UP</code>。</p>
-<p>那么如果ens33显示关闭的状态，我们该怎么办呢，可以通过</p>
-<pre><code class="c">sudo ip link set ens33 up
-</code></pre>
-<p>设置完成之后，ens33显示为开的状态，此时，再次进行ping网络尝试，仍然不可连接</p>
-<h4 id="2-DHCP检查"><a href="#2-DHCP检查" class="headerlink" title="2.DHCP检查"></a>2.DHCP检查</h4><p>DHCP可以做到动态获取IP地址，从而进行联网操作</p>
-<p>对于DHCP的设置，我们需要先进行DHCP的释放，使用语句</p>
-<pre><code class="c">sudo dhclient -r ens33
-</code></pre>
-<p>之后进行再次重启</p>
-<pre><code class="c">sudo dhclient -v ens33
-</code></pre>
-<p>重启之后，就可以进行网址的通信，可以通过ping代码进行验证</p>
+<p>更准确地说： <code>ens33</code> 、 <code>enp0s3</code>  这类名字属于 systemd 的<strong>可预测网络接口命名</strong>，按硬件位置、PCI 总线编号等规则生成，不同虚拟机 / 主板环境名称会不同（常见还有  <code>ens33</code> 、 <code>enp2s1</code> 、 <code>eth0</code> ），所以排查网络时不要死记接口名，直接看  <code>ip a</code>  里哪块网卡是  <code>UP</code> 。</p>
+<p>那么如果 ens33 显示关闭的状态，我们该怎么办呢，可以通过</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo ip link set ens33 up</pre></td></tr></table></figure><p>设置完成之后，ens33 显示为开的状态，此时，再次进行 ping 网络尝试，仍然不可连接</p>
+<h4 id="2dhcp检查"><a class="markdownIt-Anchor" href="#2dhcp检查">#</a> 2.DHCP 检查</h4>
+<p>DHCP 可以做到动态获取 IP 地址，从而进行联网操作</p>
+<p>对于 DHCP 的设置，我们需要先进行 DHCP 的释放，使用语句</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo dhclient <span class="token operator">-</span>r ens33</pre></td></tr></table></figure><p>之后进行再次重启</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>sudo dhclient <span class="token operator">-</span>v ens33</pre></td></tr></table></figure><p>重启之后，就可以进行网址的通信，可以通过 ping 代码进行验证</p>
 <blockquote>
-<p>说明：<code>dhclient</code> 是 DHCP 客户端工具，<code>-r</code> 表示 release（释放），<code>-v</code> 表示 verbose（显示详细过程）。如果 <code>dhclient</code> 不可用，Ubuntu 桌面版常用 NetworkManager，也可以 <code>sudo nmcli device reapply ens33</code> 重新获取地址。</p>
+<p>说明： <code>dhclient</code>  是 DHCP 客户端工具， <code>-r</code>  表示 release（释放）， <code>-v</code>  表示 verbose（显示详细过程）。如果  <code>dhclient</code>  不可用，Ubuntu 桌面版常用 NetworkManager，也可以  <code>sudo nmcli device reapply ens33</code>  重新获取地址。</p>
 </blockquote>
 <p>比如说我和百度的网址进行沟通，那么就是</p>
-<pre><code class="c">ping baidu.com
-其网站会返回
-PING baidu.com (124.237.177.164) 56(84) bytes of data.
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=128 time=27.0 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=128 time=13.6 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=128 time=11.2 ms
-</code></pre>
-
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>ping baidu<span class="token punctuation">.</span>com</pre></td></tr><tr><td data-num="2"></td><td><pre>其网站会返回</pre></td></tr><tr><td data-num="3"></td><td><pre>PING baidu<span class="token punctuation">.</span><span class="token function">com</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data<span class="token punctuation">.</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">1</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">27.0</span> ms</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">2</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">13.6</span> ms</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token number">64</span> bytes from <span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span> <span class="token punctuation">(</span><span class="token number">124.237</span><span class="token number">.177</span><span class="token number">.164</span><span class="token punctuation">)</span><span class="token operator">:</span> icmp_seq<span class="token operator">=</span><span class="token number">3</span> ttl<span class="token operator">=</span><span class="token number">128</span> time<span class="token operator">=</span><span class="token number">11.2</span> ms</pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/ROS2/" rel="tag"><i class="ic i-tag"></i> ROS2</a>
       </div>
@@ -314,7 +278,7 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
     <div class="item left">
       
 
-  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="截图">
+  <a href="/study/%E6%88%AA%E5%9B%BE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861852.jpg" title="截图">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 学习</span>
   <h3>截图</h3>
@@ -324,7 +288,7 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
     <div class="item right">
       
 
-  <a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba18661c6c8e54e82041.jpg" title="V-REP学习笔记（一）">
+  <a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24c9.jpg" title="V-REP学习笔记（一）">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> ROS</span>
   <h3>V-REP学习笔记（一）</h3>
@@ -350,7 +314,7 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text">1.网卡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-DHCP%E6%A3%80%E6%9F%A5"><span class="toc-number">2.</span> <span class="toc-text">2.DHCP检查</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E7%BD%91%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text"> 1. 网卡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2dhcp%E6%A3%80%E6%9F%A5"><span class="toc-number">2.</span> <span class="toc-text"> 2.DHCP 检查</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -368,7 +332,7 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -380,7 +344,7 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">17</span>
+        <span class="count">16</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -464,54 +428,6 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
@@ -522,38 +438,89 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
   <li class="item">
     
 <div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+</div>
+
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
   </li>
 
   </ul>

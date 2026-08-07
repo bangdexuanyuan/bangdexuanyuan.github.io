@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b5039f345e8d03991b3f.webp"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,24 +168,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>ROS社区需要遵循一些惯例，比如说cmd_vel用来表示控制命令，里程计用odom表示，激光雷达用scan表示，image_raw用来表示图像</p>
+    <p>ROS 社区需要遵循一些惯例，比如说 cmd_vel 用来表示控制命令，里程计用 odom 表示，激光雷达用 scan 表示，image_raw 用来表示图像</p>
 <p>这些命名不是 ROS 2 强制规定，而是社区长期形成的<strong>通用惯例</strong>，好处是不同厂家、不同包之间可以互通：</p>
 <ul>
-<li><code>/cmd_vel</code>：速度控制指令，消息类型通常是 <code>geometry_msgs/msg/Twist</code></li>
-<li><code>/odom</code>：里程计数据，消息类型是 <code>nav_msgs/msg/Odometry</code></li>
-<li><code>/scan</code>：激光雷达扫描数据，消息类型是 <code>sensor_msgs/msg/LaserScan</code></li>
-<li><code>/image_raw</code>：相机原始图像，消息类型是 <code>sensor_msgs/msg/Image</code></li>
+<li><code>/cmd_vel</code> ：速度控制指令，消息类型通常是  <code>geometry_msgs/msg/Twist</code></li>
+<li><code>/odom</code> ：里程计数据，消息类型是  <code>nav_msgs/msg/Odometry</code></li>
+<li><code>/scan</code> ：激光雷达扫描数据，消息类型是  <code>sensor_msgs/msg/LaserScan</code></li>
+<li><code>/image_raw</code> ：相机原始图像，消息类型是  <code>sensor_msgs/msg/Image</code></li>
 </ul>
 <p>实际排查时不用猜名字，直接看系统里到底有哪些话题：</p>
-<pre><code class="bash">ros2 topic list          # 列出所有话题
-ros2 topic info /cmd_vel # 查看某个话题的消息类型和收发节点
-ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
-</code></pre>
-<p>怎么在ros2里面修改文件</p>
-<p>“修改文件”分两种情况：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>ros2 topic list          <span class="token comment"># 列出所有话题</span></pre></td></tr><tr><td data-num="2"></td><td><pre>ros2 topic info /cmd_vel <span class="token comment"># 查看某个话题的消息类型和收发节点</span></pre></td></tr><tr><td data-num="3"></td><td><pre>ros2 interface show geometry_msgs/msg/Twist  <span class="token comment"># 查看消息结构</span></pre></td></tr></table></figure><p>怎么在 ros2 里面修改文件</p>
+<p>“修改文件” 分两种情况：</p>
 <ol>
-<li>修改功能包源码：直接编辑 <code>src/</code> 下的源码，然后回到工作空间根目录重新构建，例如 <code>colcon build --packages-select &lt;包名&gt;</code>，再 <code>source install/setup.bash</code> 让改动生效。</li>
-<li>修改参数：不需要重新编译，可以用命令行参数（<code>--ros-args -p 参数名:=值</code>）、YAML 参数文件（<code>ros2 run &lt;包名&gt; &lt;节点&gt; --ros-args --params-file xxx.yaml</code>）等方式动态传入。</li>
+<li>修改功能包源码：直接编辑  <code>src/</code>  下的源码，然后回到工作空间根目录重新构建，例如  <code>colcon build --packages-select &lt;包名&gt;</code> ，再  <code>source install/setup.bash</code>  让改动生效。</li>
+<li>修改参数：不需要重新编译，可以用命令行参数（ <code>--ros-args -p 参数名:=值</code> ）、YAML 参数文件（ <code>ros2 run &lt;包名&gt; &lt;节点&gt; --ros-args --params-file xxx.yaml</code> ）等方式动态传入。</li>
 </ol>
 <blockquote>
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL1R1dG9yaWFscy9CZWdpbm5lci1DTEktVG9vbHMuaHRtbA==">ROS 2 CLI 工具官方文档</span></p>
@@ -277,7 +273,7 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
     <div class="item left">
       
 
-  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862059.jpg" title="未命名">
+  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -287,7 +283,7 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
     <div class="item right">
       
 
-  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f20223661c6c8e54862059.jpg" title="未命名">
+  <a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a3e9f345e8d0301413c.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -330,7 +326,7 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -342,7 +338,7 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">17</span>
+        <span class="count">16</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -426,10 +422,58 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
 </div>
 
-    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
+    <span><a href="/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/" title="stm调试日志">stm调试日志</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+</div>
+
+    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
   </li>
 
       
@@ -447,34 +491,6 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
   </li>
 
@@ -482,20 +498,9 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/" title="水上和水下双单片机串口沟通">水上和水下双单片机串口沟通</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -505,16 +510,6 @@ ros2 interface show geometry_msgs/msg/Twist  # 查看消息结构
 </div>
 
     <span><a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
-</div>
-
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
   </li>
 
   </ul>
