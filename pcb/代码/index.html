@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861815.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a189f345e8d0300cedf.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a2f9f345e8d030112a0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba18661c6c8e54e82041.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861809.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec196a9f345e8d03fe9f1f.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,7 +168,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
     <hr>
 <hr>
-<pre><code class="language-c++">/* USER CODE BEGIN Header */
+<pre><code class="c++">/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -227,7 +227,7 @@ int fgetc(FILE *f)
 /* USER CODE BEGIN PD */
 void servo(float angle1,float angle2,float angle3,float angle4)
 &#123;
-		
+        
 &#125;
 /* USER CODE END PD */
 
@@ -261,30 +261,30 @@ static uint16_t open_angle =0;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 &#123;
     if(huart-&gt;Instance==USART2)//首先判断是否是USART2触发的中断
-		&#123;
+        &#123;
 //			printf(&quot;%c%c%c%c%c&quot;,Rx_data[0],Rx_data[1],Rx_data[2],Rx_data[3],Rx_data[4]);
 //	&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77
        if(Rx_data[0]==0x7F&amp;&amp;Rx_data[1]==0x01&amp;&amp;Rx_data[17]==0x77) &#123;
-				AixAng1 = Rx_data[3]|(Rx_data[4]&lt;&lt;8);
-				AixAng2 = Rx_data[5]|(Rx_data[6]&lt;&lt;8);
-				AixAng3 = Rx_data[7]|(Rx_data[8]&lt;&lt;8);
-				AixAng4 = Rx_data[9]|(Rx_data[10]&lt;&lt;8);
-				open_angle =  Rx_data[13]|(Rx_data[14]&lt;&lt;8);
-				printf(&quot;%d\r\n&quot;,open_angle);
+                AixAng1 = Rx_data[3]|(Rx_data[4]&lt;&lt;8);
+                AixAng2 = Rx_data[5]|(Rx_data[6]&lt;&lt;8);
+                AixAng3 = Rx_data[7]|(Rx_data[8]&lt;&lt;8);
+                AixAng4 = Rx_data[9]|(Rx_data[10]&lt;&lt;8);
+                open_angle =  Rx_data[13]|(Rx_data[14]&lt;&lt;8);
+                printf(&quot;%d\r\n&quot;,open_angle);
 
-				AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
-			
-				AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
-			//AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
-			//实际应该是0~45但是传感器输出的数据是0~90
-			
-				AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
-			//AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
-				AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
-				printf(&quot;%f\r\n&quot;,AixAngf1);
-				printf(&quot;%f\r\n&quot;,AixAngf2);
-				printf(&quot;%f\r\n&quot;,AixAngf3);
-				printf(&quot;%f\r\n&quot;,AixAngf4);
+                AixAngf1= 90.0-(float) ((AixAng1+5)/10);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
+            
+                AixAngf2= (float) ((AixAng2+5)/10)*0.9-260.0;
+            //AixAngf2的现象也是向前可以达到-90度，向后45度最多，但是这个传感器在0~90这个区间有点问题，感觉像是2倍的关系，直接就偏移过去了
+            //实际应该是0~45但是传感器输出的数据是0~90
+            
+                AixAngf3= (-1)*((float) ((AixAng3+5)/10)-78.0)+99.0;
+            //AixAngf3，它的实际现象是向前为0度，但是向后为0~135度
+                AixAngf4= (186.0-(float) ((AixAng4+5)/10))*0.9;
+                printf(&quot;%f\r\n&quot;,AixAngf1);
+                printf(&quot;%f\r\n&quot;,AixAngf2);
+                printf(&quot;%f\r\n&quot;,AixAngf3);
+                printf(&quot;%f\r\n&quot;,AixAngf4);
 
 //				 &#125;
 //				 if(Rx_data[1]==0x02)
@@ -325,12 +325,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 //          &#123;
 //              printf(&quot;Data——error!\r\n&quot;);
 //          &#125;
-					&#125;
+                    &#125;
           for (int i = 0; i &lt; 18; ++i) &#123;
               Rx_data[i]=0;
           &#125;
-			HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
-		&#125;
+            HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
+        &#125;
 &#125;
 /* USER CODE END 0 */
 
@@ -365,7 +365,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
+    HAL_UART_Receive_IT(&amp;huart2,(uint8_t*)Rx_data,18);
 
   /* USER CODE END 2 */
 
@@ -373,7 +373,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   &#123;
-		
+        
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -457,7 +457,6 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 &#125;
 #endif /* USE_FULL_ASSERT */
-
 </code></pre>
 
   </div>
@@ -543,7 +542,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item left">
       
 
-  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="未命名">
+  <a href="/pcb/123/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec196a9f345e8d03fe9f1f.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -553,7 +552,7 @@ void assert_failed(uint8_t *file, uint32_t line)
     <div class="item right">
       
 
-  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f201d6661c6c8e54861824.jpg" title="未命名">
+  <a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e2512.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -571,6 +570,10 @@ void assert_failed(uint8_t *file, uint32_t line)
           
 
 <div class="inner">
+  <div class="music">
+    <p class="title">音乐</p>
+    <span class="exturl item" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="网易云歌单"><i class="ic i-cloud-music"></i><span class="text">网易云歌单</span></span>
+  </div>
 
   <div class="panels">
     <div class="inner">
@@ -609,7 +612,6 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 <div class="social">
       <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhYmluZzg1" title="https:&#x2F;&#x2F;github.com&#x2F;dabing85"><i class="ic i-github"></i></span>
-      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;playlist?id&#x3D;2943811283"><i class="ic i-cloud-music"></i></span>
 </div>
 
 <ul class="menu">
@@ -686,6 +688,15 @@ void assert_failed(uint8_t *file, uint32_t line)
   <li class="item">
     
 <div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
@@ -696,30 +707,10 @@ void assert_failed(uint8_t *file, uint32_t line)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 life">life</a>
-</div>
-
-    <span><a href="/diary/2024.5.27/" title="2024.5.27随记">2024.5.27随记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/" title="南京游">南京游</a></span>
+    <span><a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" title="ROS2的DDS通信学习">ROS2的DDS通信学习</a></span>
   </li>
 
       
@@ -728,7 +719,34 @@ void assert_failed(uint8_t *file, uint32_t line)
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/PWM/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/%E4%BB%A3%E7%A0%81/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -738,27 +756,17 @@ void assert_failed(uint8_t *file, uint32_t line)
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -768,16 +776,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" title="未命名">未命名</a></span>
+    <span><a href="/life/hello-world/" title="hello world">hello world</a></span>
   </li>
 
   </ul>

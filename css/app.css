@@ -16,6 +16,8 @@
 #nav .menu .submenu .item:hover,
 #nav .menu .submenu .item.active,
 .overview .menu .item.active,
+#sidebar .music .item:focus,
+#sidebar .music .item:hover,
 #sidebar .tab .item:hover,
 #sidebar .tab .item.active,
 #search-pagination .current .page-number {
@@ -2227,22 +2229,63 @@ main >.inner {
   top: -10%;
   left: -10%;
 }
-.social .item.github::before {
+.social .item.g::before {
+  background-color: thu;
+}
+.social .item.g i {
+  color: thu;
+}
+.social .item.h::before {
   background-color: #191717;
 }
-.social .item.github i {
+.social .item.h i {
   color: #191717;
-}
-.social .item.music::before {
-  background-color: #e60026;
-}
-.social .item.music i {
-  color: #e60026;
 }
 .social .item:focus i,
 .social .item:hover i {
   color: var(--grey-0);
   transform: scale(1);
+}
+#sidebar .music {
+  box-sizing: border-box;
+  padding: 0.625rem 0.9375rem 0.75rem;
+  text-align: left;
+  width: 100%;
+}
+#sidebar .music .title {
+  color: var(--grey-5);
+  font-size: 0.875em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+#sidebar .music .item {
+  align-items: center;
+  background: var(--grey-2);
+  border-radius: 0.625rem;
+  color: var(--grey-6);
+  display: flex;
+  min-height: 2.75rem;
+  overflow: hidden;
+  padding: 0 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out 0s;
+}
+#sidebar .music .item .ic {
+  flex: 0 0 auto;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+#sidebar .music .item .text {
+  font-size: 0.875em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#sidebar .tab ~ .music {
+  margin-top: 3.25rem;
 }
 #quick {
   display: none;

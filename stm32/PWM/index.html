@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec15f39f345e8d03f3f7d5.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec1a3e9f345e8d0301413c.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc6d.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19909f345e8d03ff1f8a.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030b661c6c8e546e24bd.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
         </ul>
       </div>
     </header>
@@ -168,14 +168,14 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
     <hr>
 <hr>
-<p>PWM 参数计算</p>
+<p>PWM参数计算</p>
 <p>时基单元：</p>
-<p><img data-src="" alt=""></p>
-<p>![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\ 图片笔记 \Snipaste_2023-12-18_21-35-40.png)</p>
-<p>跟 Keil51 一样，先进行预分频。</p>
-<p>自动重装器：设置一个值 ARR，每次计数从 0 开始，计数到 ARR 后清零，计数 ARR+1 次</p>
-<p>计数器 cnt：后根据内部时钟进行计数，每次和 CCR 捕获比较器进行比较；当 CNT&lt;CCR 时，电平置为有效电平；同理，当 CNT&gt;=CCR 时，置为无效电平，即为零；之后根据占空比进行电压的输出。</p>
-<p>keil 中代码的讲述</p>
+<p><img data-src="/"></p>
+<p>![Snipaste_2023-12-18_21-35-40](C:\all study document\Microcontroller study\32\图片笔记\Snipaste_2023-12-18_21-35-40.png)</p>
+<p>跟Keil51一样，先进行预分频。</p>
+<p>自动重装器：设置一个值ARR，每次计数从0开始，计数到ARR后清零，计数ARR+1次</p>
+<p>计数器cnt：后根据内部时钟进行计数，每次和CCR捕获比较器进行比较；当CNT&lt;CCR时，电平置为有效电平；同理，当CNT&gt;&#x3D;CCR时，置为无效电平，即为零；之后根据占空比进行电压的输出。</p>
+<p>keil中代码的讲述</p>
 <pre><code>void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1);
 void TIM_SetCompare2(TIM_TypeDef* TIMx, uint16_t Compare2);
 void TIM_SetCompare3(TIM_TypeDef* TIMx, uint16_t Compare3);
@@ -189,10 +189,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 </code></pre>
 <p>这个是用结构体来初始化输出</p>
 <hr>
-<p>一。舵机不听指挥乱动</p>
+<p>一.舵机不听指挥乱动</p>
 <p>没有与单片机共地</p>
-<p>舵机有三条线，分别是正负极和信号线 (用来输入 PWM 信号)，因为舵机所需要的驱动电压比较大，一般在 6v 往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然 PWM 信号输入后舵机会不听使唤乱动，因为 PWM 信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。</p>
-<p>PWM 需要和单片机共地，事实确实是这样</p>
+<p>舵机有三条线，分别是正负极和信号线(用来输入PWM信号)，因为舵机所需要的驱动电压比较大，一般在6v往上了，一般的单片机供电无法驱动舵机，就需要单独的外接电源供电，这时注意舵机地线不仅要和外接电源负极相连，还要与单片机共地，不然PWM信号输入后舵机会不听使唤乱动，因为PWM信号由单片机输入，舵机与单片机没有供地，舵机就没有参考电平，就会乱转。</p>
+<p>PWM需要和单片机共地，事实确实是这样</p>
 
   </div>
 
@@ -277,7 +277,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item left">
       
 
-  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b85e9f345e8d03adb73e.jpg" title="未命名">
+  <a href="/stm32/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%802/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec19819f345e8d03feec11.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -287,7 +287,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
     <div class="item right">
       
 
-  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec19909f345e8d03ff1f8a.jpg" title="无线下载器">
+  <a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65ec1a2f9f345e8d030112a0.jpg" title="无线下载器">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> stm32学习</span>
   <h3>无线下载器</h3>
@@ -305,6 +305,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
           
 
 <div class="inner">
+  <div class="music">
+    <p class="title">音乐</p>
+    <span class="exturl item" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="网易云歌单"><i class="ic i-cloud-music"></i><span class="text">网易云歌单</span></span>
+  </div>
 
   <div class="panels">
     <div class="inner">
@@ -343,7 +347,6 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 
 <div class="social">
       <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhYmluZzg1" title="https:&#x2F;&#x2F;github.com&#x2F;dabing85"><i class="ic i-github"></i></span>
-      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;playlist?id&#x3D;2943811283"><i class="ic i-cloud-music"></i></span>
 </div>
 
 <ul class="menu">
@@ -422,7 +425,17 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
   </li>
 
       
@@ -432,17 +445,46 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
 </div>
 
-    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+    <span><a href="/study/2026-1-5-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day2/" title="2026-1-5-ROS2-仿真学习day2（linux学习）">2026-1-5-ROS2-仿真学习day2（linux学习）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
+</div>
+
+    <span><a href="/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" title="ROS2命令学习">ROS2命令学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
   </li>
 
       
@@ -459,10 +501,10 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/" title="海航游记">海航游记</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
       
@@ -471,45 +513,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct);
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
-</div>
-
-    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E5%BD%B1%E5%93%8D%E9%9B%B6%E4%BB%B6%E7%96%B2%E5%8A%B3%E5%BC%BA%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

@@ -76,7 +76,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.4k</span>
+    <span>2.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b4d49f345e8d0397e1c4.webp"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81ef0.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861824.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861835.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f201d6661c6c8e54861852.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f21603661c6c8e5489fc87.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b85e9f345e8d03adb73e.jpg"></li>
         </ul>
       </div>
     </header>
@@ -173,21 +173,13 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL2luZGV4Lmh0bWw=">ROS 2 Documentation（官方）</span>、<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vcm9sbGluZy9Db25jZXB0cy9BYm91dC1ST1MtMi5odG1s">About ROS 2</span></p>
 </blockquote>
 <p>几个理解：</p>
-<p><strong>工作空间 (Workspace)</strong>：存放你所有 ROS2 项目代码的文件夹，常用结构为  <code>src/</code> （源码）+  <code>build/</code> 、 <code>install/</code> 、 <code>log/</code> （构建产物）。 <code>ros2_ws</code>  只是社区常用命名，不是强制约定；构建工具是  <code>colcon</code> <br>
-<strong> 功能包 (Package)</strong>：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和  <code>package.xml</code> 、 <code>CMakeLists.txt</code> （或  <code>setup.py</code> ）等规范<br>
-<strong>节点 (Node)</strong>：ROS2 中最小的可执行单元。代码本身只是程序， <code>ros2 run</code>  运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职<br>
-<strong>话题 (Topic)</strong>：ROS2 最常用的异步通信方式（发布 / 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到  <code>/image</code>  话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心<br>
-<strong>服务 (Service)</strong>：ROS2 的同步请求 / 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景<br>
-<strong>参数 (Parameter)</strong>：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效<br>
-<strong>接口 (Interface)</strong>：通信的数据格式约定，话题 / 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（ <code>std_msgs</code> 、 <code>geometry_msgs</code> 、 <code>sensor_msgs</code>  等），也可以自定义接口<br>
-<strong> RMW（ROS Middleware）</strong>：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 <strong>Fast DDS</strong>，也可以用 <strong>Cyclone DDS</strong>； <code>export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp</code>  可切换</p>
-<p>geometry_msgs/Twist</p>
+<p>**工作空间 (Workspace)**：存放你所有 ROS2 项目代码的文件夹，常用结构为 <code>src/</code>（源码）+ <code>build/</code>、<code>install/</code>、<code>log/</code>（构建产物）。<code>ros2_ws</code> 只是社区常用命名，不是强制约定；构建工具是 <code>colcon</code><br>**功能包 (Package)**：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和 <code>package.xml</code>、<code>CMakeLists.txt</code>（或 <code>setup.py</code>）等规范<br>**节点 (Node)**：ROS2 中最小的可执行单元。代码本身只是程序，<code>ros2 run</code> 运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职<br>**话题 (Topic)**：ROS2 最常用的异步通信方式（发布 &#x2F; 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到 <code>/image</code> 话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心<br>**服务 (Service)**：ROS2 的同步请求 &#x2F; 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景<br>**参数 (Parameter)**：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效<br>**接口 (Interface)**：通信的数据格式约定，话题 &#x2F; 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（<code>std_msgs</code>、<code>geometry_msgs</code>、<code>sensor_msgs</code> 等），也可以自定义接口<br><strong>RMW（ROS Middleware）</strong>：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 <strong>Fast DDS</strong>，也可以用 <strong>Cyclone DDS</strong>；<code>export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp</code> 可切换</p>
+<p>geometry_msgs&#x2F;Twist</p>
 <p>geometry_msgs::msg::Vector3</p>
-<p>下面分析一下 ROS2 中的几种消息类型：</p>
+<p>下面分析一下ROS2中的几种消息类型：</p>
 <ol>
-<li>
-<p>Point</p>
-<p>Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为  <code>geometry_msgs/msg/Point</code> ，C++ 写法如下：</p>
+<li><p>Point</p>
+<p>Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为 <code>geometry_msgs/msg/Point</code>，C++ 写法如下：</p>
 <pre><code>#include &lt;geometry_msgs/msg/point.hpp&gt;
 
 geometry_msgs::msg::Point point;
@@ -196,8 +188,7 @@ point.y = 2.0;
 point.z = 3.0;
 </code></pre>
 </li>
-<li>
-<p>Vector3</p>
+<li><p>Vector3</p>
 <p>Vector3 用于表示三维空间中的一个向量，同样有三个浮点类型的成员变量：x, y, z。</p>
 <pre><code>#include &lt;geometry_msgs/msg/vector3.hpp&gt;
 
@@ -207,9 +198,8 @@ vector.y = 2.0;
 vector.z = 3.0;
 </code></pre>
 </li>
-<li>
-<p>Quaternion</p>
-<p>Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示 “不旋转”。</p>
+<li><p>Quaternion</p>
+<p>Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示“不旋转”。</p>
 <pre><code>#include &lt;geometry_msgs/msg/quaternion.hpp&gt;
 
 geometry_msgs::msg::Quaternion quaternion;
@@ -219,8 +209,7 @@ quaternion.z = 0.0;
 quaternion.w = 1.0;
 </code></pre>
 </li>
-<li>
-<p>Pose</p>
+<li><p>Pose</p>
 <p>Pose 用于表示机器人在三维空间中的位置和方向，包含一个 Point 类型的成员变量 position 和一个 Quaternion 类型的成员变量 orientation。</p>
 <pre><code>#include &lt;geometry_msgs/msg/pose.hpp&gt;
 
@@ -234,8 +223,7 @@ pose.orientation.z = 0.0;
 pose.orientation.w = 1.0;
 </code></pre>
 </li>
-<li>
-<p>Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。</p>
+<li><p>Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。</p>
 <pre><code>#include &lt;geometry_msgs/msg/twist.hpp&gt;
 
 geometry_msgs::msg::Twist twist;
@@ -335,7 +323,7 @@ twist.angular.z = 1.0;
     <div class="item left">
       
 
-  <a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24d8.jpg" title="ROS2的DDS通信学习">
+  <a href="/study/2026-1-6-ROS2-DDS%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba16661c6c8e54e81ef0.jpg" title="ROS2的DDS通信学习">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> ROS2</span>
   <h3>ROS2的DDS通信学习</h3>
@@ -345,7 +333,7 @@ twist.angular.z = 1.0;
     <div class="item right">
       
 
-  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b4d49f345e8d0397e1c4.webp" title="未命名">
+  <a href="/study/2026.1.13%E6%97%A5%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%8C%E5%8F%88%E8%AF%A5%E5%AD%A6%E4%B9%A0%E4%BA%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6502ba17661c6c8e54e81f24.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -363,6 +351,10 @@ twist.angular.z = 1.0;
           
 
 <div class="inner">
+  <div class="music">
+    <p class="title">音乐</p>
+    <span class="exturl item" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="网易云歌单"><i class="ic i-cloud-music"></i><span class="text">网易云歌单</span></span>
+  </div>
 
   <div class="panels">
     <div class="inner">
@@ -404,7 +396,6 @@ twist.angular.z = 1.0;
 
 <div class="social">
       <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhYmluZzg1" title="https:&#x2F;&#x2F;github.com&#x2F;dabing85"><i class="ic i-github"></i></span>
-      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;playlist?id&#x3D;2943811283"><i class="ic i-cloud-music"></i></span>
 </div>
 
 <ul class="menu">
@@ -481,57 +472,10 @@ twist.angular.z = 1.0;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/ROS/" title="分类于 ROS">ROS</a>
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/study/V-REP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="V-REP学习笔记（一）">V-REP学习笔记（一）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/ROS2/" title="分类于 ROS2">ROS2</a>
-</div>
-
-    <span><a href="/study/2026-1-4-ROS2-%E4%BB%BF%E7%9C%9F%E5%AD%A6%E4%B9%A0day1/" title="ROS2 仿真学习day1">ROS2 仿真学习day1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
-</div>
-
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
+    <span><a href="/life/2026.1.4%E6%97%A5%E8%AF%BB%E5%8D%9A%E6%80%9D%E8%80%83/" title="2026.1.4日读博思考">2026.1.4日读博思考</a></span>
   </li>
 
       
@@ -548,20 +492,10 @@ twist.angular.z = 1.0;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/pcb/" title="分类于 pcb">pcb</a>
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/" title="水下机器人画板子的时候遇到的一些问题">水下机器人画板子的时候遇到的一些问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
-</div>
-
-    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+    <span><a href="/study/2026.1.14-ROS2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ROS2 常用话题命名与基本使用方法">ROS2 常用话题命名与基本使用方法</a></span>
   </li>
 
       
@@ -571,7 +505,64 @@ twist.angular.z = 1.0;
 <a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/study/%E9%80%94%E8%A7%81%E7%A7%91%E6%8A%80%E7%9A%84%E8%A7%A6%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
+</div>
+
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/No%20targer%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="关于keil中出现No target connnect问题的解决">关于keil中出现No target connnect问题的解决</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
+</div>
+
+    <span><a href="/study/hello-world/" title="英语论文学习">英语论文学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/pcb/123/" title="未命名">未命名</a></span>
   </li>
 
   </ul>

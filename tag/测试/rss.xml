@@ -7,17 +7,17 @@
         <language>zh-CN</language>
         <pubDate>Sun, 04 Jan 2026 20:29:00 +0800</pubDate>
         <lastBuildDate>Sun, 04 Jan 2026 20:29:00 +0800</lastBuildDate>
-        <category>pcb</category>
         <category>mistake</category>
-        <category>南京</category>
-        <category>哈尔滨生活</category>
-        <category>读博</category>
         <category>mind</category>
+        <category>哈尔滨生活</category>
+        <category>南京</category>
+        <category>读博</category>
         <category>音乐</category>
         <category>青岛生活</category>
         <category>stm32</category>
         <category>水下机器人</category>
         <category>单片机</category>
+        <category>pcb</category>
         <category>ROS2</category>
         <category>ROS指令</category>
         <category>DDS通信</category>
@@ -30,10 +30,8 @@
             <link>https://bangdexuanyuan.github.io/study/%E6%88%AA%E5%9B%BE/</link>
             <category>测试</category>
             <pubDate>Sun, 04 Jan 2026 20:29:00 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;![image-20260104202913225](hello-world - 副本.assets/image-20260104202913225.png)&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;- &lt;/p&gt;
+&lt;p&gt;![image-20260104202913225](hello-world - 副本.assets&amp;#x2F;image-20260104202913225.png)&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
