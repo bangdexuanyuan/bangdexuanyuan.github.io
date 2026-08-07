@@ -5,51 +5,62 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-07-13T14:00:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/life/%E9%82%93%E7%B4%AB%E6%A3%8B/</id>
         <title>邓紫棋演唱会</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/life/%E9%82%93%E7%B4%AB%E6%A3%8B/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;b3a45755f928d550f844fa7a5fd9c4aa825c23ab4400481aa67d2802e141648c&#34;
-     data-nonce=&#34;f36416b01453c79bddd35eb8&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    5cc665bae060b3fafbfe8a88fef0f856ba356bce1e61ed600edca2a8598776b914d00b8312e36b6bec73fbdfb346ae8c785d1dd5404d9abe06b08e5c6c6778f30bee3f7dd7f2af2abea010cede02d16183f18744cc9474213c76b7d2bbf50f734424f0d71822defa4322276756a59c27dc84ac6287142cb40e096d3a63e529c23a624609e51521e15f163f6520745c21b793a2031154f7bf5072ead8ad03dfe97a893258e8ef449ff22e0974c3190f4a523b1f13093a3879edd54552bc091e77019b68b440154f1acc7d6197c6161947c878d15f60132993ec410ea7a8cde2ada68a81003f98fb6633a80f7dca5485914259980a166a7df0a24633f5843554ab78c8fc95806e7bae1456c23a0dac69b39dde3d55319fdffcbd2a030d7b9afa8c735743a82fba4a8eeb351b1db93f1da535ae6bbdd06d7e282221a15fab4bba1e9413ded3c9cd1ffd25ea6a7546452a7e29755c1a78f78ec5adb0723a247e40092922a777d0d9d8588f03b526fae808d2b5aca15a6896e47a35d83bbc901c91c92e4de423339ed42e11ad306ef9bef341445945e00c6c7b1038f5bdc30ca2607cfc14abc0c7bff1f401911de7cf17736f4a1c40a80526772d6ba895645d4a1206e7c26ebbccc92d42f22eeba7067f28b483dc923fe0c58a453e69e4db7b9b5380acadccb4cfb7f3bcc84d8a4e96b08808c096c36fdd10c2074dc468d66c4f195218948aaff5a10561a7ec4143c705e310f9a2b7bdedbee388740720338165616d4a3974021edf98cf3928291d43dc773438945d34cc1c1555b4bb5f3921663b5a0cb2152137e1b0280b38000a33129cb67d795453f83cff25783b7124e0669c63b611346608e491c0f22bbb7e0f614ce269c5213f7195e1dc62760d980ea7f51479052509a25ff7729c9c19ff7ec3c7524ef676b8bb5f03b2f147b7951b8de3076a81d57a7ad8200c0be2ed7b3d854166fccf91a3f6156919c6a1a0126fc182fcc6f3ab7b9bfbde30c532848b7c501bd3f8c8f1e19aceb9dd4bc44a281de89d3a8b135883ad9a9713d66902881da241e419e80553dd861c61a57edeef75865f47fc173a62cce6fc0c39e8622447b2af709fa7f02d9ecaf159905fc91b354f946ce9ca5d97857ad699b4648b32a60e5b252005406774253ca53787c98551aaaeb1e17f28da0884b8fd6dfae199ce6ec4423667800639d8e988d4bcb9bf1071339e7ddc3413bfcb446a70ea0abd4fcde17d651ada463265f84c2549eb12c91de06c940cd1d72c3be4eb40a5b00e02d7dd3ee0c3181bab736926f0e05cc6f85dfa1f5e68bbef0c18934decd5a5f0d6e535ef56700e0b48def023b2f987a300ee8fdc66df57eb74a2db9bef9429a4d44301d635d23769b82d4007e7b8e1515de1a8ce767af0015746dc2cad9537cc1000c48b7bba3eee5d99ff0de9b032533db3a26842bf2c74b8da88fe75775a1c12c0f068b42d3dc76f9e263fe4d85f4020ca89e54f65ab9ef447090e1ed715895b179b24af86077d52be0a0b5a81b2f181683787108c9d761c2b3858575f47570acc437d8e4c50306ac4f337cf55b3779830482ab5c933ea710b6e758a502464da156bdc3d6348cafe4ecf0fd2cc60edf2bc8eee37740df74e16d9a1c03340af97656654feb39298eaf49ebad7771a1638de05ba50fdfe5304163bdbc3ff278f594346eea69544ba9070f8e0949548072ec86657933c8d57572a62d6cba154b74ac2d97f732bfda80eafed3891391482e4dbb1419fb0b174d3e56d18e216ad7108ba9c14de2d68f976867a4db58d8d99ba92aabc73d6f968ad301a25f8032617a496d64664214f488b2ea4242805d7fabca22a70bcd80f10b9ca3d6004d2a8838926611b12599b8f2960d10a825ee31a95e4dbcf3987457834c698066e1d5e3b2e72eadc3227523a5d8faf3e523b95b38641e5c6f83d427610cd44497ee818e6fb1c867d95551724c018a460a2375fa78024f6f6a76914d7ee11ad798cd1e39d71fce035e01faedcecee3dbf6a0185e9590d28656ca792614e0c8b6b4d58e7472fa2ef13f253d31aeaeee4661a162c8e513d3ce06266aebe1d312d13bf5a3e6c841ba111cf7b790d37d81c6dcd527f75bfb4015e7f3b00833843a199059db08daf05d8eb4e13dd089f0fa33c107915e43dd732c433363e5440c226f38f2a77292b4214d83725836f8431e9824791f15411fa293aea55c2d5dc9d5c4e
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;我的秘密 想对你说&lt;/p&gt;
+&lt;p&gt;我的泪滴 想让你触摸&lt;/p&gt;
+&lt;p&gt;无言以对 也想蹉跎&lt;/p&gt;
+&lt;p&gt;我的年岁 想为你挥霍&lt;/p&gt;
+&lt;p&gt;如果 你让我&lt;/p&gt;
+&lt;p&gt;整个宇宙 我都想让你拥有&lt;/p&gt;
+&lt;p&gt;以你为念的星宿 陪你到时间尽头&lt;/p&gt;
+&lt;p&gt;就跟我走 若世界狂如洪流&lt;/p&gt;
+&lt;p&gt;我陪你寻觅方舟 自由在夜的尽头&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;没有你 快乐太单薄&lt;/p&gt;
+&lt;p&gt;是你让快乐足够斑驳&lt;/p&gt;
+&lt;p&gt;没有你 世界像荒漠&lt;/p&gt;
+&lt;p&gt;你是我荒漠里的江河&lt;/p&gt;
+&lt;p&gt;如果 你让我&lt;/p&gt;
+&lt;p&gt;整个宇宙 我都想让你拥有&lt;/p&gt;
+&lt;p&gt;以你为念的星宿 陪你到时间尽头&lt;/p&gt;
+&lt;p&gt;就跟我走 若世界狂如洪流&lt;/p&gt;
+&lt;p&gt;我陪你寻觅方舟 自由在夜的尽头&lt;/p&gt;
+&lt;p&gt;就跟我走 夜的尽头 就是自由&lt;/p&gt;
+&lt;p&gt;就跟我走 我带你走 夜的尽头 是永恒的自由&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;The way, the truth, the life that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;I am the one that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;The way, the truth, the life that you’ve been looking for&lt;/p&gt;
+&lt;p&gt;若世界狂如洪流&lt;/p&gt;
+&lt;p&gt;我陪你寻觅方舟&lt;/p&gt;
+&lt;p&gt;自由在夜的尽头&lt;/p&gt;
+&lt;p&gt;7.13 嗨皮，下次，再见。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/669383cdd9c307b7e98415ab.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
         <category term="哈尔滨生活" />
         <updated>2024-07-13T14:00:00.000Z</updated>
     </entry>
@@ -57,31 +68,17 @@
         <id>https://bangdexuanyuan.github.io/life/hello-world/</id>
         <title>hello world</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/life/hello-world/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;78c89339b18d77f3c8b22ff896950366235696788c28da7f95ffae7babc0cab2&#34;
-     data-nonce=&#34;26a7f31652bc75280235370b&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    498a9f848f144b0d313eb07e76d97de0081ab4d2b2f407e5feca8021d9b18cfbeb9595b705006f373e510fd3db52bc6b9373057e3d79d230e2744343ffcc5a8d4990e0b83486eac6283aa749a5d7558bccab4abb8db4a749e81cf668da32a49de46d9f8400b7da1cd6709dde28ec17282cc577500cd198aa14bb3997ba2e046b70331d5487e9583086ae371f955f9bff54e2cc30ad84a7e21908e711eda1763a0a30666295f6e43c2d0af962f534dce51c47708110e7c9ffef3fb5645422e9969fba0611069d34e83c84261bbc28dff1b8f4edbf5686993f9acfeb8580628c9e8a7bd91503d7b9f1f5716aa3842195c828af7d6640fc942b629c4177cd651169574e32612436e830033b5c6cea3a79316cc96908bce71c49e205d92aabc32eaf6698b2888ed38f8767e4eb756f36fd0c54d0ea93efe861b060b7e160223957227b0c58f8ff221c1d36eb92e83e7ec1a21a1ecb5ae3e374b66ded202598a029419ce03bc43c4bea779a56aa3d38fa3c382be5008ea1bfc315ec0bd8b092474c581db4031acabe59fc288cf1e95b2694278f3602566d9c63de24489b4cbc0eaacf47db390b4d59e679bd6bf4252cdca26b28c8f0c5f2774aaeb00be3e9c221d525f85bb5b5753fc833c94d66d4ab4bcd62b446687f2751991ed3bec7d031b4f408d00a2527381f7629a197d5f286a18b0291d2cf3f8c3819b8d417b072ff9bb97d64e3f0c5362095b6b093c1a1c61749c4fafeec44b6c4d097f7a466a1676573cdf19821761e5667caf3ed3717efe07490be9c37ce2d11dfb96da6695ceb23660828c1cccc98005a5bb821fcaeac1096dbaf1529701e7e34fe48b440ec8248681e2f2a8da86ee96c5c47702ab9eda0e4b17a7bba2ac8adcdccf978a4821416104e9cf27f31efd8b4630e5b2d1888533ba9d645f8ffa89a712b855c3e7d88d52de8f7bdd9851a3a9b3ec292deb4825796667fa03146eb0ca563132fdfdcb93261e917455fcb935b9489140711200c95f750e61c0a81c9c2b3eba50dc4f36a72719ec933fd166f06b654493e5958bbf828df0ce577dd0040393e15a0c62ae84ea3f558c26d1965abf83fc8061940d3c358b1375fc4d1e4518438dc3eefe621bcc3cff06e2df806cfc49c333414215ce6cc82686e0f5f96b8b4f5fc3387a1f45875269d736f2930ca6ba6f457031fa605ef6ad867e960455af388bf66d8cbe02f0c102abce60ccdd5ec252abc1ee9f8b459f0ecdaa8b356047112db616251c431a2758ab554c5338f427fcb13f8da66de2173802a0c2ddf62fe5112c73d792e3b63f735092534ec945c03f5f75b5be53d03bc55cd2dfaa3db19682ab91705c5c546904c7e263d27ef52f5ec9241f78639ed513ff3a7f1178a6a8b609c0467afc8cf0ab94909ef343b42272698fcca05bf1c95bbe5b6a17e7a27eef598839f53fbd08e3aa9c6f83696e74dbdfd678c15b1339278a4a1284aba9e633a464321fefb3e6c4d90ad1d438efd8c0127af34e97bd31dd7ceb405698870a7f2a9f667bc1e34e97134248c77adc51db1ef137345a6dcc1de760ce96d2530b566170b3480826e485b72e60878e3f336871ad507cc3708eb6c7fde61a2fdbc29e433b803bbe54f266f34a6f091f87a24e4990e83925352457e7ad7ac60fcb8d792333db927f71174e9c47ec41235340bbf2531cd894582939d10a6c3e675e327567c6144180c0aa6993ac093c2c9d8d322b9a57d9fc52503ffd309c34dead1bf79d4bdd00264c8fef51797b60bf9c781d3109ed5a589dec6b5aa93ec77e4ecb1f8fc1acf1125706df3dc6dbb8622e8b99905f631ba38b45cd1c9f0d9fb291f61f7b8c5041c218be7b0c3b04e7ba4f41d4f3f277398232e0aa963110d394763cc7845b528aebf36ad0d36db97ed3252b908421d155b89c746e9a4617078dcb5e3fe9efc171bf2d24283d4af47356924dfa0e9bc962ac3eb478022b4354bc37ac9cf316621690699118860ed97469c32bdaaa6271e8ae491962444da413f80335c37af9246e737c9b54f81287b8285e9537501aef8d7f0e1169102a110a36839644dfc207575008e64632623be7349a07575220a2dcf089bfd5ac285fcc018154c382f84e91e77158e0d6519813fd289b35f483a0dc500790969b01278ee426d93cd1ff91d8d4596e34a3cb63616f81fd6d15e984708e401c4a5b88854b8918637535569afaf031114e27cce277fd7c75cf9ef8c5f413de2350b24d3bfad1fa60eaf22b8d115066e62da212b1aee35f36ebd4f4a13890b30c84d569358db0d2d7c51f890e8b11c48854924e47118598a057b6692566f7f462fc6125a79b1a05381cfd0835f8278999811972bdae227dc3e3b8804bac9e11db9ce66724090a97dd399372b519d3d5b366b39636fbbc629f71e9b6ce2e79cda2cb50ea1e0fed28e928a9b9c2fc849dd66c6968f7f391515a7e5beeb4222332f412e3b5c1153163ee8b63885fcdd79134736a5972c26daa8ba6a804b8538470a6d5fb5dc8f2ed2fb09ea6079ea077ac15873f8c18e91e5f6242b7eb4714fe5ac027a6cce520d99112d4fd9cf485a246a171b50007ccd3dbe3c15a0c98285346e26f07cf61d93ce171e732791e67dfb0cdc3d5e1e84624f079944b561688552a723614c57a6b0c531bafe4451a025df2d992adaed52f64398835f191fd146142a215901b9f43549ad22085927596a1ebe26e71bd5fd498bffcbd081492298a04486ca17931bdf2787a407d6d3b4c969959e38dc03dde35a6c9e94fac594e2095e1692878444be6c2175e47c81c199fc14b1573283db3ee595803fef1454c0b33263f9a9cfef4de0da492bf4ffb6ec96becaa3d0dbebf0e52e10e52f1b60ac9a213256c0e9b7e955be2ed6bab8c4b80bf3417b5da6294625a0a8a68f954f54ec23849f5bfef9f20fa00ac24e128e88d1c2b70492e260da75dd688df3e4cbfb149b8b1aafa4c5fd518c63d56f67fcafc6eabd352c780a3303491927d73d5b7bbdec1ceac6927af8263cb0f5fad4d2938d6025fca6375dadf7c3c43b9576e8b7593a83f449f2a7be9c5847b22ab431a380b3ac379f1d546c455f12a49aab05326d9b5d4d77d9f82ac544bfa8b55d7882e72454b3e4eb0155eca632f3ff90023a901f9ae2ce9a297966fa74f7f07d47c75ffeac12a7264c2fd0b147ff4dc3214e25ef87b77e765f7051e602b8f9b5211ba1de2980b6db2be462de067bb68383bb293fc26fa9223217dbdde1d2
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+</content>
         <category term="哈尔滨生活" />
         <updated>2023-09-02T02:00:00.000Z</updated>
     </entry>

@@ -5,51 +5,59 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-21T10:30:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</id>
         <title>STM32串口传输数据</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;f27b94b5f58f77c32e8f2c4936925ef03229cd2a0b02c5a243dd6dcf882c4d09&#34;
-     data-nonce=&#34;199757c73db4e7aea4a3070c&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    868df29d8f53cf7b20b54eb858496790966bae3fc8ff3e93207e98707841c09e62583f40e510972461ae81e51993726044c762549d9c051a5cd05f2a5f45804d445ba830f8090dd0141b3befde586dff6dfb5b53776af6199e31c1d740406f4096f94508ce5c845938c7d11efe85569f44569b38bbdd1927e2b3b7a62699d3fd9dc13c4871ee4dfe71c24f366d50794f274d03a5be47bb8ce8d48e4aab12bca4b7771a0c4b434fee531ce36b53577009883b3c82e5ee327698075bf7d71a23a588c18dfa8c3251d6fc29ebde758d7c5e759210e07b274e47b0973263e7b66adb2e14d1e8e74b648acd228a893b1b95f4361ece77786568dfab47425e4af02ef83fabfb055538c91258c38a40551a953d45130b905a917c468f07bc2634e67690d07b23cf01d380dde74de0286aeadcbe83cc8a1c6881fb70527712d47726c5c4d63c4999054bc123d285df6ab1e06543e8d8ca17bab630c22de8c41da6c9e12377beccc50f06404f9e0fa81e10423bc9d4cc7317c565c08cf308acc30d22d8b294d821c17975a374185ca553f2c92fa97064387807b889e0621b50abf7930e1f8a9ad8ce7491a7af085f53a9e05c8597d6f36b749d6a6f64ccb722a6ea45a55e7e0638f88c42609b5a92a55311357ffe3a775cd2eebdba7d109460e09d794e76e05395a26d93e43f5b7645f8c0e59e15d8c14af684cc4ceee0d34847cd04e755f3fd0391938e839747a3f16b8b090c16352872c8211fcd0a99d63b09746176cc67c1240cacd570410cfd4db3d5b403fafafdb20dfc0fb8fba56ea5b9730c1a0cd9a48f340c933f61e63712587e5581148ed4cc3c15e68c64079332ae227a2558acc9ea2a3f3e3ca99ea5acbe66369bcaa171ff0e34ed7d427216f8c619720e3eb58bac5b4da7b27603633a269c5b8ef6fb14fb6a20b5bbc7861c960e85fb60addfaffb8cad4509fa52327f599786dc7a4045d5d71778fd4243a02b60edde9c51a7c5df37b653f38ea0c4270771da675b921c81154d840b435c53a4ecd64542c8d08cda67836c4298c5935a087c2b86994efe1cb7f33418954d4164ea1ad7608d7792bd236d3157bf588e0a546d57ad60a3dbbfdbf07585259d5893695597b90cca8a4c27da5aebcfa53b019e5e117222d33e80461d91982b756ce504e8146f9801b4a120c65816947f5aec8991ddcebda98a6be8dc32ffe227ce0bf6d11ff3397df33cfd0a30ecebf11f1a0a1bc036dc16b8cecfa77fc0a4cf666c66071ee400dab0ebe16425edab0a883ff6c167ce9a39fc4694f3249f0919b2c7360e89473f44bb7f844ec54d8bcfb79383dd2b3d8ae242e21beed315851f63ae48fe37dbc442096165e0e9a903b4cf0751661ceb6546b3b228a99f36ffb2fce225d4dc6e6f98ca0e965bd54741c7b06a53b76ecde13a0ab8dfc75e467d6a725277e3bd76be42a1326f11cfcc3c6fd7065fc99c447c85c5c29d7f8b7d3d186f7c97c3fc3c871e4f7159e3e2d95bbeae73fddf75e3c382a3dc0497a66071aa4c54bef7562de4ca47498a98bed327cee09af0d27639c30402d0a4edf6f6847242f87d92cdaf07250c3d1837c89fe566678e9f7239b5013d991473c197413a75884f5309be183d1e1c15d6c920911709704324c8549870171e8eb6603bc33badef4c5416687f4321e153cf390f425cfa1d15eeca41549a1c44a0ed5365c9a8c26141fb22f368698cf7f9a16a70f7f9dbaf688c2c40677cb45f030a3d3771c36620cb14b45c16cd0734693fb96316109c5dd2c95111eb85da567116c981bad3be4d4b3e3a005a9729f2dcfa7f16aad289d03caaf01cb436092a5e44b46dc1e5dbea237ace6a7ae7612a9beeb018934e1650acab0dc54570947fd5c0f2fb3132844661a8254438b0222f62f3463faf664426012c9e43c9b784ec306f8f9bf025725d6a9edc9a36937f9d268757d6a60727153e8b4cd5c2746e9c40ba0c9e00c23f6a2c7cc9e04d16d8c2eb49f75a1b992729439090b5fca9939e29d6a9df68530fd4db94eca21fb7e689173b14963afbcd344a79059289c87ae94248c7c5345be9b3d79319faae091f76d7ef6f54534afcb32b5a4d144d1c34a3cfc9c99b850d88bd1c9812755289ffd4bc41374bf1822c125c1215da135d1836224fe56eaf39007361c0ea6efd529fbeb066a0001bec766fc645a5e370b1490a48b9a4a1ebc3ccf58207770dcd64bd8ce1247d4606ce0f89a9aa060e8c94462287ba318a52b6092e685c537fef7f2a862239dd236b8c2d93f8078fb05c9c920660989ee39f68aaf8347d54a46a08b7c9e02c0faf69bf79a7d4da5c96c3cc4e9d074a8c6f89453d5b69166f7de0f1192d8e28d41a42530cfd7179dfa1e3bc8181b1420349b8e61f2fccb7d5417d037eade131ba015c6aa4a224a0c57c134af062e0bdfa8601328ed6a61d3950c314bd97f1a7afabb88ab85099a60c6b527c533c16a910df351cc7901b9291aefb44d60bfcf910717b86e23dfb21c44df67f6ec41b9f0318eb40eb9925dac431fe5038d66031d587f827b210478ffc92b238c54d38c5d2ce5ad97e393f03a833b2022019203c36b940059918e94337c12e0a80ec43141c371a592da220b3874529b2af394a97cc6fa36d4db38031b259870037f31ef5b18e5fdb68bb001470505514f2b8194d475b05d07d4d0f6c1395a2de42400039bb305fd24a4140ad64ffeda9c8f984f1255ff497b8fe19c7bdbc53ab929e28e356acde113ac763f43d8e7d0e8a8a18705055b599c70330fa6071a30abd8f561ed8a798b82e9219947fb2dba5e45db3bed2879be3b48ba7ae0e1d4152480ba02de91895f2a7dadc92ee8ef84c30977013f3658fe3d9cd0011609e5a1a7d7e4905dc824767aa466aaf52f99e6f38e83edd1d70307d841dd6811f63b999cd923bc58aa2fbd128ff41d08d9bd47ed8a6e6110c271c397c92c677c43d35
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;STM32CUBEMX&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05017em;&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 利用串口传输数据&lt;/p&gt;
+&lt;p&gt;1. 串口的发送与接收&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit (); 串口发送数据，使用超时管理机制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Receive (); 串口接收数据，使用超时管理机制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_IT (); 串口中断模式发送&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Receive_IT (); 串口中断模式接收&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式发送&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HAL_UART_Transmit_DMA (); 串口 DMA 模式接收&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;功能：&lt;strong&gt;串口&lt;/strong&gt;发送指定长度的数据。如果超时没发送完成，则不再发送，返回超时标志（HAL_TIMEOUT）。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;UART_HandleTypeDef*huart 例如huart1就是其中一个别名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
         <category term="stm32" />
         <updated>2024-03-21T10:30:00.000Z</updated>
     </entry>

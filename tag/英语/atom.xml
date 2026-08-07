@@ -5,51 +5,166 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-13T10:30:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/hello-world/</id>
         <title>英语论文学习</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/study/hello-world/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;40401d6d72e196ddc0b478b0e4569b31fc983e2ce96f9e023092ece031782934&#34;
-     data-nonce=&#34;d8357b589c2a19069860f9be&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    393e7f9cdd03c1c6a6d42a799ab4ecf99628b28639591ba78b964f7ab649a06982eb3a4b35df24c18e897d8979e81bdfeee6c89edb3da2a69d6c6a5b9e1bf3faf0ff0b69c7ff150bd206e2fba35a3ab5c853995baaa83c565cba42c41e528d5dc83e73271ca0656a8e4862f1d9382659387e65459725dc9540a17293d99383686ee7435090fde2f64c81ce7db3666f8aca861d1add6e2ab6da46b3e8abcc1db36f0feb9900f5bf224774b47da8df8737874f4ae17090668a3c680149a43c21142082a26e8eea9569cd8298ba9c0cb4f7f6c916e3314ca7d7aadff0a01a1789718bdfd4820fe8df72590cd7f0488381e99340746aa8007f64758f456dfd1c0e45ed97a210993af8c74fef7d8ae7228aae75a16b6c50fd607a32ffab6c2f74022a9300ded71d128581242ffa7971d736f81ba43677500e567904bcfa54a2710d0e6800387c757ce38d722190c741071b42b1deda2ff5f5a6e50d5b95786c97c45c79c54d2470ad4487ca5443dc0f6e021e197fbde41db70356ef61d2b9920d4b200af5d9bb05de8dd6b52a538e754ee6f8c67d6663fa64d908813165348ec57a585fcb436d6b96d1e07e46014dc8d7be6861ae3e3d56917c0d8770dcdee696f5b50431e8b27359737d6ec4cb5211b0dbc4af8135eb96b906e7d7f4b04f5f85833a0fd0d02fe7529bf341e002292336ea3a4aa67a77852f737e602109c651e8639178ba0f37da8b5d0682b9a2722aa0d3c418aee32c8d1a657d151c3daf665cbe99c6f955f6776a20b74c89d3f64a6e0f1bb879ec48f58141769934c8aa908674e2a6cab1560f74cae6b7060bf9f080eb54274fcda2895879768d4a5493d18649603365ccf218cd6b0f876a2f3cc056b01faea1e80c2f5b2073b9e9445104da25aaf90776219813172323c16b09a5979638791b696f378b2dddba4755c81763851d7c88ebfd4e3f7595389e3e37839cf2c62ae5153e9fd16dc4c8ffeff7b903b1ca382b0d5c4da08619af3b86efee479e070645a21625a473ad1b085d6b194f11010fe94e20960b11c06ea4d1831537d7897c9f6fc28720e00bce959cf665065c57e62461f41e6bfafe474d4c4d39babf925996d988aa86d76958c4296117050077d6b421ad5cec49c86f9d23d92df8012f42bf77532fc69e468fe35e7cb48734769121b75d04549f556978177af47bcaf69cbeece9877dcf6aa8fb8a8734c70bf4ab1e8f83b71e8e4020fa54d46445b46fd579010d46e59e9be9c446c8d3f0ad43516b721cb5d2860179e4869b9b054fbebea1a7b6525b7aead621ddaf461fd1ca094e091d4e799b794bdf94f34f4895aef6afcfb1d98236e9f5dca325ef05194875584210828a4bf2dd063ff0bef75a29ad878e73fb08c2c4461983c5787cc83862ddd334217948ee7fc44d1bb8e432f40fbc3dc893ecfe9f8d82f210410779a83ef39d33f8904c4e5b184b435de7b746c19799eb92f3bf277c944bcf4c2e9b394460150e14b9b8b4e590e1d287994da062d043eb1f930bf8f1b6f8289bf3a2ae975c16c4a919b97daeb7004cb83c9b0ed653ab0df88b3ac2452e279a2736a293f5cf7a26405a59ff5c4d5894815188ac56d5ac973bec48fdd1d2657a98108610704571a5ed33b6aaa9788fe299f7b685ea8f5cbc1992f89b7c176d92f5dc63ff14f4924d15ec7c57f4cf6eaf2f12ad2d6f2b776a6f07db113d8e7818598ce77b1ba461848d4fdd3aaf3de10bb8a3c7c33567e89ea4cad39e6a13da1beb4dc9043ac8f075b94ee3e004474e1f9379b4ded396ea5dafc03b2f9e1df1304692fc4b24b7be34c6f60c4ffba9355feba8ef491564b1fd783ffc9e566f6f4ebd17c22d2a95ecc54706361baa55e8b7f6482624afb30cfae6d6261baa194dc3e3371ad1bac570d7bd2b20d0bbab36ac0a4d22e8d997bb1f893aba82f9a50ffcbcf588586d9fb19f786635d600c95dfd24c034a5b069b14560e97b4ce850eb3550d8b788e133aaa3702a12ab090c71fdddb28f410e1df6537a41099b18cd939fcc7f4b2444c739dbf21ff8fb08d4744705b311b1221c39e80d3ac595cdff27c66caef3dd0908c8f4ab532d4a5d6e69a635b37210469b58ae340199e4e8708a8228a3a66e8e2f4c121e7b16605927d86068c466ab48961eea9be8ced6eac5931cb088a76a3b5ec106a80022c45a955eb6363a7ce5d734eac86fc3fcd58c3dd4a2817175c2f93611e8001202da199b9b6e15e03319459d8dd1714ebbbe6f838b634ebd6e8991709f4846e1b11ac9385f3a8baf979096827824343a518f72a26e032cff17b26e2ccda88e360de496e650757d8c50a901067c9992029a3e5ad6ea83d4b73d8a10f740da0898a6bfe22f41c012928e38c24ed568518f4a75882fece7637b7ccb627b82ddaa293974eafeab2ea929e6b884a9d8d9a407d49ab71d5b6634a5ba5eb946b9124df6a949d6110843295f1fbd47cf9e33b84a4a95873ae5282952ca9b32672f436ba69eb327cbc295ca2e9aece9d89bfeda1b842f142c18266d2f6fa80d997a00e9476770d8e092d4ec00dc29e696fab66de6ae1613fac134af54660d3d5eefda8c72278c062ae93ea6614c39cc989119e6add10fd7ca92f7fd7ee45fa5a29bfce38a5ffbbf3baf9fa5d17955e80dacdc65172086e26a2a55e451c1ad410f075cd1303c7bf906a12b7a2688c7cc1dc397951f05871e71ff6517b424d76cafe04319e9a735a3057c5bfe9d73ef3c6207fdc69f766af074d6abc1904ebe442b841fcbb1fc6f824cdaec0ef41a2cadfb499d8b6aa0553eb17fe468641fecd1886af8b14969a7c3967f6b2e91352b0dd906c6fb33a1c33bb0e0e575f3944163dc2e1cc422df9777a3983d8a5245beb1e52325cc0628eb8201e5dcf7e5183e26014df3f330ed5c118d70b96e0bb72d0b09514c3a0dbbb4c81b15de9f15c1ab2b2a8d06baa132281fb5d9f063199d6d43126b379b802ddb027ac15f4bcf771e864cd7303269a361d0a3f5feebed0baed12a030c2659469b22e083f10aaeeeb664fafb1fd54975c2be85efc4e41764d6fd62850eda0eeba4f5fa75cf102cfd2a4ba39032ede3fd5ad3dfe64e4736eec1bf9f37af2dbd3a24eae7bcb67232fa9231f08f1b166a7e71a40a2172e726a134209778ef596c84fd700ee98bb89b8144b1219be31017d674218fac36cca39eda04550f56dce1fe403ec72e4e53f234d057a2e734548308ee4895df260a80566c96cd2b8d7fac49197cb5907bbcd5238f88fd93951564e8196d0d800ce28d46d12f24f465fcc66ad5400a8eb391e098723f5da4d7b41f3c98803dd3f19e2190c3ebf1a7b39b7ecab79194032a33a125fd178889453faca32aff0c7bdac0f17167446f1ab7c6a8a07334de1422c9f113eeb1db60c97919389773b2f2e81a10fc36b5ec0933ae2f4e58bd4754a2139359b5e0195b6cd6d806b41ad3f1be885c9c4824de6be4e607d9ce07896c4d153199aeba75b996643af9b8a8ed1f63f68986036dd3a70f3756bce00d5a874a0993a1462d6f35acce5815dce6555caf6231af50a7106f82562f090b0485fed5933d3aac151684ccc6daca5dce9951f971765ba4317b12113cfb16a295e98ec82f5a900f60f6a7f569912e75935536d546b750a326fc3f6ea7c19847f02150bcc734a1db885fb8c6b7c1dc32b0dba27bbe46a1946c238beec4f4ca76c68ad917801c53168de597e7b8e41070b59aee4197ad7ef17afeb965e5db1221c28774c65a1bd44d99876caea86b3a0aba668096342d7a768c3904371df530c45bb917e2c1e06863b32f9af11c875fd59361b1395a17cf9db42d929cc4e6c50bff371502390ce2e4c8eca0722af65a0d535c80fc335de83f48dbf5a31abf22fa22e22bd155c50c8c80105e905dea438622721b7e9a7f70a08a760d8617fab14579c19ba919f5efc479e8371c22bd34b1a88f0c4593bc49355c3cce4afa24007bdcb413a8cb2c6433631b22c83544826b8925b776476d399c5af108dee2575219d40542c3b3d0d187fb4cfd0043b17d2a7468c2cc28b5eefc5e62726fd48adb6fd7f0c375a79fb25a6cf824f7a78b475926ddfc0355ec19b2b80e6aca9f2c8a2f82fbec2718ded80fb8707cd0dbbb50954837a249d4159641c60b9c016d3d0945933af7982a39cbf32f507fa94f477c8099ede53c139d3d816e7cc1cf8616b4f20cc3e4c5e124aefd0868efccd5ba5c34964ee0f6467c64d669953b162a8e5bbdece7513f2390efe97d923023ee10f7b322834fcce1c3646a2c0130007f27a3e603e1a1f0d73758a4de9fba5bae60941fd9af21ce7a8eb47cb40e8e9ac2197ec24cdeac9d361f21c45b159d0ea5e351fe8938077432c76b589bf87510bd0a26ae7d9d510c1dcf6b80638d77eaf7347db80a733ab5e146f3b22453e0203a817287eac54d2ef2ed047f86274949bc95902b5b66779a732dcc5d13e01023d5c321f11a2d779b0c038ba00b9d4c8087de16479347a876a7be5e110bffe1d3199db28f323848ffe3b74d8f93340ede1bff0abe69c92d666075f7fb7b163d220ac7e85a2d6ae890d48d1ec77677f7f0dc243d55203db4499962e77ddf120018bcb5598041038caf2dc9b93b044a4b72cbd6bcd8af7596bca4f76dd442379ac5131924d66cecc86f28d15e47dcc87f6b6ede5d3897f2e324bd00c326ecf77f6f320965959bcae3eacf98e612306d25f7616fd8da69ec88246e8a1248423e24e2126c108fe0a0d2be03a2f84b783c39bed351e2fd68189165f1d0b237a245d226e4fbddc91b53cc92d26912cbbd167dbd60667503eeb109c3ab3c28b2647b827ba26ccab6854896d5998011de8b281e70d35fa4f169d2438facd429f9f9604e7b5491f02b63b1447186a2c5ee16f20bb6d64a03aef4cc892874e592a11ed9678684d60fce00dbded52bb2742acf3ecbdcdf5f161a8ca42dc38030a3149fc81378b8fcb84c05c1349dcfcfcf8e33a0bb2834b78f5952a745a8a1393340a97906230dfdcb89dae952a5d2b490a97d4fa978ca06bb6e26436c9cf4507d38a8b9029c6e8b0118af8d9b7577e78ed8d27233657d4023f360c0aec84819816518dc6834b597278937d83494c2b6d0d3e56f1607263eda676c01eff0fd73d10e543c2bc3adec55bb5551ada27dd99e7cc11fd20f61c4d48ebfd59ba0e9f66bce8823cb87b1de372d4c54077bfa499871da7c66ce66dbe5e09822a66117af7ea5c4ffddb5f1a64e3db8ba2bba6657ec82630aa1599f61062e0e38ae9c3145e7baf325de6db90be191bf81b0a8919e85e82f94c373d7d6a9fc17e96ddfda2a4c996625dc4c052a6d8baeff256a1fe5b2ffdc30ecd124e30e44dd407b338ba3d1a4bb371d809e7912e9635337f23412110fb60eec1282be663a941d2c1bbdf206d50f19d132a5355024bd1e04fc30915ba545aa3d7167a2cf94a832059ec769ee46965ceb69e5d46584fee1bc8052f6e8a6471459f1694d096bb2ad638e949bb80becf40937743e9f561f1a1f1999196c15b826ffc23d9150ed514a8fb48eb912ba127ad0f412b7a1f164c0dca1599983ea3c6308f703e4c9b70916b9456dd59fe5b3dd1c14552f588077c23c3a3a64069f7bac0c30151c359c5704080e059ed3f3d8d7bcf5cd5a401d1b53ca709e8c6392f351dcd019267b57a02fdfaaa3ad9e339a0ea194baff6d8e8951de0fa4899b5308c4794831acffafc6e522eb7a46ed5daffe2785dabff17188be2ddfabe35dcf7f36983beebdce7f46099898696eb8523dc90fd3f193a0c4ea8aded77469b05ac59d0d1c10f6e91fc62cfe65f26889c587b3ffb3f26ab4b1b3e8c6c01dcf4055918db72d57499987e83700ce6e9070e4ea8d8e16d07c1175a4f4dfaede636ac5a19f62935c6fe265817dc5a29d851c38cd7aed5fbb7fa30dc8b6fe7e8c11c44eee4caba268fa690eed09a397a6778aa8248d92d8080071231d33fad02846c85f1db0bb68779741e4bb72d653519db5dff9ae7dc1e644f03dfc16647a4b4308d4fd560088e66ab4ff7b30ad6115ef337a3a35a648f637c3feff8cc55cff5c728067cde06711ebda949c56c6d2f26033be540314406bc972ef8adee4ca6c9e296f0e5cb8c531e766938a849faaebbfaee638094ea07e1cc5a9f56d52b72eeb80703a589259c70c85561c18350cc85aecae5ac4081b988843a0ad8857fcba6d3539658afb95292b2738081bfc855fef8af189ec24f5efc298e2f160cb948a88ec29d48bf66c8c59b68e08b31f786cdfa89c6deef8c58f969258034046ba6c71bcfa942402a6f5f01f07ed3a9c2c0fd54a3ca0a3323e1b9805a5c3ba8ff9a720c3c551
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;英语论文写作的时候，一般由以下的结构组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;title,author,abstract,keywords&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Descriptive (说明性的) information that lets readers search for an article.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Information&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What is the context for this project?&lt;/p&gt;
+&lt;p&gt;How does it fit in with other research on the topic?&lt;/p&gt;
+&lt;p&gt;What is the research question?&lt;/p&gt;
+&lt;p&gt;总结：以上说的是 WHY 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What did the author do to answer the research question?&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 HOW 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What was the answer to the question?&lt;/p&gt;
+&lt;p&gt;This is often shown in tables and figures.&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 WHAT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Discussion/Conclusion&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What is the significance of this project?&lt;/p&gt;
+&lt;p&gt;How does it fit in with what else is known about the topic?&lt;/p&gt;
+&lt;p&gt;总结：以上部分说的是 SO WHAT 部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;References&lt;/strong&gt;（参考文献部分）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Features of Academic English&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it uses formal academic language and avoids colloqualisms (n. 口语)&lt;/li&gt;
+&lt;li&gt;it avoid  等待补坑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Concrete example&lt;/strong&gt; (专业英语风格的例子)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;No idiomatic (习语)/colloquial (口语)/slang (俚语)    kid/boss/staff&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No phrasal verbs 没有动词短语     take up/get rid of/look into&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No personal pronouns 没有人称代词       i/me/you/your&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No contractions  (没有使用缩略形式)     It’ll / It’s&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No questions (不使用问题)  So why did the project fail?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No emotional adverbs（不使用情绪化副词）  surprisingly/unfortunately&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No vague language (不适用含糊不清的语言)     and so on /etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No bullet points (不使用要点符号)   比如最前面的那个小黑点&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No reputation（不要重复）constant repeating same words (exclude key words) 关键词除外&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No basic language&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;like 换成 for example&lt;/p&gt;
+&lt;p&gt;things 换成 factor&lt;/p&gt;
+&lt;p&gt;lots of 换成 significant amount&lt;/p&gt;
+&lt;p&gt;get 换成 obtain&lt;/p&gt;
+&lt;p&gt;big 替换为 large&lt;/p&gt;
+&lt;p&gt;look at examine 换成 examine&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;YES passive stucture  we analyse 换成 the data is&lt;/li&gt;
+&lt;li&gt;YES accurate vocabulary   law-rule-regulation&lt;/li&gt;
+&lt;li&gt;YES precise figures/facts      a few hours 换成 x hours     5 years ago 换成 in   2015&lt;/li&gt;
+&lt;li&gt;YES caution/tentative voice (谨慎 / 试探性的声音)  seem/appear/could/may&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Essentials (n. 要点) of an Abstract&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Research of background&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why is the research important?Why would a reader be interested in the research?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Existing problem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(What problem does the research attempt to solve?What is the purpose or the scope of the project?)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Methods employed (这里的 employed 应该是应用的意思)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What are the scientific  approaches used in the study?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Results or findings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How do the research data indicate the results of the project?&lt;/p&gt;
+&lt;p&gt;研究数据如何表明项目的结果？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conclusions from the research&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What can we conclude from the research ?What changes should be implemented as a result of the works?&lt;/p&gt;
+&lt;p&gt;我们可以从研究中得出什么结论？工程结束后，应实施哪些更改？&lt;/p&gt;
+&lt;p&gt;考试专用：&lt;/p&gt;
+&lt;p&gt;一些英语论文中专业的用法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;systematically review     系统综述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reach a mature stage     达到成熟阶段&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;aim /attempt/intend to  目的 / 企图 / 打算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;assess/estimate the efficacy of   评估 / 估计… 的功效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;investigate (调查)/explore the relationship (探索关系)/interaction (相互影响) between …and…&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the primary (主要的，首要的）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;proposed（提出了）…outperform（胜过）…on&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;…allow for a conclusive interpretation (总结性的解释)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;we introduce the notion (概念)/framework (框架，结构)  of&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a major area of interest within the field of       … 的主要兴趣领域&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
         <category term="英语" />
         <updated>2024-03-13T10:30:00.000Z</updated>
     </entry>

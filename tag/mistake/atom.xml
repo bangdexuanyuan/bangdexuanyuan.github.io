@@ -5,51 +5,32 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-06-08T05:54:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/</id>
         <title>pwm为什么还会出错</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;ecb66ef15810838a93f7a21169bf4c6d03c27cafc01a6c6070803c3371e71fa3&#34;
-     data-nonce=&#34;d443c7536cf2129609d18f8d&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    8e0bcf0829a9c69ad6ac8fbdee27d18c99ca6a366d1e4949131eeb1fc5b2e9905bd0c40b16c2d11fc4091ac5b42ba5d55363576b6d2ea0e584626e3e4e9827f1e1ee4ae001089eb7e88b81bb5d6d3eb6290af021c7baef0026fe38db17524baf0c4174a2f189012b710511561ee90eb46c3687dbd382fb2c782d1c8a81798f437a99cab0efc707ca8db5ca8fa3c2267d974a363958ceaa37751accac3c0981fe61bdddf7775bd550c2b1960b9a787fcffffeb4af48956731d45a888a05a59f599ab9dffb46ea70906b3c70b5c60453f2d79a22bc903b7575c75c7eadfd60fea51f68000be2627e8f4b31af519b7bb125e00eb460a998f873222325b8811267b2a649b3ac8b92e6f9681b7a20a64a9994ba2920eb8ed547efcb5b8380391f07c6249ba060b2c227e9ac0bfe4791cc454e5e6b3659be9a267c26c7b88af777a54ca1386bbcd6f9631f14520f83109f8e1eab3843de19fe3cba6ebdba1cb8f9533d351e77363f0cd0c8cb1497cc3ad1d8d9bc47c390be4d862e244c8e31a3b31afd384f1029ca3173e7e02caae99e754bc03ba1f53021fb3c13124f1c525174774042cb4be2641494b11636437552337025078865d09e0f9925e665e7092b981ed9b5432aa180ee3290f199c85d32adcee655c16b0988bb54bf7b85089cf7dda4f7ad070062149201795226b0280cdeeb081336391b280ca2a4420925e4a01f0e59ad68a4d33c1356b712b2f51a45ed767c5d6851dc6f6aad42654676187edac32e72773587f0d9b72a4fe0ac9290b44cf9c5dbe806704493cf7b522d2437267215c9a5ff44f1db3f690b5c0dd6afd924d03edd4fea1c5f60fb3fdde4112e3e48a04cae434e61af629741b54496ba148b629a48cf24d5abd3e2eab0b5cb1f46f4cb0e604480d950b84ed67fa0d25e33b8e7c4200bb7debcef8e55c11f1b021e70c8b8f1d29ead57b31fa7ac7c8b803d62a6e6fc9bdfcaf41df4c0e8c59791505a2f40bb35fe90cbfd7e8677bad9b6b75af1da4a82f29099d67ff6ffcdd42eb9cdeed77edf4f99a196239a93bfa63d52f7331989acc6a15f9496d858969212ef42c564f38e55747750a147269dd6fe6d7108ef022677d534c9b1dd3f829ba7846a06608ffccd6c38c1bbd051c0681dd05f9cde934f87ed6c6de1cd3d123f8c98dd6fde50fe4ce0555ac0c83dac21a02f98252ea55c9b6e711f1325c1ab643500c1353e6553e9a93ef1d699d622eefb6e8739bf0cef9a82ddfab2481c55061a8b9c100edae484c4ec3c459a7fd00b458c12b656e47ecfd4ab7ebaf4be8fdb4a0e757410d81c6f217eb42a3ad240481e7d46894d84c0099da03b82695c73d03d8a78056e697592d140e09b28e177c54ae63d69321bca64c0c355c699c6d04db6256e62167f5199cf365dd812d813a7d7aab1857e8f972d415811250764e29766fcbfbe6c931303a098c172a5f26f951bac7e9783e07190d7e05fd11897f28685b12a23d2e301648f1ad74e3da2bb757aadfb7c7cf7719fe92d9c89456f80c829efc5c9c36233f16116abb091e4c5ff21c2850c88b21a3cbd196e997ded4889f2b5be6f1f0053c5800e5d948f754eb20f8fac3bb69b5422b8e79d1e050d01d3b619670884df8000b1519fd7979405bda320002c2af6952e9d3691734e02c8655bc449e2f600b4ca65115744a8996e00e1d8ce8d4b957c7217b87b6a63feaedea5d3bde62d3cbd383af69eb5db150fcb9ed960e51c4f4e08dc37bf43131b31e47fac40c28473ae63291dccf50416d274ba1feafc31cbe03a87f98e0d37ed2ccbfb82b12904697df9502fec6063180b0068f26c83af86765f37c580f720da6055e994983a041e89a62b01422a711ddf8a702ffdeb734be8dc7f6f921d35ea50bbc5f8ca00ad682d84f5bc394380507a580d1686f0bebbec1ab3355f664540bba521c8ff2ab7c9cd93e89e7c444dab3671575d0467e2a67930ad7b268beda2b2c68d0e
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;最近在调 pwm 舵机机械臂，发现我在 keil Debug 对下位机调试的时候，上位机传下来的数据，没有乱，但是反映到机械臂上，就是它会来回抽搐，然后我查询网上资料，有得人说，是因为模拟地和数字地共地得原因，但是之前也是数字地和模拟地共在了一起，当时也是好用得，而且，专家们的意见也不统一，所以这个由这个原因引起的概率十分小，那么问题在哪？&lt;/p&gt;
+&lt;p&gt;频率也对，电压也在额定电压中的，信号线也没有短接。&lt;/p&gt;
+&lt;p&gt;抱着试一试的心态，我换了一个机械臂测试，发现，它最终好用了。&lt;/p&gt;
+&lt;p&gt;一开始，我只接上了一个舵机，好用，当接上第二个舵机的时候，本来应该一上电就自启动的 stm32, 它没有自启动，我看到稳压电源的电流值变成了 1.3A，正常的时候，电流应该是 300ma，所以我猜是舵机赌转了，然后我用万用表去测量，果然是第二次的舵机的正负短接了。但是第二次进入的舵机，我也没有对它操作，所以唯一的可能性就是这个舵机本来就是坏的，事实也是如此。&lt;/p&gt;
+&lt;p&gt;综上，如果，你的硬件，软件感觉都没有问题，但是这个机器就是不按照你想的来，那么最好的办法就是换一个舵机，换一块 32，有的东西是你改变不了。&lt;/p&gt;
+</content>
         <category term="mistake" />
         <updated>2024-06-08T05:54:00.000Z</updated>
     </entry>
@@ -57,31 +38,100 @@
         <id>https://bangdexuanyuan.github.io/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/</id>
         <title>stm调试日志</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/diary/2024.5.27%20-%20%E5%89%AF%E6%9C%AC/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;c2d2e354541fcc31c405f24448797c4b971e27dfc424e8c8f41a618959a9f6cd&#34;
-     data-nonce=&#34;8d876d2892878e929ab63e11&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    d024cbaa5dc560bd14fe0e437285afc9b754d021427756c52232f0d95cceb2804a77121b9d8e00708cdb844bd4ab2336eaa5a086e7205252a256e1d56392260659722688f969619aea0627e8dcc3e1df4ff0bd5bfe97ffef3dbfbd16b6476235ddb9a9157ea25a6555ed1f9d674834c58398c029e7c60e5eafbc6812b509d344659140a27e03bc0afc5278069cb71a7b959a4c4a2328af56fb9263256cd32c3855ff7314406f5e4ec07f1ae51ba340ea6139fae407cdd38ae82020f10307a78c74914c3449467784578d036875d1d5feb0f3af2bb1b5210e784b36e3376ebeac0afd6c53319377835cc8eba587b11e857e6283c3dfb3507428e693ee9fe545e6fe24a414ea4eb1e394ea68d4636e3a77fe523f8d5508a74aa3c5ffd02c65b38caa11076d719e3ab80589ca61b191295ef5ecaded5d9c0ac21129bb9fdf5ff5648a894dae563c2c6f8e34ca7718e08579c53801e1b9ea137309d901c38c8609a2f3b52aa03cb833277370d3bcc48069fb7d66a58a4877fad0382fe68ce43f62c0d6ddbdf28b8a22e1a597d8b6b29189026e3cbc6353b75bf3d4582878bfe86e8ce1d7911495c75b1dd4ed1bd5a585d01b8bc671712f802b68064c5f16b0a17c1e774c5c2c2f8a4d31c66c37487f90a185b12ac7a7b632d9e0441a5b04da64dfef39cf80f09c8b372b9899fcacb29fc9e8c92175fda3d9393a7a6c5e2066e668fbf68520abe39607acb4ad6dfa6635d1dbb45c90c568053f414b4a45a7396b5520c2499ba4a6b5ee2a1068be7eacfddc551d1adf1dea4a746d70e72817ea45833833d555e7cbd27b5db69158dd73029819e7a7069c3cbd00a52bb56998ba44f263f404897aa008f77081a7a1940ec71cf7b09890c318423da6ce0dd999f887b57e4e6a832f9db3439c3276fee5fed9406f5eb7275fcaf23977bf2779970ee3119e8aa605104ee04fe36ca20516f6f78858924e749178f91236d9618564f09b26e38c369679e4535bcb8ece966b756efc6c8058e5fe1d6be0347da5f4e11fe352c3f9455fe3ae389cb115749ef7523f4c63458498ddfec73e1385d9fc6846aeb9ef630c5ffdf121fd27d8de5dd7d31f01779edbe59383e2637acd9b25ebdd07c99877477e168f7448f770321969d630f266972c35ac21180206f87adc69479e05b94d67b0a339b62bbf84a7b3df34f42ccb2c81ac778d459563ed09f8a3a1e2ac81be5aaa215ad198d55173d231386ba17dcf9de761c95f1d517cda7a48cecdaab77e99f187d125ee14ab283d45ad18102294b59fe9beb6252e8f7e5fba4b7cfc571118a7171dffd38bb209123f8995c3b5d1d659b2a42bf00d3d267dc0695ad274e46d0c1088292de21f542b8d06741fa2e23faf039a7318f905262d819b9be360bb8949e26842a10dec3d6ce88fbe1d47a6c186e2dd356ac986cdef1029e6ac9fc0dee003a8750124ba8272e78c8827ba91a6013eb3d505de75cf10b69ca99102dc8daf188bc23dbb3524bc7e1e2d0ad7df9384b08c0005911373f3cef5945e990638775d51c83dc2b72adb2e089d8419ac43c4a4ba15b09ff9e255f024ea95bdc6b9198d08fc4a58ca287b2e218dfa464842a6046d9a8b33166444dead2e956bd78345ba3039dd9bb1d83e1adff877a454b587cf21f440b17f9b0e539a60e7e6448ab83b81bf4ef15367fa1dd9b5c1f3898c01537f2aadb8d2d5857bebe18ff35f41986148c5bda81e35f3c10a3de02f6810eee2b4bde8f87c87813adf3eaad702488fe822759ae2af4375fdc7aa6bfb8b4e9819a311adf66e6fe3880094593f7def682f8ab1e8fd1c7ab17d4d250591d2e96c69b5370d6cec418e137fec4dbf941439f866189e6e78420ccffadf122cbcd498cb98f961142211bd74b72e31a574cc928b06ff7e389a38bbe642d91a5a6e8d58561aad219c53bfa1ddaca2aee78e792a9950f66125e371f50fca6ae4ea52f1e087c1d1fabe1269a7b820cb002913f3366fd3286164fa130fa3e82799d2d530143dff4967a0fe2fe27d7cfdd93df4ba39b59571682631cb45ce9b0681f062d3ebf6000a8061e266256aaeaa6a47bb7bf0fa1a010a152df7c5c23be86321508777aa7b3002a296377ea71f5a5664297471d71c5791aa64355f3cb04b46419f92d2dead062d076186b7c70b2ee2c5d1ba85c67a0c7824d1242f4ef0e39e211d26c15da7f8de59d7617a7254ef0393851dfe0be61d052ee9c26c7ca74f495de85e5f5a35c504041cbb50d6dbb8c1f25caf12054712fa18554bde5b0f40863a41b8a2bd23645abd4be641985c1178cf64df4c33c1592f9bc27e479e60092c32b52ecae7478b7f79ef5ad63f9886634934952733ffe79f76de01e22303b0e39f00545907f526f638d5030a1018336d5594ab9fee3d5ce4e5451aea44bc438ececde0ae5cabc8e958d47186710ae99a77ab2f1448e16e5a31a979ad8aa168cd7c912d6886691b8c72b3e0c4ceb210f569b9c4a76206a4e633dd2bfbb46ce90406b0d92cbe9a082dc1680262a0023f06eb0e565b3cbbec4b888c006bd01402b207786c86936e0f3c0ed85913aa1c7470e6a1fee7a93b9b8a4a0392ed2b8c2133a6b5b0faa1b6aa93e42e3d9d5f2e91a67fb13e99d5e8f8119a6e0835edd9d1b6c2d36fc617840107f40535284f91bf6ff9b4102c9e39b011b86ef8f193c393f1cd471b48257860d28ccb16300091c7a6fd7823fce5ec2fdde47d0781d185094dbe1c1f080ee4796a0f56b9d0b1102a779bff01ae0cd78cdd45cfea7aad3a6c05e0e6289e45d9ede2ddaf3ac831baa7a58a2bc1b3f68cde7c4536cc4341b1ada247b132381e8c4aa5fea27e000c2f3eb279c723add33d86c64f90369e397a83e8533cbf8ffe7d15dbf50741e20750643b04d61bf455773ed8c312581acd3adb9731f5cc27cad517b4d67624fdd9fbcb5b952048d7887094af5feac793b1e4676046e76d64568d9f71c989554c540eccb0b9ec072f2edfcb3e49df9c8ec73d109bf307c476f54436334ca056f025d95d0f4a3bae8b65617a5a837770bb33208dddef39a8378ab36fefc7ea254452b5d6c48a89b26adfcc25080dcdf193d85257d5d603f6109d7bcd09874859bf532dee53f2a02e0a489b39dd40a22f033eb67224527fc2f52aa52fc051850b90ff356009ca65b82c7a3df2f6b3d738acd7863ef7442aca06527885efda2d6f754b399c192a48856d29b9bdac822cc68b2edaf48cc7d4a7bcdaa30fa40199b5885e15d6df204be382811255852e01b277e63e77e1c510bba432d5c06e491d9e8355963969c7ffb94122530cf44234b67146a7efcb7322e08ffed062193af356d854ff5c9828a7602abf7d54618874e473799470f0b5f8bc43425f1c443050129741dfc0ea4e4c3e0a30972d3d35079d97b23c8db588cfbcd7e5b645e78d1b672b03aec0ea21f56d1ae1c24ff17a3a38c63f109ff1d27532fd3ca7603db7c93d52bc7274baa3d34be04b0fbaeded466e8a4c2b66bb5de05a00eff8e527801310752bbf7d187c5e9d1599315b3705618d688c4d15011e423814442c7857966182653027c768487d0c6729c580e2d3d422000f370ef35b9367a11e9214b7cbe671138098ce8451e8ea3c6e15765c4b32a965e82c6be72c3ed354c8346252b8ae55707cc533d94dfd0a12d6d8aa297c0bbfc9aff17634f27dc007d6aea483cd8a3ad9f6365b47e0bacdf6ca06193bda80482e02b8beb03d65476d9e5087f7a6f5678fb8705c8eb0323686701aaa80224e8a8468c5d6dcc21559bc38f6e09a954c86759c6b4b733619372d05b8f15ded8a259fdc991af89d98d955d43ceb642003411286f8d23e4b4df1e1256b758e30a141858017874ac376aa32d0397eb683147aeaa631edd0ed1fc6ea97231877984664af7c5f779533e36c4c8aa896f92cd4955c6a096d394220ddad4509885d4416cbc85aa58e1e3d8e0f848d44da7add69078ed4a80362ebc788ddb0cb7d80c7b14193174037932f6c92c99f598ec814faea655249ea3a8a43c8b9c091a7918f34121c1c57883a0d848dc9e3e0cb0f17f8be842699750f1e4f47c4088c6a441b0fd24e6c30f33a0d302a6941e6afa92a308af0bdb09b51b5a7e447b90427fa2da1b5829d3cf2348aee5134d2d176e91f980d2bfbf4fafd04ccdad931d2dc2c8065756a0c694f8b2b5606c3ca9f8ec07104a157d7adb2a254a1f57a767b6d2f817ca01ae33292187f3fd350328a6c84e077cfc58cffbd1a895e8e09f8bcb2af79c4fc04847538893cbae72d0114e861ea7ae1f79a98ceb42b5ed6f225957f77976054589c85f51130cf4a8b9dd9c208ab100cadc1154917ba4ac269c2f22beef75dec8bd66b70e50954d2c303d3537216fb7196dd5aa03ee72ac6887754c72e7ca7366bc1eff67f7181ca1742d8c8522bd823300a93935a20c8942b5a837afc7e9592d7f611065f2003951ba2ab70624ab14bad8ba7bf9f726544ac94f04abf316bb7eb5aa1718bbe96e5b40ab5d4e7d317b32e45ec56fa6a5f5e7562602eb465eccb031d7d55dd58410bebf2f92b6d319abaa889f0101b7fa871ea14ab736009f43b3e5b5185aed8db5fd59bd2b9e12c7337fbfb23b936b2fe9dfc9868ae7ea459eb32ab2be857661d68cb00c93d664c4dbd0e65484a3dcc7334d2fe407848d667c90465b41b49340f267ca9dae04e9133b4111d6c0d41d56197c2f6bc5f2785374e492a55152a62786a9ca33cbacb6326ce2bb83d97ffcd7006311e9c3bdaf30d48ee7c7953241fb65cd297efe7c6a4c9db4430a82c0a3e26554b4444131dad44350766e93c921552ac0ecaebedecd0ba2546e539d1394019f40123eebdf5b19b80bd7554cb215ea0a89730d55780997cc58c93b637da63cc393bd85261cd2379357117e14546d67bbc71af3225107819a58192789d799d762969396c95043ab3f4e44166d5beafa98038f653250d8a556d322e4914bb02e714589a6a2adf3acdd9d33c71ea6407c023f15aaa7f8bed7f2217e2fb0a8574a84b78b39aba7984a2359443300dcb020d76fa4d3ad631b8c5c29a01ab1f2c04f502a31add7812c75ac7d2fd79a739402f3cd584359a6f655c125d44dd923a1fc915891c98e1b63beb6acb9f7c2f7cbcc5f88be2e89eaf3a8f0825b037cad7be41fcb4609e99d6404312fddc9479492f5616b4a7776de84368748f103023eb63b72c4b0c526b5299fa1b567ce120470cb81e8c7fd83fa2304f69a6960ce32d685cec897d80c6d7b02b009912f3d2d4964dc7ddacc1870d57ec66e3570b68a674c41623044ae01da07ff1d5b3338d00dac2671851063aa8fe5864882aa378d5f71f840643adeec3d6f6b2087fb6d6cfc60ca0e9a166fe4987fbc5a9865de725583a8ad5f1fcfea2028e8cd5e006351106769d331d0fc578a64cf0d7af6289c84dd23e929b4e8a3be3b2a9b080f021ac095f4a3ec63867615052c06d22e47461e4fd587ddc256b493d55571966aa71189919ccd76f07c37377d67df6719db6cf0e2ca7f4dcb6b8c43376f5f3b0ce36355405f79eaf6e321d9a5459aead8541bbe572745220c0d8a3d8231302434c0e2bf0f2b7fe8dbfec2762e859e9c88240afaf27a4048c82ce759ba7f395cd8bf3b508a10ae38e31635e8ca008ec8a742f96efa1ed43c05a1d7a03c0b33ea1b3b7ce7ad32df9c795e18e463a7a5feaec16925d4844771a5bdecdf093131ea6d40a796bcaff0a6ffc36d82a358b67403ac589c2b625d4a7cb400916881b7c0988382f509ca81a49fbafcf79fcabc912e903a5dad9ca5d4550688804cfc72e8c3175031c5f66112622e4f5286bc37c4ad82ba6b620a62212750146d6bc65fda48b25c1b878eeb1f3f35d4a95105439ad5e70b86dff0a40671aacb5d25e13528110440b1be2a5a22789cdfcfe2e736d9ae5466abf396cd4a67a6986f4be013f132ea891c0c4edc2740779dfc3d6b87343e043ea9bf87a73accc212a86528e49a468160453448b92ec88995575bdec4a1b0c04f8417ba1517a776cf4034723f7d96b7f3f96c09d8f6fd9aa69b6a8edc3797b18d1c310ba211acdd8a4301fab93f7a7c980e18e99c7a99f13e01a08f4403c35cc431e7a1b06c8b9d80cd0bd907330aed1026c12866aebbb260348ab9aa8b7215beb922b692ba79ceb78670b757293f4694a9d0129719431cf82b2ff0cc2244d32a49ddd6a00b1865ea4dd3dc7975d7e46e2711d9a82ede0fc9dd94f3d50f42fb33d50fc05b80e42e7ff553a5bb1b93c0acc7aa9c03401d101ff3b9aab34afeca46227d623dd00f262603ba8da26b0ad9772c8742708c5d50e814ae0fb0ce092aa0250e2fe5db0f0565f3a1fc412f0d0ea371c180b611dd1c83bcdd8ee49847f951edc8e839dd7dc6b6abc9f67fab23953442052669b8e48134ee72b95535924b9594051539b5eb377bb01bb62bbd3ca6cb2aa65e98ed952d976b73bbd15539ab1d7d2027db54aaa34767571b540a640d3266aadb2e829fd5d13bc351c9eda9df9203200752321ffaebad9729d6fb777a6c6e7e0c093414db19b37d7a2bc73a40e407c149931a291f4d759d7e7791966f1beefb8bad0f95d8e76b16b6a8205e467f9ab1b9a58985fc18708d58f1f7903f5cbb0f228dbd685679e441ca584baf113d590574684c9605e739f80fd22be58d3ef4fc3a6fe825841f2e02aad0f96ab45ceed44536de2de0f2bca337646feedb1f24ce98e8c2ad703700d7e46fac1409f1c7ca43b6e0cd18a40000dbda9c6a010faa4e7f767829ae1ad0c43ae89406e41f21e171d24d3ac8b161212ddff19bb1211d19747396f8480960ca8bd0dc7771cbcdad2ddff0bc108403ebe8d098dc205f525d7e3d304fc37b564088d4338054e428ab365b9a6743e563e34ef269084df4b98f5f6b21f259ab037f92a3eed619c354cc7e1c30b9e61b805e1226dc374436926afaf2e7b9e5bef5af524b8c0801bf95fb7324b05897dedb203a8ea9f7784d65cfd7e9e5dd9ad503f7a7944a3d5a7c7e7dbcc3e9dd96b9fa3e7a2635d76dc8609fdab3064f5b3f720c6eec91d69cc428b78707b7ff1c6fafedee3d48c7b843cff88d61555aada377c27757dddea3392b1fecc84868138d1f45f3c46a8db4af62a315bd1b8302510a7468c4b8213af7bc67d12c0de2ad5a85015f33060decc3f57f63a11adf2c3451b246d7f923520321256e7e60e35a68425e64e3c994d098f48416614ac3af5691cef079dc85da9fe05fc94b77a2ade19d94e30abd3677e1f6b718bc5d052977df389059f3e58b5a4de5d1bb168acb1382e7947b8d43e46ee16e323b19f33400fa79dc5faa353f09ad3a0d3c5bf17d6a76a7a5b8aeae9dd2ce689e19ec8b1762d05da07b271a4ac0e3090d2d936d8a1c85a26024c3a992300803bdf767d41e00e4ec56f0c13167f56cf7b1fdbe13c921e1c2f089aabac05297124cd522b05dfcbb7b29b0b4754538f4929dc28a07b72e2556ef71679c3232ee4bd6692fec72e52695500b92943a08e24f687a89f44c9d8a15fa302289bcde30c9ac79fa673e9914e77f97f42b4c9e818fcf4cea94c0fbe9717b2175a3319514b39515e67621423c7ade369ce26cd5499b56e8b8d868b389a433f391847800ac4c35813499c75d75db8cfae0acff5ce8e043ab871d25085376318f0fc3ca70bb544f4420509bb4bdb449b77904821e04ab9770c4f4a748ece4fb3f26e2b40d11e1d8a0983688836384204b2212078404f7626a96ccd225315e48b180fc4bf8cec3c6aef3f0b71cbc0c1db7c891f733ebbb2a2f2eb957db70682366bf4d794abebba5e4a879ef3d296845e3c8fb7695ba674cd777de0351c657d40648ab0829f5f1da5acf2736481d1bf717551620d746b6fd61fc34a1b271fb0cc36f7c0a7119e7c0e71932b294ac004f1329294a45eab7a341e23343a906c63c1610ede1e9cb70aefc602d1751c16842a0332de0ca7607281ab7579e0ef7aeb3cd61c3456711e93aae99c7351553b258f2e62cfafef4fc5e45c984b006b07eba8e09f857954d9c4c476c7c11c556790b1afaa4286d9e143c24f3183aef37a5fe8c8e94f90a1c7b309fcdab83b58029271fd5fc6a3e5fd698091a337f1a70371a6e18b459269e79236a887a344152f8c4126eaef6adbcf0ffdd9aed098fe141475ef6619c15895592bf4fa3e341e982533ac58032c17610b1e799da03f80f1c1a2a528fcd010826e10ea640d86af9c1d680e5edfa42675b2ec7890d7e8208376fd9ab46201a35c8e080213233a7ee76659dd09c0345ab96333243905282c504bf178615e14e26951db7a09986aed08cbb66955df71b4303e772efba10799e70a258bde4a5b4789353e9e4fc42df41ab390f04cf4d5a404da683824b93ae818c8ec0d2954c40be3cf95a46a54f46195449004cbbde430be12bca84ac33bf0ba9da02a2c65e0503aaaa42492fa36130d622bfc3bee9b0d944aa872bfcdb6b7c8b074fe82d17618bd830af3885145b4b6fc42679b552f5549b9a73b9a8a40151da3853082889920193db395328cf86878a45367b1226d9ac4e64cf7adce4bb989daa67d9cd15adef963f9a26adf6c657e7edb4126a9d20a18755ff18fbcb315d872ed280470fb96325b43116eaf06b5fc6eb5060b74e24a67fa6a4266ce06b2c37c04770f84dd8cb4de4a57208211fde58dbd143ef7558e06a7d90b93ee9f0c9a605ad55299d56388156b22f5b84f54958e170221b0e9ccb2283788f7dd2a122d4104a4744e8a4424eb5fa176af12b7e22a0ef11097e40071154f3f1aeea0d333365deeba4e20beecc4007bc3b65c7b918b236195787fe54d4f1398108cc8ce8bf0b81fd98feb287432448225001d5c1d2c8a4f0edc922e983f3d149a4ebfd5b180d0b7
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;抽象，因为一个&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/665d398d5e6d1bfa059b314e.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;__HAL 少写一个短横线，查了半天的错误，抽象。&lt;/p&gt;
+&lt;p&gt;紧接着，我在串口中断里面，去获取当前的角度，其实，这一步就相当于是定时器的作用，&lt;/p&gt;
+&lt;p&gt;然后我发现一个现象，就是我的下位机好像不进入中断了，我一开始一位是我的 RX 和 TX 口接错了，结果查了半天，发现不是这个错误。&lt;/p&gt;
+&lt;p&gt;然后我先去获取上位机的数据，因为我点击执行机构在执行前会先进行判断，判断这个包是不是传的有问题&lt;/p&gt;
+&lt;p&gt;也就是我代码中的这一行。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;        if(Rx_data[0]==0x7F&amp;amp;&amp;amp;Rx_data[1]==0x01&amp;amp;&amp;amp;Rx_data[24]==0x77) &amp;#123; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在这一步，我先判断帧头和帧尾，还有命令行，如果这三个数据帧，没有发生改变，我再进一步进行判断。&lt;/p&gt;
+&lt;p&gt;下一步就是用到了 CRC 校验&lt;/p&gt;
+&lt;p&gt;我首先在上位机，也就是岸上，去计算一个 CRC 值，因为我规定的是 uint16, 也就是 16 位的，所以我需要拆成两个八位的进行传输。&lt;/p&gt;
+&lt;p&gt;也就是 Rx_data [23] 和 RX_data [22]&lt;/p&gt;
+&lt;p&gt;这里 RX_data [23] 是高位&lt;/p&gt;
+&lt;p&gt;紧接着，我再计算下位机，也就是水下部分，前 21 项，也就是数组下标 0~20，因为上位机也计算了 21 位，所以下位机也计算 21 位，&lt;/p&gt;
+&lt;p&gt;如果 CRC 校验完的数字再一样，那么我们就可以确定这个数据包是没有错误的。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;			crc_shou = CRC16(Rx_data,21,0xffff);
+			crc_fa = (Rx_data[23]&amp;lt;&amp;lt;8) |Rx_data[22];//
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也就是下面的部分：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if(crc_shou==crc_fa)&amp;#123;	
+					
+//						MPU6050_DMP_Get_Data(&amp;amp;pitch,&amp;amp;roll,&amp;amp;yaw);
+						err_pitch = target_pitch - pitch;
+						err_roll =target_roll - roll;
+						pwm_balance_pitch+=pid_update(err_pitch);
+						pwm_balance_roll +=pid_update(err_roll);
+						AixAngf1= (-0.927)*((float) ((AixAng1+5)/10)-181.0);//是经过处理之后的数据，AixAngf1的现象为前后可转动90度，所以AixAngf1的数值为-90~90度
+						AixAngf2= ((float) ((AixAng2+5)/10)-185.0)*0.9375;
+						AixAngf3 = ((float) ((AixAng3+5)/10)-182.0)*(-0.9375)+180;
+						adc1_error = motor_adc1 - 2089;//得知当前adc1的差值
+						motor_pwm1 = 1500 + adc1_error*0.25;
+						adc2_error = motor_adc2 - 2063;
+						motor_pwm2 = 1500 + adc2_error*0.25;
+						adc3_error = motor_adc3 - 2048;
+						motor_pwm3 = 1500 + adc3_error*0.25;
+						adc4_error = motor_adc4 - 2065;//控制左转和右转
+						motor_pwm4 = 1500 + adc4_error*0.25;
+						pwm1 = (1500 - motor_pwm1*0.5 +motor_pwm2*0.5)/3*2+(3000-motor_pwm4)/3;
+						if(pwm1&amp;gt;2000) pwm1=2000;
+						if(pwm1&amp;lt;1000) pwm1=1000;
+						pwm2 = (3000 - (motor_pwm1*0.5)-(motor_pwm2*0.5))/3*2+motor_pwm4/3;
+						if(pwm2&amp;gt;2000) pwm2=2000;
+						if(pwm2&amp;lt;1000) pwm2=1000;
+						pwm3 = (motor_pwm1*0.5 +motor_pwm2*0.5)/3*2 + (motor_pwm4)/3;
+						if(pwm3&amp;gt;2000) pwm3=2000;
+						if(pwm3&amp;lt;1000) pwm3=1000;
+						pwm4=(1500 + motor_pwm1*0.5 - motor_pwm2*0.5)/3*2+(3000 - motor_pwm4)/3;
+						if(pwm4&amp;gt;2000) pwm4=2000;
+						if(pwm4&amp;lt;1000) pwm4=1000;
+					pwm5=3000 - motor_pwm3;
+					pwm6=3000 - motor_pwm3;
+					//mpu6050调节部分
+					pwm5 = pwm5+pwm_balance_pitch+pwm_balance_roll;
+					pwm6 = pwm6+pwm_balance_pitch-pwm_balance_roll;
+					if(pwm5&amp;gt;2000) pwm5=2000;
+					if(pwm5&amp;lt;1000) pwm5=1000;
+					if(pwm6&amp;gt;2000) pwm6=2000;
+					if(pwm6&amp;lt;1000) pwm6=1000;
+					angle_pwm4 = 1500 + 10*open_angle;//PA6
+//					__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_1, angle_pwm4); 
+					angle_pwm3 = 1150 + 7.22*AixAngf1;
+//					__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_2, angle_pwm3); 
+					angle_pwm2 = 1200 +600/90*AixAngf2;
+//					__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_3, angle_pwm2);
+					angle_pwm1 = 1500 +650/90*AixAngf3;
+//					__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_4, angle_pwm1);
+
+
+			__HAL_TIM_SetCompare(&amp;amp;htim1, TIM_CHANNEL_1, pwm1 );
+			__HAL_TIM_SetCompare(&amp;amp;htim1, TIM_CHANNEL_2, pwm2 );
+			__HAL_TIM_SetCompare(&amp;amp;htim1, TIM_CHANNEL_3, pwm3 );
+			__HAL_TIM_SetCompare(&amp;amp;htim1, TIM_CHANNEL_4, pwm4 );
+			__HAL_TIM_SetCompare(&amp;amp;htim2, TIM_CHANNEL_1, pwm5);
+			__HAL_TIM_SetCompare(&amp;amp;htim2, TIM_CHANNEL_2, pwm6);
+//			//控制舵机的
+			__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_1, angle_pwm4); 
+			__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_2, angle_pwm3); 
+			__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_3, angle_pwm2);
+			__HAL_TIM_SetCompare(&amp;amp;htim3, TIM_CHANNEL_4, angle_pwm1);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，想法是这样，实际上却不太一样，我从下位机单纯获取数据，获取&lt;/p&gt;
+&lt;p&gt;回到一开始说的部分，我在测试数据传输的时候，发现下位机好像进入不了中断，&lt;/p&gt;
+&lt;p&gt;我说卧槽，这是为什么，然后我单独拿串口去读数据，发现，485 传过来的数据，传到下位机的第二位是 0xC1, 可是我给上位机设定的是 0x01 呀，然后我初步判断是 485 的问题，让数据在传输的过程中发生了改变。&lt;/p&gt;
+&lt;p&gt;然后我又去单独测上位机，我去判断数据包，发现上位机发下来的就是 0xc1, 诶呦卧槽了，我给的可是 0x01&lt;/p&gt;
+&lt;p&gt;然后我又测了好几遍，都是这个样子，然后，就刚才，当我听着逃跑计划的歌，去测得时候，md，又好使了，上位机发得数据，又能变成 0x01 了，诶呦我勒个大雷，我不知道为啥又能改了？可能是我原来复位键摁得有问题，maybe。&lt;/p&gt;
+&lt;p&gt;2024.6.4 调试日志：&lt;/p&gt;
+&lt;p&gt;控制盒，主手的供电，必须采取 stlink 供电，如果直接采用稳压供电，会不稳，我也不知道为什么。很抽象。&lt;/p&gt;
+&lt;p&gt;2024.6.5 调试日志：&lt;/p&gt;
+&lt;p&gt;目前，已经把机器的推进器部分大概调整好了，然后需要记住，串口线的颜色，橙色的接蓝色，黄色的接绿色。&lt;/p&gt;
+&lt;p&gt;然后，我现在画的板子，有时候上电，板子上面的单片机的电源会不导通，测稳压模块两端的电压，发现其是不导通的。&lt;/p&gt;
+&lt;p&gt;2024.6.6 日调试日志：&lt;/p&gt;
+&lt;p&gt;现在单片机的下位机感觉时间一长，串口还是容易卡死在中断里面。&lt;/p&gt;
+</content>
         <category term="mistake" />
         <updated>2024-06-03T03:35:00.000Z</updated>
     </entry>

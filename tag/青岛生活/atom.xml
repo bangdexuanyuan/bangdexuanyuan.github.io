@@ -5,51 +5,37 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2023-09-02T02:00:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/</id>
         <title>青岛之旅</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;5809d89dd796b79b9518a0eff242258c9ab2f0c50b68e84b1df6490378f8bef4&#34;
-     data-nonce=&#34;ecf2dd34b482ac98ada164cb&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    80fa71ec1ea3263fe352083051cc11b36e8edad2fc697dac1ba8cf0dec7f94c84fc3ea8904622109a7a2638f9eabe6af705c1d790e35bd0dbfb87e0ebf4f37206a268e910f33baad7df95d19ed45aaa568eee483a83c1d3308701e62611212f905825fb3ab56ab83219aa769c8bb8df8c2bd2e0ff129093f2c551f09905130391728f9987a604eb57cd8d0cb0167117516c71fb37df5b77e54c4ad3279fdba179f48f3db1e7505f37f1f0d17ac3567937135218f9b60aa9b104798a822976bebf68b09367ac9407dd54d21edc176bbf9b5da663960fc9adeecb8a4e8ea2518eeb8a2f846c994fffcbb6ef429022b1abe02e4c14a90a4c7d81652aa4d0b2f6acc6cb418c3423fe328ba90a375b3838c22703a67925063439b0be40f6fe407aad926b854333751203724a0fbeaceaa8f94e022bd5502ce7994b15a0f1992133f20dd1244aaefcba8f654de055a811d13acfa2e36b9b11a37e839fd9ebc6e2d3706d67457a2ad3051a9ab8eb96d235a33f9445856fc1b7100c43a49e7fd1b46c4177ce32f81b4304d41693912b5a903b32e9bf8b3e36e44ab564a4871adb12b3746f83f137d0b34ec1b70a9065964c80e169a50d9c3f861608e6074f40697534a108dc8ff788fe1d06be84d509cfd63aa4743f55b0b428c4f723c60f56459563747cf075db71de14c28b55a204f8a201c53e8616ea8a4fa5cc1f4f288bd9741366e168d32f868c292723f70c5d66b86d6516a5169ab106a88bda3fa60cfb91b6f0505b20b37ae1b7e61a88ef46517b1d9b5258f1522c2b4658cdb68f24b9fb5bd0cfed8cafe35a9eec653577000628b076257de49a383fc062b8e3a076c551718948578b3669e411f6fe9ff41fd2c402b669825310cf8c218865327517bd77d3054de505526256ef8c16f4c2f823167bde18778436a499ad4a6ed48e21bae4e2c3bc3805ca1bbc63d361db30b732b517383eeb4ead0928245f15be64ff8463faf088ea792fa7b562629c10e7809921defadcb9d1edc0de755577a3552a6c90690cd88e4da8011524cfbe3b046d49d8b553b8f7cadba0996d825f421a494f2d9b7d3e49da999900028c71835152988020ce1b83ab986f9b7f151f148c286d02a20d577fb6ca03e37a21621a99cc64a04c3d5c510f750d5416ce39b930c2645dbb38267d04a6b05b6c9042654eaa851d49e1ce4cdeb6eeefa69c69d00e0e3fc6e
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;2023 年 8 月 7~9，和 zjx 和 lh 去了趟从没有去过得青岛，真的，碰见高中同学，虽然长时间没有联系，还是原来的感觉。&lt;/p&gt;
+&lt;p&gt;去了海军博物馆&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d252661c6c8e54b43cb9.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;去了小麦岛，去了鹿儿岛&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d24a661c6c8e54b43172.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;去了栈桥，人是真的多嘞&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d2fd661c6c8e54b4e2da.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;还吃了好吃的鲅鱼饺子，墨鱼丸，啤酒成为那段时间的专属&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/64f2d316661c6c8e54b4ea1d.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记得凌晨 3，4 点的火车硬座，还有 LOL 的 solo 的时候，zjx 的破防，这是一段短暂而小有遗憾的时光。&lt;/p&gt;
+</content>
         <category term="青岛生活" />
         <updated>2023-09-02T02:00:00.000Z</updated>
     </entry>

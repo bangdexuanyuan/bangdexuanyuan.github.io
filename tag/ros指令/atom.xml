@@ -5,51 +5,107 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2026-01-12T09:40:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</id>
         <title>ROS2命令学习</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/study/2026-1-12-ROS2-%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;dba20f8636a2c841089947647f149f19c22dd4b97f563a711dbd941f4480e02a&#34;
-     data-nonce=&#34;784b6238d548bcb72c0d523f&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    a8c6c313f8bf550847705edf82f5a09054e529333a65f86c3b2ca24832d926a5e5da6fe0fa92e37553665663f7b5638c119ea67f1794a810e218f45feeb5df4107f6036fd9120e6f931e2e9e7a6ee8987ac43111fd59b965c278cd4c5359d76e2dc4148cdbef19f1bbefdc130ca4057ddc5309319ebd05991d4c6bdcc36943acc47e9150feb128ac96ffba5fc587d28f7be042e9ddbaf9f9b24b58d68fee7f54d507c4e00a5b1a8ae0bd214c57772e2b135abfdf1b734e9d82f17910be6558e25bf980d64c54d4fc50b1f838eca9c323690df7e2c47ad004ca8653e0b0380042dc56e8823a141850558377425db66081f081fc46aa8fe9b151e826437ae197353e9b03dcee52dd5b891bd99f40128ffba370aba19612917697c0921dc7f57615cf713efcd559ed3fb8cc0f1d755bd276dce502f5c000bd04e784859aa8f23fd4b66e811ed8af1d87dc85995889e2c390525bedc91366a527af9fdf012f03d466fe87e0a2766d67cb4089f7e807438b633821e7beb264a16d7a4d2e80afed014eb0970bf542bf423b4235504762f26fac2d43b5212b7def1503951f7603fd8bcc4021655650e3f90ff6d464d09397950062bea605f4c6da02f2e4507f92149adbec93d3c0b01c735e42b20dc87f205e4e27401f19feb2663b94bcfbe6d09c7666008774d8d377b02d67f4f092d88f1fc2686d7d5ab79e9ce7cb8182c732b1e491c3a90ad448c8a3e93dbc2d3de0e6a3661c734b999e914aee55d0a8072e52be750619b329a8dae44a1b70be500ba8071cdec4ee8ff2d0f41b63a69c02357fc379be0ea359b0cd35247fd41167ab226104fa9b47fd46d69dfa9263e1ec76987a6a2d9ad080b20b5b76742a17c6ad393e7fa6abb7d9a7f08255e83aaf496b2ab7deae319cf0a0696b500edbb07aefa9dcd242321585bedc97305986fe6980c00a3f97309900f08bc93e316aaa30f87e2d528f441beb84bfe5e113654a5a31c195ace7af79514735ceb72bec74de09dd6beecd147bcfd19bbc3cc3ed511fa0f344cc9ecac4dfd54f17977e2af6da0a2a40f6076c507590bc7541cd260ae739b373d01e8ae137651dd858241f3edb9a81f92be1cd5071b04d95b5b4f6a1544705d3e5ee980bd9bf1089e829de1f55524763cab6025414417c16879c5a6803995cc30975d5182adb5c2ebc6b6358c1a7bfb44d6b4776267eb26ca45f91028f959452dbc28e3240a4a2e82fd93a6e66606e9375808df0137906dc939b6f99bbc4e37f3eef40773b3b5fbbcd7495985a2611ab2254f818250df2b1e9deac09f54187bd43076ffb74bd0700cba8dd8002c359848839218c80d18cec1a179317236e7e5a7fc17e947a3511f0b8b9352a67fe1f6c0b3d132a565b42b93d6f8c4a376e69126f76b09493acf24dbe38fc46b6821b77508d3fbce1d8b395d418cbb035da3ebd9520e18bd96e643b527db8f18cad62e3dfc603478a3422319490d4f605990961990cd63c49eea057efefafaec559da68ce70b593d057d3d044c0a408934a1000b10a15c5cebacb7a8508cc8c44b552176d1930081c5bd58c54cec90be5aab3640a0fe16ceb061eee6a5787faad03b153536768b481d5a823f559b7406b49876f6a3e65a5876eb64526b1cb10a1108c6e1c6cd48c56a13344aa8873694b0f64179b0db4f8b6fa68b4489b125a262a8e10385e4681b01b0d46293cee137823c725cf371b61746eb5b8bdcb294ca1c52d16d0103f085d9ad08d16e91faa8d91a832c035e0c7f01555df24f378c5f5bbc0d48fef914e2f80dcfba9c9f264d6da6639cf671a12ddd7c3a6bde1e3a43647b5c59ceb5bb853d3659cbde8dad22e5fe12aa15e44a57f7a4e3ad1543d434622093cdf4907f4bf26ab927310c460ad784a9771dc636d5428c958597c2e1fc25fcd02942a13b25858a03e0010ba4db7ba322e1074e6a237d024b0161e78ee3caf3c657a3336d16e802d6acc64fd5c2641f4f8ce1aaeb207ebfaec77d3a1384d15c808c76fbf79659a3858168fbf40ca576785e11444c6b4a2a38fe8620300e999c9eaa05feba3741be856385500a284b1bbf3b81cd7b3ef9829ed3fe3c045f7c8da46f148bd84b85c9a06e516dd7928a90c309a59ffda0c98721499148389571ce7f0567b694d181cc084fb50e8631bb9a3ce74d061ba7e0b17238a8ebe1fbb9f3da5c7ba4578174f78841023e87904994021e14e1fcddd3e62b82a2c981ff37c67bdcea66db375d91d79d301bc87d98111068fdf7ed7f527e8ddc6abee461c8e72d94134c065ab9477793a46a8c2249348425c8080d29c29e28fd483bd8e1862b72a4b53afb381e7f4439f7af72317a3500fbb0c07e5695d5370f3e918708ea6fba97cf1180f8ed933f983bfa70fc6f1b141129ca12d49a594d43e8d1de776257d3d6dac86b492ee5e6bf4c9e25c82c4d38bb13fa3ea271455a005243026b6ab1ac7626c152600b410f9230b6f51faa803840c4cb886dd02d7e13f4eeab18883b3419a508f221eee8fdcb7b4befa5483fc3d183b1aa059ce69c269de8cc644d4680a206832d6c313944bbc00daa707533edc2b5b1c3e3016e97007587cb9e8fc42f3b192effc46098100ecb1af9292708dfc43aba6ed9ee986d12db7c4109c2292723a2775ea1362022774d547136b748b488a81d44cec871cf9a008d756e20ba494dffa6bcbe291d28daa2ab67680e3749e75c90cdc2e0766547fa7dda470c3cd1504d8f930aaa4ff9aa66e58991d510ed02a1f57d0555c78799e7e9249c202d237d90ec4b047cd80be80d099ab65533f229936a68e7d831a6bf05f5cde56f9f3a245b8b004a916548639766a01e61a6e0b36e678f6f962f266f51919338e475532681ca8ce97a4fef66654635aa9b3738d011e64305a2c0f3ea64a209f289686bdc8b8a7ed36c0a3c254e382b789b513537ec64fcc8b36f652e1ab17cd6c8a7b03ee752f3ef72ffd631ab93c5ad51bb9d92e46014ebcd4291852647bba0c00a60d4f4d7745a3442b76eb9042f8a26d09bd428194c6636c31645a5d5d003606ccaa1420164a975c4dea8dfdfeb77a95c30d86d006b17d3afb131e5e45ca07ca9c360938a66aaf79481fee3f79046b961ebf5e7798fcc93c7843871e82c1a0dcb67e91d58600552f86d0f4ac8156c245184244eaf4f12a69a0e3a7d687720fcf71b4b90373c8d7e3614ed2a65191a980c49a6dcce8dd372be63a7e9f96509fb35fc58d20680cf3e8cfc0c699a3fc6d4c3a2e1b0810a6e80701aa68a595e5d2c30b3edac0fb2300b0b1fb2353f11be40b6481db82835b9d5ffe43db89a733d905c70d00600681b1330e7a54971efb8694e1bc8db619f819f968adc274c9dee6ee5e3d67e97d09537195d17403741c218df291026842cb3ec2b146e99e4064a4919ed19a5da2aaac464d22e6a83840a0e205397e4011a34a898f45456028f5bf00f6ff080eb1df1c394d754ea14ed1faee09d97b122d105830cc0e4b7b8cb4aa6c76af74c23d1ede71d3799099da65d47ee44d9144f2cd7a07bc43796d6081139ea7ab0444444d8404f33183228b3dc4f1abd383668573cb1265e5f1a57937f1ea09b7a3d52ec5d72ac6b0db1d3e254defd7a26a46e3a28f7ce5233b50e3188b39341b9ecb92bec405b251682e5e57e467fe92fe07aaae68218a6c93d881ab5b783b3429865a77ff18494bcd17021304da0cd2da1fda5e8d0e12883fac8970e9a70dc9d76b8cb1a4b835b95b3d91ea8ee48077463ed49772fb01086cd405f335d67611af6d388ba176e298359148bc98d03552f85b3277eba529ec5b8894ab17ba572bbe21fb52ac9a5a95bcb0da2ad3a20f799173d1e9f99131e6ad60523b23021181d6d95b18ad73d04c50699bc40b11ee16499b7712a0e5638b9daed49198a682a4b49fc1a1ed170d846ae066fe2b4aff76653eed5415a3bc926398542d29a0432bbf8f6a00bc1a9c9a7e1dd2214781fb83e2a7c65600c9f8de93de8262f71f33c46150bec7e5e1013845eaa9da8c3c558970034b550bfae75d350f2f36e023c19e8898f653152ec26803ea100a4662cc482b2693b4736ab72bf167d139cd694aa8d2ae86597939efd77e1f932b379cc1966ee1b4126ec1f89e8e5d93fb4a06b0e9a47d777658a125f0a976b748c3ca98648e5b448a8cc3dfc03632c5d7c4afa768e5e6be83ca9bc132927cc89f3e66cf7af3b5afc728c68a85e06860d7aeb4d9da0d541a8f2d6d6550f697accc83fdb88d7be2a2f82619cfbbefd3c5acc650a7d83aee6b3b995c31e157589e469a9ae5ba113a66f3faff0e28f62220bb481cdbba0d892706c3b0404ee7a8146f82c8029d8fca82f5c4d232ec01151c170e61d4272fc16875b15bf0f2d860c5cb984f4d59d91d3b33bbfd158cef35d98e579b5439c849fe4ae344bb95747e127d01aeb24431cd66ef83bc1fb879c1e164a75999bf94dafc16e5c203f3ea9f3036711de2498595ca99549dadba8df6d8085da7e0dce830a4eb19127c590210e53f6995fb98549237198060b642542b775773a1528d8350b5f454cf9bb81905c2e2f426d047b66f8f7c411dbba0374f57428d51b79d6c7e8a768f0100823cf8318da593409c5b11b6a79936816b126d5735b8f9c3be0741ef352ebc8c4fc629eb987045c33703ce04d258712a3d0d4e2a01ab1b36f8aad3bdd910701d7665370ab35d30c9f356ea0adb0d0f6e33c43207d14c9048d6ee6968dd1a6eb3870746dfcba97b50ea00a6d101d81ed60d73a1e574e52c71313bb9d1a236a70d9d5a947031a70c6b4cc76db6284b1111d0354865c989e002b6e4ad8a0f9d52d949123e174ba9021e14362b9cb0355c8b01e4dcd8cd7402cf6a786ffaa65cf4302cf4d555d097e7f138f0eb355d3bd0db1dedab5baed1cee1f76eaf346559f0b4b159af7f8140ffbf1fa69a9cbed683d5a07372ad4e2b703b4e01028dfcf64327f2867069a9e8b87ac59b7cef639eb3b3032fd5c101cbd4b9e76ea5f57e619d27a006cd163513b16511e603cd5071514c5ec971399be7ed42969d1e5ec5e6fb9dc0e1536d3a51969bb1d0d9b3e17e5e7e02bf40ebb5fb8900431abbb788c85feebb736ebd75fa9d5b25d20e9156364ab4ca0a369a85aea7244a8dee0ace8ed2426b16204a2a9c8a98b426195f424f6661425818401752862b4e3c88739a88cb46ec9d70d61b0a4d90b7c1dd485d3b9e06da826ce59932dbbe2f8680c70c0255b0d58745a1a9993068b97950494a77700123de6b0b24b54fda80beface3a958aa4a9f6e9c40d69ee076eccf072af5535bc196333536c0d616b98ad96d672fad5110d3ead8e0a019d99e202f3dd1062d1799e37fb10797bd4fcccd78c94bd95b9ce69702b92f2b4d73810cf11f7579a595409eb1ed36b99c073b241281ac24382ececeacae5cf12262790ee78c56cf3e647dcf808e2d19499764e2f4ffdc997c51cf842764bee5865b015b990f8983facd1e9d60bbf6599dbe4d89594cbd161db88ee51ecf91f8dac7638011f13e761cb26ef6bd593b041d58f0472b94440f0dbcbbfdf49346eff437cb179f6a5ba7eb25774847444d337db7bd134f23ba76daef4def30a8500338b02d1040b6fac6c82fe67c702aa7c317dbf8336ef8732ba6bd44e209e5d1fa4ce3a5d4cebe2bc3a89f0f3295fc339ca36bde8d7b71dc4d4c4c168babadb6f1140691ebf24bcfc6f5026770019ac56286df4225b627999b09f99ef0e5286cac22c3277d945f467f74dca20967cac631ed7de2f3a59a3cc191ef18bee5bc2939912ddf96d6dfc7f6dcbe112c51bde747aab39f4a3212fbc3187088b256ea07923ced04f74881f7976c1f73a6120b293b0859805cc33bd19d10638a43c48a1e45765597387b932ca96187ebd9d1b3781939f587319e9de59a0525330264662c44ac79bd6d00a36171b17790db54c51f0ac0f5be84b1f571961cbcd14f0eef18782a924e63aae071fd3ff248420ffee1dbb7fcde8c3e165a4b965ba68f050d33022027669c44ff68dce66c01436062a993792f7cb3c599f247c4b955e7b401cbdd352da9bd98f152932f7e549b24b4a09ef715b661d6e56735c121e8c9c5cac2c87cc15c8bf1439defb059233f72d8fc6487822ded0a91313d9a8be58e53d6573698847e49c08e2d7075caabb56418f06bbbc2dbee082b54c0d5c6d03ea93f54d459fa737c4baf3194e0a6d03bbd009a939cb0d23316be378a602fbc4e810c9d76aa3de3b9669613f45041991983d3053442c8e5574b270980b4173d200f95870a6f9abcde40c6695d35bfef13d568fb2c2d5f3c281cb9ac893fe3eb12ab310308fde541c5c3d8bee4ed81ca84e1aaea68b6fe98175da7c3aeb866544d600e03508aeffdd4edad8e508e8993e4d82f9a3cf87adab439f6388390ed6f97347f16d350ca7ab9f82d66c733b2ffecb0b4b447a27528c08a2df7dc475bcc5a421c7b982589239673a68bd70b0e65d2323982330f889a930895ea5e4e7d5dc1544fab775cb576c918e3b78a4ea9196567010ef2c634fd08029ee117ac707d470681c833c31982681b62c4ab2fd26bdf90ce68feeb2e080de70a3aae01cc35f851c3f0034a7da4b83c5fc8c5ffee9947fe6a69e9a7443f06bd4e75e768f5d68ac700861c32cf64110995616d52682244598ccdd886b653891e264921096b70d7b18d519da1f4edf3b1e07cb19701bdec3245a78bd82b19850947083c4d476befda78354aa17275733ddea02ee598fa31e1045371a00ba51bbca1f785fff82fe5925842f9e188a5034443a2bd63fd344692ea3ad847d52b6867872f4218ed1eb0e5d30c5f53feb97221ae071a48ec1efc37310ee8dd7b7ff32e6cc8a2f01924e2aa8f33871e3294aadf3c04ec610df36ea6b8665d59bd874d0b7246f7070fb8876492db3f6475929a6ad078c85aa61a590b1c0401941343dfead52a5a8d1b11d1fd11827d0d869412935b0f2f160fc4493bb3382e9e292d4db9ea4008d79e6fe876ecb0dc3889ffa6960ccd100d20b7724bcfd128b865039247f35c5c318ca038ed21a2a9cabf0a63144b22f47e5c4a8fb19954f7413602d8523d5f5dcaab9f6a20f23590a03d123b0dbce307c57bad92fd9c194f9283f6b914d0d705f1d101aad1c0e9ab0a6663e6aee702ecfa2354e81fa1d6a548fd015f51cca5da56876aae014c436ff4baa5f33ea0cd4d1848a6e9f08b363d613aee7ff8ac2bd54edac689e6ec4cc9f0b5a34d7be9bcf8f192710af098d9ba98bbe5fb50d0a79e4036a174448d5b0a2ce4f5ca3076d7344009204ef92444a355822a1f363158616d406dc72c0f804f39bec8f8ba08ea29dc17bcb355ee0e566b5e7bfd5759fe38ed2244b16e3d806cbcb30326fafd6136494b1e560532519b614776be1934280e11860dcdf8d795909e470183ab1693ca389ad46ef234475cd68f823d32cbd727efae796da3032b11c62122d73f0adf79cb69b3b5dd2ee2a2eed93201588c07c4c720d2a9a2546cbf4a9b95654b36f211db3ab35da0f49758ea6eb107924539e14afa18114d2fc87cec12a62ac8a874356585a124ff5b979ca14233161e25e7c0793cd39154005f658a4055558dd5e09dfd9d66d5baf870127c2ef2801a441263bbe39a4ff14568c12c9dce01be25cd7231e34242903bec4b51e0f27a00162b76323aa05ea62f1d654240389881cb81c2bb690dc6311455a52acce857444af23cedd1ad38fd405550e283feae340680769d8cac6f954f521c3cb0b0eee8bf7d3c4498af173403564f9f65d75c7811b9e2071548a860ae245dc30f5f6020216012649730a4748b9a8a12cca77a48df9cf1a55e7d3a65ff574d64443304f8568d92e75cf39fb04efc43ea4b54e6ca495cdbedab788bb08db551a78b70cbb9c5d3771c919ef79d75f0eeef6d92e47c1573167c7c21341b7992e6dc6802a6adbb5efd4df53118ae8ae63b21132e73bae5ee46c12bca0d31dbdc15277a4c0
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;学习了好几天，对 ROS2 有了更准确的认识。ROS 2 是机器人操作系统（Robot Operating System）的第二代版本，但它本身并不是操作系统，而是运行在 Linux 等系统之上的&lt;strong&gt;分布式机器人中间件框架&lt;/strong&gt;。它的核心是通信，但不止是通信：它还提供节点管理、功能包构建、参数、日志、工具链等一整套能力，可以把不同的传感器（激光雷达、摄像头）和执行模块（电机、舵机）组合起来，让机器人完成移动、感知和控制任务。以前自己可能一直有一个误区，以为 ROS2 是操纵单片机的方式，现在理解得更准确：单片机通常运行实时控制系统，ROS 2 一般运行在工控机或开发板上，通过话题、服务等接口与底层硬件交互。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考资料：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vaHVtYmxlL2luZGV4Lmh0bWw=&#34;&gt;ROS 2 Documentation（官方）&lt;/span&gt;、&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnJvcy5vcmcvZW4vcm9sbGluZy9Db25jZXB0cy9BYm91dC1ST1MtMi5odG1s&#34;&gt;About ROS 2&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;几个理解：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作空间 (Workspace)&lt;/strong&gt;：存放你所有 ROS2 项目代码的文件夹，常用结构为  &lt;code&gt;src/&lt;/code&gt; （源码）+  &lt;code&gt;build/&lt;/code&gt; 、 &lt;code&gt;install/&lt;/code&gt; 、 &lt;code&gt;log/&lt;/code&gt; （构建产物）。 &lt;code&gt;ros2_ws&lt;/code&gt;  只是社区常用命名，不是强制约定；构建工具是  &lt;code&gt;colcon&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 功能包 (Package)&lt;/strong&gt;：ROS2 中代码组织和分发的基本单元，一个功能包可以包含多个节点、消息定义、配置文件等，有固定的目录和  &lt;code&gt;package.xml&lt;/code&gt; 、 &lt;code&gt;CMakeLists.txt&lt;/code&gt; （或  &lt;code&gt;setup.py&lt;/code&gt; ）等规范&lt;br&gt;
+&lt;strong&gt;节点 (Node)&lt;/strong&gt;：ROS2 中最小的可执行单元。代码本身只是程序， &lt;code&gt;ros2 run&lt;/code&gt;  运行起来之后才成为节点；一个机器人通常对应多个节点（比如：激光雷达节点、相机节点、运动控制节点、避障算法节点），节点之间互不干扰，各司其职&lt;br&gt;
+&lt;strong&gt;话题 (Topic)&lt;/strong&gt;：ROS2 最常用的异步通信方式（发布 / 订阅模型），单向、多对多通信。比如「相机节点」发布 (publish) 图像数据到  &lt;code&gt;/image&lt;/code&gt;  话题，「图像处理节点」订阅 (subscribe) 这个话题就能拿到数据。发送方和接收方不直接认识，这是 ROS 2 解耦设计的核心&lt;br&gt;
+&lt;strong&gt;服务 (Service)&lt;/strong&gt;：ROS2 的同步请求 / 响应通信方式，双向通信。比如「控制节点」向「电机节点」发请求（转动角度），电机节点处理后返回响应（是否转动成功），适合需要确认执行结果的场景&lt;br&gt;
+&lt;strong&gt;参数 (Parameter)&lt;/strong&gt;：节点的配置项（比如：相机帧率、电机转速阈值），可以在节点启动时设置，也可以运行中动态修改，节点生命周期内生效&lt;br&gt;
+&lt;strong&gt;接口 (Interface)&lt;/strong&gt;：通信的数据格式约定，话题 / 服务的传输数据必须遵循固定格式。ROS2 内置了标准接口（ &lt;code&gt;std_msgs&lt;/code&gt; 、 &lt;code&gt;geometry_msgs&lt;/code&gt; 、 &lt;code&gt;sensor_msgs&lt;/code&gt;  等），也可以自定义接口&lt;br&gt;
+&lt;strong&gt; RMW（ROS Middleware）&lt;/strong&gt;：ROS2 的底层通信中间件抽象层，用户代码只面向 ROS2 API，具体由哪个 DDS 实现负责传输由 RMW 决定。Humble 默认是 &lt;strong&gt;Fast DDS&lt;/strong&gt;，也可以用 &lt;strong&gt;Cyclone DDS&lt;/strong&gt;； &lt;code&gt;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&lt;/code&gt;  可切换&lt;/p&gt;
+&lt;p&gt;geometry_msgs/Twist&lt;/p&gt;
+&lt;p&gt;geometry_msgs::msg::Vector3&lt;/p&gt;
+&lt;p&gt;下面分析一下 ROS2 中的几种消息类型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Point&lt;/p&gt;
+&lt;p&gt;Point 用于表示三维空间中的一个点，有三个浮点类型的成员变量：x, y, z。ROS2 里引用方式为  &lt;code&gt;geometry_msgs/msg/Point&lt;/code&gt; ，C++ 写法如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/point.hpp&amp;gt;
+
+geometry_msgs::msg::Point point;
+point.x = 1.0;
+point.y = 2.0;
+point.z = 3.0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vector3&lt;/p&gt;
+&lt;p&gt;Vector3 用于表示三维空间中的一个向量，同样有三个浮点类型的成员变量：x, y, z。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/vector3.hpp&amp;gt;
+
+geometry_msgs::msg::Vector3 vector;
+vector.x = 1.0;
+vector.y = 2.0;
+vector.z = 3.0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Quaternion&lt;/p&gt;
+&lt;p&gt;Quaternion 用于表示四元数，用于描述三维空间中的旋转，有四个浮点类型的成员变量：x, y, z, w。单位四元数表示 “不旋转”。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/quaternion.hpp&amp;gt;
+
+geometry_msgs::msg::Quaternion quaternion;
+quaternion.x = 0.0;
+quaternion.y = 0.0;
+quaternion.z = 0.0;
+quaternion.w = 1.0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pose&lt;/p&gt;
+&lt;p&gt;Pose 用于表示机器人在三维空间中的位置和方向，包含一个 Point 类型的成员变量 position 和一个 Quaternion 类型的成员变量 orientation。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/pose.hpp&amp;gt;
+
+geometry_msgs::msg::Pose pose;
+pose.position.x = 1.0;
+pose.position.y = 2.0;
+pose.position.z = 3.0;
+pose.orientation.x = 0.0;
+pose.orientation.y = 0.0;
+pose.orientation.z = 0.0;
+pose.orientation.w = 1.0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Twist 用于表示机器人的线速度和角速度，包含两个 Vector3 类型的成员变量：linear 和 angular。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;geometry_msgs/msg/twist.hpp&amp;gt;
+
+geometry_msgs::msg::Twist twist;
+twist.linear.x = 1.0;
+twist.linear.y = 0.0;
+twist.linear.z = 0.0;
+twist.angular.x = 0.0;
+twist.angular.y = 0.0;
+twist.angular.z = 1.0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
         <category term="ROS指令" />
         <updated>2026-01-12T09:40:00.000Z</updated>
     </entry>

@@ -117,12 +117,12 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65f1b46f9f345e8d039570f2.webp"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/65ec19819f345e8d03feec11.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862065.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f20223661c6c8e54862059.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24ef.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e24c9.jpg"></li>
+          <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba17661c6c8e54e81f24.jpg"></li>
           <li class="item" data-background-image="https://pic.imgdb.cn/item/6502ba16661c6c8e54e81f00.jpg"></li>
-          <li class="item" data-background-image="https://pic.imgdb.cn/item/64f6030c661c6c8e546e2512.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,31 +166,26 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="hbe hbe-container" id="hexo-blog-encrypt"
-     data-hbe-format="4"
-     data-wpm="密码不正确，请重新输入。"
-     data-whm="密码不正确，请重新输入。"
-     data-salt="0f5ab24afa3e33813d27695d7e2e3b58214af5f74af6656961ce440ef62f1872"
-     data-nonce="ca78581d86a8a5ddd8bffde3"
-     data-kdf-iterations="600000"
-     data-auto-save="false">
-  <script id="hbeData" type="hbeData">
-    bef3606ceff337349bd4ef6845208cfb6b521dc9273569cd98ebada9fa2e775a293514b3a368c8e107d8a749954f13340a95eb2245a5a848b8e4abfa2b0f1e3bcc8812c1bc59ce528e64ff5322aa41e8f34f7904e9bcbc6a56b0eb31739c44fb4527590b447c5a0ebb19a873a333786419f357309bb564f0888fc5412669d47d4494a1c5931770f8d685b0a02b760156ec0ada2f5b2eb40bff2babd5f3f31e8318020f07ff78f05bd2e6d7f5f9d66b18c6c308f9500aaacc326aef44c5037774905cbc2ad93b821f8d9dab4051c4d9280a7a4a4bef825297ca30061420ffac41f8a0d519e6ddc7d4a0cc915e1af9bf11b09380e7e5cfa1394817f154014b92e9810c9f829e54351449807a543fe061f238d4d44d1be2a66759ed280553b0bd4f8652e6ffac8f8c9fd8a896ecd687738eda86d61de9bd57ad55318375870cbfd8dded63a36a35196eadaf26b981e82e0b92bb3f49bc1cbf207ef746205e40f2f4af04ea20de4f1cc15b116f270c0226bcee55174fbd684cf897d42cce28aee912e9d4c454927d6c203f3f3de1e27747efdf863c2d79b505c83925391298c2ac705ce9df12a8c3cab85417b27afc70117e65b5570a198615649a6adc8855ea91595f684555b77336bd13c0f9bc8a9f9dfd21d2b66f05b13fcd26a3
-  </script>
-  <div class="hbe hbe-content">
-    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
-      <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这篇文章需要密码才能查看。</span>
-      </label>
-    </div>
-      <button class="hbe hbe-button" type="submit">解密</button>
-      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
-    </form>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    <hr>
+<hr>
+<p>单片机有时候上电后，不自动复位，是因为在外设初始化之前需要添加延时</p>
+<pre><code class="language-c++">  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+	delay_ms(1000);
+
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_I2C1_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_USART3_UART_Init();
+</code></pre>
+<p>这样，复位部分才能正常工作。</p>
+
   </div>
 
    <footer>
@@ -201,7 +196,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2026-08-01 21:41:28" itemprop="dateModified" datetime="2026-08-01T21:41:28+08:00">2026-08-01</time>
+    <time title="修改时间：2026-08-07 14:54:57" itemprop="dateModified" datetime="2026-08-07T14:54:57+08:00">2026-08-07</time>
   </span>
   <span class="item goatcounter-visitors" title="阅读次数">
     <span class="icon">
@@ -274,7 +269,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
     <div class="item left">
       
 
-  <a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;65f1b8dd9f345e8d03b13f5e.jpg" title="未命名">
+  <a href="/diary/%E6%B0%B4%E4%B8%8B%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%97%AD%E7%8E%AF%E7%8E%AF%E8%8A%82/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;64f6030c661c6c8e546e24ef.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -340,6 +335,7 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
 
 <div class="social">
       <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhYmluZzg1" title="https:&#x2F;&#x2F;github.com&#x2F;dabing85"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvcGxheWxpc3Q/aWQ9Mjk0MzgxMTI4Mw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;playlist?id&#x3D;2943811283"><i class="ic i-cloud-music"></i></span>
 </div>
 
 <ul class="menu">
@@ -416,39 +412,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
-</div>
-
-    <span><a href="/stm32/%E6%97%A0%E7%BA%BF%E9%80%9A%E8%AE%AF%E4%B8%8B%E8%BD%BD%E5%99%A8/" title="无线下载器">无线下载器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/life/" title="分类于 生活">生活</a>
-</div>
-
-    <span><a href="/life/%E9%9D%92%E5%B2%9B%E4%B9%8B%E6%97%85/" title="青岛之旅">青岛之旅</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/diary/2024.6.5%E5%8F%B7%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
     <span><a href="/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/" title="火车驶向云外 梦安魂于九霄">火车驶向云外 梦安魂于九霄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
+</div>
+
+    <span><a href="/stm32/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="stm32定时器外设时钟">stm32定时器外设时钟</a></span>
   </li>
 
       
@@ -465,19 +442,20 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/life/" title="分类于 生活">生活</a>
 </div>
 
-    <span><a href="/pcb/%E5%BC%AF%E7%9F%A9%EF%BC%8C%E5%89%AA%E5%8A%9B%E4%B8%8E%E5%88%86%E5%B8%83%E8%BD%BD%E8%8D%B7%E9%9B%86%E8%8D%B7%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="未命名">未命名</a></span>
+    <span><a href="/life/%E9%82%93%E7%B4%AB%E6%A3%8B/" title="邓紫棋演唱会">邓紫棋演唱会</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
+    <span><a href="/stm32/EXTI%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" title="EXTI外部中断">EXTI外部中断</a></span>
   </li>
 
       
@@ -494,19 +472,39 @@ bangdexuanyuan =  = 真正的大师，永远怀着一颗学徒的心</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32学习">stm32学习</a>
 </div>
 
-    <span><a href="/study/PD%E5%85%85%E7%94%B5%E5%8D%8F%E8%AE%AE%EF%BC%9A/" title="未命名">未命名</a></span>
+    <span><a href="/stm32/stm32%206-1Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" title="定时器学习">定时器学习</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E5%AD%A6%E4%B9%A0/" title="分类于 学习">学习</a>
 </div>
 
-    <span><a href="/study/%E6%88%AA%E5%9B%BE/" title="截图">截图</a></span>
+    <span><a href="/stm32/Tim%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/stm32/" title="分类于 stm32">stm32</a>
+</div>
+
+    <span><a href="/stm32/pwm%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E4%BC%9A%E5%87%BA%E9%94%99/" title="pwm为什么还会出错">pwm为什么还会出错</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/under-water-robot/" title="分类于 under water robot">under water robot</a>
+</div>
+
+    <span><a href="/under%20water%20robot/%E4%B8%B2%E5%8F%A3%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/" title="STM32串口传输数据">STM32串口传输数据</a></span>
   </li>
 
   </ul>

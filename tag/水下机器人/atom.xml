@@ -5,51 +5,34 @@
     <link href="https://bangdexuanyuan.github.io" />
     <updated>2024-03-24T07:10:00.000Z</updated>
     <category term="pcb" />
-    <category term="stm32" />
     <category term="mistake" />
-    <category term="单片机" />
-    <category term="水下机器人" />
+    <category term="南京" />
+    <category term="哈尔滨生活" />
+    <category term="读博" />
     <category term="mind" />
-    <category term="ROS指令" />
+    <category term="音乐" />
+    <category term="青岛生活" />
+    <category term="stm32" />
+    <category term="水下机器人" />
+    <category term="单片机" />
     <category term="ROS2" />
+    <category term="ROS指令" />
     <category term="DDS通信" />
     <category term="ROS" />
     <category term="英语" />
     <category term="测试" />
-    <category term="南京" />
-    <category term="读博" />
-    <category term="哈尔滨生活" />
-    <category term="音乐" />
-    <category term="青岛生活" />
     <entry>
         <id>https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/</id>
         <title>水上和水下双单片机串口沟通</title>
         <link rel="alternate" href="https://bangdexuanyuan.github.io/stm32/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%B8%B2%E5%8F%A3%E6%B2%9F%E9%80%9A/"/>
-        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;ff78123c42343dc243cabec919ba100a2573d737a5c4dbbe2d4f5d14faeac876&#34;
-     data-nonce=&#34;803e654e996191f514fe5969&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    1d355665e8b713929d6cc8e47beed733de9ecb2d7a3f02c18ec2d470af1cbabede19705c1ac4247bce863d629661876eae81f8790d0151b36f5663ca422e86f0104c4a256b9f709d7e54fd09d9dca10292f75ac056a094711c39f7c3581fbe631d276f0278755a26c8034bc1553c4e415cb9373e847f36002dd714e215a0ab977a58f33d81befa84f7e5eecfe635275a545830d1652e422e54a6fff3fc00c08e4c9848dc09962fb9c03ef9c5deea7008ea83770c80ab1edec2bb958c95276c10649d2d147d7d231916d37fa9d6a9a31fa1026be8593f6021810a0c852c5fd669b06f0b2bc3f4ce24ac64d3cd5726d1e01dfa144d25c7e93005438ae26208730aa56a3b57008d50f88988ffdee22d0b54e82106522728736eb76f74cc65296dff492cffee3aac86f39962bccfd975b7bfb9104d04d21d582d9939b6db4c3df1f18f2b06676f3e963f857f1b4987fe9d5196e32233a1866cf76c94446cd50eb7a983b8c59f4f9fe02da2db6839143850843f48a0e4da78948703e6d9abcd76d969da9d7998880b8b7550fee303b9af6d1dbf4bcdd894fd89a60a9b85efcab90e417ba423ba133b2a63bb9d6b68bbba206e92b50f29978b7bffcd60a3794b5b7de7a3f5e3cab34bf1f26706cda51a9e69bb613254ceebab26111cf046b1bd5768d6d82d4d09f8f380a6c04e6eeba0d15d1af2d9950c0bccd82ba8b95e0a28f2836676aceafb970146ee8a2ae1932aa32c760b00a4e4b2a03d477cd66595f40924b548ee39cb34f810fcc526c7f12a691433fb54bf0c57e85bffcb6373bd47bf0699b5ad7eeda9ec61fb7862a0e3130d21f9ce81f1ecfa71d87c2b8a94948b2f2cb1401af021364b602fdec07ca826d350a3e9eeaa3012f81f31ea0cb282c9ab755c4775b41f72b01bdf55757a44c3db989e107055555fc7c3db3ecdf6af8deaf1c8fc211bf60ac2c3402daa730e8b00d267c5cba330dee282eabc61dd399b3cf76beb4942f0a240f7820a313a95b2790f74761d9af9a78fd32356959168d950e5364683a0d8963042ac0c0a7097c2df4e1324732ef541e0756216035860474875746b034cab01ae2a845f3ee4f2577aadf162e9af65fc1fa6d97c37fb6b92e57631800541a0197219e0e33262a608458ca80f3d09b2ac4473ab55feb5d330713e65f94a96cae3597832d7b7ad039ae1ffde2230e49317d02485cfc8bb7891f8942364c4a3c079428279773899cd28e418034a7a25129627f1e749596281d505e659fbd39ba2a2f3d4062a4692ec94bb9440a1bd83b95033fe2e806a6a707d318a23e4f516255057031ad2b663c9f0207dc2115d9d3ca66b016a3c5b958a0e8273e7d4f0c6dbd0f334165a08bba64f7a0c726f4398a7e8693ce9e3b522712ef6127e3dd8f3660c044ce7ddcc5e63c1c40fdd9fbdb317e7b8e2a40e2a5b7fb9d2d54666765538ca91f5c044f657b8a550214c68a1d74c758a70506f36fca828fcaab7be312728228826a52c7b2aab2f2abbd75e7a644e9151e8f105df26912c644ba12e970fa0194091e835e312057b95c35ab788387e9d6ffbb15efa258c2d582a04618f9ab6306e13773a12bb043e5395989e41eb342b352224d9f23ece4b1b233697a2b89f39caa363c6cc627dff903882da04aa74c8d208380e8dd21c758bd27eb6bdedd61b2c8ab01962e5c5c0d5ce42fcac445c0316ecfadb07d5219d80ae681a0676c676266e62617dbfaaaefbe11c4a1e764602a9815c3dcd9f611babebb279c43aa179fa967d646cac117c9b7a4d2b20260485f4bdbd76c6ecbfee52d8c222e3d721c36523995b44fe82f7717dca98625981b459ca3d847611d769c80acfdadbdd115743244b74ea4ce3614a64a946d231192bdbe833af64de1dc9beb8ec6895107a919c07f245a9aa003206f4c91dcafbe430bdd190317a40baa87cfe8dd5fd31b35a3964b864c09c5aed37fca87d26b137d13c000957ed272e2911f69d35659147a5e021c1ff08a982d3021f09599dd918762cef08591b2dfa1a87bdb2b015aecc9d6f10230640dbbe492bb7f042567a3109902b72208116e756de75fef1cb432f36b4aa6ed195e6ebe421635afd1be9085564fc52e00989062b561578e297e3734258d73836c360762700156db7f5b0101a591f2fdfa3cf030f5d9d193cf2820a80ee89a074e3489309c5516dd88f63259fbd915cc7e0c7f4a3b034d53934ec714a7b30cb84d603347666ba8ad4ea5ad1b1c552e6dc1b5f4047beb85eeb2c23e28696f7405cd472a1301881a8dfed2d57991afbfbdfb7e8445cb238690e535fae1b29ebd92a9a67387b8371fadc0cb60d2f50c7b7cc29d7c699337087185489905442dffa9b031967d2d0dfd224b31e62853ca972d97580d1d4595b003bbeddd283fdec91a1dace7bcbcb6236467d81b0049f891f60ecdc9d694b05f99f2542882e5cbeda30b8e67edd3be6f3a68eac1f516b4ccc39036d5a96684592574c57d56a49f73100952755bf6c69c56e4e2f470497be6beea510d521682d27775250779dfd99390ead056bbbc8a44dc53bf92b405c8804b28754d4a7382e4000f687ce8412f69c1f900b8c96110c86f408cd054b04275a855e4d6c5f4248b778792765ecdbfd287faf05473e53428438d9121c86fcfa0e0461fbed32eb40c31ccff717d8a866b77c8129612f1e8fb984074396f530bf74496f21aa8f6e7d6caa4e835db11ee0ea74feae349e11257c508c99f1ae27e9ce15b2c1fced35ec6f57481f95216b9eaf05788891a4dcad5f81e551a38d59b4305c4bd28125e43f3fa87e938dd347dc9f509a278b3bb7a96e69b5a29563b35b9564dd8feea0388c65485bbee72f07578a1fe110620c2182a9ce06a007ff4650f3f334678fa55ad9a2f1806fec3aa941e8ed292b9b9a8878e83bfe66fe55e312711dfd585f36c5b026a8ecf629a68ae2c3405ac98a7c4f9625f327a2912c239ca4c81db623d5e9a0ebc7e5ca53449c1dc592a1019d9f8e72b1768f498f9734928b10a1e20c1b79a3133a9cd109b7bd8bb994eef98d509027b4a8aa7478a3a273bad0c41361c870e9f4cbcfb6a3558bf607b993e1710c
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <content type="html">&lt;p&gt;由于项目的需要，需要一个水上 stm32 单片机与水下的电子仓里面的 stm32 进行通讯。&lt;/p&gt;
+&lt;p&gt;我的思路是这样的，先不考虑距离传输，直接采用串口进行传输。&lt;/p&gt;
+&lt;p&gt;然后我的思路是，采用&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mn&gt;32&lt;/mn&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;stm32cubemx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 对串口进行配置，因为是全双工的，所以我想法是利用串口 ttl 模块&lt;/p&gt;
+&lt;p&gt;通过查阅资料，一般的串口通讯 ttl 能传播的距离为 10m 左右，对于水下机器人的传播距离显然不适用，所以之后我们会采用 485 模块，通过 485 模块，将水下机器人的传播距离增大至 1km.&lt;/p&gt;
+&lt;p&gt;之前测试的时候，我是想通过 ttl 模块，直接对单片机发送 16 进制的数据，测试 hal 库的中断接收好不好用，但是在测试的过程中，我发现，通过 ttl 模块对单片机发送的数据和在 hal 里面，调用发送中断函数，其发送的 16 进制的数据，并不一样，在这个地方。我卡了好久，&lt;/p&gt;
+&lt;p&gt;现在考虑怎么把控制速度和舵机的进行融合，我们可以这样。&lt;/p&gt;
+&lt;p&gt;在接受中断里面，通过接收中断，把舵机的信号接收，然后通过判断其正确之后，我们将其和单片机采集的 ADC 值进行融合，然后发送数据包，通过 485 发送给水下单片机，从而操作其工作。&lt;/p&gt;
+</content>
         <category term="水下机器人" />
         <updated>2024-03-24T07:10:00.000Z</updated>
     </entry>

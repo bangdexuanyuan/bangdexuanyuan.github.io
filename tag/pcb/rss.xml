@@ -8,53 +8,51 @@
         <pubDate>Mon, 25 Mar 2024 23:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 25 Mar 2024 23:00:00 +0800</lastBuildDate>
         <category>pcb</category>
-        <category>stm32</category>
         <category>mistake</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
+        <category>南京</category>
+        <category>哈尔滨生活</category>
+        <category>读博</category>
         <category>mind</category>
-        <category>ROS指令</category>
+        <category>音乐</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>水下机器人</category>
+        <category>单片机</category>
         <category>ROS2</category>
+        <category>ROS指令</category>
         <category>DDS通信</category>
         <category>ROS</category>
         <category>英语</category>
         <category>测试</category>
-        <category>南京</category>
-        <category>读博</category>
-        <category>哈尔滨生活</category>
-        <category>音乐</category>
-        <category>青岛生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
             <title>水下机器人画板子的时候遇到的一些问题</title>
             <link>https://bangdexuanyuan.github.io/pcb/%E7%94%BBPCB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
             <category>pcb</category>
             <pubDate>Mon, 25 Mar 2024 23:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;abed14bd456446c3f7c35ebd51d3454129305debc47dd6cbec410a22f60dc12e&#34;
-     data-nonce=&#34;32e78042cedc99cc89a2ab65&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    af7e3b24793e374a351ef7bca820fecb1011c764dbc466b2553e25655be12367a3467d79a58210a83ef721683386ea809cc1f6fb8eb95228f06372249582eab0c59ccea662d8e1e3c9945a30bf9357a2246258e9b539ac51ca4982bcd9fb3e148ef5104e15dd0df1238823d0ffefae32fdd20fd4ef6cf1174b1a0004e814552292c5f574d7314510aaa8cf92c36e9dbb7cd614dc7e890c9e5fe7ffeecb2dc4ec97da2cc4a0ec526314ee8eacf3e377e92f8829108f32d4b715ad94ca1b98174f3eeb2151d3355bfdd7f09f228569d4f0def3624e92b592505f0f30b7778bf8259985f6aa9d6d22e1800eeb59c855879fcde804acb0d4b2db28d7da678ab713983413eca82a1ddc597feab40ca56343d4ef66496ab24f5dc3cd634fdda744b738d8def05c4aac327ef25ca52c0d5701b0ae6f5e379b594cc87f6cab40c0f95e57057e54ca4638330909adf1cfba02351db70c8736257ffab768ea36132b9ef6092d0443d26468ca69efdc1b9f00ec71f51928ad16f4ddb7e970e38f9f439afd8b8aa8a7ca39de3fde979f33982c116010643753afe06f9d9e46779fc3ae926b9f5d5119c13a2b8deec29699281048f62e81b05ce0cd7f9bf825c9917f9afe70a79a86d1499bd81d0d793b945ab4bbe493a6bffe6294466bc55af2da098939e9a09d5d06c94fd9c7b9ace5aa9e520fa0974e4b63766de93486a590456fc988fed1b69d42da104c6dbb745d8302b39e5f194effc8b1a79fbd86d4e22915c56e8dbb25295931efb43ac6846eff738ccdb1be1e4878a1a4911f1361d70290172a72e03efeb3f94938d5463ced1b959d0ef965bc82c710653400d6eb440cc6af774f8dba0c36e73b443ee006bfbb366463193a142ace44eb9e638d492f18e90f991c8000f4ca3d229ecea01ef1d44e45943a9f75716356fc48024ad01232ce343202a6cfa253138b2ce6d5406e31c91f95af63ac0e141396018e152c45c7c6c9b6b1f29584af319a61ba9584cce5cd3c63f30aa4ec9033ef6e7a59855aac8f314d13a393a1fd8035029a28ebfbeaaed1c863cd98700705ce2e44ce916084d767c87e513f7304cfb73b588463cb54db0126e841c8c8e77ae9c206869af32832e62b2640fd6dc923291832e70fe75bfb4953849ec71b824a9ab124b987dacd2b472e6e3c60f24ed0349febfce56f0ad7c4df9ebde5fb27f030ca634daed5cd94380899ad930e83bb8a3ee9afc3cf34e87c226d36b75d3f01bde469073bec1b34d8eebea39f0c79336502c13cab8e0a2f88802a038edb5976ab9cd94e1aef9c0e14a6044609089271ee46ca11dbf2bda2f0e3677bf862dcc5a766e33534b3a5d55bdf8e70e260a807e85a8b9a8c7492d6f81c348a7e55ebd7d13496ec9199829daec3a0bac6e7c51d37a52f2217ceb3807ba9f2b0a76742a96e84efe107e6a3465a6b6f75f943758730af8fff74b216d132edfc8a69d6d41ad3ac7a393d4e7eb3c3f729c2a64a777bd4199b4e5805b07f558bd844dc4436214d7d53ee79884f9883fad9fb273b48b1541cd79c3113c4e234f3b9693cc2433735f7e2396f2541c989a4efaa3cdf6050f504bd70391a325ad684bfd1716713dc598249f099da622b51b5c252eebf85ec31cc344f9fdac16276784f10f2cb2422149425cf428f60296cad3e3ece6c3d9ba4d11768fbec6a6e771c2133c896bf62fc55b465b42e1cd9a2518bef3d2092ad5e7585dceb1acd1b6f5500d10bb09c558b8ac17232db7ed28f1d069684a84eb7fc6f2b435fd9d226fcc9bfd99369727cc72c24631f706e7cdaa6dee19b7d347986ffbe21624a7ee8c44d47b67256200367081ac20055f6f564d81fa1cfb97e5bb585f9c982d60af1d8911a031ab297430a11496c845d90f162ae3fd25461b60d46d863cd5abd7b2f176c8bfa77697ccba27537d36570b2ab6d0b702c17183356b16711b48a620793518fac98231923ba25be406a49744fca7010c6f47e1f19c6d488b58f91d5f5410c8805a9011e7d95e5d73491f4c85e8e7767895f803f9e71c3ed619af04d281e6f3cbe17868a58100e8573ba76869b8991f091094ff243cda4379fa40308799e1271e007a79ee5c4efe4fe75bd7b8c58185ad89a33f3cd3258d58d2f04ec1019b28df2b91b66127ada1ee478273d70c46dbf7ded8c496fa3a78cf462177b15b93a3eac08ecba008fe4a2fd016b7c20dfb1ed8d8e67fca206c38325052121bff6a159d0e8ade0cb55425b61f3b74b76f5ba860872e1151e792bc5e21a37152bac53fe5ab0e04b6b7ce80c7fb8d3d543e418dbbdd9286127768e172fcc3382402e050807d99e661350402d845f86d3db7eb1f984f52969c900ba4541b3e8e224212211431385a70a9f061d4b0c8cc0dd5e8d0cad6275c7e65819c27b6739f61a360a6aa1adaf9acbddfd01fa2c722aaf7bc9f1a2fa41f86476f2e15e66eb29aafdc4e2b9e4d05d20c58c673ea941f57482dd5818c4525e939e81b0ded3e9a478c74e3e59889a8bb00d416f981578ed35e5a6b016d628bb78bca95730ce9cd3f3fd76bee507d84b65cc15c66049f30d7e993fbd3ccbb7ac9f47c0143a0724fae933c303bd4ef51d6fca30e614e0c6743b53c958ce7c3b89a98d370d898d19c88b8f3858410b9e1a85c8a7f1065543d44f531a0571ad7f78baee2dd36114dbd3ffcbfd31b4bb8f1e411792d454a8a338f1a146946c2b4c14837f37948168709b797de11cd78509878272c4471ac29ec5431e29c175a66e5d2bb030197c8c6b35e2e58f815b4fd7a7e71c35c91463f7dcc1890f991790523aef1db1b65fba2fff7fa91c395fa7a3bc40f950cca8b60a1450327e6917ced7d5240398e435ba8b427881354861defc7844cd4e290d8d245e6f45e1706ab56cb980eca12f6685f07819a2b580361f6ed15146d97f19ca0281a52822ccab7601ebeb587c1a9c053079c2a25626c937d048aff54991bc8bc24fc7c9bb193e279c016c2e2c3315b60da2998ba4728e26f05f931f11d722a02c96dbfe6011f658ee19995d93fc9b4b374d2bfdb9220a3b18d70f39209214a15c4eacfa68cc1ddbbc8be4a1ab7714798b81df052e46ad633f2694846f0647bd6bb6f1f7cf2f80ffe1154b30df0ade3c907df59ceb73b364d81ec5621cbf98c8f9cf93740c2a31152cdee5a433f73bcd3bc2b48dc359a589976fae5834c45c75d3f25b9962c4bcd7e37c639b272158d4b4b89e2051fb812ab3f4f053e1f6f643762120fccd1cd3217a0ec827ad3d20cf98b83903a59a4eb36f98482551247de19bd488d57e1b3a4bc571bb3e02f593573431ccdc5a3fc7ff26e7be4d4022cf87c6d79aa38e8a03d96f05af71a971f007aedde45b5cfa3bad37940fc8cb253816d69b949842ed9e818529a594186ae5951a40361767e9fa4dc5580d82c9d8468e97fa5f7c7ca0add33a2603ac26601e81a1c0d412012077dacbf2c3b2e3a3c521d425353ee813b797890059ce37526a4f54d901c23f3d19b4b7ac63c6b0c42e68537a291d17dc92330ae30b3f7207e1ca5aa4f453986c3e4b9cc4d7101a5ffc4eb7a35462dddd21e3f72a82e0fe4f7f2ed7f4a32e13602312f5b323811f013090aed313e9ae95b47b6646cf8be3bbaeffc41ad4113135f4c239c794b97ff5565497a64241cd25fd04f58242e611fa089fc408d78195767e381f01aa0725197164c9ab17837cee194fa4c460da8214ff457cb375cb080ca6e78f9b0d6cea98e3c39f6b26dcc2a3f20c22932c09b3a958b55f02a9e3e51ff51747b561e7cd45924c8c112cc8412066133d29659187a9ebbdd1d603d908abe532bfe9383d483e9e32ae2ae826634a7f86e2f9486906bb5f56cb77b6bf61a45478f27f5d14fda73ed0daaaff66e0aa4b37b524f246d7bad9cf3de2e57c3be6a2f05a6f1b2b70f728899accfc8ed40e1673b6d07af4cf22d343785e40dd1c6b38598ad0140a2e8431501a8e8ad41ab1c5506863070634dd7d1c8152dd09ed6ef5a2f2f94af755be9194ad71c6b0578c6bd8a3978df10594065048ccbd8b857b4496c2aaf34a9df6b061b33b44bd7285994dd136f5f23005e5c941dfe9edb5014f7920e972261116a3d659c2b4636b88022c700690bef8bcd18d9b1c8af27bf69f07e6959893a44414b2a4e459fe43d9ccdca0380497ae6683b881b6d1bf3a32f4554c5865300ca623e9d2bafe62fe4de888ffb5a6a1ebd7c65636dca65d980924812a505e0a56f957d3db60952e65f72533b4cfaad2b6328394408cfc26d8000e94ccdb35313d8e2c63d515734b26cae82e0e12893884f3ca6115d2427d54326ea86936e9d42c5486de6f10ceb96d833c3ea0cf4d23ecaa611780459ab4cac00645d4ab9738ea0c0cd328b1514b02df4cea42ad8284dcfc4066fa290c7f99c0a797d56d7a1eb83029db14b232cc332403116f0527f5e8096c28c4e18d7086f76d2d7462686930c9592a11b4a9a0f37292580bc95d6d2918cb9d187faeddb18ad1ddd3cad32bb6aa2bd4ea9fb584211415a8f9b0fba283e6756583b79434a3bff3e81dc27945a01dbf8211d2097ff1232084b40a3fbd6968b209e6e306140539c6da59870a1e5282fea3c1f4ad9b40bb78813d2c6e00c142af4cb3bb66b7a3f36e1bfb6936897aa249c0ee65be85eca33ad30c0324773d4ebccd8732c9921476a388cf3b11d7aa1e5ccace6c15a5262c73755c235a8dbceaa02b9e3de776e5798cd887ba9db326f53e1556d1a6d614a7b7142db16dd00333ad2ece5d973bb5ae9a8869983608c56e4161cc0ab434e1d9c92233cf3eeb04503feab04b3b6ed70a6a6a4af0b4659e008304b8510f8051179469bd792577fa7b5a9fd2680c8be9dc928b624109c6188a1ddbfa991f860521c39750b62864c5af8366b4300651cc5cc0f5b6f54eabe33503a1fef83c713bd6aeb58d59136cf36dd413ee28a8a7227e0c0ab90348636a3ad487429634f38813618cd478d26a06f940893c06f93926322796abebbf3a5bd375083696f513872c1e8d9faa82c5bf65583ba50d88bbccb425e088330ec6def530714732b8d5750c261d804af88330d5a4af2fd5503f76f30b665fc0edd1e0cc5e441528be2989b377c2a73b85f6780acf97bde844fd2f54017546a2e90305d42bbb0516736b8b86f4c2a6ea40c5802688940f53c118991fd5cff8f4afb18cb3964ce0ac1eaaa6dbbdaa5002f82477b8e5dc34357fc195788311e41900200e9847c261e919660c4454d48c0a8e71f28972d20e47ab39823aff3916b45aa6393f2dbd870aa84c73264748bc23d9701c97e1d2e1a08cc2910cdde8377a2a25a0a681d0f661a3e85479316cd51ca8a27bbd8bc7d622ff0499ba09e188ce52b9d05cf22dc96743be0efead50e9c4e5061945cc091100cd46e172fe5e39b1ac84183626eb65d2ce68
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
+            <description><![CDATA[ &lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/6600519a9f345e8d030af8c2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在自己画板子的时候，第一版板子，自己并没有注意到一个问题，就是这个电源的母端接口，也就是 U2 那个部分，自己设计的时候，想让焊盘弄得大一些，让电流能够更好地通过，但是自己忽略了一个问题，就是这个焊盘太大了，导致负极的焊盘和正极的那个电源插口连接上了，导致短路。&lt;/p&gt;
+&lt;p&gt;真是个低级的问题，但是自己还是犯了，很抽象。&lt;/p&gt;
+&lt;p&gt;幸亏自己是通过电压表测量了一下，没有直接接到电源上，否则，不知道会出现什么问题。可能直接就炸了吧。&lt;/p&gt;
+&lt;p&gt;还有，自己得学会开窗得操作，根据百度，对于 PCB 开窗的解释如下：&lt;/p&gt;
+&lt;p&gt;阻焊覆盖，就是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3YvdGFnLzgyLw==&#34;&gt; PCB&lt;/span&gt; 上的导线都是盖油的，可以防止短路，对器件造成伤害，其实就是自己平时嘉立创打板之后，&lt;/p&gt;
+&lt;p&gt;所谓开窗就是去掉导线上的油漆层，让导线裸露可以上锡。&lt;/p&gt;
+&lt;p&gt;开窗还有一个很常见功能，就是后期烫锡增加铜箔厚度，方便过大&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZWxlY2ZhbnMuY29tL3RhZ3MvJUU3JTk0JUI1JUU2JUI1JTgxLw==&#34;&gt;电流&lt;/span&gt;，散热，这在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaHFjaGlwLmNvbS9hcHAuaHRtbA==&#34;&gt;电源&lt;/span&gt;板和&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9iYnMuZWxlY2ZhbnMuY29tL3podXRpX2RpYW5qaV8xLmh0bWw=&#34;&gt;电机控制&lt;/span&gt;板中比较常见。&lt;/p&gt;
+&lt;p&gt;然后，明白一点，就是在自己直接用封装进行 PCB 绘制的时候，网络一定要统一，就是该是 GND 的，可以在&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/660059a99f345e8d033c3631.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如右图所示，网络是可以进行修改的，因为我们并没有进行原理图的绘制，所以，我们本应该是 GND 的网络，会变成未知的网络格式，比如 s24820, 这个时候，我们铺铜的时候，也会发现，其显示是否保存成为一个孤岛，这个也就间接表示，我们的网络其实建立的不对。&lt;/p&gt;
+&lt;p&gt;然后自己的程序，明天接着进行调试。&lt;/p&gt;
+&lt;p&gt;主手部分的那个 PCB 板子，手柄处，进行了测量，还是存在 a,b 处存在短接的问题，这个问题仍然没有解决，这可能也是主控板的串口，通过 232 转 ttl，并没有输出数据的原因。&lt;/p&gt;
+&lt;p&gt;明天的事情，我们明天再聊。&lt;/p&gt;
+&lt;p&gt;卧槽了，太离谱了，他竟然又好用了。&lt;/p&gt;
+&lt;p&gt;然后现在得进度就是我们需要把 PCB 板子重新画一边，因为刚才的原因嘛，导致电池的正极和负极是导通的状态，这个肯定是不行的。&lt;/p&gt;
+&lt;p&gt;然后根据昨天的经验，我们可以通过把网络进行修改，然后使得自己 PCB 板子好用。&lt;/p&gt;
+&lt;p&gt;最后，记得开窗，就是把阻焊覆盖这层给去掉，让其散热均匀。&lt;/p&gt;
+&lt;p&gt;然后其实这一版 PCB 改完之后，我们其实可以考虑，把舵机的信号线加上了，因为主手的程序可以出来了，所以我们也可以考虑把主手的信号线加上了。&lt;/p&gt;
+&lt;p&gt;关于电子舱的设计部分，全由我自己全全进行设计&lt;/p&gt;
+&lt;p&gt;目前有问题的就是水下摄像头的部分，首先是摄像头和树莓派相连，然后树莓派通过网线和电力载波相连，电力载波通过 a 和 b 线将信号传输到水上，水上也有一个电力载波模块，将电力载波模块通过网线和电脑相连，实现实时图像的传输。&lt;/p&gt;
+&lt;p&gt;关于供电部分，树莓派需要进行供电，电力载波也需要进行供电。树莓派的供电，可以使用 typec 口进行供电，所以考虑怎么引出来一个 usb 口，从而给树莓派供电。&lt;/p&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>

@@ -8,53 +8,37 @@
         <pubDate>Wed, 13 Sep 2023 10:39:00 +0800</pubDate>
         <lastBuildDate>Wed, 13 Sep 2023 10:39:00 +0800</lastBuildDate>
         <category>pcb</category>
-        <category>stm32</category>
         <category>mistake</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
+        <category>南京</category>
+        <category>哈尔滨生活</category>
+        <category>读博</category>
         <category>mind</category>
-        <category>ROS指令</category>
+        <category>音乐</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>水下机器人</category>
+        <category>单片机</category>
         <category>ROS2</category>
+        <category>ROS指令</category>
         <category>DDS通信</category>
         <category>ROS</category>
         <category>英语</category>
         <category>测试</category>
-        <category>南京</category>
-        <category>读博</category>
-        <category>哈尔滨生活</category>
-        <category>音乐</category>
-        <category>青岛生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/</guid>
             <title>火车驶向云外 梦安魂于九霄</title>
             <link>https://bangdexuanyuan.github.io/life/%E7%81%AB%E8%BD%A6%E9%A9%B6%E5%90%91%E4%BA%91%E5%A4%96%EF%BC%8C%E6%A2%A6%E5%AE%89%E9%AD%82%E4%BA%8E%E4%B9%9D%E9%9C%84/</link>
             <category>音乐</category>
             <pubDate>Wed, 13 Sep 2023 10:39:00 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;b691039c19299ba22f158b9a526d07bf2fc61d03225eb8e97c23afaa37df3681&#34;
-     data-nonce=&#34;eb2248714a9c5c9dddb2f4cc&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    b5469d867e5540a4213e372ad64627c5420404dc24cc23e3c951f00a57a696a32e390adb424f3929282b20807bb49ee0626bbb558a93fd02b8efbb8b7cc9c5f2ec4463057dcf43b7c57253f0ca46907a6499462978ee5f697d0b1ca8368ad8911a0dd676b55c8ea408fb70b2bdb79cf35c7eb418fa9bfd44480122b8b6314b81b7b6b574c82c264506fa8f88ff1f7c32aa9cc3bbf33a792aba52b0a76200d028116cd2bf1dab5fb20c88ecee6a157472d964ab38c36d7b55f521b2dbf28b634303c03191a1739945ff0cd999cc983a8db3b22088e9c69ed0bc7d68b207ce31609248005072328967a0c9fb7ef55fb73768e9e2c0861253afc7b3e2ba108037577369b421c388cd1f1c3dfc1ecb1e818d844e776024f3ce8dfb7e245bca78a15908bdc36a866a6d592ed321a3be39bd0f80a0e4875dfcb34c1263404e4a03e1b9274d9ad78c51150a9421265db9656695bbe1a6684323e357889257dde1f328f9d28c04d3fdc8b30c3a6ba91e719aa46019dc5969900936503933481d9023d2c2dd14b51423465125e6d86bc764aa2bba4d313eed9c48032f3fc6fcfa2960e6fc047d23a469c0bc6f308d03544aa962fb0759801f299c1f70645f4b8feeda06ee247d8068f081a7bd3602d76fedd710ebdf1d18461be487fdb31fdd5376a5f2dafef17aa432e1b6b03d209a48f595e28ff46887acaa03abe39677c42d9c259dcba0d71860969524f2d2e079361792c75ef2599b740be227319e49449555287bb05ee2de0f5a5949e17cd757de57db8dc331f5317dad36cb8c31c8774b0d7839cd8ed61d939d604fd85f53038c009b5b6c315737d3ab8acaae981131415d7d555e3592066d4c1fdc26ef094999fb9bad569f239a61ed165593b7b801f2d0b83ec971756400f9b86c33b9d3b225e0a4a1cd5bdd72940a42cd525ce9abb7c68a82b29071e38c424751587cbc08f7a59598164d1c0f00e33a8e6574477ca22a284eeead1eb477eae4da715b
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
+            <description><![CDATA[ &lt;p&gt;我那些残梦，灵异九霄。徒忙漫奋斗，满目沧愁。&lt;/p&gt;
+&lt;p&gt;在滑翔之后，完美坠落。在四维宇宙，眩目遨游。&lt;/p&gt;
+&lt;p&gt;我那些烂曲，流窜九州。云游魂飞奏，音愤符吼。&lt;/p&gt;
+&lt;p&gt;在宿命身后，不停挥手。视死如归仇，毫无保留。&lt;/p&gt;
+&lt;p&gt;黑色的不是夜晚，是漫长的孤单。看脚下一片黑暗，望头顶星光璀璨。&lt;/p&gt;
+&lt;p&gt;叹世万物皆可盼，唯真爱最短暂。失去的永不复返，世守恒而今倍还。&lt;/p&gt;
+&lt;p&gt;摇旗呐喊的热情，携光阴渐远去。人世间悲喜烂剧，昼夜轮播不停。&lt;/p&gt;
+&lt;p&gt;纷飞的滥情男女，情仇爱恨别离。一代人终将老去，但总有人正年轻。&lt;/p&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>

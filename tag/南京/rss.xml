@@ -8,53 +8,32 @@
         <pubDate>Wed, 21 Aug 2024 12:50:00 +0800</pubDate>
         <lastBuildDate>Wed, 21 Aug 2024 12:50:00 +0800</lastBuildDate>
         <category>pcb</category>
-        <category>stm32</category>
         <category>mistake</category>
-        <category>单片机</category>
-        <category>水下机器人</category>
+        <category>南京</category>
+        <category>哈尔滨生活</category>
+        <category>读博</category>
         <category>mind</category>
-        <category>ROS指令</category>
+        <category>音乐</category>
+        <category>青岛生活</category>
+        <category>stm32</category>
+        <category>水下机器人</category>
+        <category>单片机</category>
         <category>ROS2</category>
+        <category>ROS指令</category>
         <category>DDS通信</category>
         <category>ROS</category>
         <category>英语</category>
         <category>测试</category>
-        <category>南京</category>
-        <category>读博</category>
-        <category>哈尔滨生活</category>
-        <category>音乐</category>
-        <category>青岛生活</category>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/</guid>
             <title>海航游记</title>
             <link>https://bangdexuanyuan.github.io/life/%E6%B5%B7%E8%88%AA%E6%B8%B8%E8%AE%B0/</link>
             <category>南京</category>
             <pubDate>Wed, 21 Aug 2024 12:50:00 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;080ebaa9b970e4fe76582b31122efcad8c0cc8632f74e1ad20539ade83ef2db7&#34;
-     data-nonce=&#34;db3ff69d1757a5180ed6e778&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    9db620bd87348b55d0c93cdc84371adc57d1c549153448b270316896eb9fa39961122ea3d65d77d731886d8c54f8b5388e12b4ce505268208611e22c231c8d249f2aabd7db70f29356ccee70f72c70af8de6f56d14c6cb12f2a334d37f53ede3cf782c350f1cc4ddea2ce1d50da48ae76baac7de793708676b4c87ca45b2239b388ee413b760bc88ee104ac74a7420c5f0e4936b71379efa9e3fa18121f86362a0af8637e72e295372b7815d380f9a4b376a1e566300482c082665563d213257952e812128af7c37b814fd721de88b00538a3ecea9b9def251e4cce5223c7266973148f9beceb57033911baa981e61ad80c8c3973fca2b89833c1339eaa0c046da823bab180526f261432769c758207e590f7ee7048ebf5ed6d7767a2e66ff1a1ecfb29c0a662110e3d48e1cf3da8f3f75fa9921dba0e5d13b3fdc3611424f02227aaa893bd535d0289dce25a4b0bbfbf46518
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
+            <description><![CDATA[ &lt;p&gt;如今我更愿意相信人生是守恒的，今天的努力未必会在你规定的时间回报你，但一定会在未来落到你的身上。&lt;/p&gt;
+&lt;p&gt;最有希望的 e2 寄掉了，没绷住，最没有希望的 b2 有了，世事真是无常。&lt;/p&gt;
+&lt;p&gt;明年再来吧，也算是圆了自己一个国赛的梦。&lt;/p&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://bangdexuanyuan.github.io/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/</guid>
@@ -62,31 +41,10 @@
             <link>https://bangdexuanyuan.github.io/life/%E5%8D%97%E4%BA%AC%E6%B8%B8/</link>
             <category>南京</category>
             <pubDate>Fri, 16 Aug 2024 12:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34;
-     data-hbe-format=&#34;4&#34;
-     data-wpm=&#34;密码不正确，请重新输入。&#34;
-     data-whm=&#34;密码不正确，请重新输入。&#34;
-     data-salt=&#34;c5938f24cb0833d29fbe2c742efa278f38316484bf0a91e3c2a2b561279b535a&#34;
-     data-nonce=&#34;668f8a8c1ab766a917e88baf&#34;
-     data-kdf-iterations=&#34;600000&#34;
-     data-auto-save=&#34;false&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34;&gt;
-    e5abcb1771e6626d20a4e6319a1135fbe9b9bb02aaf372bf0d7fbecfedb2f84de2ea2606b5b4a411ef8123e659c5fecdf1adf65863846f761251fe024def26de4b1fc20dc590978c90e76f54c59ac2e7f9ae03fa81dd3702291445dbd28ccbe3b52bbe2909e041435f9e21a4eb6bf119bb3d65cde14d3c8c28a248a7770c756ec0794f4bfa04e3542b9022bb11f4d83b3b043cc23b15a5b846161e51c92ea0b6c0111d79f5d3682033955d40ccf30645e000f7d5223091b3bdca1cb7eb4c92980cfd94d718fba19d8f37538272775ea433116a7414a90455c486f1496d07051322f564fc909fa6aaab92d35b784b71237d609b4772bbf797338074de6d7f77e24ed4b185d93e35f6ec71a3662d92d3fdaef972e1e58071e02bea860703797ee3aa4f61b86efa1c5a5d172ddb845b5166fec9abf7db98d5755a1ea4d4b7aa30e87e422c8cd674ff09ab186e8c9302d3efd7315023fee0180ca4d68ed38a793714a05547775d29d7703f7bbcaed4318de3abcbc21b22a901f3c7c0791d30511ea901f0ad7f
-  &lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;form id=&#34;hbeForm&#34; class=&#34;hbe hbe-form&#34; onsubmit=&#34;return false&#34;&gt;
-      &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;这篇文章需要密码才能查看。&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-      &lt;button class=&#34;hbe hbe-button&#34; type=&#34;submit&#34;&gt;解密&lt;/button&gt;
-      &lt;div class=&#34;hbe hbe-error&#34; role=&#34;alert&#34; aria-live=&#34;polite&#34;&gt;&lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.9e70f1e1d2.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
+            <description><![CDATA[ &lt;p&gt;南京是一座浪漫的城市，南京的黄昏，灯火阑珊，给你温暖的气息。小巷里的小吃，永远也吃不够。玄武湖上的游船和远处的鸡鸣寺，伴着那天的暴雨，永远刻在我的记忆里。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://pic.imgdb.cn/item/66c57738d9c307b7e9e2e583.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;梧桐枝桠疯长，爱意贯穿心脏&lt;/p&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>
